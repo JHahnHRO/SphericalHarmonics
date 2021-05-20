@@ -1,0 +1,7 @@
+\usepackage{fontspec}
+\fontspec[Path=./crystSymbols/cryst/]{cryst}
+\DeclareFontFamily{U}{cry}{\hyphenchar\font=-1}
+\DeclareFontShape{U}{cry}{m}{n}{ <-> cryst}{}
+\newcommand{\sym}[1]{{\usefont{U}{cry}{m}{n} \symbol{#1}}}
+
+\usepackage{miller} %mit \hkl{} oder \hkl[] oder \hkl<> oder \hkl() könnte man hier die Miller-Indezes ganz einfach verwenden

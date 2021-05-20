@@ -1,0 +1,62 @@
+\usepackage{exframe}
+\exercisesetup{
+	solutions=false,     % display solutions?
+	solutionhref=true    % hyperlink solutions to problems
+}
+\exercisestyle{
+	solutionbelow=sheet,% Display solutions under each sheet
+	problembysheet,      % number problems with sheet, e.g. problem 2.4.
+%	pagebysheet,         % Number pages with sheets
+	pointsat=start,
+	subpointsat=margin,
+	fracpoints=true      % fractional points
+}
+
+%% Config of sheets
+\exerciseconfig{toclevelsheet}{subsection}
+
+\exerciseconfig{insertsheettitle}{\subsection*{\getexerciseconfig{termproblems}}}
+\exerciseconfig{insertsheetafter}{}
+
+%% Config of problems
+
+\exerciseconfig{toclevelproblem}{subsubsection}
+\exerciseconfig{styletitleproblem}{}
+
+\exerciseconfig{skipproblemabove}{\bigskipamount}
+\exerciseconfig{skipproblembelow}{\bigskipamount}
+\exerciseconfig{skipproblemtitle}{1pt}
+
+\exerciseconfig{composetitleproblem}[2]{\getexerciseconfig{termproblem} \getexerciseconfig{composeitemproblem}{#1}\exerciseifempty{#2}{}{ -- #2}}
+\showprobleminfo{difficulty}
+
+\exerciseconfig{composepointspair}[2]{%
+  \ifdim#2pt=0pt% If zero bonus points
+   \getexerciseconfig{composepoints}{#1}%
+  \else\ifdim#1pt=0pt% If only bonus points
+   +\getexerciseconfig{composepointsnum}{#2}~Bonus%
+  \else% If both non-zero
+   \getexerciseconfig{composepoints}{#1}+%
+   \getexerciseconfig{composepointsnum}{#2}~Bonus%
+  \fi\fi%
+}
+\exerciseconfig{composepointspairstart}[2]{\hfill(%
+   \getexerciseconfig{composepointspair}{#1}{#2}%
+)}
+\exerciseconfig{composepointspairmargin}[2]{(%
+  \ifdim#2pt=0pt% If zero bonus points
+   \getexerciseconfig{composepointsnum}{#1}%
+  \else\ifdim#1pt=0pt% If only bonus points
+   +\getexerciseconfig{composepointsnum}{#2}~B%
+  \else% If both non-zero
+   \getexerciseconfig{composepointsnum}{#1}+%
+   \getexerciseconfig{composepointsnum}{#2}~B%
+  \fi\fi%
+)}
+
+%% Config of subproblems
+\exerciseconfig{countersubproblem}{\alph{subproblem}.)}
+
+%% Config of solutions
+\exerciseconfig{styletitlesolutions}{\Large}
+\exerciseconfig{insertsolutionsbefore}{\pagebreak}
