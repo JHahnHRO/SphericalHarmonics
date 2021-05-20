@@ -6,25 +6,26 @@ Wir kennen uns bereits mit Vektorräumen aus. Typische Beispiele sind $\IR^3$ od
 	\begin{itemize}
 		\item einer Menge $V$,
 		\item einer Abbildung $+: V \times V \to V, (v,w) \mapsto v+w$, genannt \udot{(Vektor)addition} und
-		\item einer Abbildung $\cdot: K \times V \to V, (\lambda,v) \mapsto \lambda v$, genannt \udot{Skalarmultiplikation}.
+		\item einer Abbildung $\cdot: K \times V \to V, (\lambda,v) \mapsto \lambda\cdot v$, genannt \udot{Skalarmultiplikation}.
 	\end{itemize}
-	die mit $\vc{u},\vc{v},\vc{w}\in V$ und $a,b \in K$ die folgenden Bedingungen (Axiome) erfüllen:
-
+	die die folgenden Bedingungen (Axiome) erfüllen:
 		
 		\begin{table}[!ht]
 			\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
-			\begin{tabularx}{\textwidth}{C X}
+			\begin{tabularx}{\textwidth}{p{7cm} X}
 				
 				\toprule
-				\textbf{Axiom}                                                          & \textbf{Bedeutung}                                                                                                                                     \\ \midrule
-				Assoziativität der Addition                                               & $\vc{v}+(\vc{w}+\vc{u}) = (\vc{v} + \vc{w}) + \vc{u}$                                                                                                \\
-				Kommutativität der Addition                                               & $\vc{u} + \vc{v} = \vc{v} + \vc{u}$                                                                                                                  \\
-				Neutrales Element der Addition                                            & $\exists\vc{0} \in V$, gennannt der Nullvektor, sodass $\forall\vc{v} \in V: \vc{v} + \vc{0} = \vc{v}$.                         \\
-				Inverses Elements der Addition                                            & $\forall\vc{v} \in V\exists \vc{-v} \in V$, gennant das additive Inverse zu $\vc{v}$, sodass $\vc{v} + (\vc{-v}) = \vc{0}$. \\
-				Kompatibilität der skalaren Multiplikation mit der Multiplikation vom Körper        & $a\cdot(b\cdot\vc{v}) = (a\cdot b)\cdot\vc{v}$                                                                                                      \\
-				Neutrales Element der skalaren Multiplikation                               & $\forall \vc{v} \in V \exists 1\in K: 1 \cdot \vc{v} = \vc{v}$                           \\
-				Distributivität der skalaren Multiplikation bezüglich der Vektoraddition & $a\cdot(\vc{u} + \vc{v}) = a\cdot\vc{u} + a\cdot\vc{v}$                                                                                              \\
-				Distributivität der skalaren Multiplikation bezüglich der Addition im Körper  & $(a + b)\cdot\vc{v} = a\cdot\vc{v} + b\cdot\vc{v}$                                                                                                   \\ \bottomrule
+				\textbf{Axiom}                                                              & \textbf{Bedeutung} \\
+				\midrule
+				Assoziativität der Addition                                                 & $\forall u,v,w\in V: u+(v+w) = (u+v)+w$  \\
+				Kommutativität der Addition                                                 & $\forall u,v\in V: u+v=v+u$ \\
+				Neutrales Element der Addition                                              & $\exists! 0\in V\forall v\in V: v+0=0+v$ \\
+				Inverses Elements der Addition                                              & $\forall v\in V\exists w \in V: v+w=0$ \\
+				Assoziativität der Skalarmultiplikation                                     & $\forall a,b\in K, v\in V: a\cdot(b\cdot v) = (a\cdot b)\cdot v$ \\
+				Normierung                                                                  & $\forall v\in V: 1 \cdot v = v$, wobei $1$ das Einselement des Körpers bezeichnet \\
+				Distributivität der Skalarmultiplikation bezüglich der Vektoraddition       & $\forall a\in K, u,v\in V: a\cdot(u + v) = a\cdot u + a\cdot v$ \\
+				Distributivität der Skalarmultiplikation bezüglich der Addition des Körpers & $\forall a,b\in K, v\in V: (a + b)\cdot v = a\cdot v + b\cdot v$ \\
+				\bottomrule
 			\end{tabularx}
 			\caption{Eigenschaften eines Vektorraums}
 		\end{table}
