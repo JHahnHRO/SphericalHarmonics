@@ -8,22 +8,38 @@
 
 \begin{remark}
 Es gibt i.A. keine Multiplikation zweier Vektoren in irgendeinem Sinne. Wir können immer Skalare mit Vektoren multiplizieren, aber nicht Vektoren mit Vektoren. Nichts desto trotz ist es \emph{manchmal} doch so, dass ein sinnvolles Konzept von Multiplikation existiert für spezielle Vektorräume, z.B.
-\begin{itemize}
+\begin{enumerate}
 	\item Der Vektorraum der Polynome $\IR[X]$ hat die übliche Multiplikation,
 	\item Der Vektorraum der Funktionen $X\to\IC$ für einen festen Definitionsbereich $X$ hat die punktweise Multiplikation,
 	\item Die Hintereinanderausführung von linearen Abbildungen $\Hom_K(V,W) \times \Hom_K(U,V) \to \Hom_K(U,W), (f,g) \mapsto f\circ g$ ist eine Abbildung, die sich in vielerlei Hinsicht auch wie eine Multiplikation verhält
 	\item 
-\end{itemize}
+\end{enumerate}
 
 \end{remark}
 
-\begin{definition}[Bilineare Abbildungen]
+\begin{definition}[Bilineare \& multilineare Abbildungen]
 Sind $V,W,X$ drei $K$-Vektorräume, so heißt eine Abbildung $b: V\times W\to X$ \emph{bilinear}, falls sie die folgenden beiden Distributivgesetze erfüllt:
 \begin{description}
 	\item $\forall v,v'\in V, w\in W, \lambda,\lambda'\in K: b(\lambda v+ \lambda' v', w) = \lambda b(v,w) + \lambda' b(v',w)$
 	\item $\forall v\in V,  w,w'\in W, \lambda,\lambda'\in K: b(v,\lambda w+\lambda'w') = \lambda b(v,w) + \lambda' b(v,w')$
 \end{description}
+Zusammengefasst: Die Funktion ist separat linear, wenn man nur den ersten oder nur den zweiten Input variiert und den anderen festhält.
+
+Für Abbildungen $V_1\times V_2\times V_3\to X$, die von drei Inputvektoren abhängig sind, kann man entsprechend definieren, dass eine Abbildung \emph{trilinear} heißt, wenn sie die drei Distributivgesetze erfüllt.
 \end{definition}
+
+\begin{example}
+Die drei genannten \enquote{Multiplikationen} sind bilinear. Es gibt viele weitere, äußerst nützliche Beispiele.
+\begin{enumerate}[resume]
+	\item Richtungsableitungen sind bilinear in der Richtung und der Funktion:
+	
+	 Sei $X\subseteq\IR^n$ ein geeigneter Definitionsbereich (z.B. eine offene Menge) und $x_0\in X$ ein Punkt. Sei außerdem $f:X \to\IC$ eine differenzierbare Funktion. Dann existieren insbesondere alle Richtungsableitungen $(\partial_vf)(x_0) = \lim_{t\to 0} \frac{f(x_0)-f(x_0+tv)}{t}$. Diese Operation ist bilinear in $v$ und $f$.
+     
+     \item Allgemeiner Differentialoperatoren:
+     
+     Für mehrfach differenzierbare Funktionen kann man natürlich auch mehrere Ableitungsschritte hintereinander ausführen. Zweifaches Ableitung in mehrere Richtungen $\partial_{v_1} \partial_{v_2}$ ist bilinear 
+\end{enumerate}
+\end{example}
 
 The above definition has already hinted at an operation, that a tensor space may lack: A bilinear multiplication of two vectors $\cdot : V \times V \to V$. We can formally define the properties of such a binary operation:
 \begin{definition}[Bilinear multiplication in a vector space]
