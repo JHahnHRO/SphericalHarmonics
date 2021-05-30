@@ -42,24 +42,43 @@ Die drei genannten \enquote{Multiplikationen} sind bilinear. Es gibt viele weite
 \end{example}
 
 The above definition has already hinted at an operation, that a tensor space may lack: A bilinear multiplication of two vectors $\cdot : V \times V \to V$. We can formally define the properties of such a binary operation:
-\begin{definition}[Bilinear multiplication in a vector space]
-	Let $F$ be a field, and let $V$ be a vector space over $F$. Denote with $\cdot$ an additional binary operation, $\cdot : V \times V \to V$ (i.e. if $\vc{v}$ and $\vc{w}$ are any two elements of $V$, $\vc{v}\cdot \vc{w}$ is the product of $\vc{v}$ and $\vc{w}$ and also lies in $V$). If this operation fullfills all properties in the following table for all elements $\vc{u},\vc{v},\vc{w}\in V$, $a,b,\in F$, then we call it a \emphName{bilinear multiplication} of two vectors. 
+%\begin{definition}[Bilinear multiplication in a vector space]
+%	Let $F$ be a field, and let $V$ be a vector space over $F$. Denote with $\cdot$ an additional binary operation, $\cdot : V \times V \to V$ (i.e. if $\vc{v}$ and $\vc{w}$ are any two elements of $V$, $\vc{v}\cdot \vc{w}$ is the product of $\vc{v}$ and $\vc{w}$ and also lies in $V$). If this operation fullfills all properties in the following table for all elements $\vc{u},\vc{v},\vc{w}\in V$, $a,b,\in F$, then we call it a \emphName{bilinear multiplication} of two vectors. 
 %	\begin{table}[!ht]
 %		\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
 %		\begin{tabularx}{\textwidth}{X X}
 %			\toprule
-%			\textbf{Axiom}             & \textbf{Meaning}                                                           \\ 
+%			\textbf{Axiom}             & \textbf{Bedeutung}                                                           \\ 
 %			\midrule
-%			Right distributivity       & $(\vc{u} +\vc{v})\cdot\vc{w} = \vc{u}\cdot\vc{w} + \vc{v}\cdot\vc{w}$      \\
-%			Left distributivity        & $\vc{w}\cdot(\vc{u} +\vc{v}) = \vc{w}\cdot\vc{u}\cdot + \vc{w}\cdot\vc{v}$ \\
-%			Compatibility with scalars & $(a\vc{w})\cdot(b\vc{u}) = (ab)(\vc{w}\cdot\vc{u})$   
+%			Rechts-Distributivität       & $\begin{aligned} \phi((\vc{u} +\vc{v}),\vc{w}) &= \phi(\vc{u},\vc{w}) + \phi(\vc{v},\vc{w})\\ (\vc{u} +\vc{v})\cdot\vc{w} &= \vc{u}\cdot\vc{w} + \vc{v}\cdot\vc{w} \end{aligned}$       \\
+%			Links-Distributivität        &$\begin{aligned} \phi(\vc{w},(\vc{u} +\vc{v})) &= \phi(\vc{w},\vc{u}) + \phi(\vc{w},\vc{v})\\ \vc{w}\cdot(\vc{u} +\vc{v}) &= \vc{w}\cdot\vc{u}\cdot + \vc{w}\cdot\vc{v} \end{aligned}$ \\
+%			Assoziativität der Skalarmultiplikation &  $\begin{aligned} \phi((a\vc{w}),(b\vc{u})) &= (ab)\phi((\vc{w},\vc{u})) \\ (a\vc{w})\cdot(b\vc{u}) &= (ab)(\vc{w}\cdot\vc{u})\end{aligned}$   
 %			\\              
-%			(Possibly) Associativity of multiplication  & $\vc{v}\cdot(\vc{w}\cdot\vc{u}) = (\vc{v} \cdot \vc{w}) \cdot \vc{u}$     
+%			Optional: Assoziativität der Multiplikation  & $\begin{aligned} \phi(\vc{v},\phi((\vc{w},\vc{u}))) = \phi(\phi(\vc{v} , \vc{w}), \vc{u})\\ \vc{v}\cdot(\vc{w}\cdot\vc{u}) = (\vc{v} \cdot \vc{w}) \cdot \vc{u}\end{aligned}$     
 %			\\
 %			\bottomrule
 %		\end{tabularx}
-%		\caption{Properties of bilinear multiplication}
+%		\caption{Eigenschaften von einer bilinearen Abbildung $\phi$ bzw. bilinearen Multiplikation}
 %	\end{table}
+
+	\begin{table}[!ht]
+	\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
+	\hspace{-0.1\textwidth}\begin{tabularx}{1.2\textwidth}{>{\hsize=.8\hsize}X >{\hsize=1.1\hsize}X >{\hsize=1.1\hsize}X}
+		\toprule
+		\textbf{Axiom}             & \textbf{Bedeutung} \hspace{0.5cm} &        \textbf{Multiplikation}                                                   \\ 
+		\midrule
+		Rechts-Distributivität       & $ \phi((\vc{u} +\vc{v}),\vc{w}) = \phi(\vc{u},\vc{w}) + \phi(\vc{v},\vc{w})$ & $(\vc{u} +\vc{v})\cdot\vc{w} = \vc{u}\cdot\vc{w} + \vc{v}\cdot\vc{w} $       \\
+		Links-Distributivität        &$ \phi(\vc{w},(\vc{u} +\vc{v})) = \phi(\vc{w},\vc{u}) + \phi(\vc{w},\vc{v}) $ & $ \vc{w}\cdot(\vc{u} +\vc{v}) = \vc{w}\cdot\vc{u}\cdot + \vc{w}\cdot\vc{v} $ \\
+		Assoziativität der Skalarmultiplikation &  $ \phi((a\vc{w}),(b\vc{u})) = (ab)\phi((\vc{w},\vc{u})) $ & $ (a\vc{w})\cdot(b\vc{u}) = (ab)(\vc{w}\cdot\vc{u})$   
+		\\              
+		Optional: Assoziativität der Multiplikation  & $ \phi(\vc{v},\phi((\vc{w},\vc{u}))) = \phi(\phi(\vc{v} , \vc{w}), \vc{u}) $ & $ \vc{v}\cdot(\vc{w}\cdot\vc{u}) = (\vc{v} \cdot \vc{w}) \cdot \vc{u}$     
+		\\
+		\bottomrule
+	\end{tabularx}
+	\caption{Eigenschaften von einer bilinearen Abbildung $\phi$ bzw. bilinearen Multiplikation}
+\end{table}
+
+
 \end{definition}
 Note, that commutativity is a not required property of a bilinear multiplication (hence the distinction between right and left distributivity). Depending on the situation, the multiplication may or may not have to fullfill the requirement of associativity.
 
