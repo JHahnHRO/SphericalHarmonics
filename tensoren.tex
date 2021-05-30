@@ -4,143 +4,224 @@
 \subsection{Wiederholung: Vektorräume}
 \input{vektorraeume.tex}
 
-\subsection{Tensoren}
+\subsection{Bilineare Abbildungen}
 
 \begin{remark}
-Es gibt i.A. keine Multiplikation zweier Vektoren in irgendeinem Sinne. Wir können immer Skalare mit Vektoren multiplizieren, aber nicht Vektoren mit Vektoren. Nichts desto trotz ist es \emph{manchmal} doch so, dass ein sinnvolles Konzept von Multiplikation existiert für spezielle Vektorräume, z.B.
+Es gibt i.A. keine Multiplikation zweier Vektoren miteinander in irgendeinem Sinne. Wir können immer Skalare mit Vektoren multiplizieren, aber nicht Vektoren mit Vektoren. Nichts desto trotz ist es \emph{manchmal} doch so, dass zusätzlich zu Addition und Skalarmultiplikation eine weitere Operation existiert, die ein sinnvolles Konzept von Multiplikation liefert, z.B.
 \begin{enumerate}
-	\item Der Vektorraum der Polynome $\IR[X]$ hat die übliche Multiplikation,
-	\item Der Vektorraum der Funktionen $X\to\IC$ für einen festen Definitionsbereich $X$ hat die punktweise Multiplikation,
-	\item Die Hintereinanderausführung von linearen Abbildungen $\Hom_K(V,W) \times \Hom_K(U,V) \to \Hom_K(U,W), (f,g) \mapsto f\circ g$ ist eine Abbildung, die sich in vielerlei Hinsicht auch wie eine Multiplikation verhält
-	\item 
+	\item Der Vektorraum der Polynome $\IR[X]$ hat die Polynommultiplikation, d.h.
+    \[\left(\sum_{i=0}^n a_i X^i\right) \cdot \left(\sum_{j=0}^m b_j X^j\right) := \sum_{k=0}^{n+m} (\sum_{\substack{i,j \\ i+j=k}} a_i b_j) X^k\]
+	\item Der Vektorraum der Funktionen $X\to\IC$ für einen festen Definitionsbereich $X$ hat die punktweise Multiplikation, d.h.
+    \[f\cdot g := x\mapsto f(x)g(x)\]
+	\item Die Hintereinanderausführung von linearen Abbildungen $\Hom_K(V,W) \times \Hom_K(U,V) \to \Hom_K(U,W), (f,g) \mapsto f\circ g$ ist eine Abbildung, die sich in vielerlei Hinsicht auch wie eine Multiplikation verhält. Für $U=V=W$ erhält man insbesondere eine Multiplikation $\End_K(V) \times \End_K(V) \to \End_K(V)$.
+    
+    Nach Wahl von je einer Basis können wir $\Hom_K(V,W)$, $\Hom_K(U,V)$ und $\Hom_K(U,W)$ mit $K^{n\times m}$, $K^{m\times p}$ und $K^{n\times p}$ identifizieren. Die Hintereinanderausführung von linearen Abbildung entspricht dann der Matrixmultiplikation.
+    \item ...
 \end{enumerate}
 
 \end{remark}
 
-\begin{definition}[Bilineare \& multilineare Abbildungen]
-Sind $V,W,X$ drei $K$-Vektorräume, so heißt eine Abbildung $b: V\times W\to X$ \emph{bilinear}, falls sie die folgenden beiden Distributivgesetze erfüllt:
-\begin{description}
-	\item $\forall v,v'\in V, w\in W, \lambda,\lambda'\in K: b(\lambda v+ \lambda' v', w) = \lambda b(v,w) + \lambda' b(v',w)$
-	\item $\forall v\in V,  w,w'\in W, \lambda,\lambda'\in K: b(v,\lambda w+\lambda'w') = \lambda b(v,w) + \lambda' b(v,w')$
-\end{description}
-Zusammengefasst: Die Funktion ist separat linear, wenn man nur den ersten oder nur den zweiten Input variiert und den anderen festhält.
+\begin{definition}[Bilineare \& multilineare Abbildungen]\label{bilineare_abb:def}
+Sind $V,W,X$ drei $K$-Vektorräume, so heißt eine Abbildung $\phi: V\times W\to X$ \emph{bilinear}, falls sie beiden Linearitätsbedingungen in Tabelle \ref{bilineare_abb:def_table} erfüllt, d.h. die Funktion ist separat linear, wenn man nur den ersten oder nur den zweiten Input variiert und den anderen festhält.
 
-Für Abbildungen $V_1\times V_2\times V_3\to X$, die von drei Inputvektoren abhängig sind, kann man entsprechend definieren, dass eine Abbildung \emph{trilinear} heißt, wenn sie die drei Distributivgesetze erfüllt. Für vier, fünf, ... $k$ Input-Vektoren spricht man von dann von \emph{$k$-fach linearen} Abbildungen.
+\begin{table}[!ht]
+    \setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
+    \hspace{-0.1\textwidth}
+    \begin{tabularx}{1.2\textwidth}{p{6.5cm} p{9.5cm}}
+        \toprule
+        \textbf{Axiom}                  & \textbf{Bedeutung} \hspace{0.5cm} \\ 
+        \midrule
+        Linearität: \\
+        \hspace{1cm}im ersten Argument  & $\forall v_1,v_2\in V, w\in W: \phi(v_1+v_2,w) = \phi(v_1,w) + \phi(v_2,w)$ \\
+                                        & $\forall \lambda\in K, v\in W, w\in W: \phi(\lambda v, w) = \lambda \phi(v,w)$ \\
+        \hspace{1cm}im zweiten Argument & $\forall v\in V, w_1, w_2\in W: \phi(v,w_1+w_2) = \phi(v,w_1) + \phi(v,w_2)$ \\
+                                        & $\forall \lambda\in K, v\in W, w\in W: \phi(v, \lambda w) = \lambda \phi(v,w)$ \\
+        Optional, falls $\phi: V\times V \to X$: \\
+        \hspace{1cm}Symmetrie bzw. Kommutativität & $\forall u,v\in V: \phi(u,v) = \phi(v,u)$ \\
+        \hspace{1cm}Antisymmetrie & $\forall u,v\in V: \phi(u,v) = -\phi(v,u)$ \\
+        Optional, falls $\phi: V\times V\to V$: \\
+        \hspace{1cm}Assoziativität & $\forall u,v,w\in V: \phi(u,\phi(v,w)) = \phi(\phi(u,v),w)$ \\
+        \bottomrule
+    \end{tabularx}
+    \label{bilineare_abb:def_table}
+    \caption{Eigenschaften von bilinearen Abbildungen}
+\end{table}
+
+Für Abbildungen $V_1\times V_2\times V_3\to X$, die von drei Inputvektoren abhängig sind, kann man entsprechend definieren, dass eine Abbildung \emph{trilinear} heißt, wenn sie die drei Distributivgesetze erfüllt. Für vier, fünf, ... $k$ Input-Vektoren spricht man entsprechend von \emph{$k$-fach linearen} Abbildungen.
 \end{definition}
 
 \begin{example}
-Die drei genannten \enquote{Multiplikationen} sind bilinear. Es gibt viele weitere, äußerst nützliche Beispiele.
-\begin{enumerate}[resume]
+Die drei genannten \enquote{Multiplikationen} von oben sind bilinear. Polynommultiplikation und punktweise Multiplikation von Funktionen sind kommutativ und assoziativ. Die Komposition $\End_K(V)\times\End_K(V)\to\End_K(V)$ ist assoziativ, aber nicht kommutativ, falls $\dim(V) > 1$.
+
+Es gibt viele weitere, äußerst nützliche Beispiele.
+\begin{enumerate}[start=4]
 	\item Richtungsableitungen sind bilinear in der Richtung und der Funktion:
 	
-	 Sei $X\subseteq\IR^n$ ein geeigneter Definitionsbereich (z.B. eine offene Menge) und $x_0\in X$ ein Punkt. Sei außerdem $f:X \to\IC$ eine differenzierbare Funktion. Dann existieren insbesondere alle Richtungsableitungen $(\partial_vf)(x_0) = \lim_{t\to 0} \frac{f(x_0)-f(x_0+tv)}{t}$. Diese Operation ist bilinear in $v$ und $f$.
+	 Sei $X\subseteq\IR^n$ ein geeigneter Definitionsbereich (z.B. eine offene Menge). Sei außerdem $f:X \to\IC$ eine differenzierbare Funktion. Dann existieren insbesondere alle Richtungsableitungen $(\partial_vf)(x_0) = \lim_{t\to 0} \frac{f(x_0)-f(x_0+tv)}{t}$ in allen Punkten $x_0\in X$. Die Abbildungsvorschrift $(v,f) \mapsto \partial_v f$ liefert eine bilineare Abbildung für mehrere Kombinationen von Vektorräumen, z.B. $\IR^n \times C^1(\IR^n) \to C^0(\IR^n)$ oder $\IR^n \times C^\infty(\IR^n) \to C^\infty(\IR^n)$.
      
-     \item Allgemeiner Differentialoperatoren:
+     \item Allgemeiner: Lineare Differentialoperatoren:
      
      Für mehrfach differenzierbare Funktionen kann man natürlich auch mehrere Ableitungsschritte hintereinander ausführen. Auf diese Weise erhält man multilineare Abbildungen: $k$-faches Ableiten in $k$ Richtungen, also der Differentialoperator $\partial_{v_1} \partial_{v_2} \cdots \partial_{v_k}$ ist $k$-fach linear in den Vektoren $v_1, ..., v_k$ als Inputs. Die Anwendung auf eine Funktion ist entsprechend $(k+1)$-fach linear in den $k$ Richtungsvektoren und der Funktion als Inputs.
+     
+     Als $k$-lineare Abbildung ist dies eine symmetrische Abbildung, d.h. $\partial_v \partial w f = \partial_w\partial_v f$, sofern $f$ zweimal stetig differenzierbar ist. Das ist der Satz von Schwarz\footnote{Hermann Amandus Schwarz (1843 -- 1921), dt. Mathematiker.}.
+     
+     \item Kreuzprodukt:
+     
+     Es gibt eine besondere bilineare Abbildung $\textsc{x} : \IR^3 \times \IR^3 \to \IR^3$, genannt \udot{Kreuzprodukt}, die in anderen Dimensionen keine gute Analogie hat, nämlich
+     
+     \[\begin{pmatrix}x_1\\y_1\\z_1\end{pmatrix} \textsc{x} \begin{pmatrix}x_2\\y_2\\z_2\end{pmatrix} := \begin{pmatrix}
+     y_1 z_2 - y_2 z_1 \\
+     x_1 z_2 - x_2 z_1 \\
+     x_1 y_2 - x_2 y_1
+     \end{pmatrix}\]
+     Es ist bilinear, aber weder kommutativ noch assoziativ. Stattdessen ist es antisymmetrisch.
 \end{enumerate}
 \end{example}
 
-The above definition has already hinted at an operation, that a tensor space may lack: A bilinear multiplication of two vectors $\cdot : V \times V \to V$. We can formally define the properties of such a binary operation:
-%\begin{definition}[Bilinear multiplication in a vector space]
-%	Let $F$ be a field, and let $V$ be a vector space over $F$. Denote with $\cdot$ an additional binary operation, $\cdot : V \times V \to V$ (i.e. if $\vc{v}$ and $\vc{w}$ are any two elements of $V$, $\vc{v}\cdot \vc{w}$ is the product of $\vc{v}$ and $\vc{w}$ and also lies in $V$). If this operation fullfills all properties in the following table for all elements $\vc{u},\vc{v},\vc{w}\in V$, $a,b,\in F$, then we call it a \emphName{bilinear multiplication} of two vectors. 
-%	\begin{table}[!ht]
-%		\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
-%		\begin{tabularx}{\textwidth}{X X}
-%			\toprule
-%			\textbf{Axiom}             & \textbf{Bedeutung}                                                           \\ 
-%			\midrule
-%			Rechts-Distributivität       & $\begin{aligned} \phi((\vc{u} +\vc{v}),\vc{w}) &= \phi(\vc{u},\vc{w}) + \phi(\vc{v},\vc{w})\\ (\vc{u} +\vc{v})\cdot\vc{w} &= \vc{u}\cdot\vc{w} + \vc{v}\cdot\vc{w} \end{aligned}$       \\
-%			Links-Distributivität        &$\begin{aligned} \phi(\vc{w},(\vc{u} +\vc{v})) &= \phi(\vc{w},\vc{u}) + \phi(\vc{w},\vc{v})\\ \vc{w}\cdot(\vc{u} +\vc{v}) &= \vc{w}\cdot\vc{u}\cdot + \vc{w}\cdot\vc{v} \end{aligned}$ \\
-%			Assoziativität der Skalarmultiplikation &  $\begin{aligned} \phi((a\vc{w}),(b\vc{u})) &= (ab)\phi((\vc{w},\vc{u})) \\ (a\vc{w})\cdot(b\vc{u}) &= (ab)(\vc{w}\cdot\vc{u})\end{aligned}$   
-%			\\              
-%			Optional: Assoziativität der Multiplikation  & $\begin{aligned} \phi(\vc{v},\phi((\vc{w},\vc{u}))) = \phi(\phi(\vc{v} , \vc{w}), \vc{u})\\ \vc{v}\cdot(\vc{w}\cdot\vc{u}) = (\vc{v} \cdot \vc{w}) \cdot \vc{u}\end{aligned}$     
-%			\\
-%			\bottomrule
-%		\end{tabularx}
-%		\caption{Eigenschaften von einer bilinearen Abbildung $\phi$ bzw. bilinearen Multiplikation}
-%	\end{table}
+\subsection{Das Tensorprodukt}
 
-	\begin{table}[!ht]
-	\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
-	\hspace{-0.1\textwidth}\begin{tabularx}{1.2\textwidth}{>{\hsize=.8\hsize}X >{\hsize=1.1\hsize}X >{\hsize=1.1\hsize}X}
-		\toprule
-		\textbf{Axiom}             & \textbf{Bedeutung} \hspace{0.5cm} &        \textbf{Multiplikation}                                                   \\ 
-		\midrule
-		Rechts-Distributivität       & $ \phi((\vc{u} +\vc{v}),\vc{w}) = \phi(\vc{u},\vc{w}) + \phi(\vc{v},\vc{w})$ & $(\vc{u} +\vc{v})\cdot\vc{w} = \vc{u}\cdot\vc{w} + \vc{v}\cdot\vc{w} $       \\
-		Links-Distributivität        &$ \phi(\vc{w},(\vc{u} +\vc{v})) = \phi(\vc{w},\vc{u}) + \phi(\vc{w},\vc{v}) $ & $ \vc{w}\cdot(\vc{u} +\vc{v}) = \vc{w}\cdot\vc{u}\cdot + \vc{w}\cdot\vc{v} $ \\
-		Assoziativität der Skalarmultiplikation &  $ \phi((a\vc{w}),(b\vc{u})) = (ab)\phi((\vc{w},\vc{u})) $ & $ (a\vc{w})\cdot(b\vc{u}) = (ab)(\vc{w}\cdot\vc{u})$   
-		\\              
-		Optional: Assoziativität der Multiplikation  & $ \phi(\vc{v},\phi((\vc{w},\vc{u}))) = \phi(\phi(\vc{v} , \vc{w}), \vc{u}) $ & $ \vc{v}\cdot(\vc{w}\cdot\vc{u}) = (\vc{v} \cdot \vc{w}) \cdot \vc{u}$     
-		\\
-		\bottomrule
-	\end{tabularx}
-	\caption{Eigenschaften von einer bilinearen Abbildung $\phi$ bzw. bilinearen Multiplikation}
-\end{table}
+\begin{remark}
+Bilineare Abbildungen sind in vielerlei Hinsicht ähnlich zu linearen Abbildungen, z.B. kann man sie durch Basiswahl eindeutig beschreiben, d.h.
 
+\medbreak
+Wenn $V,W$ zwei $K$-Vektorräume sind, $b_1,\ldots,b_n$ eine Basis von $V$ und $c_1, \ldots c_m$ eine Basis von $W$, und $\phi: V\times W\to X$ eine bilineare Abbildung, dann sind alle Werte $\phi(v,w)$ bereits eindeutig festgelegt, wenn man $\phi(b_i,c_j)$ für alle $i$ und $j$ kennt, und umgekehrt liefert jede beliebige Wahl von Vektoren $x_{ij}\in X$ genau eine bilineare Abbildung $\psi: V\times W\to X$, die $\psi(b_i,c_j) = x_{ij}$ erfüllt.
 
-\end{definition}
-Note, that commutativity is a not required property of a bilinear multiplication (hence the distinction between right and left distributivity). Depending on the situation, the multiplication may or may not have to fullfill the requirement of associativity.
+\medbreak
+Weiter könnte man z.B. jetzt den Raum aller bilinearen Abbildungen $Bil(V,W;X)$ betrachten und beweisen, dass das selbst ein Vektorraum ist genau wie der Raum der linearen Abbildungen zwischen zwei festen Vektorräumen selbst ein Vektorraum ist.
 
-Typical examples for vector spaces, that are equipped with a bilinear multiplication, include: $\IR^3$ with the cross product, $\IR^{n\times n}$ with the matrix product. A vector space that is typically not equipped with a bilinear multiplication is the space of polynomials up to degree $n$, since multiplying two polynomials can result in a polynomial of higher degree than $n$. However, we can extend this vector space to the space of all polynomials $P$. $P$ is easily equipped with a bilinear multiplication (defined as you would expect the multiplication of two polynomials to work), which even happens to be commutative.
+\medbreak
+Ähnliches gilt auch für $k$-lineare Abbildungen. Außerdem kann man sich davon überzeugen, dass diese Strukturen mit Hintereinanderausführung von Abbildungen verträglich sind. Multilinearen Abbildungen haben viele mehr Möglichkeiten hat, zwei Abbildungen hintereinander auszuführen, z.B. könnte man zwei bilineare Abbildungen hintereinander ausführen, indem man
+\[\phi(\psi(u,v),w)\quad\text{oder}\quad \phi(u,\psi(v,w))\]
+bildet und i.A. das zwei verschiedene $3$-lineare Abbildungen. Man hat bereits drei fundamental verschiedene Möglichkeiten, lineare und bilineare Abbildungen miteinander zu kombinieren: Man kann $\phi(\alpha(u),v)$, $\phi(u,\alpha(w))$ oder $\alpha(\phi(u,v))$ bilden je nachdem, was davon tatsächlich definiert ist. Alle Kombinationen sind jedoch wieder bilineare Abbildungen. Wenn man allgemein $k$- und $m$-lineare Abbildungen miteinander kombinieren will, hat man sehr schnell eine explodierende Anzahl verschiedener Möglichkeiten vor sich. Sie alle liefern wieder multilinearen Abbildungen als Ergebnis und alle Möglichkeiten $a$ verschiedene multilineare Abbildungen auf diese Weise zu kombinieren, sind selbst $a$-fach lineare Operationen zwischen den entsprechenden Abbildungsräumen.
 
-The concept of a vector space equipped with a bilinear multiplication has its own name:
-\begin{definition}[Algebra]
-	Let $F$ be a field, and let $V$ be a vector space over $F$. If $V$ can be equipped with a bilinear multiplication, then $V$ is an \emphName{algebra} over $F$. 
-\end{definition}
-An algebra over $F$ is sometimes also called an $F$-algebra, and $F$ is called the base field of $V$. The binary multiplication is often simply referred to as multiplication in $V$. 
-
-\subsubsection{The tensor product}
-Let us now look at a new kind of multiplication $\otimes$ between two vectors $\vc{u},\vc{v} \in \IR^3$: The tensor product. There are many ways of motivating and defining it, but for our purposes we shall be satisfied by starting with a bilinear, associative, non-commutative multiplication of two vector spaces $\otimes: U \times V \to U \otimes V$ whose result is called a tensor and written as $\vc{U}\otimes\vc{V}$ (spoken "U tensor V").
-\[\otimes: U \times V \to U \otimes V,\vc{u}\times\vc{v} \mapsto \vc{u}\otimes\vc{v}\]
-
-$U\otimes V$ is in itself a vector space (the so called tensor space) of dimensionality 
-\[\dim{U \otimes V} = \dim{U} \cdot \dim{V}.\]
-Choosing basis sets for $U$ and $V$, $B_U = \{\vc{b}_i^u| i=1, \cdots, \dim{U}\}$ and $B_V=\{\vc{b}_i^v| i=1, \cdots, \dim{V}\}$ respectively, allows to immediately choose a basis for $U\otimes V$: 
-\[\{\vc{b}_i^u\otimes \vc{b}_j^v| i=1, \cdots, \dim{U, j=1,\cdots,\dim{V}}\}.\]
-Similar to denoting the coordinates of a vector $v\in V$ e.g. as $v_i$, we can express the coordinates of a tensor with respect to the above basis as $t_{ij}$.
-
-
-Given a tensor 
-\[t=\vc{u}\otimes\vc{v},\] 
-one may multiply it with yet another vector $\vc{w}$, resulting in a product with more terms (i.e. vectors)
-\[f=\vc{u}\otimes\vc{v}\otimes\vc{w}\] 
-and so on. This is similar to the multiplication of polynomials. Indeed, just like polynomials have degrees, tensors can be of different order. The order of a tensor is determined by the number of vectors that are multiplied with each other, the tensor $t$ is of order 2, the tensor $f$ is of order 3. This nomenclature applies to tensor spaces as well, $V\otimes W$ is a tensor space of second order. We are practically exclusively interested in tensor spaces of k-th order of only one vector space $V$, i.e. 
-\[\underbrace{V\otimes V \otimes \cdots \otimes V}_{k \text{ times}},\]
-which can be denoted as $V^{\otimes k}$. For our purposes we choose $V=\IR^n$ with mostly $n=3$.
-
-\begin{remark}[Tensor algebra]
-	Much like the space of all polynomials is an algebra, the vector space of the sum of all tensor products of a vector space $V$,
-	\[\mathcal{T}: \bigoplus_{i=0}^{\infty} V^{\otimes i},\]
-	is equipped with the multiplication $\otimes$ and hence is an algebra.
+\medbreak
+Man könnte all das jetzt für alle diese Kombinationen beweisen, wenn man zu viel Freizeit und Tinte hat. Alle Beweise sind langweilig, wenn man den linearen Fall einmal verstanden hat und funktionieren in der Tat völlig analog.\footnote{Wer's nicht glaubt, probiere es selbst aus und finde alle diese Beweise, bis das notwendige Maß an Langeweile erreicht ist} Das große Problem ist eigentlich, eine geeignete Notation zu finden, die einem erlaubt, diese Beweise alle nur einmal und dafür allgemein zu führen, statt in jeder neuen Kombination von vorne anfangen zu müssen. Und selbst wenn man sich so eine Notation überlegt, dann steht man noch vor einigen technischen, aber völlig trivialen Problemen, die mehr Arbeit verlangen als man für solche Trivialitäten erwartet. Wenn man beispielsweise eine Notation erfindet um zwei multilineare Abbildungen miteinander zu verbinden, dann stellt sich die Frage, ob alle Arten, drei multilineare Abbildungen zu verbinden, sich durch schrittweises Verbinden von je zweien erhalten lassen und ob dafür eine geeignete Form von Assoziativität gilt. Erneut stellt man fest, dass die Antwort \enquote{ja} ist, die geeignete Form von Assoziativität gilt und die Beweise alle analog zum linearen Fall laufen.
 \end{remark}
 
-\begin{definition}[Elementary Tensor]
-	An elementary tensor is a tensor that can be expressed as a single product of vectors, e.g. $v_1\otimes v_2 $, (as opposed to a sum of products, e.g. $v_1\otimes v_2 - v_2 \otimes v_1$). In the following definitions we will often use elementary tensors, the linear continuation for sums of elementary tensors is always implied.
+\begin{remark}
+All diese Fälle sind letztendlich so sehr ähnlich zum linearen Fall, dass es in der Tat eine Konstruktion gibt, die es einem erlaubt, multilineare Abbildungen als echte lineare Abbildungen aufzufassen, sodass man überhaupt nichts mehr beweisen muss, das über den (schon bekannten) linearen Fall und die Existenz und grundlegenden Eigenschaften dieser Konstruktion hinaus geht. Dieses Konstrukt ist das Tensorprodukt.
+\end{remark}
+
+\begin{theoremdef}[Universelle Eigenschaft und Existenz des Tensorprodukts]\label{tensorprodukt:def}
+Es seien $V,W$ zwei $K$-Vektorräume. Es gibt eine \enquote{universelle bilineare Abbildung}, d.h. es gibt ein Vektorraum $T$ und eine bilineare Abbildung $\tau: V\times W\to T$, sodass \textit{jede} bilineare Abbildung $\phi: V\times W \to X$ sich schreiben lässt als $f\circ\tau$ mit einer eindeutig bestimmten linearen Abbildung $f: T\to X$.
+
+\medbreak
+$T$ und $\tau$ sind in der Tat eindeutig bestimmt bis auf einen eindeutigen Isomorphismus, d.h. wenn $\tau':V\times W\to T'$ eine weitere universelle bilineare Abbildung ist, dann gibt es genau einen Isomorphismus $\alpha:T\to T'$, \todo{Diagram}{sodass}
+\[V\times W \xrightarrow{\tau} T \xrightarrow{\alpha} T' = \tau'\]
+gilt. Man schreibt üblicherweise $V\otimes W$ statt $T$ und $v\otimes w$ statt $\tau(v,w)$ für diesen eindeutig bestimmten Vektorraum und bilineare Abbildung und nennt sie \emph{Tensorprodukt von $V$ und $W$}. (Achtung: Das Tensorprodukt ist streng genommen die Kombination aus $T$ und $\tau$, nicht nur $T$).
+\end{theoremdef}
+
+\begin{remark}
+Ausgeschrieben sagt die universelle Eigenschaft folgendes: Eine Abbildungsvorschrift $\phi: (v,w) \mapsto x_{v,w}$, die je einen Inputvektor aus $V$ und einen aus $W$ nimmt und einen Vektor aus $X$ produziert, gibt es genau dann eine Realisierung dieser Abbildungsvorschrift als lineare Abbildung $f: V\otimes W\to X$ mit $f(v\otimes w) = x_{v,w}$, wenn $\phi$ bilinear ist.
+
+Jeder bilinearen Abbildung kann so eindeutig als lineare Abbildung auf dem Tensorprodukt der beiden Inputräume betrachtet werden, und umgekehrt kann jede lineare Abbildung auf einem Tensorprodukt als bilineare Abbildung aufgefasst werden, indem man sie auf die Menge der reinen Tensoren einschränkt.
+\end{remark}
+
+\begin{definition}[Reine Tensoren]\label{tensoren:reine_tensoren}
+Ein Element von $V\otimes W$, das die Form $v\otimes w$ hat, wird als \emph{reiner Tensor} bezeichnet.
 \end{definition}
 
-\begin{definition}[Casimir Element or $\delta_{ij}$-Tensor]
-	Let $\Omega_V$ denote the symmetric, isotropic 2-tensor of the vector space $V$ of dimensionality $k$. With any complete orthonormal basis set $\{\vc{b}_1,\cdots,\vc{b}_k\}$ for $V$, $\Omega_V$ can be expressed as
-	\begin{equation}
-		\Omega_V = \sum_{i=1}^k \vc{b}_i \otimes \vc{b}_i
-	\end{equation}
-	Since we will mostly work with $V=\IR^3$ with some orthonormal basis set $\{\vc{b}_1,\vc{b}_2,\vc{b}_3\}$, the corresponding $\Omega_V$ shall be written as $\Omega$,
-	\[\Omega := \Omega_{\IR^3} = \sum_{i=1}^3 \vc{b}_i \otimes \vc{b}_i.\]
-\end{definition}
-\begin{lemma}
-	The Casimir element does not depend on the choice of the orthonormal basis for $V$, i.e. it is indeed isotropic.
+\begin{remark}[Diskussion: reine vs. nicht-reine Tensoren]
+Ein wichtiger, vielleicht der wichtigste Grund, Tensorräume als eigenständiges Objekt einzuführen statt ausschließlich mit multilinearen Abbildungen zu arbeiten ist die Existenz von nicht-reinen Tensoren: Eine Summe $v_1\otimes w_1 + v_2\otimes w_2 + \ldots + v_k\otimes w_k$ (die natürlich immer existiert, weil $V\otimes W$ ja ein Vektorraum ist) ist i.A. kein reiner Tensor, lässt sich also i.A. nicht darstellen als $v_1\otimes w_1 + v_2\otimes w_2 + \ldots + v_k\otimes w_k = x\otimes y$.
+
+\medbreak
+Es stellt sich heraus, dass viele der wirklich interessanten Tensoren, die einem so in freier Wildbahn begegnen, nicht rein sind.
+
+Beispiel: In der Quantenmechanik wird das Tensorprodukt benutzt, um mehrere interagierende Quanten-Systeme als ein einziges großes System zu betrachten: Wenn $V$ und $W$ der Zustandsraum je einer Menge $X$ bzw. $Y$ quantenmechanischer Teilchen sind, dann ist $V\otimes W$ der Zustandsraums des quantenmechanischen System, das aus den Teilchen von $X$ und $Y$ besteht und beliebige Interaktionen zwischen ihnen erlaubt. Ein reiner Tensor $v\otimes w$ entspricht in dieser Sichtweise demjenige Zustand des Gesamtsystems, wo die Teilchen aus $X$ im Zustand $v$, und aus $Y$ anderen im Zustand $w$. Die nicht-reinen Tensoren entsprechen dann \enquote{Überlagerungen} solcher reinen Zustände und das fundamental wichtige Phänomen von \enquote{verschränkten} Teilchen ist ein Ausdruck dessen, dass eben nicht alle Zustände reine Zustände sind, in denen man die Teilchen von $X$ unabhängig von denen in $Y$ einen Zustand zuschreiben kann: Es kann z.B. ein Zustand der Form $x_1\otimes y_1 + x_2\otimes y_2$ konstruiert (und auch experimentell realisiert) werden, in dem $x_1$ und $x_2$ sowie $y_1$ und $y_2$ beide jeweils senkrecht zueinander sind. In solch einem Zustand des Gesamtsystems können die $X$-Teilchen in Zustand $x_1$ oder $x_2$ gemessen werden, aber nur dann, wenn gleichzeitig die $Y$-Teilchen in Zustand $y_1$ bzw. $y_2$ vorliegen. Es kann eben nicht unabhängig voneinander der $X$-Anteil in Zustand $x_1$ sein, während der $Y$-Anteil des Gesamtsystems in Zustand $y_2$ ist (hier geht die Orthogonalität ein).
+\end{remark}
+
+\begin{example}[Casimir-Element]\label{tensoren:casimir_element}
+Ist $V$ ein endlich-dimensionaler $\IR$-Vektorraum und haben wir ein Skalarprodukt fest gewählt, so gibt es einen besonderen Tensor $\Omega_V \in V\otimes V$. Für \textit{jede} Orthogonalbasis $e_1, \ldots, e_n$ von $V$ lässt er sich schreiben als
+\[\Omega_V = \sum_{i=1}^n e_i \otimes e_i\]
+Für $V=\IR^3$ und die Standardbasis $e_x, ey, e_z$ ist etwa
+\[\Omega_{\IR^3} = e_x\otimes e_x + e_y\otimes e_y + e_z\otimes e_z\]
+
+Wenn wir den Raum der linearen Differentialoperatoren erster Ordnung auf $C^\infty(V)$ betrachten, d.h. der Vektorraum der Operatoren $\set{\partial_v | v\in V}$. Darin schreibt sich das Casimir-Element als
+\[\Omega = \sum_{i=1}^n \partial_{v_i} \otimes \partial_{e_i}\]
+Wenn wir die Komposition von Operatoren (eine bilineare Abbildung) auf diesen Tensor anwenden, erhalten wir den Laplace-Operator:
+\[\Delta = \sum_{i=1}^n \partial_{e_i}^2\]
+
+Man beachte insbesondere, dass das Ergebnis der Summe auf der rechten Seite unabhängig von der gewählten Basis ist, obwohl die einzelnen Summanden es natürlich nicht sind. Das erklärt z.B., wieso der Laplace-Operator und viele ähnlich aussehende Konstruktionen physikalische sinnvolle Objekte liefern, obwohl ihre Definition auf den ersten Blick basisabhängig zu sein scheint.
+\end{example}
+
+\begin{remark}
+Man kann sich jedoch leicht davon überzeugen, dass die Menge aller Summen von reinen Tensoren tatsächlich das volle Tensorprodukt abdeckt:
+\[V\otimes W = \Set{v_1\otimes w_1 + v_2\otimes w_2 + \ldots + v_k\otimes w_k | k\in\IN, v_i\in V, w_i\in W}\]
+
+In der Welt der Quantenmechanik würde man dazu also z.B. sagen: Der Zustandsraum des aus zwei Einzelsystemen kombinierten Systems besteht aus allen Kombinationen von reinen Zuständen der Einzelsysteme sowie allen Überlagerungen dessen.
+
+Es ist i.A. ein sehr schwieriges Problem, einem konkreten Tensor anzusehen, ob er rein ist oder nicht, und wenn nicht, welche reinen Zustände man zusammen addieren muss, um ihn zu erhalten. Nicht einmal die Anzahl der mindestens notwendigen Summanden ist einfach zu finden im Allgemeinen.
+\end{remark}
+
+\begin{remark}[Diskussion: Das Wort \enquote{Tensor}]
+Im Gegensatz zum Wort \enquote{Vektor}, das zumindestens meistens \enquote{Element eines Vektorraums} bedeutet und selten anders verwendet wird, ist das Wort \enquote{Tensor} etwas überbelegt. Die verschiedenen Verwendungsformen des Worten fallen grob in zwei Kategorien: 1.) \enquote{ich habe keine Ahnung, was Tensoren sind, aber andere Leute benutzen das Wort, also tue ich das auch} und 2.) irgendetwas, das tatsächlich mit Tensorprodukten zu tun hat.
+
+\smallbreak
+Zu 1. später mehr, zu 2. nur soviel: \enquote{Tensor} kann sowohl \enquote{Element eines Tensorprodukts von Vektorräumen} bedeuten (so werden wir das Wort verwenden) als auch einen von diversen, verwandten Begriffe, z.B. wird das auch als Kurzform von \udot{Tensorfeld} verwendet. Ein Tensorfeld ist ein Funktion, die jedem Punkt des gerade betrachten geometrischen Raums $X$ (oder Raumzeit) je ein Element $t(x)\in V_x\otimes V_x \otimes V_x \otimes ... $ zuordnet, wobei gewisse Stetigkeitseigenschaften gefordert werden, die für zwei eng beieinander liegende Punkte $x,x'$ fordern, dass $V_x$ und $V_{x'}$ \enquote{im Wesentlichen der gleiche Raum} sind und $t(x),t(x')$ ebenfalls eng zusammen liegen (formal ist das natürlich eine richtige $\epsilon$-$\delta$-artige Definition). Ggf. wird auch nicht nur ein Vektorraum $V_x$ pro Punkt verwendet, sondern mehrere. Je nachdem, welche Zusatzeigenschaften man an solch ein Tensorfeld stellt, wird auch nicht nur das Tensorprodukt der Vektorräume selbst, sondern auch eine vom Tensorprodukt abgeleitete Konstruktion betrachtet (z.B. symmetrische oder äußere Potenzen, siehe weiter unten).
+
+\medbreak
+Physiker sprechen außerdem noch \enquote{Pseudotensoren}, die aber mathematisch gesehen auch nur Tensoren wie alle anderen sind. Der Unterschied liegt darin, dass der Tensorraum, aus dem sie kommen, mit einer Zusatzstruktur versehen wird, der einer Darstellung. Während \enquote{gewöhnliche} Tensoren ihre Tensorprodukte in der \enquote{offensichtlichen} Weise als Darstellung auffassen, wird bei Pseudotensoren ein \enquote{Twist} auf die Darstellung angewendet.
+\end{remark}
+
+\subsection{Elementare Eigenschaften des Tensorprodukts]
+
+\begin{remark}
+Da das Tensorprodukt für alle Paare von $K$-Vektorräumen definiert ist und selbst wieder ein $K$-Vektorraum ist, können wir natürlich auch Tensorprodukte von Tensorprodukten bilden.
+\end{remark}
+
+\begin{theoremdef}[Assoziativität des Tensorprodukts \& Höhere Tensorgrade]
+Für alle $V_1, V_2, V_3$ ist
+\[\begin{array}{rcl}
+V_1\otimes(V_2\otimes V_3) &\leftrightarrows& (V_1\otimes V_2)\otimes V_3 \\
+v_1\otimes (v_2\otimes v_3) &\mapsto& (v_1\otimes v_2)\otimes v_3 \\
+v_1\otimes (v_2\otimes v_3) &\rotatebox[origin=c]{180}{\mapsto}& (v_1\otimes v_2)\otimes v_3
+\end{array}\]
+ein paar zueinander inverser Isomorphismen.
+
+Wir erlauben es uns, aufgrund der Natürlichkeit dieser Isomorphismen, Klammern wegzulassen und das Tensorprodukt kurz als $V_1\otimes V_2\otimes V_3$ zu schreiben. Analog auch für höhere Dimensionen. Der Kürze halber definieren wir die \emph{Tensorpotenzen} 
+\[V^{\otimes k} := \begin{cases} K & k=0 \\ 
+\underbrace{V\otimes V\otimes\cdot\otimes V}_{k\text{-mal}}\end{cases}\]
+\end{theoremdef}
+
+\subsection{Index-Notation - Was das ist und wie man sie loswird}
+
+\begin{remark}
+Alle vorher angedeuteten Aussagen über multilineare Abbildungen kann man auf Sätze über lineare Abbildungen und Tensorprodukte zurückführen, z.B.
+\end{remark}
+
+\begin{lemma}[Dimension von Tensorprodukten\footnote{Wer mit unendlich-dimensionalen Vektorräumen nicht gut genug vertraut ist, denke sich ein \enquote{für endlich-dimensionale Vektorräume} hinzu.}]\label{tensorprodukt:dimension}
+Es gilt $\dim(V\otimes W) = \dim(V)\cdot\dim(W)$.
+
+Präziser: Für jede Basis $(b_i)_{i\in I}$ von $V$ und $(c_j)_{j\in J}$ von $W$ ist $(v_i\otimes w_j)_{i\in I, j\in J}$ eine Basis von $V\otimes W$.
 \end{lemma}
-\begin{proof}
-	Take $B:=\left\{e_1, \cdots e_d\right\}$, $\tilde{B}:=\left\{\tilde{e_1}, \cdots \tilde{e_d}\right\}$ to be two orthonormal basis sets and the basis transformation $\phi:V\to V, v \mapsto \sum_{i=1}^{d}\braket{v,\tilde{e_i}}\tilde{e_i}$. Then $s_{ij}=\braket{e_j,\tilde{e_i}}$ are the entries of an orthogonal matrix and we have
-	\begin{align*}
-		\Omega_V &= \sum_{i=1}^d e_i \otimes e_i\\
-		\implies \phi\left(\Omega_V\right) &= \phi\left(\sum_{i=1}^d e_i \otimes e_i\right)\\
-		&= \sum_{i=1}^d \phi\left(e_i\right) \otimes \phi\left(e_i\right)\\
-		&=\sum_{j=1}^d \left(\sum_{i=1}^d \braket{e_j,\tilde{e_i}}\tilde{e_i}\right) \otimes \left(\sum_{i=1}^d \braket{e_j,\tilde{e_i}}\tilde{e_i}\right) \\
-		&=\sum_{i=1}^d\sum_{i'=1}^d\underbrace{\left(\sum_{j=1}^d \braket{e_j,\tilde{e_i}}\cdot\braket{e_j,\tilde{e_i}}\right)}_{=(SS^T)_{ii'}=1_{ii'}=\delta_{ii'}} \tilde{e_i}\otimes \tilde{e_i'} \\
-		&=\sum_{i=1}^d\tilde{e_i}\otimes \tilde{e_i} = \Omega_V
-	\end{align*}
-\end{proof}
+
+\begin{remark}
+Insbesondere heißt das, dass jeder Tensor $t\in V\otimes W$ eine eindeutige Koordinaten-Darstellung bzgl. solch einer Basis hat, d.h. es gibt eindeutig bestimmte Skalare $t_{ij}$ sodass
+\[t = \sum_{i\in I, j\in J} t_{ij} b_i\otimes c_j\]
+gilt und umgekehrt liefert jede Wahl von $\abs{I}\times \abs{J}$ vielen Skalaren $t_{ij}$ auf diese Weise genau einen Tensor.
+
+Hier kommen wir auf die \enquote{falsche} Sichtweise auf Tensoren zurück: Es hat sich bei gewissen Leuten eingebürgert, \enquote{Tensor} austauschbar mit \enquote{Ansammlungen von Zahlen, die mehrere Indizes haben} zu verwenden. Trotz der eben getätigten Feststellung, dass in der Tensorprodukte genau wie alle anderen Vektorräume nach der Wahl einer Basis durch Koordinaten beschrieben werden können, kann kaum überschätzt werden, wie kontraproduktiv diese Sichtweise auf Tensoren ist. Diese Sichtweise ist insbesondere bei Anwendern von Mathematik -- Physikern, Ingenieuren, ... -- besonders beliebt
+\end{remark}
+
+\begin{lemma}
+Sind $f:V\to W, g: V'\to W'$ zwei lineare Abbildungen zwischen $K$-Vektorräumen, so gibt es genau eine lineare Abbildung $V\otimes V'  \to W\otimes W'$, die $v\otimes v'$ auf $f(v)\otimes g(v')$ abbildet. Diese Abbildung wird der Bequemlichkeit halber auch als $f\otimes g$ bezeichnet.
+\end{lemma}
+
+\begin{remark}
+Sind die Dimensionen endlich und hat man Basen der jeweiligen Vektorräume gewählt, so kann man $f$ und $g$ durch ihre Darstellungsmatrix angeben. Die Darstellungsmatrix von $f\otimes g$ ist dann das sogenannte \enquote{Kronecker-Produkt} der Matrizen $F$ und $G$. Je nachdem, wie man die Tensorbasis $\set{b_i\otimes c_j}$ anordnet (zeilen- oder spaltenweise durchnummerieren), ist das Kronecker-Produkt durch
+\[F\otimes G = \begin{pmatrix}
+f_{11} G & f_{12} G & \cdots & f_{1m} G \\
+f_{21} G & f_{22} G & \cdots & f_{2m} G \\
+\vdots G &  \vdots  & \ddots & \vdots   \\
+f_{n1} G & f_{n2} G & \cdots & f_{nm} G
+\end{pmatrix} \quad\text{oder}\quad \begin{pmatrix}
+F g_{11} & F g_{12} & \cdots & F g_{1m'} \\
+F g_{21} & F g_{22} & \cdots & F g_{2m'} \\
+  \vdots &   \vdots & \ddots &   \vdots  \\
+F g_{n'1} & F g_{n'2} & \cdots & F g_{n'm'}
+\end{pmatrix}\]
+gegeben.
+\end{remark}
 
 \subsection{The notion of meaningfull linear operations with tensors - light introduction to invariant theory}
 In the context of our physical world, we can use tensors to measure quantities. A possibly familiar example is stress within a material or gas, which is measured with a tensor of second order. 

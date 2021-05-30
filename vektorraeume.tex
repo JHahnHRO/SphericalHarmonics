@@ -2,32 +2,55 @@
 Wir kennen uns bereits mit Vektorräumen aus. Typische Beispiele sind $\IR^3$ oder der Raum der Polynome von einem bestimmten Grad $n$. Da uns in diesem Kurs noch weitere Vektorräume begegnen werden und zum Vergleich mit anderen Mathematischen Objekten (z.B. Algebren), ist hier ihre Definition zusammengefasst.
 
 
-\begin{definition}[Vektorräume]\label{vektorraeume:def}
-	Sei $K$ ein Körper. Ein \udot{$K$-Vektorraum} $(V,+,\cdot)$ besteht aus
-	\begin{itemize}
-		\item einer Menge $V$,
-		\item einer Abbildung $+: V \times V \to V, (v,w) \mapsto v+w$, genannt \udot{(Vektor)addition} und
-		\item einer Abbildung $\cdot: K \times V \to V, (\lambda,v) \mapsto \lambda\cdot v$, genannt \udot{Skalarmultiplikation}.
-	\end{itemize}
-	die die folgenden Bedingungen (Axiome) erfüllen:
+\begin{definition}[Vektorräume und lineare Abbildungen]\label{vektorraeume:def}
+Sei $K$ ein Körper. Ein \udot{$K$-Vektorraum} $(V,+,\cdot)$ besteht aus
+\begin{itemize}
+	\item einer Menge $V$,
+	\item einer Abbildung $+: V \times V \to V, (v,w) \mapsto v+w$, genannt \emph{(Vektor)addition} und
+	\item einer Abbildung $\cdot: K \times V \to V, (\lambda,v) \mapsto \lambda\cdot v$, genannt \emph{Skalarmultiplikation}.
+\end{itemize}
+die die Vektorraum-Axiome in Tabelle \ref{vektorraeume:def_table} erfüllen. Alles, was Element eines Vektorraums ist, kann \emph{Vektor} genannt werden.
+
+\begin{table}[!ht]
+	\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
+	\begin{tabularx}{\textwidth}{p{7cm} X}
 		
-		\begin{table}[!ht]
-			\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
-			\begin{tabularx}{\textwidth}{p{7cm} X}
-				
-				\toprule
-				\textbf{Axiom}                                                              & \textbf{Bedeutung} \\
-				\midrule
-				Assoziativität der Addition                                                 & $\forall u,v,w\in V: u+(v+w) = (u+v)+w$  \\
-				Kommutativität der Addition                                                 & $\forall u,v\in V: u+v=v+u$ \\
-				Neutrales Element der Addition                                              & $\exists 0\in V\forall v\in V: v+0=0+v$  \\
-				Inverses Elements der Addition                                              & $\forall v \in V\exists w \in V: v+w=0$ \\
-				Assoziativität der Skalarmultiplikation                                     & $\forall a,b\in K, v\in V: a\cdot(b\cdot v) = (a\cdot b)\cdot v$ \\
-				Normierung                                                                  & $\forall v \in V: 1 \cdot v = v$, wobei $1$ das Einselement des Körpers bezeichnet \\
-				Distributivität der Skalarmultiplikation bezüglich der Vektoraddition       & $\forall a\in K, u,v\in V: a\cdot(u + v) = a\cdot u + a\cdot v$ \\
-				Distributivität der Skalarmultiplikation bezüglich der Addition des Körpers & $\forall a,b\in K, v\in V: (a + b)\cdot v = a\cdot v + b\cdot v$ \\
-				\bottomrule
-			\end{tabularx}
-			\caption{Eigenschaften eines Vektorraums}
-		\end{table}
+		\toprule
+		\textbf{Vektorraum-Axiom}                            & \textbf{Bedeutung} \\
+		\midrule
+        $(V,+)$ ist eine abelsche Gruppe                     & Addition verhält sich wie erwartet \\
+		\hspace{1cm}Assoziativität                           & $\forall u,v,w\in V: u+(v+w) = (u+v)+w$  \\
+		\hspace{1cm}Kommutativität                           & $\forall u,v\in V: u+v=v+u$ \\
+		\hspace{1cm}Neutrales Element bzw. \enquote{Null}    & $\exists 0\in V\forall v\in V: v+0=0+v$  \\
+		\hspace{1cm}Inverse bzw. \enquote{negative} Elemente & $\forall v \in V\exists w \in V: v+w=0$ \\
+        Eigenschaften der Skalarmultiplikation \\
+		\hspace{1cm}Assoziativität                           & $\forall a,b\in K, v\in V: a\cdot(b\cdot v) = (a\cdot b)\cdot v$ \\
+		\hspace{1cm}Normierung bzw. Nichttrivialität         & $\forall v \in V: 1 \cdot v = v$, wobei $1$ das Einselement des Körpers bezeichnet \\
+        Verträglichkeit von Addition und Skalarmultiplikation \\
+		\hspace{1cm}Distributivität bzgl. $(V,+)$            & $\forall a\in K, u,v\in V: a\cdot(u + v) = a\cdot u + a\cdot v$ \\
+		\hspace{1cm}Distributivität bzgl. $(K,+)$            & $\forall a,b\in K, v\in V: (a + b)\cdot v = a\cdot v + b\cdot v$ \\
+        
+        \textbf{Axiome linearer Abbildungen}                  & \textbf{Bedeutung} \\
+        \midrule
+        Additivität & $\forall v_1,v_2\in V: f(v_1+v_2) = f(v_1)+f(v_2)$ \\
+        Homogenität & $\forall \lambda\in K, v\in V: f(\lambda\cdot v) = \lambda \cdot f(v)$ \\
+        \bottomrule
+	\end{tabularx}
+	\caption{Definierende Eigenschaften von Vektorräumen und linearen Abbildungen}
+    \label{vektorraeume:def_table}
+\end{table}
+
+Sind $V,W$ zwei $K$-Vektorräume und $f: V\to W$ eine Abbildung, so heißt f \emph{(K-)lineare Abbildung} oder \emph{(Vektorraum-)Homomorphismus}, falls die beiden Axiome in Tabelle \ref{vektorraeume:def_table} erfüllt sind.
+\end{definition}
+
+\begin{remark}
+Wir sind praktisch ausschließlich an $\IR$- und $\IC$-Vektorräumen interessiert in diesem Kurs.
+\end{remark}
+
+\begin{definition}[Kern \& Bild]
+Ist $f: V\to W$ eine $K$-lineare Abbildung, so ist
+\[\ker(f) := \Set{v\in V | f(v)=0}\]
+der \emph{Kern von $f$} und
+\[\im(f) := \Set{win W | \exists v\in V: f(v)=w}\]
+das \emph{Bild von $f$}.
 \end{definition}
