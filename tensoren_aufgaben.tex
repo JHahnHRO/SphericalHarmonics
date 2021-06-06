@@ -39,4 +39,21 @@ Wie entspricht das dem Casimir-Element euklidischer Räume?
 \end{subproblem}
 \end{problem}
 
+\begin{problem}[title={Aber Tensoren sind doch so Buchstaben mit Indizes}]
+	Häufig wird einem von Physikern oder Ingenieuren ein Tensor lediglich als ein Buchstabe mit Indizes untergejubelt - z.B. der Spannungstensor $\sigma_{ij}$. Sei $V$ ein endlich-dimensionaler $K$-Vektorraum, $b_1, ..., b_n$ eine beliebige Basis von $V$. Wir betrachten das $m$-fache Tensorprodukt $V^{\otimes m}$. Wer mag, kann zur Vereinfachung $n=3$ und $K=\IR$ wählen.
+	\begin{subproblem}
+		Einen beliebigen Tensor aus $V^{\otimes m}$ schreiben wir z.B. als $T\in V^{\otimes m}$, während er andernorts mit $T_{j_1 \cdots j_n}$ bezeichnet wird, was streng genommen nur eine Kollektion besonders nummerierter Zahlen aus $K$ ist. Wie ist der Zusammenhang zwischen $T$ und $T_{j_1 \cdots j_n}$?
+		
+		Hinweise: Von $V$ induzierte Basiswahl für $V^{\otimes m}$, Vergleiche mit einem Vektor $v\in V$ und $v_i$.
+	\end{subproblem}
+	\begin{subproblem}
+		Ein sehr häufig verwendeter ''Buchstabe mit Indizes'' ist das Kronecker-$\delta$, oder auch der $\delta_{ij}$-Tensor.
+		Um welchen Tensor handelt es sich hier?
+		Hinweis: Übersetze in die Schreibweise mit dem Tensorprodukt $\otimes$.			
+	\end{subproblem}
+	\begin{subproblem}
+		Die Spur eines Tensors zwischen seinem $k$-ten und $l$-ten Faktor wird in Indexschreibweise als Dopplung eines bestimmten Indexes an den entsprechenden Stellen notiert, $T_{j_1\cdots j_{k-1} i j_{k+1} \cdots j_{l-1} i j_{l+1}  \cdots j_m}$, die eine Summe über $i$ von 1 bis $n$ impliziert. Überzeuge dich, dass dies unserer Definition von Spur entspricht. Zeige auch, dass die ebenfalls häufiger auftretende Schreibweise $T_{j_1\cdots j_{k-1} i j_{k+1} \cdots j_{l-1} r j_{l+1}  \cdots j_m} \delta_{ir}$ die gleiche Operation beschreibt (Alternativ: Zeige, dass $tr_{(i,r)}(T)=tr_{(i,n+1)(r,n+2)}(T\otimes \Omega_V)$ gilt).
+	\end{subproblem}
+
+
 \end{sheet}
