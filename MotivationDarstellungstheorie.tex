@@ -1,0 +1,37 @@
+% !TeX root = spherical_harmonics.tex
+% !TeX spellcheck = de_DE
+
+\subsection{Geschickte Basiswahl}
+Wie dem ein oder anderen aufgefallen sein wird, haben wir in dem vorherigen Kapitel Tensoren eingeführt, ohne eine Basis für deren Vektorraum zu benötigen oder vielleicht im Nachgang eine Basis zu konstruieren. Allgemeine Aussagen lassen sich schließlich auch weitgehend basisfrei, oder zumindest basis-unabhängig machen. 
+Jetzt wollen manche jedoch Tensoren nicht nur einfach so für ein bisschen hübsche Mathematik benutzen sondern tatsächlich mal ein Problem mit Zahlen (und zwar nicht nach dem Mathematiker-Prinzip ''Sei $a\in \IR$...'', sondern halt mal welche mit echten Ziffern) ausrechnen. Dafür braucht man ab irgendeinem Punkt eine Basis, idealerweise eine, die orthonormal bezüglich eines gewählten Skalarproduktes ist. Haben wir ein Skalarprodukt $\braket{\cdot,\cdot}$ auf $V$ gegeben, ist das Standardskalarprodukt auf $V^{\otimes m}$ definiert mit der Vorschrift
+\begin{align}
+	\braket{\cdot, \cdot} : V^{\otimes m} \times V^{\otimes m} &\to K\\
+	\braket{v_1 \otimes \cdots \otimes v_m, w_1 \otimes \cdots \otimes w_m} &\mapsto \braket{v_1,w_1} \cdot \cdots \cdot \braket{v_m, w_m}
+\end{align}
+und ihrer linearen Fortsetzung. Gegeben eine Orthonormalbasis $e_1, ..., e_n$ von $V$ lässt sich bezüglich des Standardskalarproduktes sehr einfach eine noch zu normierende, aber orthogonale Basis für $V^{\otimes m}$ bestehend aus allen Kombinationen der Basisvektoren $e_i$ konstruieren: 
+\begin{align}
+	\left\{e_{j_1}\otimes \cdots \otimes e_{j_m} | j_k \in {1 \cdots n} \right\}
+\end{align}
+Sie wird häufig implizit verwendet (siehe Aufgabe \ref{ex:TensorenMitIndizes}). Hieraus ließe sich recht simpel eine orthonormale Basis für den Tensorraum ableiten. Aber ist diese Basis auch eine gute Basis? Was macht eine ''gute'' Basis überhaupt aus?
+\medbreak
+Betrachten wir einmal kurz ein Problem aus der uns bekannten, 3-dimensionalen Welt: \todo{Schriftart der Aufgabe verändern (kleiner, dicker?)}
+
+\begin{gridmp}{\linewidth}
+	{\fontfamily{ptm}\selectfont
+	Anna und Bernd stehen 5 Meter voneinander entfernt in einer ebenen Wiese einer flachen Wand gegenüber. Anna ist weiter weg von der Wand (Abstand: 4m) als Bernd (Abstand: 3m) und hat einen Ball in der Hand. Anna möchte Bernd den Ball so zuwerfen, dass er einmal an der Wand abprallt und dann in Bernds Händen landet. Dabei soll der Ball den Boden nur zwischen der Wand und Bernd berühren und zwar genau 1 mal. Berechne die Trajektorie vom Ball und die Kraft, mit der Anna den Ball abwerfen muss unter der Annahme von Reibungsfreiheit.}
+	\vspace{5cm}
+\end{gridmp}
+
+Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern viel mehr fragen: Welche orthonormale Basis würde man am ehesten wählen, um sie zu lösen und warum?
+\karos{14.5}{4.5} % Karos Breite,Höhe
+
+Diese Frage lässt sich auch auf den Vektorraum der Tensoren übertragen. Wir werden genauer definieren, was es für eine Basis heißt, günstig gewählt zu sein und herausfinden, wie solch eine Basis für symmetrische Tensoren bzw. Polynome aussieht.
+
+\subsection{Einschränkung auf erlaubte lineare Abbildungen zwischen Tensoren und ihre Klassifikation}
+Wie für Tensoren bereits deutlich wurde, gibt es unendlich viele lineare Abbildungen zwischen den Tensorräumen. Jetzt wollen wir mit Tensoren jedoch meistens physikalische Probleme beschreiben, die bestimmten grundsätzlichen Symmetrien unterliegen. So wird z.B. ein Ball bei gleichen Bedingungen immer die gleiche Flugbahn haben, ganz egal wie wir das Koordinatensystem drehen, um die Flugbahn zu berechnen. Diese Erkenntnis lässt sich in mathematische Forderungen gießen, welche uns die linearen Abbildungen zwischen Tensoren als nur 4 Arten klassifizieren lässt.
+
+\subsection{Berechnungen mit linearen Abbildungen}
+Wie wir zuvor gelernt haben, lässt sich im Prinzip jede multi-lineare Abbildung durch eine i.A. sehr große Matrix darstellen. Nun ist eine Berechnung dann besonders einfach (bzw. bei Nutzung eines Computers besonders schnell), wenn die Matrix viele 0en hat. Dies ist ein beliebter Grund in der angewandten Numerik, um einen Basiswechsel durchzuführen: Ziel ist es, die Basis so zu drehen, dass eine voll besetzte Matrix maximal viele 0 hat, da sich so bei hinreichend großen Dimensionen die Rechenzeit insgesamt stark reduziert. 
+
+Mit Hilfe der Darstellungstheorie können wir sogar einen Schritt weiter gehen - Wir werden für eine bestimmte Klasse von linearen Abbildungen eine Basis finden, die uns maximal viele 0en in der Matrix garantiert.
+
