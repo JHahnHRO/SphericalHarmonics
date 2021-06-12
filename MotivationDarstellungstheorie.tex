@@ -14,15 +14,26 @@ und ihrer linearen Fortsetzung. Gegeben eine Orthonormalbasis $e_1, ..., e_n$ vo
 \end{align}
 Sie wird häufig implizit verwendet (siehe Aufgabe \ref{ex:TensorenMitIndizes}). Hieraus ließe sich recht simpel eine orthonormale Basis für den Tensorraum ableiten. Aber ist diese Basis auch eine gute Basis? Was macht eine ''gute'' Basis überhaupt aus?
 \medbreak
-Betrachten wir einmal kurz ein Problem aus der uns bekannten, 3-dimensionalen Welt: \todo{Schriftart der Aufgabe verändern (kleiner, dicker?)}
+Betrachten wir einmal kurz ein Problem aus der uns bekannten, 3-dimensionalen Welt: 
 
 \begin{gridmp}{\linewidth}
 	{\fontfamily{ptm}\selectfont
-	Anna und Bernd stehen 5 Meter voneinander entfernt in einer ebenen Wiese einer flachen Wand gegenüber. Anna ist weiter weg von der Wand (Abstand: 4m) als Bernd (Abstand: 3m) und hat einen Ball in der Hand. Anna möchte Bernd den Ball so zuwerfen, dass er einmal an der Wand abprallt und dann in Bernds Händen landet. Dabei soll der Ball den Boden nur zwischen der Wand und Bernd berühren und zwar genau 1 mal. Berechne die Trajektorie vom Ball und die Kraft, mit der Anna den Ball abwerfen muss unter der Annahme von Reibungsfreiheit.}
+		Anna und Bernd stehen einer flachen Wand gegenüber. Anna hat die Position $(9.5, 4,0)^T$ und  einen Ball in der Hand. Bernd steht bei $(5.5, 2, 0)^T$ und die Wand hat Normalengleichung \[2x-1.5y = 12.5\] mit Normalenvektor $\vc{n}=(2,-1.5,0)^T$ und Stützvektor $\vc{p}=(4,-3,0)^T$. 
+		Anna möchte Bernd den Ball so zuwerfen, dass er einmal an der Wand abprallt und dann in Bernds Händen landet. Dabei soll der Ball den Boden nicht berühren. Berechne die Trajektorie vom Ball und die Kraft, mit der Anna den Ball abwerfen muss unter der Annahme von Reibungsfreiheit.}
 	\vspace{5cm}
 \end{gridmp}
+\medbreak
+Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern viel mehr fragen: Ist die hier gewählte Basis zur Beschreibung der Ausgangssituation oder für die Berechnung hilfreich?
 
-Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern viel mehr fragen: Welche orthonormale Basis würde man am ehesten wählen, um sie zu lösen und warum?
+Formulieren wir das gleiche Problem etwas um:
+
+\begin{gridmp}{\linewidth}
+	{\fontfamily{ptm}\selectfont
+	Anna und Bernd stehen 2.5 Meter voneinander entfernt in einer ebenen Wiese einer flachen Wand gegenüber. Beide haben einen Abstand zur Wand von 5 Metern. Anna hat einen Ball in der Hand und möchte ihn Bernd so zuwerfen, dass er einmal an der Wand abprallt und dann in Bernds Händen landet. Dabei soll der Ball den Boden nicht berühren. Berechne die Trajektorie vom Ball und die Kraft, mit der Anna den Ball abwerfen muss unter der Annahme von Reibungsfreiheit.}
+	\vspace{5cm}
+\end{gridmp}
+Welche Basis würde man am ehesten wählen, um diese Aufgabe zu lösen und warum? Welche Wahlfreiheiten haben wir?
+
 \karos{14.5}{4.5} % Karos Breite,Höhe
 
 Diese Frage lässt sich auch auf den Vektorraum der Tensoren übertragen. Wir werden genauer definieren, was es für eine Basis heißt, günstig gewählt zu sein und herausfinden, wie solch eine Basis für symmetrische Tensoren bzw. Polynome aussieht.
