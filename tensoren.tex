@@ -104,11 +104,13 @@ All diese Fälle sind letztendlich so sehr ähnlich zum linearen Fall, dass es i
 
 \begin{theoremdef}[Universelle Eigenschaft und Existenz des Tensorprodukts]\label{tensorprodukt:def}
 Es seien $V,W$ zwei $K$-Vektorräume. Es gibt eine \enquote{universelle bilineare Abbildung}, d.h. es gibt ein Vektorraum $T$ und eine bilineare Abbildung $\tau: V\times W\to T$, sodass \textit{jede} bilineare Abbildung $\phi: V\times W \to X$ sich schreiben lässt als $f\circ\tau$ mit einer eindeutig bestimmten linearen Abbildung $f: T\to X$.
+\begin{tikzcd}
+V\times W \ar[r,"\tau"] \ar[rd,"\phi"'] & T \ar[d, dotted, "\exists! f"]\\
+& X
+\end{tikzcd}
 
 \medbreak
-$T$ und $\tau$ sind in der Tat eindeutig bestimmt bis auf einen eindeutigen Isomorphismus, d.h. wenn $\tau':V\times W\to T'$ eine weitere universelle bilineare Abbildung ist, dann gibt es genau einen Isomorphismus $\alpha:T\to T'$, \todo{Diagram}{sodass}
-\[V\times W \xrightarrow{\tau} T \xrightarrow{\alpha} T' = \tau'\]
-gilt. Man schreibt üblicherweise $V\otimes W$ statt $T$ und $v\otimes w$ statt $\tau(v,w)$ für diesen eindeutig bestimmten Vektorraum und bilineare Abbildung und nennt sie \emph{Tensorprodukt von $V$ und $W$}. (Achtung: Das Tensorprodukt ist streng genommen die Kombination aus $T$ und $\tau$, nicht nur $T$).
+$T$ und $\tau$ sind in der Tat eindeutig bestimmt bis auf einen eindeutigen Isomorphismus, d.h. wenn $\tau':V\times W\to T'$ eine weitere universelle bilineare Abbildung ist, dann gibt es genau einen Isomorphismus $\alpha:T\to T'$, sodass $\alpha(\tau(v,w)) = \tau'(v,w)$ gilt. Man schreibt üblicherweise $V\otimes W$ statt $T$ und $v\otimes w$ statt $\tau(v,w)$ für diesen eindeutig bestimmten Vektorraum und bilineare Abbildung und nennt sie \emph{Tensorprodukt von $V$ und $W$}. (Achtung: Das Tensorprodukt ist streng genommen die Kombination aus $T$ und $\tau$, nicht nur $T$).
 \end{theoremdef}
 
 \begin{remark}
@@ -137,7 +139,7 @@ Für $V=\IR^3$ und die Standardbasis $e_x, ey, e_z$ ist etwa
 \[\Omega_{\IR^3} = e_x\otimes e_x + e_y\otimes e_y + e_z\otimes e_z\]
 
 Betrachten wir den Raum der linearen Differentialoperatoren erster Ordnung auf $C^\infty(V)$, d.h. der Vektorraum der Operatoren $\set{\partial_v | v\in V}$. Darin schreibt sich das Casimir-Element als
-\[\Omega = \sum_{i=1}^n \partial_{v_i} \otimes \partial_{e_i}\]
+\[\Omega = \sum_{i=1}^n \partial_{e_i} \otimes \partial_{e_i}\]
 Wenn wir die Komposition von Operatoren (eine bilineare Abbildung) auf diesen Tensor anwenden, erhalten wir den Laplace-Operator:
 \[\Delta = \sum_{i=1}^n \partial_{e_i}^2\]
 
@@ -158,30 +160,44 @@ Im Gegensatz zum Wort \enquote{Vektor}, das zumindestens meistens \enquote{Eleme
 
 \smallbreak
 Zu 1. später mehr, zu 2. nur soviel: \enquote{Tensor} kann sowohl \enquote{Element eines Tensorprodukts von Vektorräumen} bedeuten (so werden wir das Wort verwenden) als auch einen von diversen, verwandten Begriffe, z.B. wird das auch als Kurzform von \udot{Tensorfeld} verwendet. Ein Tensorfeld ist ein Funktion, die jedem Punkt des gerade betrachten geometrischen Raums $X$ (oder Raumzeit) je ein Element $t(x)\in V_x\otimes V_x \otimes V_x \otimes ... $ zuordnet, wobei gewisse Stetigkeitseigenschaften gefordert werden, die für zwei eng beieinander liegende Punkte $x,x'$ fordern, dass $V_x$ und $V_{x'}$ \enquote{im Wesentlichen der gleiche Raum} sind und $t(x),t(x')$ ebenfalls eng zusammen liegen (formal ist das natürlich eine richtige $\epsilon$-$\delta$-artige Definition). Ggf. wird auch nicht nur ein Vektorraum $V_x$ pro Punkt verwendet, sondern mehrere. Je nachdem, welche Zusatzeigenschaften man an solch ein Tensorfeld stellt, wird auch nicht nur das Tensorprodukt der Vektorräume selbst, sondern auch eine vom Tensorprodukt abgeleitete Konstruktion betrachtet (z.B. symmetrische oder äußere Potenzen, siehe weiter unten).
-
-\medbreak
-Physiker sprechen außerdem noch \enquote{Pseudotensoren}, die aber mathematisch gesehen auch nur Tensoren wie alle anderen sind. Der Unterschied liegt darin, dass der Tensorraum, aus dem sie kommen, mit einer Zusatzstruktur versehen wird, der einer Darstellung. Während \enquote{gewöhnliche} Tensoren ihre Tensorprodukte in der \enquote{offensichtlichen} Weise als Darstellung auffassen, wird bei Pseudotensoren ein \enquote{Twist} auf die Darstellung angewendet.
 \end{remark}
 
 \subsection{Elementare Eigenschaften des Tensorprodukts}
 
+\begin{lemma}[{$K\otimes V = V$}]
+Ist $V$ ein $K$-Vektorraum, so ist
+\[\left\{\begin{array}{rcl}
+K\otimes V & \leftrightarrows & V \\
+\alpha\otimes v & \mapsto & \alpha v \\
+1\otimes v & \reflectbox{$\mapsto$} & v
+\end{array}\right.\]
+ein paar zueinander inverser Isomorphismen.
+
+Wir erlauben uns, wann immer es uns nützlich erscheint, $K\otimes V$ als identisch zu $V$ zu betrachten. Dabei meinen wir immer die obige Identifizierung.
+\end{lemma}
+
 \begin{remark}
-Da das Tensorprodukt für alle Paare von $K$-Vektorräumen definiert ist und selbst wieder ein $K$-Vektorraum ist, können wir natürlich auch Tensorprodukte von Tensorprodukten bilden.
+Da das Tensorprodukt für alle Paare von $K$-Vektorräumen definiert ist und selbst wieder ein $K$-Vektorraum ist, können wir natürlich auch Tensorprodukte von Tensorprodukten bilden. Es stellt sich die Frage, ob es eine Rolle spielt, wie genau wir das tun.
 \end{remark}
 
 \begin{theoremdef}[Assoziativität des Tensorprodukts \& Höhere Tensorgrade]
-Für alle $V_1, V_2, V_3$ ist
+Für alle $K$-Vektorräume $V_1, V_2, V_3$ ist
 \[\begin{array}{rcl}
-V_1\otimes(V_2\otimes V_3) &\leftrightarrows& (V_1\otimes V_2)\otimes V_3 \\
-v_1\otimes (v_2\otimes v_3) &\mapsto& (v_1\otimes v_2)\otimes v_3 \\
-v_1\otimes (v_2\otimes v_3) &\rotatebox[origin=c]{180}{$\mapsto$}& (v_1\otimes v_2)\otimes v_3
+V_1\otimes(V_2\otimes V_3) &\to& (V_1\otimes V_2)\otimes V_3 \\
+v_1\otimes (v_2\otimes v_3) &\mapsto& (v_1\otimes v_2)\otimes v_3
 \end{array}\]
-ein paar zueinander inverser Isomorphismen.
+ein Isomorphismus.
 
-Wir erlauben es uns, aufgrund der Natürlichkeit dieser Isomorphismen, Klammern wegzulassen und das Tensorprodukt kurz als $V_1\otimes V_2\otimes V_3$ zu schreiben. Analog auch für höhere Dimensionen. Der Kürze halber definieren wir die \emph{Tensorpotenzen} 
+Wir erlauben es uns, aufgrund der Natürlichkeit dieses Isomorphismus, Klammern in mehrfachen Tensorprodukten wegzulassen und kurz $V_1\otimes V_2\otimes V_3\otimes\cdots\otimes V_k$ zu schreiben. Der Kürze halber definieren wir die \emph{Tensorpotenzen} 
 \[V^{\otimes k} := \begin{cases} K & k=0 \\ 
 \underbrace{V\otimes V\otimes\cdots\otimes V}_{k\text{-mal}} & k>0\end{cases}\]
 \end{theoremdef}
+
+\begin{remark}
+Mit dieser Notation gelten dann (abzüglich eben jener natürlicher Isomorphismen) die \enquote{Potenzgesetze}:
+\[V^{\otimes n}\otimes V^{\otimes m} = V^{\otimes(n+m)}\]
+\[(V^{\otimes n})^{\otimes m} = V^{\otimes nm}\]
+\end{remark}
 
 \subsection{Index-Notation - Was das ist und wie man sie loswird}
 
@@ -200,7 +216,7 @@ Insbesondere heißt das, dass jeder Tensor $t\in V\otimes W$ eine eindeutige Koo
 \[t = \sum_{i\in I, j\in J} t_{ij} b_i\otimes c_j\]
 gilt und umgekehrt liefert jede Wahl von $\abs{I}\times \abs{J}$ vielen Skalaren $t_{ij}$ auf diese Weise genau einen Tensor.
 
-Hier kommen wir auf die \enquote{falsche} Sichtweise auf Tensoren zurück: Es hat sich bei gewissen Leuten eingebürgert, \enquote{Tensor} austauschbar mit \enquote{Ansammlungen von Zahlen, die mehrere Indizes haben} zu verwenden. Trotz der eben getätigten Feststellung, dass in der Tensorprodukte genau wie alle anderen Vektorräume nach der Wahl einer Basis durch Koordinaten beschrieben werden können, kann kaum überschätzt werden, wie kontraproduktiv diese Sichtweise auf Tensoren ist. Diese Sichtweise ist insbesondere bei Anwendern von Mathematik -- Physikern, Ingenieuren, ... -- besonders beliebt
+Hier kommen wir auf die \enquote{falsche} Sichtweise auf Tensoren zurück: Es hat sich bei gewissen Leuten eingebürgert, \enquote{Tensor} austauschbar mit \enquote{Ansammlungen von Zahlen, die mehrere Indizes haben} zu verwenden. Trotz der eben getätigten Feststellung, dass in der Tensorprodukte genau wie alle anderen Vektorräume nach der Wahl einer Basis durch Koordinaten beschrieben werden können, kann kaum überschätzt werden, wie kontraproduktiv diese Sichtweise auf Tensoren ist. Diese Sichtweise ist insbesondere bei Anwendern von Mathematik -- Physikern, Ingenieuren, ... -- besonders beliebt.
 \end{remark}
 
 \begin{lemma}
@@ -223,250 +239,250 @@ F g_{n'1} & F g_{n'2} & \cdots & F g_{n'm'}
 gegeben.
 \end{remark}
 
-\subsection{The notion of meaningfull linear operations with tensors - light introduction to invariant theory}
-In the context of our physical world, we can use tensors to measure quantities. A possibly familiar example is stress within a material or gas, which is measured with a tensor of second order. 
-The fundamental property we expect from all quantities that we measure, is that they are independent of the orientation of the orthonormal coordinate system - rotating, inverting or mirroring the basis vectors should not change the value of the properties we are interested in (though this may change the numbers with which we express that quantity).
-A velocity vector for example should always point in the same direction, regardless of wether its coordinates are $(3,4,0)^T$ or $(0,0,5)^T$. The same goes for its length or the determinant of a matrix.
-
-%The first question we need to answer is: How does a length preserving change of the coordinate system such as a rotation act on a tensor? 
-\begin{definition}[Orthogonal Group $O^3$]
-	Let $O^3$ be the set of all orthogonal matrices \[O^3:=\{r\in\IR^{3\times 3}: |\det{r}| = 1 \}.\] 
-	All of the operations described above can be described with a corresponding matrix in $O^3$. Furthermore, equipped with the typical matrix-matrix multiplication, $O^3$ fullfills all requirements of a group - hence the name \emphName{orthogonal group}. $O^3$ has infinitely many elements, but is still compact - allowing for the notion of taking an average over the whole group.
-\end{definition}
-
-\begin{definition}[Action of $O^3$ on the tensor space]
-	An element $r\in O^3$ acts on a vector $v\in\IR^3$ via the matrix-vector product $r\cdot v$, resulting in the rotation or mirroring of the given vector. This is extended to tensors - An element $r\in O^3$ acts on a tensor in $\mathcal{T}$ through the matrix-vector multiplication of each factor of that tensor:
-	\begin{align*}
-		r(\cdot):\mathcal{T} &\to \mathcal{T}\\
-		v_1 \otimes \cdots \otimes v_n&\mapsto r(v_1 \otimes \cdots \otimes v_n) :=r\cdot v_1 \otimes \cdots \otimes r\cdot v_n.
-	\end{align*}
-\end{definition}
-
-\begin{definition}[Orthogonal Group $O^2_{\vc{n}}$ as subgroup of $O^3$]
-	Let $\vc{n}\in \IR^3$. $O^2_{\vc{n}}$ is the subgroup of $O^3$, that acts like the identity on $\vc{n}$,  \[O^2_{\vc{n}}:=\{r\in O^3 | r(\vc{n}) = \vc{n} \}.\] 
-	$O^2_{\vc{n}}$  is the embedding of $\IR^2$ and $O^2:= \{r\in\IR^{2\times 2}: |\det r| = 1\}$ as a plane $E$ into $\IR^3$ with $E\perp\vc{n}$.
-\end{definition}
-
-
-\begin{definition}[$O^3$-Invariant linear map of the tensor space]
-	A linear map $f: \mathcal{T}\to \mathcal{T}$ is called \emphName{compatible (or invariant) with respect to $O^3$}, iff for all actions $r\in O^3$  and for any tensor $\ten{T}\in\mathcal{T}$ the relationship
-	\[f \circ r (\ten{T}) = r \circ f (\ten{T})\]
-	holds. This precisely expresses the above notion of independency (or invariancy) of a quantity or tensor of the choice of coordinate system.
-\end{definition}
-Finding $O^3$-invariant linear maps and being sure, that one has found all possibilities, requires some very interesting and complicated piece of mathematics known as \emphName{invariant theory}. This goes far beyond the scope of this thesis, we will restrict ourselves to introducing and applying the results. The interested reader may start by inquiring for the \emphName{Brauer algebra}. 
-
-\subsubsection{Operations on one tensor}\label{chap:tensorOperations}
-Below is a list of all types of $O^3$-invariant linear maps between tensors, defined with the elementary tensor $v_1 \otimes \cdots \otimes v_n$. All combinations of them is the full set of of $O^3$-invariant linear maps between tensors:
-\begin{description}
-	\item[Multiplication with a scalar $s\in\IR$.] This does not change the degree of the tensor.
-	
-	\item[Permutation of the factors of a tensor.] We have seen this in tensors of second degree, where we called it transpose in correspondence to matrices. Formally, $\sigma \in S_n$ acts on a tensor $v_1 \otimes \cdots \otimes v_n$:
-	\[\sigma(\cdot): \mathcal{T}\to \mathcal{T}, v_1 \otimes \cdots \otimes v_n \mapsto v_{\sigma^{-1}(1)} \otimes \cdots \otimes v_{\sigma^{-1}(n)}\]
-	This does not change the degree of the tensor or any of the vectors $v_i$, it only reorders them. When using index notation, this operation is represented by a permutation of indices.
-	
-	\item[Taking the trace $tr$ between two factors of a tensor.] We can pick two vectors of a tensor and replace them with their scalar product:
-	\[tr_{i;j} (\cdot): \mathcal{T} \to \mathcal{T}, v_1 \otimes \cdots \otimes v_i \otimes \cdots \otimes v_j \otimes \cdots \otimes v_n \mapsto \braket{v_i,v_j} v_1 \otimes \cdots \otimes v_{i-1}\otimes v_{i+1} \otimes \cdots \otimes v_{j-1} \otimes v_{j+1} \otimes \cdots \otimes v_n\]
-	This reduces the degree of the tensor by $2$. When using index notation, this operation is represented by the sum over two identical indices, which is often abbreviated with Einstein's sum convention.
-	
-	\item[Tensor multiplication with the Casimir element $\Omega$.]
-	\[\ten{\Omega} (\cdot):  \mathcal{T}\to \mathcal{T}, v_1 \otimes \cdots \otimes v_n \mapsto \Omega \otimes v_{1} \otimes \cdots \otimes v_{n} \]
-	This increases the degree of the tensor by $2$. When using index notation, this operation is represented by the multiplication with $\delta_{ij}$.
-\end{description}
-
-\subsubsection{Operations between two tensors}
-Given two tensors $u,v \in \mathcal{T}$, the question of finding invariant linear maps with respect to $O^3$ $\mathcal{T} \times \mathcal{T} \to \mathcal{T}$ is easily reduced to the already described case of operations of one tensor. We just have to identify all possible maps $\mathcal{T} \otimes \mathcal{T} \to \mathcal{T} = \mathcal{T} \to \mathcal{T}$ due to the isomorphism $\mathcal{T} \times \mathcal{T} \to \mathcal{T} \cong \mathcal{T} \otimes \mathcal{T} \to \mathcal{T}$ for bilinear and linear maps. To be more specific: Given two tensors $u,v$, take the tensor product $u\otimes v$ and now aply any combination of the operations described for one tensor. Nevertheless, some operations are very common and worth mentioning.
-
-\begin{definition}[Contraction between two tensors]
-	Taking one or multiple traces between two tensors is given a special name: Contraction.
-	\begin{align*}
-		tr_{i;j} (\cdot,\cdot): \mathcal{T} &\times \mathcal{T} \to \mathcal{T},
-		\\
-		v_1 \otimes \cdots \otimes v_i \otimes \cdots\otimes v_n &\times u_1 \otimes \cdots \otimes u_i \otimes u_j \otimes \cdots \otimes u_n 
-		\\
-		\mapsto \braket{v_i,u_j} v_1 \otimes \cdots \otimes v_{i-1}\otimes v_{i+1} \otimes \cdots \otimes v_n &\otimes u_1 \otimes u_{j-1} \otimes u_{j+1} \otimes \cdots \otimes u_n
-	\end{align*}
-\end{definition}
-\begin{definition}[Standard scalar product]
-	The standard scalar product $\braket{\cdot,\cdot}$ between two tensors of same order is defined as the (ordered) full contraction between the two tensors:
-	\begin{align*}
-		\braket{\cdot,\cdot} &: \  V^{\otimes n} \times V^{\otimes n} \to \IR,\\
-		\braket{u_1 \otimes \cdots \otimes u_n,v_1 \otimes \cdots \otimes v_n} &\mapsto tr_{1,\cdots,n;1,\cdots,n} (u_1 \otimes \cdots \otimes u_n,v_1 \otimes \cdots \otimes v_n) \\
-		&= \braket{u_1,v_1}\cdot\braket{u_2,v_2} \cdots \braket{u_n,v_n}.
-	\end{align*}
-\end{definition}
-\subsection{Symmetric tensor space}
-\begin{definition}[Symmetric tensors]
-	A tensor $v$ of $n$-th order is called symmetric, iff for all permutations $\sigma \in S_n$ holds:
-	\[\sigma(v) = v.\]
-\end{definition}
-The space spanned by all symmetric tensors of degree $n$, $\Sym{n}$, is an invariant subspace of the tensor space due to the completely decoupled nature of the actions of $S_n$ and $O^3$ on a tensor. We can take any tensor and project it onto this subspace by taking the average of all possible permutations:
-\begin{align*}
-	q: {\IR^3}^{\otimes n} &\to \Sym{n}\\
-	q\left(v_1 \otimes \cdots  \otimes v_n\right) &\mapsto \frac{1}{n!} \sum_{\sigma \in S_n} v_{\sigma(1)} \otimes \cdots \otimes v_{\sigma(n)}
-\end{align*}
-and linear extension. In index notation this is denoted by round brackets surrounding the indices. $\Sym{n}$ is of dimension $\frac{1}{2}(n+1)(n+2)$.
-
-%\begin{note}
-%	It is easy to show for the standard scalar product on $\IR^{\otimes n}$, that for all $v,u \in \IR^{\otimes n}$ the following identity holds:
-%	\begin{equation}
-%		\braket{q(v),q(u)} = \braket{v,q(u)} = \braket{q(v),u}.
-%		\label{eq:scalarqprod}
-%	\end{equation}
-%\end{note}
-\begin{definition}[Trace and contraction of symmetric tensors]
-	Since for symmetric tensors all the positions $i,j (i\neq j)$ of the two vectors that are used to take the trace $tr_{i;j}$ (contraction) are equivalent to each other, we can use a notation that only shows the relevant information: The \emphProp{number} of traces (contractions) taken of one tensor (between two tensors). \\
-	$k$-fold trace of a symmetric tensor:
-	\begin{align*}
-		tr^{k} (\cdot): \Sym{n} &\to \Sym{n-2k},\\
-		tr^{k} (s) & \mapsto tr_{1,3,5\cdots, 2k-1;2,4,6,\cdots,2k} (s)
-	\end{align*}
-	$k$-fold contraction between two symmetric tensors:
-	\begin{align*}
-		tr^{k} (\cdot,\cdot): \Sym{n}\times\Sym{m} &\to \Sym{n-k}\otimes\Sym{m-k},\\
-		tr^{k} (s,t) & \mapsto tr_{1,2,3\cdots, k;1,2,3\cdots,k} (s,t)
-	\end{align*}		
-\end{definition}
-
-Due to the polynomial nature of the ansatz for the distribution function, we will almost exclusively work with symmetric tensor spaces (reference chapter \ref{chap:isomorphismPolyTensor} to see why). Casually spoken, $O^3$ imposes a specific structure on $\Sym{n}$, which brings us to the next section.
-
-\subsection{Level 1 invariant theory: Irreducable and invariant subspaces of the symmetric tensor space}
-\begin{definition}[Invariant subspaces] A subspace $U$ of any vector space $V$ is called \emphName{invariant} with respect to the action of a group $G$, or $G$-invariant, iff for all $r\in G$ and for all $u\in U$, the action of $r$ on $u$ still is in $U$, $r(u)\in U$ or equivilantly: $\forall r\in G: r(U)=U$.	
-\end{definition}
-
-\begin{example}[$O^2_{\vc{n}}$-invariant subspaces of $\IR^3$]
-	We pick $\IR^3$ as vector space and the subgroup $O^2_{\vc{n}} \subset O^3$ along with a direction $n\in\IR^3$, for which by definition $\forall r \in O^2_{\vc{n}}: r(n)=n$.
-	Then the subspace $\spn{\vc{n}}= \{\alpha \vc{n}|\alpha\in\IR\}$ is a one-dimensional invariant subspace, since 
-	\[\forall r \in O^2_{\vc{n}}, \forall \alpha\in\IR: r(\alpha \vc{n}) = \alpha r(\vc{n}) = \alpha\vc{n}.\]
-	Given an $O^3$-compatible scalar product, we can define the plane $E\subset\IR^3$ orthogonal to $\vc{n}$ and decompose $\IR^3$ into \[\IR^3 = \spn{\vc{n}}\bigoplus E.\] It is easily shown that $E$ is also an invariant, 2-dimensional subspace under the action of $O^2_{\vc{n}}$.
-	
-	% a general vector $\vc{v}\in\IR^3$ into \[\vc{v}=\underbrace{\vc{v}-\braket{\vc{v},\vc{n}}\vc{n}}_{\in E} + \braket{\vc{v},\vc{n}}\vc{n} =: \vc{v}_{E} + \vc{v}_{\vc{n}}\]
-\end{example}
-
-\begin{example}[$O^3$-invariant subspaces of the tensor space]
-	These are subspaces $U\subset\mathcal{T}$ that fullfill $\forall r\in O^3: r(U)=U$. One such subspace is the above described space of symmetric tensors, which is of relatively large dimensionality for high $n$. Another example of an invariant subspace would be $\spn{\Omega}\subset\Sym{2}$ with a dimensionality of $1$.
-	One may wonder, if $\Sym{n}$ can be further decomposed into "smallest", invariant subspaces, and if such a decomposition is unique.
-\end{example}
-\begin{definition}[Irreducable (and invariant) subspaces] 
-	A subspace $U$ of any vector space $V$ is called \emphName{irreducable} with respect to the action of a group $G$, or \emphName{$G$-irreducable}, iff it is invariant and there is no invariant subspace $W\subset U$ with the properties $W\neq U$ and $W\neq 0$. If a subspace $U$ is invariant and $\dim U=1$, then it is also irreducable, however an irreducable subspace can be of dimension larger than $1$.
-	
-	Two irreducable subspaces $U_1, U_2, U_1 \neq U_2$ of a vector space $V$ are orthogonal to each other with respect to any scalar product of $V$ that is compatible with the action of the group $G$. We can project from the full vector space onto an irreducable subspace. Due to the universal orthogonality, such a projection is always unique up to a constant (or a zero).
-	
-\end{definition}
-\begin{example}[$O^2_{\vc{n}}$-irreducable subspaces of $\IR^3$]
-	We already know that $E$ and $\spn{\vc{n}}$ are invariant subspaces. Since $\dim{\spn{\vc{n}}}=1$, $\spn{\vc{n}}$ is also an irreducable subspace.
-	For the 2-dimensional $E$ we cannot find a lower-dimensional invariant subspace, since \[\exists r\in O^2_{\vc{n}}: \forall \vc{v}\neq 0 \in E, \forall \alpha\in\IR: r(\vc{v})\neq \alpha \vc{v}.\] This means that $E$ is irreducable as well and that we have found all $O^2_{\vc{n}}$-irreducable subspaces of $\IR^3$.
-\end{example}
-\begin{example}[$O^2_{\vc{n}}$-irreducable subspaces of $\Sym{n}$]
-	We note:
-	\[\Sym{n} = q\left(\left(\IR^3\right)^{\otimes n}\right).\]
-	Insert the splitting of $\IR^3$ into $E$ and $\spn{\vc{n}}$:
-	\begin{align*}
-		\Sym{n} &= q\left(\left(E\bigoplus\spn{\vc{n}}\right)^{\otimes n}\right) \\
-		&=\bigoplus_{i=0}^n q\left(E^{\otimes i}\otimes \left(\spn{\vc{n}}\right)^{\otimes n-i}\right)
-	\end{align*}
-	The orthogonality between $E$ and $\spn{\vc{n}}$ leads to an orthogonality between each of these tensor spaces, the invariancy of each $q\left(E^{\otimes i}\otimes \left(\spn{\vc{n}}\right)^{\otimes n-i}\right)$ follows from the invariancy of the "building blocks" $E$ and $\spn{\vc{n}}$. However, for general $n,i$ these subspaces are not irreducable. For instance we find that the invariant tensor $q(\Omega_E^{\otimes j})$ spans a 1-dimensional (and therefore irreducable) subspace  of $q(E^{\otimes 2j})$. In general, since $q\left(E^{\otimes i}\otimes \left(\spn{\vc{n}}\right)^{\otimes n-i}\right)\cong q(E^{\otimes i})\cong\sym{i}$, finding all irreducable subspaces of $\sym{i}$ immediately leads to all irreducable subspaces of $q\left(E^{\otimes i}\otimes \left(\spn{\vc{n}}\right)^{\otimes n-i}\right)$. 
-\end{example}
-\begin{remark}[Invariant tensors]
-	Sometimes one may work with a tensor $\ten{T}$ that is invariant with respect to a group $G$, i.e. $\forall r\in G: r(T) = T$. For example:
-	\begin{itemize}
-		\item $G=S_n$. Then all tensors $\ten{T}\in\Sym{n}$ are invariant
-		\item $G=O^3$. Then all tensors $\ten{T}\in(\IR^3)^{\otimes 2i}$ that are a linear combination of permutations $\Omega^{\otimes i}$ are invariant. If in addition $\ten{T}\in\Sym{2i}$: $\ten{T}=\alpha q\left(\Omega^{\otimes i}\right), \alpha\in\IR$.
-		\item $G=O^2_{\vc{n}}$ and $\ten{T}\in\Sym{n}$. Not all tensors in $q\left(E^{\otimes m}\right)$ are invariant, in fact the only invariant tensors are $\alpha q\left(\Omega_E^{\otimes i}\right), \alpha\in\IR\implies m=2i$. All tensors in $\spn{\vc{n}}$ are invariant, so an $O^2_{\vc{n}}$-invariant, symmetric tensor must come from the subspace spanned by $\left\{q\left(\Omega_E^{\otimes i}\otimes \vc{n}^{\otimes n-2i}\right)\right\}$, i.e.
-		\begin{equation}
-			\ten{T}=\sum_{i=0}^{\frac{n}{2}} \alpha_i q\left(\Omega_E^{\otimes i}\vc{n}^{\otimes n-2i}\right), \alpha_i \in \IR.
-			\label{eq:O2invariantTensors}
-		\end{equation}
-	\end{itemize}
-	Notice, that not all tensors from an invariant subspace are themselves invariant. Even that a tensor lies in an irreducable subspace is no guarantee that the tensor itself is invariant. 
-\end{remark}
-
-\begin{example}[$O^3$-irreducable subspaces of $\Sym{n}$]
-	It turns out, that $\Sym{n}$ can be expressed as the direct sum of $\left\lfloor\frac{n}{2}\right\rfloor+1$ $O^3$-irreducable subspaces (i.e. $\Sym{n}$ is \emphName{semi-simple}). Most of these subspaces are of dimensionality greater than $1$. Furthermore, these irreducable subspaces are \emphProp{pairwise orthogonal} with respect to \emphProp{any} scalar product of the $\Sym{n}$ that is compatible with $O^3$ (which is a rather redundant requirement, since we wouldn't want to choose a scalar product that is not compatible with $O^3$ anyway).
-	
-	For every order $n$, we find that the largest irreducable subspace of $\Sym{n}$ consists of trace-free tensors.
-	\begin{definition}[Symmetric trace-free tensors]
-		A symmetric tensor $v$ of order $n>1$ is called symmetric trace-free, iff $tr_{1,2}(v)=0$. Tensors of order 1 are always symmetric tracefree.
-		The space spanned by all symmetric trace-free tensors of order $n$ is denoted as $\STF{n}$ and has dimension $2n+1$. On $\STF{n}$ all $O^3$-compatible scalar products of the tensor space are equivalent to each other (they give the same result up to a constant factor). That has the effect that an orthogonal basis of $\STF{n}$ chosen with respect to one scalar product is orthogonal with respect to any other scalar product (as long as both are $O^3$-compatible). In index notation, the projection onto the space of symmetric trace-free tensor is denoted as square brackets around the indices.
-	\end{definition}
-	The other irreducable subspaces are related to symmetric tracefree tensors:
-	\begin{definition}[Symmetric traceable tensors]
-		$\ST{n,a}$ is the space of symmetric tensors of order $n+2a$, that result in a trace-free tensor (of order $n$) after taking $i$ traces. Equivilantly: $\ST{n,a}$ is the space of symmetric tensors of order $n+2a$, that can be expressed as the result of taking trace-free tensors (of order $n$), and applying the linear map
-		\[q\circ \underbrace{\ten{\Omega}\circ \cdots \circ \ten{\Omega}}_{i \text{ times}}.\]
-		This means that there is a bijective map between $\ST{n,i}$ and $\STF{n}$, i.e. $\ST{n,i}$ and $\STF{n}$ are isomorph to each other.
-	\end{definition}
-	
-	\begin{lemma}[Decomposition of $\Sym{n}$ into its $O^3$ irreducable subspaces]
-		Each $\STF{i}$ is a building block for subspaces of $\Sym{n}, i\leq n$,
-		\[\Sym{n} = \bigoplus_{i=0}^{\lfloor\frac{n}{2}\rfloor} q\left(\Omega^{\otimes i}\otimes \STF{n-2i}\right)=\bigoplus_{i=0}^{\lfloor\frac{n}{2}\rfloor}\ST{n-2i,i}\]
-		
-	\end{lemma}
-	
-	When building an orthogonal basis for $\Sym{n}$ for a physical problem (i.e. $O^3$ acts on $\Sym{n}$), the natural choice is the composition of all orthonormal basis sets from each of the subspaces. 
-	
-\end{example}
-
-\subsection{Level 2 invariant theory: Linear and Bilinear Maps between Irreducable, invariant subspaces of the symmetric tensor space}
-\begin{lemma}[Compatible linear Maps between irreducable subspaces (Schur's Lemma)]
-	Let $U_1$ and $U_2$ be two invariant, irreducable subspaces of a vector space. A compatible linear map $\phi: U_1 \to U_2$ is only non-zero, iff $U_1$ and $U_2$ are isomorph to each other. All non-zero linear maps $U_1 \to U_2$ are the same up to a constant.
-\end{lemma}
-Applied to the space of all symmetric tensors, we find non-zero, $O^3$-compatible linear maps only of the form $\ST{n,a}\to\ST{n,b}, n,a,b \in \IN_0$.
-\begin{lemma}[$O^3$-compatible, bilinear maps between symmetric trace free tensors]
-	An $O^3$-compatible bilinear map $\phi^{n\tilde{n}\hat{n}}: \STF{\tilde{n}}\times\STF{\hat{n}}\to\STF{n}$ can only be non-zero, iff the following conditions apply:
-	\begin{align*}
-		\tilde{n}+\hat{n} + n \text{ even}\\
-		|\tilde{n}-\hat{n}|\leq n\leq \tilde{n}+\hat{n}
-	\end{align*}
-	Then $\phi^{n\tilde{n}\hat{n}}$ is unique (up to a constant).
-\end{lemma}
-\begin{proof}
-	$\phi^{n\tilde{n}\hat{n}}$ is isomorph to an $O^3$-compatible linear map $\varphi^{n\tilde{n}\hat{n}}: \STF{\tilde{n}}\otimes\STF{\hat{n}}\to\STF{n}$. $\varphi$ can only be non-zero, iff there exists a subspace of $\STF{\tilde{n}}\otimes\STF{\hat{n}}$, that is isomorph to $\STF{n}$, so we are looking for a projection of $\STF{\tilde{n}}\otimes\STF{\hat{n}}$ onto $\ST{n,i}$ with condition \[n+2i=\tilde{n}+\hat{n} \iff \tilde{n}+\hat{n} + n \text{ even}.\]
-	Such a projection is always linear, unique, and compatible with $O^3$. Due to the isomorphism between $\STF{n}$ and $\STF{n,i}$, this makes $\varphi$ unique up to a constant, if it exists. 
-	
-	Let $s$ be any tensor of degree $n$, and $t$ be the resulting tensor from the projection of $t$ onto $\STF{n}$. Projecting a tensor of the form $\Omega \otimes s$ (or some permutation) onto $\STF{n+2}$ is equivalent to projecting $t$ onto $\STF{n+2}$. Since the only linear map from $\STF{n}$ to $\STF{n+2}$ is the zero-map, the projection of $\Omega \otimes s$ onto $\STF{n+2}$ will always result in $0$. This imposes the condition
-	\[n\leq \tilde{n}+\hat{n}\]
-	onto $n, \tilde{n},$ and $\hat{n}$.
-	
-	In chapter \ref{chap:tensorOperations} we listed all types of linear, $O^3$-compatible maps, $\varphi^{n\tilde{n}\hat{n}}$ must be a combination of these. The only map that decreases the order of a given tensor is taking the trace of that tensor. For a tensor of the specific form $\STF{\tilde{n}}\otimes\STF{\hat{n}}$, taking the trace within the first $\tilde{n}$ or the last $\hat{n}$ factors will always be zero. The only traces that yield a non-zero result are those taken between the first $\tilde{n}$ and the last $\hat{n}$ factors, i.e. $k$-fold contractions between the two arguments of $\phi$. Since the two arguments are each symmetric, all $k$-fold contractions between them are equivalent. The number of traces $k$ with a non-zero result we can take of a tensor from the space $\STF{\tilde{n}}\otimes\STF{\hat{n}}$ is limited by $\tilde{n}$ and $\hat{n}$, $k\leq \min{\tilde{n},\hat{n}}$. Since $n=\tilde{n}+\hat{n}-2k$, that imposes the condition on $n$:
-	\[n \geq \tilde{n}+\hat{n}-2\min(\tilde{n},\hat{n}) = \max(\tilde{n}-\hat{n},\hat{n}-\tilde{n}) = |\tilde{n}-\hat{n}|.\]
-	
-	%5For all $n$ fullfilling the above conditions, $\ST{n,i}$ with $i=\frac{\tilde{n}+\hat{n}-n}{2}$ is one of the invariant, irreducable subspaces of $\STF{\tilde{n}}\otimes\STF{\hat{n}}$, i.e. $\varphi$ is a projection (up to a constant) onto $\ST{n,i}$ (or 0), making $$.
-\end{proof}
-\begin{lemma}[$O^3$-compatible, bilinear maps between symmetric tensors]\label{lem:bilinearMapDecomp}
-	Every $O^3$-compatible bilinear map $\psi: \Sym{\tilde{m}}\times\Sym{\hat{m}}\to\Sym{m}$ with $m,\tilde{m},\hat{m}\in\IN_0$  can be expressed as the sum of $O^3$-compatible bilinear maps between all combinations of invariant, irreducable subspaces of $\Sym{\tilde{m}}$, $\Sym{\hat{m}}$, and $\Sym{m}$. With
-	\begin{align*}
-		m&=n+2a, & \tilde{m}&=\tilde{n}+2b, & \hat{m} &= \hat{n} +2c & 	\tilde{n},b,\hat{n},c,n,a &\in \IN_0
-	\end{align*}
-	we can write
-	\begin{align*}
-		\psi: &\Sym{\tilde{m}}\times\Sym{\hat{m}}\to\Sym{m}
-		\\
-		& = \bigoplus_{b=0}^{\lfloor\frac{\tilde{m}}{2}\rfloor}\ST{\tilde{n},b} \times \bigoplus_{c=0}^{\lfloor\frac{\hat{m}}{2}\rfloor}\ST{\hat{n},c} \to \bigoplus_{a=0}^{\lfloor\frac{m}{2}\rfloor}\ST{n,a}
-		\\
-		&=
-		\bigoplus_{b=0}^{\lfloor\frac{\tilde{m}}{2}\rfloor} \bigoplus_{c=0}^{\lfloor\frac{\hat{m}}{2}\rfloor}
-		\bigoplus_{a=0}^{\lfloor\frac{m}{2}\rfloor}
-		\ST{\tilde{n},b} \times \ST{\hat{n},c} \to \ST{n,a}\\
-		&=:\bigoplus_{b=0}^{\lfloor\frac{\tilde{m}}{2}\rfloor} \bigoplus_{c=0}^{\lfloor\frac{\hat{m}}{2}\rfloor}
-		\bigoplus_{a=0}^{\lfloor\frac{m}{2}\rfloor} \psi_{abc}^{n\tilde{n}\hat{n}}
-	\end{align*}
-	Each of the $\psi_{abc}^{n\tilde{n}\hat{n}}$ are unique up to a constant and only non-zero, iff the following conditions apply:
-	\begin{align*}
-		\tilde{n}+\hat{n} + n \text{ even}\\
-		|\tilde{n}-\hat{n}|\leq n\leq \tilde{n}+\hat{n}.
-	\end{align*}
-	Given a set of all maps $\psi_{abc}^{n\tilde{n}\hat{n}}$, two $\psi$ can only differ in the constants multiplied with those maps. Furthermore, due to the isomorphism between $\STF{n}$ and $\ST{n,i}$, all $\psi_{abc}^{n\tilde{n}\hat{n}}$  are isomorph to a map $Q^{n\tilde{n}\hat{n}}: \STF{\tilde{n}}\otimes\STF{\hat{n}}\to\STF{n}$, which is unique up to a constant. 
-	Given a set of all maps $Q^{n\tilde{n}\hat{n}}$, two tensors of the form $U:=q\left(\Omega^{\otimes b}\otimes u\right)$ and $V:=q\left(\Omega^{\otimes b}\otimes v\right)$ with $u\in\STF{\tilde{n}},v\in\STF{\hat{n}}$, we can express any $\psi_{abc}^{n\tilde{n}\hat{n}}(U,V)$ as
-	
-	%	Given a set of all maps $Q^{n\tilde{n}\hat{n}}$, we can express any $\psi_{abc}^{n\tilde{n}\hat{n}}$ as
-	%	\begin{align*}
-	%	\psi_{abc}^{n\tilde{n}\hat{n}}(u,v) = S_{abc}^{n\tilde{n}\hat{n}} q\circ\underbrace{\ten{\Omega}\circ\cdots\circ\ten{\Omega}}_{a \text{ times}}\circ Q^{n\tilde{n}\hat{n}}(tr^b(u),tr^c(v)), S_{abc}^{n\tilde{n}\hat{n}} \in \IR.
-	%	\end{align*}
-	%	Given two tensors of the form $q\left(\Omega^{\otimes b}\otimes u\right)$ and $q\left(\Omega^{\otimes b}\otimes v\right)$ with $u\in\STF{\tilde{n}},v\in\STF{\hat{n}}$, this simplifies to:
-	
-	\begin{align}
-		\psi_{abc}^{n\tilde{n}\hat{n}}\left(q\left(\Omega^{\otimes b}\otimes u\right),q\left(\Omega^{\otimes b}\otimes v\right)\right) = S_{abc}^{n\tilde{n}\hat{n}} \cdot q\left(\Omega^{\otimes a}\otimes Q^{n\tilde{n}\hat{n}}(u,v)\right).
-		\label{eq:bilinearMapDecomp}
-	\end{align}
-	
-	\textbf{The only degree of freedom for $O^3$-compatible, bilinear maps $\psi$ between symmetric tensors lies in the choice for the constants $S_{abc}^{n\tilde{n}\hat{n}}$.}
-\end{lemma}
+%\subsection{The notion of meaningfull linear operations with tensors - light introduction to invariant theory}
+%In the context of our physical world, we can use tensors to measure quantities. A possibly familiar example is stress within a material or gas, which is measured with a tensor of second order.
+%The fundamental property we expect from all quantities that we measure, is that they are independent of the orientation of the orthonormal coordinate system - rotating, inverting or mirroring the basis vectors should not change the value of the properties we are interested in (though this may change the numbers with which we express that quantity).
+%A velocity vector for example should always point in the same direction, regardless of wether its coordinates are $(3,4,0)^T$ or $(0,0,5)^T$. The same goes for its length or the determinant of a matrix.
+%
+%%The first question we need to answer is: How does a length preserving change of the coordinate system such as a rotation act on a tensor?
+%\begin{definition}[Orthogonal Group $O^3$]
+%	Let $O^3$ be the set of all orthogonal matrices \[O^3:=\{r\in\IR^{3\times 3}: |\det{r}| = 1 \}.\]
+%	All of the operations described above can be described with a corresponding matrix in $O^3$. Furthermore, equipped with the typical matrix-matrix multiplication, $O^3$ fullfills all requirements of a group - hence the name \emphName{orthogonal group}. $O^3$ has infinitely many elements, but is still compact - allowing for the notion of taking an average over the whole group.
+%\end{definition}
+%
+%\begin{definition}[Action of $O^3$ on the tensor space]
+%	An element $r\in O^3$ acts on a vector $v\in\IR^3$ via the matrix-vector product $r\cdot v$, resulting in the rotation or mirroring of the given vector. This is extended to tensors - An element $r\in O^3$ acts on a tensor in $\mathcal{T}$ through the matrix-vector multiplication of each factor of that tensor:
+%	\begin{align*}
+%		r(\cdot):\mathcal{T} &\to \mathcal{T}\\
+%		v_1 \otimes \cdots \otimes v_n&\mapsto r(v_1 \otimes \cdots \otimes v_n) :=r\cdot v_1 \otimes \cdots \otimes r\cdot v_n.
+%	\end{align*}
+%\end{definition}
+%
+%\begin{definition}[Orthogonal Group $O^2_{\vc{n}}$ as subgroup of $O^3$]
+%	Let $\vc{n}\in \IR^3$. $O^2_{\vc{n}}$ is the subgroup of $O^3$, that acts like the identity on $\vc{n}$,  \[O^2_{\vc{n}}:=\{r\in O^3 | r(\vc{n}) = \vc{n} \}.\]
+%	$O^2_{\vc{n}}$  is the embedding of $\IR^2$ and $O^2:= \{r\in\IR^{2\times 2}: |\det r| = 1\}$ as a plane $E$ into $\IR^3$ with $E\perp\vc{n}$.
+%\end{definition}
+%
+%
+%\begin{definition}[$O^3$-Invariant linear map of the tensor space]
+%	A linear map $f: \mathcal{T}\to \mathcal{T}$ is called \emphName{compatible (or invariant) with respect to $O^3$}, iff for all actions $r\in O^3$  and for any tensor $\ten{T}\in\mathcal{T}$ the relationship
+%	\[f \circ r (\ten{T}) = r \circ f (\ten{T})\]
+%	holds. This precisely expresses the above notion of independency (or invariancy) of a quantity or tensor of the choice of coordinate system.
+%\end{definition}
+%Finding $O^3$-invariant linear maps and being sure, that one has found all possibilities, requires some very interesting and complicated piece of mathematics known as \emphName{invariant theory}. This goes far beyond the scope of this thesis, we will restrict ourselves to introducing and applying the results. The interested reader may start by inquiring for the \emphName{Brauer algebra}.
+%
+%\subsubsection{Operations on one tensor}\label{chap:tensorOperations}
+%Below is a list of all types of $O^3$-invariant linear maps between tensors, defined with the elementary tensor $v_1 \otimes \cdots \otimes v_n$. All combinations of them is the full set of of $O^3$-invariant linear maps between tensors:
+%\begin{description}
+%	\item[Multiplication with a scalar $s\in\IR$.] This does not change the degree of the tensor.
+%
+%	\item[Permutation of the factors of a tensor.] We have seen this in tensors of second degree, where we called it transpose in correspondence to matrices. Formally, $\sigma \in S_n$ acts on a tensor $v_1 \otimes \cdots \otimes v_n$:
+%	\[\sigma(\cdot): \mathcal{T}\to \mathcal{T}, v_1 \otimes \cdots \otimes v_n \mapsto v_{\sigma^{-1}(1)} \otimes \cdots \otimes v_{\sigma^{-1}(n)}\]
+%	This does not change the degree of the tensor or any of the vectors $v_i$, it only reorders them. When using index notation, this operation is represented by a permutation of indices.
+%
+%	\item[Taking the trace $tr$ between two factors of a tensor.] We can pick two vectors of a tensor and replace them with their scalar product:
+%	\[tr_{i;j} (\cdot): \mathcal{T} \to \mathcal{T}, v_1 \otimes \cdots \otimes v_i \otimes \cdots \otimes v_j \otimes \cdots \otimes v_n \mapsto \braket{v_i,v_j} v_1 \otimes \cdots \otimes v_{i-1}\otimes v_{i+1} \otimes \cdots \otimes v_{j-1} \otimes v_{j+1} \otimes \cdots \otimes v_n\]
+%	This reduces the degree of the tensor by $2$. When using index notation, this operation is represented by the sum over two identical indices, which is often abbreviated with Einstein's sum convention.
+%
+%	\item[Tensor multiplication with the Casimir element $\Omega$.]
+%	\[\ten{\Omega} (\cdot):  \mathcal{T}\to \mathcal{T}, v_1 \otimes \cdots \otimes v_n \mapsto \Omega \otimes v_{1} \otimes \cdots \otimes v_{n} \]
+%	This increases the degree of the tensor by $2$. When using index notation, this operation is represented by the multiplication with $\delta_{ij}$.
+%\end{description}
+%
+%\subsubsection{Operations between two tensors}
+%Given two tensors $u,v \in \mathcal{T}$, the question of finding invariant linear maps with respect to $O^3$ $\mathcal{T} \times \mathcal{T} \to \mathcal{T}$ is easily reduced to the already described case of operations of one tensor. We just have to identify all possible maps $\mathcal{T} \otimes \mathcal{T} \to \mathcal{T} = \mathcal{T} \to \mathcal{T}$ due to the isomorphism $\mathcal{T} \times \mathcal{T} \to \mathcal{T} \cong \mathcal{T} \otimes \mathcal{T} \to \mathcal{T}$ for bilinear and linear maps. To be more specific: Given two tensors $u,v$, take the tensor product $u\otimes v$ and now aply any combination of the operations described for one tensor. Nevertheless, some operations are very common and worth mentioning.
+%
+%\begin{definition}[Contraction between two tensors]
+%	Taking one or multiple traces between two tensors is given a special name: Contraction.
+%	\begin{align*}
+%		tr_{i;j} (\cdot,\cdot): \mathcal{T} &\times \mathcal{T} \to \mathcal{T},
+%		\\
+%		v_1 \otimes \cdots \otimes v_i \otimes \cdots\otimes v_n &\times u_1 \otimes \cdots \otimes u_i \otimes u_j \otimes \cdots \otimes u_n
+%		\\
+%		\mapsto \braket{v_i,u_j} v_1 \otimes \cdots \otimes v_{i-1}\otimes v_{i+1} \otimes \cdots \otimes v_n &\otimes u_1 \otimes u_{j-1} \otimes u_{j+1} \otimes \cdots \otimes u_n
+%	\end{align*}
+%\end{definition}
+%\begin{definition}[Standard scalar product]
+%	The standard scalar product $\braket{\cdot,\cdot}$ between two tensors of same order is defined as the (ordered) full contraction between the two tensors:
+%	\begin{align*}
+%		\braket{\cdot,\cdot} &: \  V^{\otimes n} \times V^{\otimes n} \to \IR,\\
+%		\braket{u_1 \otimes \cdots \otimes u_n,v_1 \otimes \cdots \otimes v_n} &\mapsto tr_{1,\cdots,n;1,\cdots,n} (u_1 \otimes \cdots \otimes u_n,v_1 \otimes \cdots \otimes v_n) \\
+%		&= \braket{u_1,v_1}\cdot\braket{u_2,v_2} \cdots \braket{u_n,v_n}.
+%	\end{align*}
+%\end{definition}
+%\subsection{Symmetric tensor space}
+%\begin{definition}[Symmetric tensors]
+%	A tensor $v$ of $n$-th order is called symmetric, iff for all permutations $\sigma \in S_n$ holds:
+%	\[\sigma(v) = v.\]
+%\end{definition}
+%The space spanned by all symmetric tensors of degree $n$, $\Sym{n}$, is an invariant subspace of the tensor space due to the completely decoupled nature of the actions of $S_n$ and $O^3$ on a tensor. We can take any tensor and project it onto this subspace by taking the average of all possible permutations:
+%\begin{align*}
+%	q: {\IR^3}^{\otimes n} &\to \Sym{n}\\
+%	q\left(v_1 \otimes \cdots  \otimes v_n\right) &\mapsto \frac{1}{n!} \sum_{\sigma \in S_n} v_{\sigma(1)} \otimes \cdots \otimes v_{\sigma(n)}
+%\end{align*}
+%and linear extension. In index notation this is denoted by round brackets surrounding the indices. $\Sym{n}$ is of dimension $\frac{1}{2}(n+1)(n+2)$.
+%
+%%\begin{note}
+%%	It is easy to show for the standard scalar product on $\IR^{\otimes n}$, that for all $v,u \in \IR^{\otimes n}$ the following identity holds:
+%%	\begin{equation}
+%%		\braket{q(v),q(u)} = \braket{v,q(u)} = \braket{q(v),u}.
+%%		\label{eq:scalarqprod}
+%%	\end{equation}
+%%\end{note}
+%\begin{definition}[Trace and contraction of symmetric tensors]
+%	Since for symmetric tensors all the positions $i,j (i\neq j)$ of the two vectors that are used to take the trace $tr_{i;j}$ (contraction) are equivalent to each other, we can use a notation that only shows the relevant information: The \emphProp{number} of traces (contractions) taken of one tensor (between two tensors). \\
+%	$k$-fold trace of a symmetric tensor:
+%	\begin{align*}
+%		tr^{k} (\cdot): \Sym{n} &\to \Sym{n-2k},\\
+%		tr^{k} (s) & \mapsto tr_{1,3,5\cdots, 2k-1;2,4,6,\cdots,2k} (s)
+%	\end{align*}
+%	$k$-fold contraction between two symmetric tensors:
+%	\begin{align*}
+%		tr^{k} (\cdot,\cdot): \Sym{n}\times\Sym{m} &\to \Sym{n-k}\otimes\Sym{m-k},\\
+%		tr^{k} (s,t) & \mapsto tr_{1,2,3\cdots, k;1,2,3\cdots,k} (s,t)
+%	\end{align*}
+%\end{definition}
+%
+%Due to the polynomial nature of the ansatz for the distribution function, we will almost exclusively work with symmetric tensor spaces (reference chapter \ref{chap:isomorphismPolyTensor} to see why). Casually spoken, $O^3$ imposes a specific structure on $\Sym{n}$, which brings us to the next section.
+%
+%\subsection{Level 1 invariant theory: Irreducable and invariant subspaces of the symmetric tensor space}
+%\begin{definition}[Invariant subspaces] A subspace $U$ of any vector space $V$ is called \emphName{invariant} with respect to the action of a group $G$, or $G$-invariant, iff for all $r\in G$ and for all $u\in U$, the action of $r$ on $u$ still is in $U$, $r(u)\in U$ or equivilantly: $\forall r\in G: r(U)=U$.
+%\end{definition}
+%
+%\begin{example}[$O^2_{\vc{n}}$-invariant subspaces of $\IR^3$]
+%	We pick $\IR^3$ as vector space and the subgroup $O^2_{\vc{n}} \subset O^3$ along with a direction $n\in\IR^3$, for which by definition $\forall r \in O^2_{\vc{n}}: r(n)=n$.
+%	Then the subspace $\spn{\vc{n}}= \{\alpha \vc{n}|\alpha\in\IR\}$ is a one-dimensional invariant subspace, since
+%	\[\forall r \in O^2_{\vc{n}}, \forall \alpha\in\IR: r(\alpha \vc{n}) = \alpha r(\vc{n}) = \alpha\vc{n}.\]
+%	Given an $O^3$-compatible scalar product, we can define the plane $E\subset\IR^3$ orthogonal to $\vc{n}$ and decompose $\IR^3$ into \[\IR^3 = \spn{\vc{n}}\bigoplus E.\] It is easily shown that $E$ is also an invariant, 2-dimensional subspace under the action of $O^2_{\vc{n}}$.
+%
+%	% a general vector $\vc{v}\in\IR^3$ into \[\vc{v}=\underbrace{\vc{v}-\braket{\vc{v},\vc{n}}\vc{n}}_{\in E} + \braket{\vc{v},\vc{n}}\vc{n} =: \vc{v}_{E} + \vc{v}_{\vc{n}}\]
+%\end{example}
+%
+%\begin{example}[$O^3$-invariant subspaces of the tensor space]
+%	These are subspaces $U\subset\mathcal{T}$ that fullfill $\forall r\in O^3: r(U)=U$. One such subspace is the above described space of symmetric tensors, which is of relatively large dimensionality for high $n$. Another example of an invariant subspace would be $\spn{\Omega}\subset\Sym{2}$ with a dimensionality of $1$.
+%	One may wonder, if $\Sym{n}$ can be further decomposed into "smallest", invariant subspaces, and if such a decomposition is unique.
+%\end{example}
+%\begin{definition}[Irreducable (and invariant) subspaces]
+%	A subspace $U$ of any vector space $V$ is called \emphName{irreducable} with respect to the action of a group $G$, or \emphName{$G$-irreducable}, iff it is invariant and there is no invariant subspace $W\subset U$ with the properties $W\neq U$ and $W\neq 0$. If a subspace $U$ is invariant and $\dim U=1$, then it is also irreducable, however an irreducable subspace can be of dimension larger than $1$.
+%
+%	Two irreducable subspaces $U_1, U_2, U_1 \neq U_2$ of a vector space $V$ are orthogonal to each other with respect to any scalar product of $V$ that is compatible with the action of the group $G$. We can project from the full vector space onto an irreducable subspace. Due to the universal orthogonality, such a projection is always unique up to a constant (or a zero).
+%
+%\end{definition}
+%\begin{example}[$O^2_{\vc{n}}$-irreducable subspaces of $\IR^3$]
+%	We already know that $E$ and $\spn{\vc{n}}$ are invariant subspaces. Since $\dim{\spn{\vc{n}}}=1$, $\spn{\vc{n}}$ is also an irreducable subspace.
+%	For the 2-dimensional $E$ we cannot find a lower-dimensional invariant subspace, since \[\exists r\in O^2_{\vc{n}}: \forall \vc{v}\neq 0 \in E, \forall \alpha\in\IR: r(\vc{v})\neq \alpha \vc{v}.\] This means that $E$ is irreducable as well and that we have found all $O^2_{\vc{n}}$-irreducable subspaces of $\IR^3$.
+%\end{example}
+%\begin{example}[$O^2_{\vc{n}}$-irreducable subspaces of $\Sym{n}$]
+%	We note:
+%	\[\Sym{n} = q\left(\left(\IR^3\right)^{\otimes n}\right).\]
+%	Insert the splitting of $\IR^3$ into $E$ and $\spn{\vc{n}}$:
+%	\begin{align*}
+%		\Sym{n} &= q\left(\left(E\bigoplus\spn{\vc{n}}\right)^{\otimes n}\right) \\
+%		&=\bigoplus_{i=0}^n q\left(E^{\otimes i}\otimes \left(\spn{\vc{n}}\right)^{\otimes n-i}\right)
+%	\end{align*}
+%	The orthogonality between $E$ and $\spn{\vc{n}}$ leads to an orthogonality between each of these tensor spaces, the invariancy of each $q\left(E^{\otimes i}\otimes \left(\spn{\vc{n}}\right)^{\otimes n-i}\right)$ follows from the invariancy of the "building blocks" $E$ and $\spn{\vc{n}}$. However, for general $n,i$ these subspaces are not irreducable. For instance we find that the invariant tensor $q(\Omega_E^{\otimes j})$ spans a 1-dimensional (and therefore irreducable) subspace  of $q(E^{\otimes 2j})$. In general, since $q\left(E^{\otimes i}\otimes \left(\spn{\vc{n}}\right)^{\otimes n-i}\right)\cong q(E^{\otimes i})\cong\sym{i}$, finding all irreducable subspaces of $\sym{i}$ immediately leads to all irreducable subspaces of $q\left(E^{\otimes i}\otimes \left(\spn{\vc{n}}\right)^{\otimes n-i}\right)$.
+%\end{example}
+%\begin{remark}[Invariant tensors]
+%	Sometimes one may work with a tensor $\ten{T}$ that is invariant with respect to a group $G$, i.e. $\forall r\in G: r(T) = T$. For example:
+%	\begin{itemize}
+%		\item $G=S_n$. Then all tensors $\ten{T}\in\Sym{n}$ are invariant
+%		\item $G=O^3$. Then all tensors $\ten{T}\in(\IR^3)^{\otimes 2i}$ that are a linear combination of permutations $\Omega^{\otimes i}$ are invariant. If in addition $\ten{T}\in\Sym{2i}$: $\ten{T}=\alpha q\left(\Omega^{\otimes i}\right), \alpha\in\IR$.
+%		\item $G=O^2_{\vc{n}}$ and $\ten{T}\in\Sym{n}$. Not all tensors in $q\left(E^{\otimes m}\right)$ are invariant, in fact the only invariant tensors are $\alpha q\left(\Omega_E^{\otimes i}\right), \alpha\in\IR\implies m=2i$. All tensors in $\spn{\vc{n}}$ are invariant, so an $O^2_{\vc{n}}$-invariant, symmetric tensor must come from the subspace spanned by $\left\{q\left(\Omega_E^{\otimes i}\otimes \vc{n}^{\otimes n-2i}\right)\right\}$, i.e.
+%		\begin{equation}
+%			\ten{T}=\sum_{i=0}^{\frac{n}{2}} \alpha_i q\left(\Omega_E^{\otimes i}\vc{n}^{\otimes n-2i}\right), \alpha_i \in \IR.
+%			\label{eq:O2invariantTensors}
+%		\end{equation}
+%	\end{itemize}
+%	Notice, that not all tensors from an invariant subspace are themselves invariant. Even that a tensor lies in an irreducable subspace is no guarantee that the tensor itself is invariant.
+%\end{remark}
+%
+%\begin{example}[$O^3$-irreducable subspaces of $\Sym{n}$]
+%	It turns out, that $\Sym{n}$ can be expressed as the direct sum of $\left\lfloor\frac{n}{2}\right\rfloor+1$ $O^3$-irreducable subspaces (i.e. $\Sym{n}$ is \emphName{semi-simple}). Most of these subspaces are of dimensionality greater than $1$. Furthermore, these irreducable subspaces are \emphProp{pairwise orthogonal} with respect to \emphProp{any} scalar product of the $\Sym{n}$ that is compatible with $O^3$ (which is a rather redundant requirement, since we wouldn't want to choose a scalar product that is not compatible with $O^3$ anyway).
+%
+%	For every order $n$, we find that the largest irreducable subspace of $\Sym{n}$ consists of trace-free tensors.
+%	\begin{definition}[Symmetric trace-free tensors]
+%		A symmetric tensor $v$ of order $n>1$ is called symmetric trace-free, iff $tr_{1,2}(v)=0$. Tensors of order 1 are always symmetric tracefree.
+%		The space spanned by all symmetric trace-free tensors of order $n$ is denoted as $\STF{n}$ and has dimension $2n+1$. On $\STF{n}$ all $O^3$-compatible scalar products of the tensor space are equivalent to each other (they give the same result up to a constant factor). That has the effect that an orthogonal basis of $\STF{n}$ chosen with respect to one scalar product is orthogonal with respect to any other scalar product (as long as both are $O^3$-compatible). In index notation, the projection onto the space of symmetric trace-free tensor is denoted as square brackets around the indices.
+%	\end{definition}
+%	The other irreducable subspaces are related to symmetric tracefree tensors:
+%	\begin{definition}[Symmetric traceable tensors]
+%		$\ST{n,a}$ is the space of symmetric tensors of order $n+2a$, that result in a trace-free tensor (of order $n$) after taking $i$ traces. Equivilantly: $\ST{n,a}$ is the space of symmetric tensors of order $n+2a$, that can be expressed as the result of taking trace-free tensors (of order $n$), and applying the linear map
+%		\[q\circ \underbrace{\ten{\Omega}\circ \cdots \circ \ten{\Omega}}_{i \text{ times}}.\]
+%		This means that there is a bijective map between $\ST{n,i}$ and $\STF{n}$, i.e. $\ST{n,i}$ and $\STF{n}$ are isomorph to each other.
+%	\end{definition}
+%
+%	\begin{lemma}[Decomposition of $\Sym{n}$ into its $O^3$ irreducable subspaces]
+%		Each $\STF{i}$ is a building block for subspaces of $\Sym{n}, i\leq n$,
+%		\[\Sym{n} = \bigoplus_{i=0}^{\lfloor\frac{n}{2}\rfloor} q\left(\Omega^{\otimes i}\otimes \STF{n-2i}\right)=\bigoplus_{i=0}^{\lfloor\frac{n}{2}\rfloor}\ST{n-2i,i}\]
+%
+%	\end{lemma}
+%
+%	When building an orthogonal basis for $\Sym{n}$ for a physical problem (i.e. $O^3$ acts on $\Sym{n}$), the natural choice is the composition of all orthonormal basis sets from each of the subspaces.
+%
+%\end{example}
+%
+%\subsection{Level 2 invariant theory: Linear and Bilinear Maps between Irreducable, invariant subspaces of the symmetric tensor space}
+%\begin{lemma}[Compatible linear Maps between irreducable subspaces (Schur's Lemma)]
+%	Let $U_1$ and $U_2$ be two invariant, irreducable subspaces of a vector space. A compatible linear map $\phi: U_1 \to U_2$ is only non-zero, iff $U_1$ and $U_2$ are isomorph to each other. All non-zero linear maps $U_1 \to U_2$ are the same up to a constant.
+%\end{lemma}
+%Applied to the space of all symmetric tensors, we find non-zero, $O^3$-compatible linear maps only of the form $\ST{n,a}\to\ST{n,b}, n,a,b \in \IN_0$.
+%\begin{lemma}[$O^3$-compatible, bilinear maps between symmetric trace free tensors]
+%	An $O^3$-compatible bilinear map $\phi^{n\tilde{n}\hat{n}}: \STF{\tilde{n}}\times\STF{\hat{n}}\to\STF{n}$ can only be non-zero, iff the following conditions apply:
+%	\begin{align*}
+%		\tilde{n}+\hat{n} + n \text{ even}\\
+%		|\tilde{n}-\hat{n}|\leq n\leq \tilde{n}+\hat{n}
+%	\end{align*}
+%	Then $\phi^{n\tilde{n}\hat{n}}$ is unique (up to a constant).
+%\end{lemma}
+%\begin{proof}
+%	$\phi^{n\tilde{n}\hat{n}}$ is isomorph to an $O^3$-compatible linear map $\varphi^{n\tilde{n}\hat{n}}: \STF{\tilde{n}}\otimes\STF{\hat{n}}\to\STF{n}$. $\varphi$ can only be non-zero, iff there exists a subspace of $\STF{\tilde{n}}\otimes\STF{\hat{n}}$, that is isomorph to $\STF{n}$, so we are looking for a projection of $\STF{\tilde{n}}\otimes\STF{\hat{n}}$ onto $\ST{n,i}$ with condition \[n+2i=\tilde{n}+\hat{n} \iff \tilde{n}+\hat{n} + n \text{ even}.\]
+%	Such a projection is always linear, unique, and compatible with $O^3$. Due to the isomorphism between $\STF{n}$ and $\STF{n,i}$, this makes $\varphi$ unique up to a constant, if it exists.
+%
+%	Let $s$ be any tensor of degree $n$, and $t$ be the resulting tensor from the projection of $t$ onto $\STF{n}$. Projecting a tensor of the form $\Omega \otimes s$ (or some permutation) onto $\STF{n+2}$ is equivalent to projecting $t$ onto $\STF{n+2}$. Since the only linear map from $\STF{n}$ to $\STF{n+2}$ is the zero-map, the projection of $\Omega \otimes s$ onto $\STF{n+2}$ will always result in $0$. This imposes the condition
+%	\[n\leq \tilde{n}+\hat{n}\]
+%	onto $n, \tilde{n},$ and $\hat{n}$.
+%
+%	In chapter \ref{chap:tensorOperations} we listed all types of linear, $O^3$-compatible maps, $\varphi^{n\tilde{n}\hat{n}}$ must be a combination of these. The only map that decreases the order of a given tensor is taking the trace of that tensor. For a tensor of the specific form $\STF{\tilde{n}}\otimes\STF{\hat{n}}$, taking the trace within the first $\tilde{n}$ or the last $\hat{n}$ factors will always be zero. The only traces that yield a non-zero result are those taken between the first $\tilde{n}$ and the last $\hat{n}$ factors, i.e. $k$-fold contractions between the two arguments of $\phi$. Since the two arguments are each symmetric, all $k$-fold contractions between them are equivalent. The number of traces $k$ with a non-zero result we can take of a tensor from the space $\STF{\tilde{n}}\otimes\STF{\hat{n}}$ is limited by $\tilde{n}$ and $\hat{n}$, $k\leq \min{\tilde{n},\hat{n}}$. Since $n=\tilde{n}+\hat{n}-2k$, that imposes the condition on $n$:
+%	\[n \geq \tilde{n}+\hat{n}-2\min(\tilde{n},\hat{n}) = \max(\tilde{n}-\hat{n},\hat{n}-\tilde{n}) = |\tilde{n}-\hat{n}|.\]
+%
+%	%5For all $n$ fullfilling the above conditions, $\ST{n,i}$ with $i=\frac{\tilde{n}+\hat{n}-n}{2}$ is one of the invariant, irreducable subspaces of $\STF{\tilde{n}}\otimes\STF{\hat{n}}$, i.e. $\varphi$ is a projection (up to a constant) onto $\ST{n,i}$ (or 0), making $$.
+%\end{proof}
+%\begin{lemma}[$O^3$-compatible, bilinear maps between symmetric tensors]\label{lem:bilinearMapDecomp}
+%	Every $O^3$-compatible bilinear map $\psi: \Sym{\tilde{m}}\times\Sym{\hat{m}}\to\Sym{m}$ with $m,\tilde{m},\hat{m}\in\IN_0$  can be expressed as the sum of $O^3$-compatible bilinear maps between all combinations of invariant, irreducable subspaces of $\Sym{\tilde{m}}$, $\Sym{\hat{m}}$, and $\Sym{m}$. With
+%	\begin{align*}
+%		m&=n+2a, & \tilde{m}&=\tilde{n}+2b, & \hat{m} &= \hat{n} +2c & 	\tilde{n},b,\hat{n},c,n,a &\in \IN_0
+%	\end{align*}
+%	we can write
+%	\begin{align*}
+%		\psi: &\Sym{\tilde{m}}\times\Sym{\hat{m}}\to\Sym{m}
+%		\\
+%		& = \bigoplus_{b=0}^{\lfloor\frac{\tilde{m}}{2}\rfloor}\ST{\tilde{n},b} \times \bigoplus_{c=0}^{\lfloor\frac{\hat{m}}{2}\rfloor}\ST{\hat{n},c} \to \bigoplus_{a=0}^{\lfloor\frac{m}{2}\rfloor}\ST{n,a}
+%		\\
+%		&=
+%		\bigoplus_{b=0}^{\lfloor\frac{\tilde{m}}{2}\rfloor} \bigoplus_{c=0}^{\lfloor\frac{\hat{m}}{2}\rfloor}
+%		\bigoplus_{a=0}^{\lfloor\frac{m}{2}\rfloor}
+%		\ST{\tilde{n},b} \times \ST{\hat{n},c} \to \ST{n,a}\\
+%		&=:\bigoplus_{b=0}^{\lfloor\frac{\tilde{m}}{2}\rfloor} \bigoplus_{c=0}^{\lfloor\frac{\hat{m}}{2}\rfloor}
+%		\bigoplus_{a=0}^{\lfloor\frac{m}{2}\rfloor} \psi_{abc}^{n\tilde{n}\hat{n}}
+%	\end{align*}
+%	Each of the $\psi_{abc}^{n\tilde{n}\hat{n}}$ are unique up to a constant and only non-zero, iff the following conditions apply:
+%	\begin{align*}
+%		\tilde{n}+\hat{n} + n \text{ even}\\
+%		|\tilde{n}-\hat{n}|\leq n\leq \tilde{n}+\hat{n}.
+%	\end{align*}
+%	Given a set of all maps $\psi_{abc}^{n\tilde{n}\hat{n}}$, two $\psi$ can only differ in the constants multiplied with those maps. Furthermore, due to the isomorphism between $\STF{n}$ and $\ST{n,i}$, all $\psi_{abc}^{n\tilde{n}\hat{n}}$  are isomorph to a map $Q^{n\tilde{n}\hat{n}}: \STF{\tilde{n}}\otimes\STF{\hat{n}}\to\STF{n}$, which is unique up to a constant.
+%	Given a set of all maps $Q^{n\tilde{n}\hat{n}}$, two tensors of the form $U:=q\left(\Omega^{\otimes b}\otimes u\right)$ and $V:=q\left(\Omega^{\otimes b}\otimes v\right)$ with $u\in\STF{\tilde{n}},v\in\STF{\hat{n}}$, we can express any $\psi_{abc}^{n\tilde{n}\hat{n}}(U,V)$ as
+%
+%	%	Given a set of all maps $Q^{n\tilde{n}\hat{n}}$, we can express any $\psi_{abc}^{n\tilde{n}\hat{n}}$ as
+%	%	\begin{align*}
+%	%	\psi_{abc}^{n\tilde{n}\hat{n}}(u,v) = S_{abc}^{n\tilde{n}\hat{n}} q\circ\underbrace{\ten{\Omega}\circ\cdots\circ\ten{\Omega}}_{a \text{ times}}\circ Q^{n\tilde{n}\hat{n}}(tr^b(u),tr^c(v)), S_{abc}^{n\tilde{n}\hat{n}} \in \IR.
+%	%	\end{align*}
+%	%	Given two tensors of the form $q\left(\Omega^{\otimes b}\otimes u\right)$ and $q\left(\Omega^{\otimes b}\otimes v\right)$ with $u\in\STF{\tilde{n}},v\in\STF{\hat{n}}$, this simplifies to:
+%
+%	\begin{align}
+%		\psi_{abc}^{n\tilde{n}\hat{n}}\left(q\left(\Omega^{\otimes b}\otimes u\right),q\left(\Omega^{\otimes b}\otimes v\right)\right) = S_{abc}^{n\tilde{n}\hat{n}} \cdot q\left(\Omega^{\otimes a}\otimes Q^{n\tilde{n}\hat{n}}(u,v)\right).
+%		\label{eq:bilinearMapDecomp}
+%	\end{align}
+%
+%	\textbf{The only degree of freedom for $O^3$-compatible, bilinear maps $\psi$ between symmetric tensors lies in the choice for the constants $S_{abc}^{n\tilde{n}\hat{n}}$.}
+%\end{lemma}
