@@ -262,3 +262,7 @@ TSWLatexianTemp*
 
 # glossaries-extra
 *.ist
+
+
+##### IntelliJ files
+.idea

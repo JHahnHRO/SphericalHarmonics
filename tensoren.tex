@@ -104,6 +104,7 @@ All diese Fälle sind letztendlich so sehr ähnlich zum linearen Fall, dass es i
 
 \begin{theoremdef}[Universelle Eigenschaft und Existenz des Tensorprodukts]\label{tensorprodukt:def}
 Es seien $V,W$ zwei $K$-Vektorräume. Es gibt eine \enquote{universelle bilineare Abbildung}, d.h. es gibt ein Vektorraum $T$ und eine bilineare Abbildung $\tau: V\times W\to T$, sodass \textit{jede} bilineare Abbildung $\phi: V\times W \to X$ sich schreiben lässt als $f\circ\tau$ mit einer eindeutig bestimmten linearen Abbildung $f: T\to X$.
+
 \begin{tikzcd}
 V\times W \ar[r,"\tau"] \ar[rd,"\phi"'] & T \ar[d, dotted, "\exists! f"]\\
 & X
@@ -171,16 +172,18 @@ K\otimes V & \leftrightarrows & V \\
 \alpha\otimes v & \mapsto & \alpha v \\
 1\otimes v & \reflectbox{$\mapsto$} & v
 \end{array}\right.\]
-ein paar zueinander inverser Isomorphismen.
-
-Wir erlauben uns, wann immer es uns nützlich erscheint, $K\otimes V$ als identisch zu $V$ zu betrachten. Dabei meinen wir immer die obige Identifizierung.
+ein paar zueinander inverser Vektorraum-Isomorphismen.
 \end{lemma}
+
+\begin{remark}
+Wir erlauben uns deshalb, wann immer es uns nützlich erscheint, $K\otimes V$ und $V\otimes K$ als identisch zu $V$ zu betrachten. Dabei meinen wir immer die obige Identifizierung.
+\end{remark}
 
 \begin{remark}
 Da das Tensorprodukt für alle Paare von $K$-Vektorräumen definiert ist und selbst wieder ein $K$-Vektorraum ist, können wir natürlich auch Tensorprodukte von Tensorprodukten bilden. Es stellt sich die Frage, ob es eine Rolle spielt, wie genau wir das tun.
 \end{remark}
 
-\begin{theoremdef}[Assoziativität des Tensorprodukts \& Höhere Tensorgrade]
+\begin{lemmadef}[Assoziativität des Tensorprodukts \& Höhere Tensorgrade]
 Für alle $K$-Vektorräume $V_1, V_2, V_3$ ist
 \[\begin{array}{rcl}
 V_1\otimes(V_2\otimes V_3) &\to& (V_1\otimes V_2)\otimes V_3 \\
@@ -191,7 +194,7 @@ ein Isomorphismus.
 Wir erlauben es uns, aufgrund der Natürlichkeit dieses Isomorphismus, Klammern in mehrfachen Tensorprodukten wegzulassen und kurz $V_1\otimes V_2\otimes V_3\otimes\cdots\otimes V_k$ zu schreiben. Der Kürze halber definieren wir die \emph{Tensorpotenzen} 
 \[V^{\otimes k} := \begin{cases} K & k=0 \\ 
 \underbrace{V\otimes V\otimes\cdots\otimes V}_{k\text{-mal}} & k>0\end{cases}\]
-\end{theoremdef}
+\end{lemmadef}
 
 \begin{remark}
 Mit dieser Notation gelten dann (abzüglich eben jener natürlicher Isomorphismen) die \enquote{Potenzgesetze}:
@@ -211,13 +214,74 @@ Es gilt $\dim(V\otimes W) = \dim(V)\cdot\dim(W)$.
 Präziser: Für jede Basis $(b_i)_{i\in I}$ von $V$ und $(c_j)_{j\in J}$ von $W$ ist $(v_i\otimes w_j)_{i\in I, j\in J}$ eine Basis von $V\otimes W$.
 \end{lemma}
 
-\begin{remark}
+\begin{corollary}
+Entsprechendes gilt auch für mehrfache Tensorprodukte, insbesondere für Tensorpotenzen: Ist $e_1,\ldots,e_n$ eine Basis von $V$, so ist $\Set{e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_k} | i_j\in\set{1,\ldots,n}}$ eine Basis von $V^{\otimes k}$.
+
+Wenn $e_1, \ldots, e_n$ zufällig eine Basis ist, die man \enquote{Standardbasis} nennt, dann nennt man $\Set{e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_k}}$ auch Standardbasis von $V^{\otimes k}$.
+\end{corollary}
+
+\begin{remark}[Index-Notation -- Was ist das?]
 Insbesondere heißt das, dass jeder Tensor $t\in V\otimes W$ eine eindeutige Koordinaten-Darstellung bzgl. solch einer Basis hat, d.h. es gibt eindeutig bestimmte Skalare $t_{ij}$ sodass
 \[t = \sum_{i\in I, j\in J} t_{ij} b_i\otimes c_j\]
 gilt und umgekehrt liefert jede Wahl von $\abs{I}\times \abs{J}$ vielen Skalaren $t_{ij}$ auf diese Weise genau einen Tensor.
 
-Hier kommen wir auf die \enquote{falsche} Sichtweise auf Tensoren zurück: Es hat sich bei gewissen Leuten eingebürgert, \enquote{Tensor} austauschbar mit \enquote{Ansammlungen von Zahlen, die mehrere Indizes haben} zu verwenden. Trotz der eben getätigten Feststellung, dass in der Tensorprodukte genau wie alle anderen Vektorräume nach der Wahl einer Basis durch Koordinaten beschrieben werden können, kann kaum überschätzt werden, wie kontraproduktiv diese Sichtweise auf Tensoren ist. Diese Sichtweise ist insbesondere bei Anwendern von Mathematik -- Physikern, Ingenieuren, ... -- besonders beliebt.
+Es hat sich in der Physik und Ingenieurwissenschaftlich eingebürgert, das Wort \enquote{Tensor} austauschbar mit \enquote{Ansammlungen von Zahlen, die mehrere Indizes haben} zu verwenden.
+
+\medbreak
+Wählt man eine andere Basis von $V$ oder $W$, so erhält man natürlich andere Zahlen als Koordinaten. Immer noch $\abs{I}\times\abs{J}$ viele, aber andere. Jedoch sind die Unterschiede nicht völlig beliebig, denn sie sind eben durch einen Basiswechsel in den Faktoren des Tensorprodukts verursacht.
+
+In der Tat haben die Physiker eigene Sprechweise erfunden, um das auszudrücken: Man sagt, dass sich ein Satz von indizierten Zahlen \enquote{kovariant transformiert} (bzw. \enquote{kontravariant}) und meint damit nicht etwa, dass diese Zahlen eine besondere Eigenschaft hätten, sondern, dass die Methode, mit der man diese Zahlen bestimmt hat, eine besondere Eigenschaft hat, nämlich bei anderer Basiswahl ein anderes Ergebnis zu produzieren, dass aber aus der Basiswechselmatrix auf bestimmte Weise vorhersehbar ist. Manche Physiker nehmen das zum Anlass, um zu definieren, dass ein Tensor nicht nur \emph{ein} Satz von indizierten Zahlen sei, sondern eine Abbildung $\Set{\text{Basen}} \to \Set{\text{Zahlen mit Indizes}}$, die genau dieser Transformationsregel gehorcht.
+
+\medbreak
+Soweit, so verwirrend, aber natürlich wird einem dann auch erklärt, dass es auch \enquote{kontravariante Tensoren} gibt, die sich irgendwie ähnlich, aber ganz anders verhalten, sowie gemischte Tensoren, bei denen manche Indizes ko- und manche kontravariant gemeint sind. In Indexschreibweise äußert sich das oft so, dass manche Indizes oben und manche unten notiert werden, wobei sich leider nicht einmal alle Physiker einig sind, ob die oberen jetzt die ko- oder die kontravarianten sein sollen.
 \end{remark}
+
+\begin{remark}[Index-Notation -- Warum ist das ein Problem?]
+Index-Notation erschwert im Wesentlichen alles, was wichtig ist: Das Verstehen von und das Arbeiten mit Tensoren.
+
+\begin{itemize}
+\item Index-Schreibweise, Koordinaten allgemein verlieren wesentliche Informationen und geht am Wesentlichen vorbei: Ein Vektor/Tensor ist eben nicht eine Ansammlung von Zahlen, sondern ein Element eines Vektorraums.
+
+Ja, der Raum der Polynome in zwei Variablen mit Grad $\leq 5$ ist 36-dimensional, aber das Polynom $x^2+y^2$ deshalb als Ansammlung von 36 (relativ beliebigen) Zahlen zu betrachten, also als Element von $\IR^{36}$, verliert die ganz wesentliche Information, z.B. dass es sich um ein Polynom handelt, dass dieser Vektorraum Unterraum eines größeren Polynomraums ist, in dem weitere Strukturen wie z.B. Polynommultiplikation, Differenzieren, uvm. existieren.
+
+Der Übergang von abstrakten Vektoren/Tensoren zu Koordinatendarstellungen bzgl. beliebiger Basen, erhält exakt die Information, die in der Vektorraumstruktur alleine steckt, d.h. in Addition und Skalarmultiplikation. Alle zusätzliche Struktur, die in einer konkreten Situation vielleicht außerdem vorhanden und nützlich (!) sein könnte, wird weggeworfen.
+
+Wenn man alles nur als Ansammlung von Zahlen versteht, ist klar auch, wieso der Unterschied zwischen \enquote{ko-} und \enquote{kontravarianten} Tensoren so mysteriös ist. Wenn man abstrakt arbeitet, ist ganz klar, was passiert! Das sind einfach Tensoren aus unterschiedlichen Räumen!
+
+Die eine Sorte Tensoren ist Element von $V^{\otimes k}$, während die anderen Elemente von $(V^\ast)^{\otimes k}$ sind. Tensoren mit gemischter Varianz sind entsprechend Elemente von $V^{\otimes k_1}\otimes (V^\ast)^{\otimes k_2}$. Natürlich sind $V$ und $V^\ast$ als Vektorräume isomorph, d.h. sie haben die gleiche Dimension, man benötigt also die gleiche Anzahl an Indizes, die auch alle über denselben Zahlenbereich laufen, wenn man die Koordinaten durchnummeriert. Aber dabei verliert man eben die wesentliche Information, dass $V$ und $V^\ast$ doch trotz allen verschieden sind und verschiedene Objekte und Sichtweisen mathematisch beschreiben.\footnote{Übrigens erklärt diese Sichtweise auch, wieso sich die Physiker nicht immer einig sind, was ko- und was kontravariant ist: Für endlich-dimensionale Vektorräume ist nicht nur $V^\ast$ der duale Vektorraum von $V$, sondern auch $V$ der duale Vektorraum von $V^\ast$. Man kann sich also aussuchen, welches das fundamentalere Objekt von beiden ist.}
+
+\item Index-Schreibweise, Koordinaten allgemein zäumen das Pferd von hinten auf:
+
+Es ist nur äußerst selten sinnvoll, tatsächlich in Koordinaten zu arbeiten, da die einzigen Operationen, die überhaupt physikalisch sinnvoll sind, zwangsläufig basis-unabhängig sein müssen. Das Universum hat halt keine bevorzugte Basis. Es gibt keine bevorzugten Richtungen im Universum, es gibt keine bevorzugte Skalierung\footnote{Und nein, die Plank-Skala zählt nicht, da sie für den momentanen Stand der Wissenschaft reine Spekulation ist}, Wieso also nicht von Anfang an mit Objekte und Operationen arbeiten, die basis-unabhängig sind?
+
+Und in den Fällen, in denen die physikalische Situation eben doch eine Raumrichtung bevorzugt, z.B. weil es sich um ein rotationssymmetrisches Problem handelt und die Drehachse eine besondere Richtung in so einem System ist? In den Fällen ist es auch nicht sinnvoll, \emph{beliebige} Basen zu betrachten. Man will eine Basis wählen, die Zusatzinformationen wie z.B. die Drehsymmetrie, möglichst gut widerspiegeln.
+
+Woher weiß man, welche Zusatzstruktur tatsächlich die nützliche ist für die eigene Frage? Man weiß es eben nicht. Zumindest nicht vorher. Erst, wenn man tatsächlich eine (Teil-)Antwort auf die Frage gefunden hat, kann man überhaupt sagen, welche Zusatzstrukturen nützlich war und welche nicht, und welche Basiswahl also die sinnvollste für das Problem ist.
+
+Der Ausgangspunkt sollte also immer zunächst eine basis-freie Sichtweise sein, in die erst nachdem tatsächlich Bedarf erkannt wurde, eine präzise ausgewählte Basis eingeführt wird. Und selbst ist es sinnvoll, nicht allzu viel Basis zu wählen. Im Falle einer Rotationssymmetrie ist z.B. \emph{nur} die Drehachse eine ausgezeichnete Raumrichtung, d.h. sie legt nur einen von drei gesuchten Basisvektoren (halbwegs) fest. Für die anderen beiden gilt genau das gleiche: Man sollte solange wie möglich abstrakt arbeiten und erst, wenn das Problem es tatsächlich erfordert, eine Basis wählen.
+
+\item Index-Schreibweise erzeugt unnötige Arbeit:
+
+Eine beliebige Kollektion von Zahlen wird aber nur dann zu einem Tensor, wenn man eine Basis wählt, bzgl. derer man diese Zahlen dann als Koordinaten liest. Man muss sich also stets fragen: \enquote{Wenn ich eine andere Basis wähle und in dieser neuen Situation noch einmal neue Zahlen generiere und als Koordinaten bzgl. der neuen Basis benutze, kommt ein anderer Tensor heraus oder nicht?} und man will immer, dass die Antwort \enquote{Nein} ist, d.h. man will, dass sich die Zahlen \enquote{ko-} oder \enquote{kontravariant} oder \enquote{gemischt} \enquote{transformieren}. Ein \enquote{ja} hieße zwangsläufig, dass man etwas falsch gemacht hat, eben weil physikalisch sinnvolle Ergebnisse nicht basis-abhängig sind.
+
+Die Konsequenz daraus, ist aber, dass man eigentlich jedes Index-Monster, das einem begegnet, erst einmal mit viel langweiligem Rechenaufwand darauf überprüfen sollte, ob es überhaupt basis-unabhängig ist. Wer hat die Zeit dafür? Niemand! Und wieso sollte man auch so viel Aufwand investieren, wenn die Antwort, die man haben will, sowieso immer die gleiche ist?
+
+Nicht nur macht die abstrakte Sichtweise den Aufwand kleiner, sie macht ihn zu Null, denn, wenn man von Anfang an basisfrei arbeitet, stellt sich die Frage, ob eine gewisse Konstruktion basisunabhängig ist, überhaupt nicht. Wenn nirgendwo Basen benutzt wurden, muss alles, was getan wurde, natürlich basisunabhängig sein!
+
+\item \enquote{Aber, wenn ich Dinge ausrechnen will, brauche ich doch Basen!}
+
+Auch das ist ein weitverbreitetes Missverständnis. Viele Dinge sind in der Tat auch völlig basisfrei berechenbar, mindestens z.B. alle physikalisch sinnvollen Dinge, denn die sind eben -- wie wir bereits festgestellt haben --  von sich aus basisfrei und somit zwangsläufig auch basisfrei berechenbar, wenn sie überhaupt berechenbar sind. Und in der Tat kann man sie dann auch immer auf einem basisfreien Wege ausrechnen. 
+
+Man muss sich auch einmal klarmachen, was man mit \enquote{ausrechnen} meint und wozu man das tut. Was bedeutet es z.B. einen Spannungstensor \enquote{auszurechnen} ? Der Spannungstensor ist eben keine Zahl. Er ist ein Tensor. Was würde es in Analogie bedeuten, einen Vektor, z.B. eine Drehachse \enquote{auszurechnen} ? Die Drehachse ist die Drehachse, das, worum sich das System dreht. Welche andere Information möchte man über diesen Vektor ausrechnen? Und was würde man damit anfangen?
+
+Natürlich kann man zwanghaft Koordinaten einführen und die Koordinaten dieses Vektors ausrechnen. Die Koordinaten haben aber keine eigenständige physikalische Bedeutung. Mit den Koordinaten an sich lässt sich also nichts anfangen. Einzig das Gesamtobjekt ist physikalisch sinnvoll. Das einzige, was man mit den Koordinaten tun könnte, ist also, sie wieder zu einem Vektor zusammenzusetzen, um diesen in einem nächsten Rechenschritt weiterzuverwenden. Wieso dann aber Koordinaten einführen?\footnote{Das ignoriert natürlich ein paar außer-physikalische Aspekte, z.B. könnten ja in einer komplexen Gesamtberechnung einzelne Teilschritte durchaus von verschiedenen Leuten ausgerechnet werden. In diesem Fall ist das Einführen von Koordinaten eine Notwendigkeit, um ein Zwischenergebnis von einem Team zum anderen kommunizieren zu können.}
+
+\medbreak
+Man beachte, dass die Frage nach einem \emph{effizienten} Ausrechnen eine völlig andere ist! Für diese Art von Fragen gilt: \enquote{premature optimization is the root of all evil (or at least most of it)}\footnote{Donald Ervin Knuth, geb. 1938, amer. Informatiker und Mathematiker}. Eine Basiswahl alleine macht nichts effizient. Die \emph{richtige} Basis in der richtigen Situation macht Dinge effizient und auch nur, wenn man sie richtig einsetzt. Stumpf drauf losrechnen ist selten tatsächlich effizient.
+\end{itemize}
+\end{remark}
+
+\subsection{}
 
 \begin{lemma}
 Sind $f:V\to W, g: V'\to W'$ zwei lineare Abbildungen zwischen $K$-Vektorräumen, so gibt es genau eine lineare Abbildung $V\otimes V'  \to W\otimes W'$, die $v\otimes v'$ auf $f(v)\otimes g(v')$ abbildet. Diese Abbildung wird der Bequemlichkeit halber auch als $f\otimes g$ bezeichnet.
