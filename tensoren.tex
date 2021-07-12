@@ -537,7 +537,7 @@ Diese Definition ist auch in entgegengesetzte Richtung zu verstehen: Wenden wir 
 			\draw (s6) to [bend left=30] (s7);
 		\end{tikzpicture}.
 	\end{align*}
-	Diese Definition ist auch in entgegengesetzte Richtung zu verstehen: Wenden wir ein Brauer-Diagramm, welches zwei untere Knoten miteinander verbindet, auf einen reinen Tensor an, so ist zwischen an den beiden entsprechenden Faktoren des Tensors das Casimir-Element einzufügen.
+	Diese Definition ist auch in entgegengesetzte Richtung zu verstehen: Wenden wir ein Brauer-Diagramm, welches zwei untere Knoten miteinander verbindet, auf einen reinen Tensor an, so ist an den beiden entsprechenden Faktoren des Tensors das Casimir-Element einzufügen.
 \end{definition}
 	An welchen zwei Stellen die zwei Faktoren des Casimir-Elements eingefügt werden, kann man sich im Prinzip aussuchen, das entspricht dann der Hintereinanderausführung von $\Omega_V$-Einfügung und Permutation. Insbesondere können die beiden Hälften von $\Omega_V$ auch voneinander getrennt werden, z.B. wird mit
 	\[
@@ -548,6 +548,11 @@ Diese Definition ist auch in entgegengesetzte Richtung zu verstehen: Wenden wir 
 	\Pi_{\sigma} \circ \casimir (v_1 \cdots \otimes \cdots v_n)
 	\]
 	das mit $\casimir$ eingefügte $\Omega_V$ in zwei Teile zerlegt.
+	
+\begin{remark}[Bilineare Abbildungen]
+	Bilineare Abbildungen zwischen Tensoren lassen sich auf lineare Abbildungen zurückführen, indem man das Tensorprodukt der beiden Input-Tensoren bildet und dann eine beliebige lineare Abbildung ausführt.
+\end{remark}
+	
 \begin{lemmadef}
 Sind $f:V\to W, g: V'\to W'$ zwei lineare Abbildungen zwischen $K$-Vektorräumen, so gibt es genau eine lineare Abbildung $V\otimes V'  \to W\otimes W'$, die $v\otimes v'$ auf $f(v)\otimes g(v')$ abbildet.
 
