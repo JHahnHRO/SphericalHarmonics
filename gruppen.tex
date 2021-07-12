@@ -1,0 +1,37 @@
+% !TeX root = spherical_harmonics.tex
+% !TeX spellcheck = de_DE
+
+
+\begin{definition}[Gruppen und Gruppenhomomorphismen]\label{gruppen:def}
+Eine \udot{Gruppe} $(G,\cdot)$ besteht aus
+\begin{itemize}
+	\item einer Menge $G$,
+	\item einer Abbildung $\cdot: G\times G, (g,h) \mapsto g\cdot h$, genannt \emph{Multiplikation},
+\end{itemize}
+die die Gruppen-Axiome in Tabelle \ref{gruppen:def_table} erfüllen.
+
+\begin{table}[!ht]
+	\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
+	\begin{tabularx}{\textwidth}{p{7cm} X}
+		
+		\toprule
+		\textbf{Gruppen-Axiome}                               & \textbf{Bedeutung} \\
+		\midrule
+        \hspace{1cm}Assoziativität                           & $\forall g_1,g_2,g_3\in G: g_1\cdot(g_2\cdot g_3) = (g_1\cdot g_2)\cdot g_3$ \\
+		\hspace{1cm}Neutrales Element bzw. \enquote{Eins}    & $\exists 1\in V\forall g\in G: g\cdot 1 = g = 1\cdot g$  \\
+		\hspace{1cm}Inverse Elemente                         & $\forall g \in G\exists h \in G: g\cdot h = 1 = h\cdot g$ \\
+		Optional kann gelten & \\
+        \hspace{1cm}Kommutativität                           & $\forall g,h\in G: g\cdot h=h\cdot g$ \\
+        \textbf{Axiom von Gruppenhomomorphismen}             & \textbf{Bedeutung} \\
+        \midrule
+        Verträglichkeit mit Multiplikation & $\forall g,h\in G: f(g\cdot h) = f(g)\cdot f(h)$ \\
+        \bottomrule
+	\end{tabularx}
+	\caption{Definierende Eigenschaften von Gruppen und Gruppenhomomorphismen}
+    \label{gruppen:def_table}
+\end{table}
+
+Sind $G,H$ zwei Gruppen und $f: G\to H$ eine Abbildung, so heißt $f$ \emph{Gruppenhomomorphismus}, falls sie mit den beiden Multiplikationen verträglich ist.
+
+Existiert ein Homomorphismus $f': W\to V$ mit $f\circ f'=f'\circ f=\id$, so nennt man $f$ \emph{Isomorphismus} der Gruppen.
+\end{definition}

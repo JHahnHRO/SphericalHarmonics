@@ -1,4 +1,43 @@
+% !TeX root = spherical_harmonics.tex
+% !TeX spellcheck = de_DE
+\subsection{Wiederholung: Gruppen}
+\input{gruppen.tex}
 
+\subsection{Elementare Darstellungstheorie}
+
+\begin{definition}[Darstellungen]\label{darstellungen:def}
+Sei $G$ eine Gruppe und $K$ ein Körper. Eine \emph{Darstellung von $G$ über $K$} besteht aus
 \begin{itemize}
-\item Brauer's theorem: Fixpunkte der Tensoralgebra durch Mittelwertbilden. Integrale für alle Tensoren aus einer Standardbasis explizit berechenbar. Mit Handwaving gleich Brauer-Diagram
+	\item einem $K$-Vektorraum $V$,
+	\item einer Abbildung $\cdot: G \times V \to V, (g,v) \mapsto g\cdot v$
 \end{itemize}
+die die Axiome in Tabelle \ref{darstellungen:def_table} erfüllen. Man sagt auch \enquote{$G$ operiert auf dem Vektorraum $V$} statt \enquote{$G$ ist eine Darstellung von $G$}.
+
+\begin{table}[!ht]
+	\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
+	\begin{tabularx}{\textwidth}{p{7cm} X}
+		
+		\toprule
+		\textbf{Axiome von Darstellungen}                    & \textbf{Bedeutung} \\
+		\midrule
+        \hspace{1cm}Linearität                               & $\forall g\in G: (v\mapsto g\cdot v)$ ist eine lineare Abbildung $V\to V$ \\
+		\hspace{1cm}Assoziativität                           & $\forall g,h\in G\forall v\in V: g\cdot (h\cdot v)=(g\cdot h)\cdot v$  \\
+		\hspace{1cm}Nichtrivialität/Normierung               & $\forall v\in V: 1_G\cdot v=v$  \\
+		\textbf{Axiome von Homomorphismen}                   & \textbf{Bedeutung} \\
+        \midrule
+        \hspace{1cm}$K$-Linearität & $f$ ist eine lineare Abbildung $V\to W$ \\
+        \hspace{1cm}$G$-Linearität & $\forall g\in G, v\in V: f(g\cdot v) = g\cdot f(v)$ \\
+        \bottomrule
+	\end{tabularx}
+	\caption{Definierende Eigenschaften von Darstellungen und Homomorphismen zwischen Darstellungen}
+    \label{darstellungen:def_table}
+\end{table}
+
+Sind $V,W$ zwei Darstellungen von $G$ und $f: V\to W$ eine Abbildung, so heißt $f$ \emph{Homomorphismus} oder \emph{$KG$-lineare Abbildung}, falls die beiden Axiome in Tabelle \ref{darstellungen:def_table} erfüllt sind. Den Raum aller $K$-linearen Abbildungen von $V$ nach $W$ bezeichnen wir mit $\Hom_{KG}(V,W)$. Eine $KG$-linearen Abbildung von $V$ nach $V$ (also gleicher Definitions- und Zielraum) heißt \emph{Endomorphismus}, der Raum aller solcher Abbildungen wird mit $\End_{KG}(V)$ notiert.
+
+Existiert ein Homomorphismus $f': W\to V$ mit $f\circ f'=f'\circ f=\id$, so nennt man $f$ \emph{Isomorphismus} der Darstellungen.
+\end{definition}
+
+\begin{remark}
+Eine Darstellung kann alternativ aufgefasst werden als Gruppenhomomorphismus $G\to GL(V)$: Jedem Gruppenelement $g\in G$ wird die (invertierbare!) lineare Abbildung $v\mapsto gv$ zugeordnet. Ist umgekehrt ein Gruppenhomomorphismus $\phi: G\to GL(V)$ gegeben, so kann man $V$ als $G$-Darstellung auffassen, indem man $g\cdot v:=\phi(g)(v)$ definiert.
+\end{remark}
