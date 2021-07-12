@@ -172,7 +172,7 @@ K\otimes V & \leftrightarrows & V \\
 \alpha\otimes v & \mapsto & \alpha v \\
 1\otimes v & \reflectbox{$\mapsto$} & v
 \end{array}\right.\]
-ein paar zueinander inverser Vektorraum-Isomorphismen.
+ein Paar zueinander inverser Vektorraum-Isomorphismen.
 \end{lemma}
 
 \begin{remark}
@@ -185,10 +185,10 @@ Da das Tensorprodukt für alle Paare von $K$-Vektorräumen definiert ist und sel
 
 \begin{lemmadef}[Assoziativität des Tensorprodukts \& Höhere Tensorgrade]
 Für alle $K$-Vektorräume $V_1, V_2, V_3$ ist
-\[\begin{array}{rcl}
+\[\left\lbrace\begin{array}{rcl}
 V_1\otimes(V_2\otimes V_3) &\to& (V_1\otimes V_2)\otimes V_3 \\
 v_1\otimes (v_2\otimes v_3) &\mapsto& (v_1\otimes v_2)\otimes v_3
-\end{array}\]
+\end{array}\right.\]
 ein Isomorphismus.
 
 Wir erlauben es uns, aufgrund der Natürlichkeit dieses Isomorphismus, Klammern in mehrfachen Tensorprodukten wegzulassen und kurz $V_1\otimes V_2\otimes V_3\otimes\cdots\otimes V_k$ zu schreiben. Der Kürze halber definieren wir die \emph{Tensorpotenzen} 
@@ -208,6 +208,18 @@ Mit dieser Notation gelten dann (abzüglich eben jener natürlicher Isomorphisme
 Alle vorher angedeuteten Aussagen über multilineare Abbildungen kann man auf Sätze über lineare Abbildungen und Tensorprodukte zurückführen, z.B.
 \end{remark}
 
+\begin{lemmadef}[Standardskalarprodukt auf Tensorpotenzen]
+Haben wir ein Skalarprodukt $\braket{\cdot,\cdot}$ auf $V$ gegeben, ist das \emph{Standardskalarprodukt} (auch \enquote{von $\braket{\cdot,\cdot}$ \emph{induziertes} Skalarprodukt}) auf $V^{\otimes m}$ definiert mit der Vorschrift
+\[
+\braket{\cdot, \cdot} : 
+\left\lbrace \begin{array}{rcl}
+	V^{\otimes m} \times V^{\otimes m} &\to& K \\
+\braket{v_1 \otimes \cdots \otimes v_m, w_1 \otimes \cdots \otimes w_m} &\mapsto& \braket{v_1,w_1} \cdot \cdots \cdot \braket{v_m, w_m}
+\end{array}\right.
+\]
+und ihrer linearen Fortsetzung.
+\end{lemmadef}
+
 \begin{lemma}[Dimension von Tensorprodukten\footnote{Wer mit unendlich-dimensionalen Vektorräumen nicht gut genug vertraut ist, denke sich ein \enquote{für endlich-dimensionale Vektorräume} hinzu.}]\label{tensorprodukt:dimension}
 Es gilt $\dim(V\otimes W) = \dim(V)\cdot\dim(W)$.
 
@@ -217,8 +229,14 @@ Präziser: Für jede Basis $(b_i)_{i\in I}$ von $V$ und $(c_j)_{j\in J}$ von $W$
 \begin{corollary}
 Entsprechendes gilt auch für mehrfache Tensorprodukte, insbesondere für Tensorpotenzen: Ist $e_1,\ldots,e_n$ eine Basis von $V$, so ist $\Set{e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_k} | i_j\in\set{1,\ldots,n}}$ eine Basis von $V^{\otimes k}$.
 
-Wenn $e_1, \ldots, e_n$ zufällig eine Basis ist, die man \enquote{Standardbasis} nennt, dann nennt man $\Set{e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_k}}$ auch Standardbasis von $V^{\otimes k}$.
+Haben wir ein Skalarprodukt auf $V$ gegeben und ist $e_1, \ldots, e_n$ eine Orthonormalbasis von $V$ bzgl. dieses Skalarprodukts, so ist diese Basis des Tensorprodukts auch eine Orthonormalbasis bzgl. des Standardskalarprodukts auf $V^{\otimes k}$.
 \end{corollary}
+
+\begin{definition}
+Wenn $e_1, \ldots, e_n$ zufällig eine Basis ist, die man \enquote{Standardbasis} nennt, dann nennt man $\Set{e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_k}}$ auch Standardbasis von $V^{\otimes k}$. 
+
+Diese Basis wird sehr häufig implizit verwendet (siehe Aufgabe \ref{ex:TensorenMitIndizes}).
+\end{definition}
 
 \begin{remark}[Index-Notation -- Was ist das?]
 Insbesondere heißt das, dass jeder Tensor $t\in V\otimes W$ eine eindeutige Koordinaten-Darstellung bzgl. solch einer Basis hat, d.h. es gibt eindeutig bestimmte Skalare $t_{ij}$ sodass
@@ -290,15 +308,34 @@ Betrachten wir einmal kurz ein Problem aus der uns bekannten, 3-dimensionalen We
 	\vspace{8cm}
 \end{gridmp}
 
-Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern viel mehr fragen: Ist die hier gewählte Basis zur Beschreibung der Ausgangssituation oder für die Berechnung hilfreich? Wäre es nicht viel einfacher, die Situation basisfrei zu beschreiben? Wie sähe eine solche Beschreibung aus?
+Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr fragen: Ist die hier gewählte Basis zur Beschreibung der Ausgangssituation oder für die Berechnung hilfreich? Wäre es nicht viel einfacher, die Situation basisfrei zu beschreiben? Wie sähe eine solche Beschreibung aus?
 
 \end{remark}
 
-\subsection{}
+\subsection{Beispiele für Abbildungen zwischen Tensoren}
 
-\begin{lemma}
-Sind $f:V\to W, g: V'\to W'$ zwei lineare Abbildungen zwischen $K$-Vektorräumen, so gibt es genau eine lineare Abbildung $V\otimes V'  \to W\otimes W'$, die $v\otimes v'$ auf $f(v)\otimes g(v')$ abbildet. Diese Abbildung wird der Bequemlichkeit halber auch als $f\otimes g$ bezeichnet.
-\end{lemma}
+\begin{definition}[Spur nehmen von einem Tensor]
+Sei $v_1 \cdots \otimes \cdots v_n$ ein reiner Tensor aus $V^{\otimes n}$. Dann definiert die Abbildung
+\[\tr_{kl} : 
+\left\lbrace\begin{array}{rcl}
+	V^{\otimes n} &\to& V^{\otimes n-2}\\
+	v_1 \otimes \cdots \otimes v_k \otimes \cdots \otimes v_l \otimes  \cdots \otimes v_n &\mapsto& \braket{v_k,v_l} v_1 \otimes \cdots \otimes \hat{v_k} \otimes \cdots \otimes \hat{v_l} \otimes  \cdots \otimes v_n
+\end{array}\right.
+\]
+die \udot{Spur zwischen dem $k$-ten und $l$-ten Faktor} des Tensors. Für einen allgemeinenn Tensor ist die Spur als lineare Fortsetzung der obigen Abbildung gegeben.
+\end{definition}
+
+\begin{lemmadef}
+Sind $f:V\to W, g: V'\to W'$ zwei lineare Abbildungen zwischen $K$-Vektorräumen, so gibt es genau eine lineare Abbildung $V\otimes V'  \to W\otimes W'$, die $v\otimes v'$ auf $f(v)\otimes g(v')$ abbildet.
+
+Diese Abbildung wird der Bequemlichkeit halber auch als $f\otimes g$ bezeichnet. Für mehr als zwei Tensorfaktoren schreiben wir dann analog auch $f\otimes g\otimes h\otimes\cdots$. 
+\end{lemmadef}
+
+\begin{example}
+Wir können die Spur in dieser Schreibweise auch anders aufschreiben, z.B. ist
+\[\tr_{12} = \braket{\cdot,\cdot} \otimes \id\]
+wenn wir es als Abbildung $(V\otimes V)\otimes(V^{\otimes n-2}) \to K \otimes V^{\otimes n-2} = V^{\otimes n-2}$ auffassen. Oft ist dies vereinfachend, zum Beispiel sieht man dieser Schreibweise an, was das Hintereinanderausführen von zwei Spuren bewirkt und dass diese zwei Abbildungen kommutieren.
+\end{example}
 
 \begin{remark}
 Sind die Dimensionen endlich und hat man Basen der jeweiligen Vektorräume gewählt, so kann man $f$ und $g$ durch ihre Darstellungsmatrix angeben. Die Darstellungsmatrix von $f\otimes g$ ist dann das sogenannte \enquote{Kronecker-Produkt} der Matrizen $F$ und $G$. Je nachdem, wie man die Tensorbasis $\set{b_i\otimes c_j}$ anordnet (zeilen- oder spaltenweise durchnummerieren), ist das Kronecker-Produkt durch

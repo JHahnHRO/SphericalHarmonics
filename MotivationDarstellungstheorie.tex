@@ -3,16 +3,11 @@
 
 \subsection{Geschickte Basiswahl}
 Wie dem ein oder anderen aufgefallen sein wird, haben wir in dem vorherigen Kapitel Tensoren eingeführt, ohne eine Basis für deren Vektorraum zu benötigen oder vielleicht im Nachgang eine Basis zu konstruieren. Allgemeine Aussagen lassen sich schließlich auch weitgehend basisfrei, oder zumindest basis-unabhängig machen. 
-Jetzt wollen manche jedoch Tensoren nicht nur einfach so für ein bisschen hübsche Mathematik benutzen sondern tatsächlich mal ein Problem mit Zahlen (und zwar nicht nach dem Mathematiker-Prinzip ''Sei $a\in \IR$...'', sondern halt mal welche mit echten Ziffern) möglichst effizient ausrechnen. Dafür möchte man meistens ab irgendeinem Punkt eine Basis wählen, idealerweise eine, die orthonormal bezüglich eines gewählten Skalarproduktes ist. Haben wir ein Skalarprodukt $\braket{\cdot,\cdot}$ auf $V$ gegeben, ist das Standardskalarprodukt auf $V^{\otimes m}$ definiert mit der Vorschrift
-\begin{align}
-	\braket{\cdot, \cdot} : V^{\otimes m} \times V^{\otimes m} &\to K\\
-	\braket{v_1 \otimes \cdots \otimes v_m, w_1 \otimes \cdots \otimes w_m} &\mapsto \braket{v_1,w_1} \cdot \cdots \cdot \braket{v_m, w_m}
-\end{align}
-und ihrer linearen Fortsetzung. Gegeben eine Orthonormalbasis $e_1, ..., e_n$ von $V$ lässt sich bezüglich des Standardskalarproduktes sehr einfach eine noch zu normierende, aber orthogonale Basis für $V^{\otimes m}$ bestehend aus allen Kombinationen der Basisvektoren $e_i$ konstruieren: 
-\begin{align}
-	\left\{e_{j_1}\otimes \cdots \otimes e_{j_m} | j_k \in {1 \cdots n} \right\}
-\end{align}
-Sie wird häufig implizit verwendet (siehe Aufgabe \ref{ex:TensorenMitIndizes}). Hieraus ließe sich recht simpel eine orthonormale Basis für den Tensorraum ableiten. Aber ist diese Basis auch eine gute Basis? Was macht eine ''gute'' Basis überhaupt aus?
+Jetzt wollen manche jedoch Tensoren nicht nur einfach so für ein bisschen hübsche Mathematik benutzen sondern tatsächlich mal ein Problem mit Zahlen (und zwar nicht nach dem Mathematiker-Prinzip ''Sei $a\in \IR$...'', sondern halt mal welche mit echten Ziffern) möglichst \emph{effizient} ausrechnen. Dafür möchte man meistens ab irgendeinem Punkt eine Basis wählen, idealerweise eine, die orthonormal bezüglich eines gewählten Skalarproduktes ist. 
+
+\medbreak
+ Hieraus ließe sich recht simpel eine orthonormale Basis für den Tensorraum ableiten. Aber ist diese Basis auch eine gute Basis? Was macht eine ''gute'' Basis überhaupt aus?
+
 \medbreak
 Gehen wir zu unseren Ballwerfern Anna und Bernd zurück. Formulieren wir das gleiche Problem etwas um:
 
