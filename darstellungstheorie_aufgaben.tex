@@ -1,5 +1,82 @@
+% !TeX spellcheck = de_DE
+% !TeX root = spherical_harmonics.tex
 \begin{sheet}
-	
-	
+
+\begin{problem}[title={Komische Minus Einsen}, difficulty=leicht]
+\begin{subproblem}
+In den Beispielen wurde definiert, dass die symmetrische Gruppe $Sym(m)$ durch
+\[\sigma \cdot (v_1,\ldots,v_m) := (v_{\sigma^{-1}(1)}, \ldots, v_{\sigma^{-1}(m)})\]
+auf $K^m$ auf der Tensorpotenz $V^{\otimes m}$ durch
+\[\sigma \cdot v_1\otimes\cdots\otimes v_m := v_{\sigma^{-1}(1)}\otimes \cdots \otimes v_{\sigma^{-1}(m)} \]
+operiert.
+\end{subproblem}
+\begin{subproblem}
+Ebenfalls definiert wurde, dass bei einer gegebenen Darstellung $V$ der Dualraum $V^\ast := \Hom_K(V,K)$ zu einer Darstellung derselben Gruppe wird, indem man sie durch
+\[g\cdot \phi := v\mapsto \phi(g^{-1}v)\]
+operieren lässt.
+\end{subproblem}
+
+Beweise, dass das Invertieren in beiden Definitionen nötig ist, damit die Assoziativitätsbedingung gilt.
+\end{problem}
+
+\begin{problem}
+Wie lautet die Matrixdarstellung zu der obigen Darstellung von $Sym(m)$ auf $K^m$ ?
+\end{problem}
+
+\begin{problem}
+Wenn $\Delta: G\to K^{n\times n}$ eine Matrixdarstellung von $G$ auf $V$ bzgl. irgendeiner fest gewählten Basis $B\subseteq V$ ist, wie lautet die Matrixdarstellung $\Delta^\ast$ der dualen Darstellung von $G$ auf dem Dualraum $V^\ast$ bzgl. der dualen Basis $B^\ast$ ?
+\end{problem}
+
+\begin{problem}[title={Basiswechsel}]
+Wenn $\Delta$ und $\Delta'$ zwei Matrixdarstellungen derselben Darstellung von $G$ auf $V$ sind, wenn d.h. $\Delta$ bzgl. einer Basis $B$ und $\Delta'$ bzgl. einer zweiten Basis $B'$ gedacht ist, und wenn $S$ die Basiswechselmatrix von $B$ nach $B'$ ist, was ist dann der Zusammenhang zwischen $\Delta$, $S$und $\Delta'$ ?
+\end{problem}
+
+\begin{problem}
+\begin{subproblem}
+Es seien $V$ und $W$ zwei endlichdimensionale Darstellungen von $G$. Man beweise, dass die beiden Darstellungen $\Hom_K(V,W)$ und $V^\ast \otimes W$ via
+\[\alpha: V^\ast \otimes W \to \Hom_K(V,W), \phi \otimes w \mapsto (v\mapsto \phi(v)w)\]
+isomorph sind.
+\end{subproblem}
+
+Insbesondere erhalten wir im Spezialfall $V=W$ einen Isomorphismus zwischen $V^\ast\otimes V$ und $\Hom_K(V,V)$.
+
+\begin{subproblem}
+Für $V=W$, wie lautet der Tensor, der durch den Isomorphismus auf $\id_V$ abgebildet wird?
+\end{subproblem}
+
+\begin{subproblem}
+Zeige: Die Auswertungsabbildung $\varepsilon: V^\ast \otimes V \to K, \phi\otimes v\mapsto \phi(v)$ ist $G$-linear.
+\end{subproblem}
+
+\begin{subproblem}
+$\varepsilon\circ\alpha^{-1}$ ist eine $G$-lineare Abbildung $\beta: \Hom_K(V,V) \to K$. Welche?
+\end{subproblem}
+\end{problem}
+
+
+\begin{problem}
+Zeige, dass $V\otimes V$ niemals irreduzibel ist, wenn $\dim(V) \neq 1$ ist.
+\end{problem}
+
+\begin{problem}
+Zeige, dass $V$ irreduzibel ist, wenn $V^\ast$ es ist.
+\end{problem}
+
+
+\begin{problem}[title={Die kanonische Darstellung von $SO_3$ ist irreduzibel}]
+Zeige, dass $\IK^3$ eine irreduzible Darstellung von $G=SO_3$ ist.
+\end{problem}
+
+\begin{problem}[title={Isomorphie von $V$ und $V^\ast$}]
+Sei $V$ ein endlichdimensionaler $\IR$-Vektorraum. Zweck dieser Aufgabe ist es, genauer zu beleuchten, wieso $V$ und $V^\ast$ Grund verschiedene Vektorräume sind, obwohl sie als Vektorräume ja isomorph sind (d.h. die gleiche Dimension haben)
+\begin{subproblem}
+\textbf{Manchmal sind sie isomorph}.
+Es sei ein Skalarprodukt $\braket{,}$ auf $V$ gegeben. Zeige, dass $V$ und $V^\ast$ als $SO(V)$-Darstellungen via $V\to V^\ast, v\mapsto \braket{v,\cdot}$ isomorph sind.
+\end{subproblem}
+\begin{subproblem}[difficulty={schwerer als man denkt}]
+\textbf{Manchmal aber auch nicht}.
+Zeige, dass $V$ und $V^\ast$ \emph{nicht} isomorph sind als $GL(V)$-Darstellungen.
+\end{subproblem}
+\end{problem}
 	
 \end{sheet}
