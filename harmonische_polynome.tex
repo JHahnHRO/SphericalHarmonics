@@ -3,7 +3,48 @@
 \subsection{Einige irreduzible Darstellungen von Isometriegruppen}
 
 \begin{remark}
-Wir sind immer noch daran interessiert, die Darstellungen von $SO_2$ und $SO_3$ zu verstehen, und, wie wir eben gelernt haben, ist ein Wesentlicher Teil dieses Vorhabens die Aufgabe, die irreduziblen Darstellungen dieser Gruppen zu finden.
+Wir sind immer noch daran interessiert, die Darstellungen von $O_2$ und $O_3$ zu verstehen, und, wie wir eben gelernt haben, ist ein Wesentlicher Teil dieses Vorhabens die Aufgabe, die irreduziblen Darstellungen dieser Gruppen zu finden.
 
-In Aufgabe \ref{ex:fundamentaldarstellung_von_so3} haben wir gelernt, dass die kanonische Darstellung von $SO_3$ irreduzibel ist. Wir wissen, dass jede Gruppe eine triviale Darstellung hat, die auch immer irreduzibel ist. Aber welche gibt es noch? In Aufgabe \ref{ex:keine_2D_darstellung_von_so3} wurde gezeigt, dass es keine ein- oder zwei-dimensionalen Kandidaten gibt.
+In Aufgabe \ref{ex:fundamentaldarstellung_von_so3} haben wir gelernt, dass die kanonische Darstellung von $O_3$ irreduzibel ist. Wir wissen, dass jede Gruppe eine triviale Darstellung hat, die auch immer irreduzibel ist. Aber welche gibt es noch? In Aufgabe \ref{ex:keine_2D_darstellung_von_so3} wurde gezeigt, dass es keine ein- oder zwei-dimensionalen Kandidaten gibt.
 \end{remark}
+
+\begin{definition}[Spurfreie Tensoren]
+Die Tensoren im Kern der Spur $\tr_{i,j} : Sym^m(V) \to Sym^{m-2}(V)$ werden \emph{spurfreie} Tensoren genannt. Der Raum der symmetrischen, spurfreien Tensoren bezeichnen wir mit $STF^m$.
+\end{definition}
+
+\begin{lemma}
+Die spurfreien symmetrischen Tensoren sind eine $O_n$-Unterdarstellung von $V^{\otimes m}$.
+\end{lemma}
+
+\begin{lemma}
+Der Isomorphismus zwischen symmetrischen Tensoren und polynomiellen Abbildungen übersetzt...
+\begin{enumerate}
+\item ...die Spur in den Laplace-Operator
+\item ...die spurfreien symmetrischen Tensoren in harmonische Polynome.
+\end{enumerate}
+\end{lemma}
+
+
+
+\begin{theorem}[Zerlegung der symmetrischen Tensoren in irreduzible Unterdarstellungen]
+\begin{enumerate}
+\item Die Darstellungen $STF^m(V)$ sind paarweise nicht isomorph und irreduzibel.
+\item Mit der Projektion $q$ auf die symmetrischen Tensoren gilt:
+\[Sym^m(V) \isomorphic STF^m(V) \oplus STF^{m-2}(V) \oplus STF^{m-4}(V) \oplus \cdots\]
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Die Spur ist eine $O_n$-lineare Abbildung $\tr: Sym^m(V) \to Sym^{m-2}(V)$, deren Kern per Definition $STF^m$ ist. Das orthogonale Komplement des Kerns ist eine $O_n$-Darstellung, die zum Bild $\im(\tr)=Sym^{m-2}(V)$ isomorph ist (die Spur ist surjektiv laut \todo{Aufgabe definieren}). Dies benutzen wir, um einen induktiven Beweis aufzuziehen.
+
+Zum einen folgt daraus, dass $\dim(STF^m) = \dim(Sym^m(V)) - \dim(Sym^{m-2}(V)) = \binom{m+n+1}{n-1} - \binom{m+n-1}{n-1}$ ist, was streng monoton mit $m$ wächst. Also sind diese Darstellungen auf jeden Fall paarweise nicht isomorph. Die Frage ist, wieso sie irreduzibel sind und wieso sich $Sym^m$ so zerlegt.
+
+\medbreak
+Wir beweisen beide Behauptungen mit einer gemeinsamen Induktion. Für $m\leq 1$ ist nicht zu zeigen: $STF^0 = Sym^0(V) = V^{\otimes 0} = \IK$ ist die triviale Darstellung, also irreduzibel. $STF^1 = Sym^1(V) = V$ ist uns auch bereits als irreduzibel bekannt. Wir nehmen also an, wir wüssten bereits, dass alle $STF^k$ mit $k<m$ irreduzibel sind.
+
+Also enthält dieses orthogonale Komplement Unterdarstellungen der Form $Sym^k(V)$ mit $k=m-2, m-4, ...$, jeweils genau einmal.
+
+
+
+
+
+\end{proof}
