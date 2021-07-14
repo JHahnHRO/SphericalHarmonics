@@ -2,7 +2,7 @@
 % !TeX root = spherical_harmonics.tex
 \begin{sheet}
 
-\begin{problem}[title={Komische Minus Einsen}, difficulty=leicht]
+\begin{problem}[title={Komische Minus Einsen}, difficulty=leicht]\label{ex:invertieren_fuer_linksmoduln}
 \begin{subproblem}
 In den Beispielen wurde definiert, dass die symmetrische Gruppe $Sym(m)$ durch
 \[\sigma \cdot (v_1,\ldots,v_m) := (v_{\sigma^{-1}(1)}, \ldots, v_{\sigma^{-1}(m)})\]
@@ -15,8 +15,13 @@ Ebenfalls definiert wurde, dass bei einer gegebenen Darstellung $V$ der Dualraum
 \[g\cdot \phi := v\mapsto \phi(g^{-1}v)\]
 operieren lässt.
 \end{subproblem}
+\begin{subproblem}
+Ebenfalls definiert wurde, dass $G=GL_n(\IK)$ auf $V:=\IK[X_1, ..., X_n]$ dem Raum der polynomiellen Abbildungen durch
+\[g\cdot p := v\mapsto p(g^{-1}X)\]
+operieren lässt.
+\end{subproblem}
 
-Beweise, dass das Invertieren in beiden Definitionen nötig ist, damit die Assoziativitätsbedingung gilt.
+Beweise, dass das Invertieren in diesen Definitionen nötig ist, damit die Assoziativitätsbedingung gilt.
 \end{problem}
 
 \begin{problem}
@@ -24,16 +29,16 @@ Wie lautet die Matrixdarstellung zu der obigen Darstellung von $Sym(m)$ auf $K^m
 \end{problem}
 
 \begin{problem}
-Wenn $\Delta: G\to K^{n\times n}$ eine Matrixdarstellung von $G$ auf $V$ bzgl. irgendeiner fest gewählten Basis $B\subseteq V$ ist, wie lautet die Matrixdarstellung $\Delta^\ast$ der dualen Darstellung von $G$ auf dem Dualraum $V^\ast$ bzgl. der dualen Basis $B^\ast$ ?
+Wenn $\mathcal{D}: G\to K^{n\times n}$ eine Matrixdarstellung von $G$ auf $V$ bzgl. irgendeiner fest gewählten Basis $B\subseteq V$ ist, wie lautet die Matrixdarstellung $\mathcal{D}^\ast$ der dualen Darstellung von $G$ auf dem Dualraum $V^\ast$ bzgl. der dualen Basis $B^\ast$ ?
 \end{problem}
 
 \begin{problem}[title={Basiswechsel}]
-Wenn $\Delta$ und $\Delta'$ zwei Matrixdarstellungen derselben Darstellung von $G$ auf $V$ sind, wenn d.h. $\Delta$ bzgl. einer Basis $B$ und $\Delta'$ bzgl. einer zweiten Basis $B'$ gedacht ist, und wenn $S$ die Basiswechselmatrix von $B$ nach $B'$ ist, was ist dann der Zusammenhang zwischen $\Delta$, $S$und $\Delta'$ ?
+Wenn $\mathcal{D}$ und $\mathcal{D}'$ zwei Matrixdarstellungen derselben Darstellung von $G$ auf $V$ sind, wenn d.h. $\mathcal{D}$ bzgl. einer Basis $B$ und $\mathcal{D}'$ bzgl. einer zweiten Basis $B'$ gedacht ist, und wenn $S$ die Basiswechselmatrix von $B$ nach $B'$ ist, was ist dann der Zusammenhang zwischen $\mathcal{D}$, $S$und $\mathcal{D}'$ ?
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{ex:hom_tensor_isomorphismus}
 \begin{subproblem}
-Es seien $V$ und $W$ zwei endlichdimensionale Darstellungen von $G$. Man beweise, dass die beiden Darstellungen $\Hom_K(V,W)$ und $V^\ast \otimes W$ via
+Es seien $V$ und $W$ zwei endlich-dimensionale Darstellungen von $G$. Man beweise, dass die beiden Darstellungen $\Hom_K(V,W)$ und $V^\ast \otimes W$ via
 \[\alpha: V^\ast \otimes W \to \Hom_K(V,W), \phi \otimes w \mapsto (v\mapsto \phi(v)w)\]
 isomorph sind.
 \end{subproblem}
@@ -62,15 +67,39 @@ Zeige, dass $V\otimes V$ niemals irreduzibel ist, wenn $\dim(V) \neq 1$ ist.
 Zeige, dass $V$ irreduzibel ist, wenn $V^\ast$ es ist.
 \end{problem}
 
+\begin{problem}[title={Kanonische Darstellung von $SO_2$}]\label{ex:fundamentaldarstellung_von_so2}
+\begin{subproblem}
+Zeige, dass die kanonische Darstellung $V=\IR^2$ von $G=SO_2$ irreduzibel ist.
+\end{subproblem}
+\begin{subproblem}
+Zeige, dass die komplexifizierte Darstellung $V_\IC=\IC^2$ von $G$ reduzibel ist.
+\end{subproblem}
+\begin{subproblem}
+Finde die irreduziblen Unterdarstellungen von $V_\IC$.
 
-\begin{problem}[title={Die kanonische Darstellung von $SO_3$ ist irreduzibel}]
-Zeige, dass $\IK^3$ eine irreduzible Darstellung von $G=SO_3$ ist.
+Hinweis: Eigenräume.
+\end{subproblem}
+\end{problem}
+
+\begin{problem}[title={Die kanonische Darstellung von $SO_3$ ist irreduzibel}]\label{ex:fundamentaldarstellung_von_so3}
+Zeige, dass $\IK^3$ eine irreduzible Darstellung von $G=SO_3$ ist sowohl für $\IK=\IR$ als auch für $\IK=\IC$.
+\end{problem}
+
+\begin{problem}[title={Was geht bei $SO_2$ schief?}]
+Spoiler: $SO_2$ ist kommutativ.
+
+\begin{subproblem}
+Zeige (oder erinnere dich) zunächst: Ist $\lambda\in\IC$ beliebig und sind $\alpha,\beta\in\End_\IC(V)$ zwei kommutierende Endomorphismen (d.h. $\alpha\circ\beta=\beta\circ\alpha$), dann ist der Eigenraum $\operatorname{Eig}_\lambda(\alpha)$ ein $\beta$-invarianter Untervektorraum.
+\end{subproblem}
+\begin{subproblem}
+Zeige, dass alle endlich-dimensionalen, irreduziblen, komplexen Darstellungen einer kommutativen Gruppe $G$ eindimensional sind.
+\end{subproblem}
 \end{problem}
 
 \begin{problem}[title={Isomorphie von $V$ und $V^\ast$}]
 Sei $V$ ein endlichdimensionaler $\IR$-Vektorraum. Zweck dieser Aufgabe ist es, genauer zu beleuchten, wieso $V$ und $V^\ast$ Grund verschiedene Vektorräume sind, obwohl sie als Vektorräume ja isomorph sind (d.h. die gleiche Dimension haben)
 \begin{subproblem}
-\textbf{Manchmal sind sie isomorph}.
+\textbf{Manchmal sind sie isomorph -- Satz von Riesz}.
 Es sei ein Skalarprodukt $\braket{,}$ auf $V$ gegeben. Zeige, dass $V$ und $V^\ast$ als $SO(V)$-Darstellungen via $V\to V^\ast, v\mapsto \braket{v,\cdot}$ isomorph sind.
 \end{subproblem}
 \begin{subproblem}[difficulty={schwerer als man denkt}]
