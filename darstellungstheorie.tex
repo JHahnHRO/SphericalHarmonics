@@ -45,20 +45,19 @@ Wir werden uns außerdem ausschließlich für die Fälle $\IK=\IC$ und ein bissc
 \end{convention}
 
 \begin{remark}
-Eine Darstellung kann alternativ aufgefasst werden als Gruppenhomomorphismus $G\to GL(V)$: Jedem Gruppenelement $g\in G$ wird die (invertierbare!) lineare Abbildung $v\mapsto gv$ zugeordnet. Ist umgekehrt ein Gruppenhomomorphismus $\phi: G\to GL(V)$ gegeben, so kann man $V$ als $G$-Darstellung auffassen, indem man $g\cdot v:=\phi(g)(v)$ definiert.
+Eine Darstellung kann alternativ aufgefasst werden als Gruppenhomomorphismus $G\to GL(V)$: Jedem Gruppenelement $g\in G$ wird die (invertierbare!) lineare Abbildung $v\mapsto gv$ zugeordnet. Ist umgekehrt ein Gruppenhomomorphismus $\mathcal{D}: G\to GL(V)$ gegeben, so kann man $V$ als $G$-Darstellung auffassen, indem man $g\cdot v:=\mathcal{D}(g)(v)$ definiert.
 
 Diese beiden Sichtweisen sind völlig identisch und beliebig austauschbar. Je nach Situation kann es einfacher sein, einen Homomorphismus nach $GL(V)$ oder direkt die Operation der Gruppe auf $V$ zu definieren.
 
-Hat man aus irgendeinem Grund eine Basis von $V$ gegeben, kann man bekanntlich lineare Abbildungen mit Matrizen identifizieren. Eine Darstellung ist in dieser Sichtweise dann eine Abbildung $\Delta: G\to \IK^{n\times n}$, die jedem Gruppenelement $g\in G$ eine (invertierbare) Matrix $\Delta(g)$ zuordnet, sodass $\Delta(1)=1_{n\times n}$ und $\Delta(g\cdot h)=\Delta(g)\cdot \Delta(h)$ erfüllt sind. Solch eine Abbildung nennt man dann auch \udot{Matrixdarstellung}.
+Hat man aus irgendeinem Grund eine Basis von $V$ gegeben, kann man bekanntlich lineare Abbildungen mit Matrizen identifizieren. Eine Darstellung ist in dieser Sichtweise dann eine Abbildung ${D}: G\to \IK^{n\times n}$, die jedem Gruppenelement $g\in G$ eine (invertierbare) Matrix $D(g)$ zuordnet, sodass $D(1)=1_{n\times n}$ und $D(g\cdot h)=D(g)\cdot D(h)$ erfüllt sind. Solch eine Abbildung nennt man dann auch \udot{Matrixdarstellung}.
 \end{remark}
 
 \begin{example}
 \begin{itemize}
-\item $GL(V)$ operiert auf $V$ via $g\cdot v := g(v)$, die sogenannte \enquote{natürliche} oder \enquote{kanonische} Darstellung.
-\item Jede Untergruppe von $GL(V)$ operiert genauso auf $V$. Ist ein Skalarprodukt auf $V$ gegeben, so operiert insbesondere die Isometriegruppe $O(V)$ auf $V$.
+\item $GL(V)$ operiert auf $V$ via $g\cdot v := g(v)$, die sogenannte \udot{natürliche} oder \udot{kanonische} Darstellung.
 \item Die symmetrische Gruppe $Sym(m)$ (Gruppe aller Permutationen der Zahlen $1,\ldots,m$) operiert auf $\IK^m$ durch Vertauschen der Koordinaten (die sogenannte \udot{Permutations-} oder \udot{kanonische Darstellung}):
 \[\sigma \cdot (v_1,\ldots,v_m) := (v_{\sigma^{-1}(1)}, \ldots, v_{\sigma^{-1}(m)})\]
-und auf der Tensorpotenz $V^{\otimes m}$:
+und auf der Tensorpotenz $V^{\otimes m}$ durch Vertauschen der Faktoren:
 \[\sigma \cdot v_1\otimes\cdots\otimes v_m := v_{\sigma^{-1}(1)}\otimes \cdots \otimes v_{\sigma^{-1}(m)} \]
 (Aufgabe \ref{ex:invertieren_fuer_linksmoduln}: Beweise, dass das $^{-1}$ wirklich notwendig ist)
 \item Jede beliebige Gruppe hat \udot{triviale Darstellungen}, nämlich für jeden beliebigen Vektorraum $V$:
@@ -67,7 +66,7 @@ Spricht man von \emph{der} trivialen Darstellung meint man damit diejenige mit $
 \item Die symmetrische Gruppe hat eine nichttriviale, eindimensionale Darstellung mit $V=\IK$, das \udot{Signum}:
 \[\sigma \cdot 1_\IK := \sgn(\sigma) := \begin{cases} -1 & \text{falls $\sigma$ ungerade viele Inversionen enthält} \\ +1 & \text{andernfalls}\end{cases}\]
 \item Der Raum $V:=\IK[X_1, \ldots, X_n]$ der Polynome in $n$ Variablen mit Koeffizienten aus $\IK$ ist eine Darstellung für die Gruppe $G=GL_n(\IK)$ der invertierbaren $n\times n$-Matrizen via:
-\[g\cdot p := p\left(\sum_{i=1}^n (g^{-1})_{1i} X_i, \sum_{i=1}^n (g^{-1})_{2i} X_i, \ldots, \sum_{i=1}^n (g^{-1})_{ni} X_i\ \$V:=\textbackslash\{\}IK[X\_1, \textbackslash\{\}ldots, X\_n] \right)\]
+\[g\cdot p := p\left(\sum_{i=1}^n (g^{-1})_{1i} X_i, \sum_{i=1}^n (g^{-1})_{2i} X_i, \ldots, \sum_{i=1}^n (g^{-1})_{ni} X_i\right)\]
 Für $\IK=\IR$ oder $\IC$ können wir $V$ auch als Raum der polynomiellen Abbildungen $\IK^n \to \IK$ auffassen. Dann schreibt sich dieselbe Definition etwas einfacher als
 \[g \cdot p := X\mapsto p(g^{-1}(X))\]
 (Aufgabe \ref{ex:invertieren_fuer_linksmoduln}: Beweise, dass das $^{-1}$ wirklich notwendig ist)
@@ -83,7 +82,6 @@ Sei $G$ eine Gruppe und $V,W$ Darstellungen von $G$ über einem festen Körper $
 \[g(v\otimes w) := (gv)\otimes (gw)\]
 \item Der Raum der $\IK$-linearen Abbildungen $\Hom_\IK(V,W)$ durch
 \[g\cdot f := v\mapsto gf(g^{-1} w)\]
-(Der Dualraum ist hiervon ein Spezialfall, wenn man für $W$ die triviale Darstellung wählt)
 \item Der Dualraum $V^\ast:= \Hom_\IK(V,\IK)$ durch
 \[g\cdot \phi := v\mapsto \phi(g^{-1} v)\]
 (Aufgabe \ref{ex:invertieren_fuer_linksmoduln} Beweise, dass das $^{-1}$ wirklich notwendig ist)
@@ -91,20 +89,17 @@ Sei $G$ eine Gruppe und $V,W$ Darstellungen von $G$ über einem festen Körper $
 Ist $H\leq G$ eine Untergruppe von $G$, dann operiert $H$ natürlich auch auf $V$. Die Darstellung von $H$, die wir so erhalten, nennt man \emph{Restriktion von $V$ auf $H$}.
 \end{lemmadef}
 
-\begin{example}[Zentrales Beispiel -- Die zwei- und dreidimensionalen Rotationsgruppen]
-So können wir z.B. $\IK^m$ auch als Darstellung jeder Untergruppe von $GL_n(\IK)$ auffassen. Unser zentrales Beispiel wird sein, dass wir $V=\IR^3$ bzw. $V=\IC^3$ als Darstellung der Rotationsgruppe $G=SO_3(\IR) \leq GL_3(\IK)$ auffassen.
-
-Die zweidimensionale Rotationsgruppe $H=SO_2$ können wir auf mehrere verschiedene (aber äquivalente) Weisen als Untergruppe von $SO_3$ auffassen, indem wir einen Vektor als feste Rotationsachse wählen, z.B. den Standardbasisvektor in $z$-Richtung $(0,0,1)$, und um diesen rotieren. Die Rotation $h = \begin{psmallmatrix} \cos(\alpha) & -\sin(\alpha)\\ \sin(\alpha) & \cos(\alpha)\end{psmallmatrix}$ operiert in diesem Beispiel als $\Delta(h) = \begin{psmallmatrix} \cos(\alpha) & -\sin(\alpha) & 0 \\ \sin(\alpha) & \cos(\alpha) & 0 \\ 0&0&1\end{psmallmatrix}$ auf $\IK^3$.
-
-\medbreak
-Insbesondere sind deshalb die Tensorpotenzen $V^{\otimes m}$ dann auch Darstellungen von $G$ mittels
-\[g(v_1\otimes \cdots\otimes v_m) = (gv_1)\otimes\cdots\otimes(gv_m)\]
-Den Polynomraum $\IK[x,y,z]$ werden wir ebenfalls als $SO_2$-Darstellung auffassen.
-\end{example}
-
 \begin{remark}
-Da wir bevorzugt basisfrei arbeiten, betrachten wir dies meistens wie folgt: $V$ ist ein beliebiger dreidimensionaler $\IR$-Vektorraum mit einem fest gewählten Skalarprodukt und $G$ ist die Rotationsgruppe dieses Skalarprodukts, d.h. die Gruppe $G=SO(V) := \Set{f: V\to V | \braket{f(v),f(w)} = \braket{v,w} \wedge \det(f)=1}$.
+Man beachte, dass d. ein Spezialfall von c. ist, wobei man für $W$ die triviale Darstellung $\IK$ eingesetzt hat.
 \end{remark}
+
+\begin{example}[Zentrales Beispiel -- Die zwei- und dreidimensionalen Dreh- bzw. Isometriegruppen]
+Wie bereits festgestellt, ist jeder Vektorraum $V$ eine $GL(V)$-Darstellung. Ist $V$ ein reeller Vektorraum, auf dem ein Skalarprodukt gegeben ist, so hat $GL(V)$ die Untergruppe der Isometrien $O(V)$, d.h. die Gruppe aller mit dem Skalarprodukt verträglichen Abbildungen:
+\[O(V) := \Set{f\in GL(V) | \forall v,w\in V: \braket{f(v),f(w)} := \braket{v,w}}\]
+In dieser Gruppe enthalten sind z.B. alle Rotationen, alle Spiegelungen sowie die Inversion $v\mapsto -v$ (die manchmal eine Drehung ist).
+
+Wir werden die Darstellungstheorie der Isometriegruppen von zwei- und dreidimensionalen reellen Vektorräumen entwickeln. Wir werden also $V$, $V^{\otimes m}$, den Raum der polynomiellen Abbildungen $V\to\IK$ uvm. als Darstellungen von $O(V)$ auffassen.
+\end{example}
 
 \begin{definition}[Unterdarstellungen]
 Sei $V$ eine Darstellung von $G$. Ein Untervektorraum $U\leq V$ heißt \emph{$G$-invarianter Unterraum} oder \emph{Unterdarstellung von $V$}, falls $U$ unter der Gruppenoperation abgeschlossen ist, d.h.
