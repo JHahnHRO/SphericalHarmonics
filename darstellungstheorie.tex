@@ -98,7 +98,11 @@ Wie bereits festgestellt, ist jeder Vektorraum $V$ eine $GL(V)$-Darstellung. Ist
 \[O(V) := \Set{f\in GL(V) | \forall v,w\in V: \braket{f(v),f(w)} := \braket{v,w}}\]
 In dieser Gruppe enthalten sind z.B. alle Rotationen, alle Spiegelungen sowie die Inversion $v\mapsto -v$ (die manchmal eine Drehung ist).
 
+\smallbreak
 Wir werden die Darstellungstheorie der Isometriegruppen von zwei- und dreidimensionalen reellen Vektorräumen entwickeln. Wir werden also $V$, $V^{\otimes m}$, den Raum der polynomiellen Abbildungen $V\to\IK$ uvm. als Darstellungen von $O(V)$ auffassen.
+
+\smallbreak
+Es ist außerdem manchmal von Vorteil, den dreidimensionalen Raum auch als Darstellung für die zweidimensionale Isometriegruppe auffassen, indem wir $O_2$ als Untergruppe von $O_3$ auffassen. Dies ist sinnvoll in physikalischen Systemen mit einer festen (unendlich ausgedehnten) Ebene, wo zwar alles rotations- und spiegelsymmetrisch ist, aber nur solange diese Ebene erhalten bleibt.
 \end{example}
 
 \begin{definition}[Unterdarstellungen]
@@ -133,20 +137,20 @@ Weil wir \enquote{exakt zwei} und nicht \enquote{höchstens zwei} fordern, ist d
 \begin{itemize}
 \item Aus Dimensionsgründen ist jede eindimensionale Darstellung automatisch irreduzibel.
 \item $V$ ist eine irreduzible Darstellung von $GL(V)$.
-\item $\IR^3$ (bzw. $\IC^3$) ist eine irreduzible Darstellung von $SO_3$.
-\item $\IK^3$ ist \emph{nicht} irreduzibel als Darstellung von $SO_2$, da die jeweils gewählte Drehachse ein eindimensionaler, $SO_2$-invarianter Unterraum ist. Die dazu senkrechte Ebene ist ein zweidimensionaler invarianter Unterraum.
+\item $\IK^3$ ist eine irreduzible Darstellung von $O_3$.
+\item $\IK^3$ ist \emph{nicht} irreduzibel als Darstellung von $O_2$.
 \end{itemize}
 \end{example}
 
 \begin{remark}
-An den letzten beiden Beispielen erkennen wir, dass die Restriktion einer irreduziblen Darstellung auf eine Untergruppe selbst wieder irreduzibel sein kann, aber nicht muss: Wenn man von $GL_3$ zu $SO_3$ einschränkt, bleibt $\IK^3$ irreduzibel; wenn wir von $SO_3$ zu $SO_2$ einschränken, bleibt es das nicht.
+An den letzten beiden Beispielen erkennen wir, dass die Restriktion einer irreduziblen Darstellung auf eine Untergruppe selbst wieder irreduzibel sein kann, aber nicht muss: Wenn man von $GL_3$ zu $O_3$ einschränkt, bleibt $\IK^3$ irreduzibel; wenn wir von $O_3$ zu $O_2$ einschränken, bleibt es das nicht.
 
 Auch die anderen Konstruktionsmöglichkeiten von neuen Darstellungen aus bekannten erhalten i.A. Irreduzibilität nicht:
 \begin{itemize}
 \item Die direkte Summe von zwei Darstellungen $\neq 0$ ist niemals irreduzibel, weil die beiden Summanden invariante Unterräume sind.
 \item Das Tensorprodukt von Darstellungen ist immer reduzibel, wenn mindestens einer der Faktoren reduzibel ist, denn $(U_1\oplus U_2)\otimes W = (U_1\otimes W) \oplus (U_2\otimes W)$. Das Tensorprodukt von irreduziblen Darstellungen ist i.A. aber auch nicht irreduzibel, z.B. ist $V\otimes V$ niemals irreduzibel, wenn $V$ nicht zufällig eindimensional ist. (Wenn es eindimensional ist, ist $V\otimes V$ natürlich auch eindimensional und dementsprechend ausnahmsweise doch irreduzibel)
 
-Es ist i.A. ein sehr schweres Problem, zu bestimmen, ob ein Tensorprodukt von zwei irreduziblen wieder irreduzibel ist und, wenn es das nicht ist, wie die irreduziblen Unterräume des Tensorprodukts genau aussehen. Im Falle $G=SO_3$ ist diese Fragestellung unter dem Namen \enquote{Clebsch\footnote{Alfred Clebsch, 1833--1872, dt. Mathematiker}-Gordan\footnote{Paul Albert Gordan, 1832--1912, dt. Mathematiker}-Theorie} bekannt.
+Es ist i.A. ein sehr schweres Problem, zu bestimmen, ob ein Tensorprodukt von zwei irreduziblen wieder irreduzibel ist und, wenn es das nicht ist, wie die irreduziblen Unterräume des Tensorprodukts genau aussehen. Im Falle $G=O_3$ ist diese Fragestellung unter dem Namen \enquote{Clebsch\footnote{Alfred Clebsch, 1833--1872, dt. Mathematiker}-Gordan\footnote{Paul Albert Gordan, 1832--1912, dt. Mathematiker}-Theorie} bekannt.
 \end{itemize}
 
 Einzige Ausnahme ist das Dualisieren:
