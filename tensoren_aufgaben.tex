@@ -81,6 +81,82 @@ Wie entspricht das dem Casimir-Element euklidischer Räume?
 	Der Begriff Spur kommt einem üblicherweise als Summe der Diagonaleinträge einer Matrix unter. Überzeuge dich, dass es sich im Falle von 2-Tensoren um genau diese Operation handelt.
 \end{problem}
 
+\begin{problem}[title={Brauer-Diagramme}]
+	Wir wollen uns im Folgenden anhand ein paar Beispielen überzeugen, dass die Multiplikation zweier Brauer-Diagrammen tatsächlich dem Hintereinanderausführen der dazugehörigen linearen Abbildungen entspricht.
+	\begin{subproblem}
+		Schreibe die Brauer-Diagramme von den beiden Abbildungen $\Pi_\sigma$ und $\casimir$ aus Gleichung \ref{eq:sigmaOfCasimir} auf und berechne das Brauer-Diagramm der  Abbildung $\Pi_\sigma \circ\casimir$.
+	\end{subproblem}
+	\begin{subproblem}
+		In der Definition von Brauer-Diagrammen haben wir für die Multiplikation zweier Brauer-Diagramme definiert, dass für jeden geschlossenen Kreis im Brauer-Diagramm das Ergebnis-Diagramm mit dem Faktor $\dim{V}$ multipliziert wird. Dieser Faktor muss so festgelet werden, um Brauer-Diagramme als äquivalente Schreibweise für die vorgestellten linearen Abbildungen zwischen Tensoren benuzten zu können. Warum?
+		
+		Hinweis: Spur vom Casimir-Element
+	\end{subproblem}
+	\begin{subproblem}
+		Gegeben seien die folgenden Brauer-Diagramme:
+		\begin{align*}
+			B_5&=\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+				\foreach\x in {1,2,...,4}{
+					\node[v] (s\x) at (\x,1){};
+				}
+				\foreach\x in {1,2,...,6}{
+					\node[v] (h\x) at (\x,0){};
+				}
+				\foreach\x in {1,2}{
+					\draw (s\x) to (h\x);
+				}
+			\draw (s3) to (h5);
+			\draw (s4) to (h6);
+			\draw (h3) to [bend left=30] (h4);
+			\end{tikzpicture}
+			&
+			B_7&= 
+			\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+				\foreach\x in {1,2,...,6}{
+					\node[v] (h\x) at (\x,0){};
+				}
+				\foreach\x in {1,3,4,6}{
+					\node[v] (s\x) at (\x,1){};
+				}
+				\foreach\x in {1,3,4,6}{
+					\draw (s\x) to (h\x);
+				}
+				\draw (h2) to [bend left=30] (h5);
+			\end{tikzpicture}
+			\\ \\ \\
+			B_6&=
+			\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+				\foreach\x in {1,2,...,4}{
+					\node[v] (h\x) at (\x,0){};
+				}
+				\foreach\x in {1,2,...,6}{
+					\node[v] (s\x) at (\x,1){};
+				}
+				\draw (s1) to (h1);
+				\draw (s4) to (h2);
+				\draw (s5) to (h3);
+				\draw (s6) to (h4);
+				\draw (s2) to [bend right=30] (s3);
+			\end{tikzpicture}
+			\hspace{1cm}
+			&
+			B_8&=
+			\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+				\foreach\x in {1,2,...,4}{
+					\node[v] (h\x) at (\x,0){};
+				}
+				\foreach\x in {1,2,...,6}{
+					\node[v] (s\x) at (\x,1){};
+				}
+				\foreach\x in {1,2,...,4}{
+					\draw (s\x) to (h\x);
+				}
+				\draw (s5) to [bend right=30] (s6);
+			\end{tikzpicture}
+		\end{align*}
+		Zeige, dass das Ergebnis der Multiplikation $B_6\circ B_5$ der linearen Abbildung, die durch Hintereinanderausführen von $B_5$ und $B_6$ gegeben ist, entspricht. Zeige dies auch für $B_7 \circ B_8$.
+	\end{subproblem}
+\end{problem}
+
 \begin{problem}[title={Wiederholung von Isomorphie zwischen Vektorräumen: Matrix vs. 2-Tensor}]
 \todo{Ins Darstellungstheoriekapitel}
 	Matrizen und 2-Tensoren sind einander sehr ähnlich, so ähnlich sogar, dass sie zueinander isomorph sind. Gegeben ein $K$-Vektorraum $V$ der Dimension $n$. Genauer: Der Raum der Matrizen $K^{n\times n}$ und $V\otimes V^\ast$ sind isomorph zueinander. Wir wollen nun diesen Isomorphismus genauer betrachten.

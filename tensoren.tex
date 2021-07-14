@@ -333,36 +333,36 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 			}
 		\end{tikzpicture}
 	& 
-	 B_2&=5\cdot
-	 	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-			\foreach\x in {1,2,...,5}{
-				\node[v] (s\x) at (\x,0){};
-			}
-			\node[v] (h3) at (3,1){};
-			\foreach\x [evaluate=\x as \y using {int(\x+1)}]in {1,4}{
-				\draw (s\x) to [bend left=30] (s\y);
-			}
-			\foreach\x in {3}{
-				\draw (s\x) to (h\x);
-			}
-		\end{tikzpicture}
+	B_3&= 12\cdot
+	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+		\foreach\x in {1,2,...,7}{
+			\node[v] (s\x) at (\x,1){};
+		}
+		\foreach\x in {1,2,...,4}{
+			\node[v] (h\x) at (\x,0){};
+		}
+		\node[v] (h6) at (6,0){};
+		\draw (s1) to (h3);
+		\draw (s2) to (h1);
+		\draw (s6) to (h6);
+		\draw (s3) to [bend right=30] (s4);
+		\draw (s5) to [bend right=30] (s7);
+		\draw (h2) to [bend left=30] (h4);
+	\end{tikzpicture}	
 	\\ \\ \\
-			B_3&= 12\cdot
-			\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-				\foreach\x in {1,2,...,7}{
-					\node[v] (s\x) at (\x,1){};
-				}
-				\foreach\x in {1,2,...,4}{
-					\node[v] (h\x) at (\x,0){};
-				}
-				\node[v] (h6) at (6,0){};
-				\draw (s1) to (h3);
-				\draw (s2) to (h1);
-				\draw (s6) to (h6);
-				\draw (s3) to [bend right=30] (s4);
-				\draw (s5) to [bend right=30] (s7);
-				\draw (h2) to [bend left=30] (h4);
-			\end{tikzpicture}	
+	B_2&=5\cdot
+	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+		\foreach\x in {1,2,...,5}{
+			\node[v] (s\x) at (\x,0){};
+		}
+		\node[v] (h3) at (3,1){};
+		\foreach\x [evaluate=\x as \y using {int(\x+1)}]in {1,4}{
+			\draw (s\x) to [bend left=30] (s\y);
+		}
+		\foreach\x in {3}{
+			\draw (s\x) to (h\x);
+		}
+	\end{tikzpicture}
 	\hspace{1cm}
 	&
 	B_4&=\frac{\pi}{3}\cdot
@@ -379,7 +379,7 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 			\draw (h3) to [bend left=30] (h4);
 		\end{tikzpicture}
 	\end{align*}
-	$B_1$ bildet die Identität auf $V^{\otimes 4}$ ab.
+	$B_1$ ist die Identität auf $V^{\otimes 4}$.
 \end{example}
 \begin{example}[Multiplikation zweier Brauer-Diagramme]
 	Sei $d$ die Dimension des Vektorraums $V$, auf dessen Tensorprodukte wir lineare Abbildungen betrachten. Das Produkt von $B_3$ und $B_4$ im oberen Beispiel, bzw. die lineare Abbildung, die durch $B_4 \circ B_3$ beschrieben wird, wird dann folgendermaßen berechnet:
@@ -544,11 +544,15 @@ Diese Definition ist auch in entgegengesetzte Richtung zu verstehen: Wenden wir 
 	\sigma=\begin{bmatrix}1 & 2 & \cdots & n+1 & n+2 \\n+2 & 2 & \cdots & n+1 & 1 \end{bmatrix}\in S_{n+2}
 	\]
 	durch 
-	\[
+	\begin{equation}
+		\label{eq:sigmaOfCasimir}
 	\Pi_{\sigma} \circ \casimir (v_1 \cdots \otimes \cdots v_n)
-	\]
+	\end{equation}
 	das mit $\casimir$ eingefügte $\Omega_V$ in zwei Teile zerlegt.
 	
+\begin{remark}[Brauer-Diagramme beschreiben alle Sinnvollen (bzw. natürlichen) linearen Abbildungen zwischen Tensoren]
+	Die Menge aller Linearkombinationen von allen Brauer-Diagrammen ist gleich der Menge aller natürlichen linearen Abbildungen zwischen Tensoren.
+\end{remark}
 \begin{remark}[Bilineare Abbildungen]
 	Bilineare Abbildungen zwischen Tensoren lassen sich auf lineare Abbildungen zurückführen, indem man das Tensorprodukt der beiden Input-Tensoren bildet und dann eine beliebige lineare Abbildung ausführt.
 \end{remark}
