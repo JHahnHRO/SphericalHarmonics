@@ -1,0 +1,84 @@
+% !TeX root = spherical_harmonics.tex
+% !TeX spellcheck = de_DE
+\begin{remark}
+Wir wollen nun zwei Sätze beweisen und diskutieren, die die ersten beiden wirklich nichttrivialen Resultate und zugleich das Rückgrat der Darstellungstheorie bilden.
+
+Der erste Satz ist das Lemma von Schur.
+\end{remark}
+
+\begin{theorem}[Lemma von Schur\footnote{Issai Schur (1875--1941), russisch-deutsch-israelischer Mathematiker}]
+Sei $V$ eine endlich-dimensionale, irreduzible Darstellung von $G$ über $\IC$.
+\begin{enumerate}
+\item Jede $\IC G$-lineare Abbildung $V\to W$ ist entweder Null oder injektiv.
+\item Jede $\IC G$-lineare Abbildung $X\to V$ ist entweder Null oder surjektiv.
+\item $\End_{\IC G}(V) = \IC\id_V := \set{\lambda\id_V | \lambda\in\IC}$.
+\item Ist $W$ eine weitere irreduzible Darstellung von $G$, so gibt es bis auf konstante Vielfache genau eine $\IC G$-lineare Abbildung $V\to W$ (mglw. nur die Nullabbildung).
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+Man beachte die starke Einschränkung, die die Struktur einer $G$-Darstellung bewirkt: Während es $\IC$-lineare Abbildungen wie Sand am Meer gibt und insbesondere $\End_\IC(V)$ streng monoton mit der Dimension von $V$ anwächst, hat $\End_{\IC G}(V)$ maximal einen Freiheitsgrad, solange $V$ irreduzibel ist.
+
+Das ist auch die Erklärung dafür, wieso wir relativ wenige \enquote{natürliche} Abbildungen zwischen Tensorräumen gefunden haben, wie wir zusammen mit dem Satz von Maschke gleich noch sehen werden.
+\end{remark}
+
+\begin{proof}
+a. folgt aus der Beobachtung, dass $\ker(f)$ eine Unterdarstellung von $V$ ist. b. folgt daraus, dass $\im(f)$ eine Unterdarstellung von $V$ ist. Da $V$ irreduzibel ist, gibt es also nur zwei Möglichkeiten: Null oder ganz $V$.
+
+\smallbreak
+c. Zunächst halten wir fest, dass aufgrund von a. und b. folgt, dass alle Abbildungen in $\End_{\IC G}(V)$ entweder Null oder bijektiv sind. Ist nun $f\in\End_{\IC G}(V)$ beliebig, so gibt es einen Eigenwert $\lambda\in\IC$ von $f$. Hier benutzen wir, dass $V$ ein endlichdimensionaler $\IC$-Vektorraum ist. Also ist $f-\lambda\id_V$ ein Endomorphismus, der einen nichttrivialen Kern hat. Der Kern ist, wie wir bereits festgestellt haben, eine Unterdarstellung von $V$. Die einzige nichttriviale Unterdarstellung ist $V$ selbst. Also muss $f-\lambda\id = 0$ sein.
+
+\smallbreak
+d. Sind $f\neq g: V\to W$ zwei verschiedene Homomorphismen, dann ist höchstens einer von beiden gleich Null, o.bB.d.A. ist $f\neq 0$. Aus a. und b. folgern wir, dass $f$ bijektiv ist. Dann ist $f^{-1}\circ g$ eine $\IC G$-lineare Abbildung $V\to V$. Aus c. folgern wir, dass es eine Konstante $\lambda\in\IC$ gibt, sodass $f^{-1}\circ g = \lambda\id_V$ ist, also ist $g=\lambda f$.
+\end{proof}
+
+\begin{remark}
+An dieser Stelle ist es ganz wesentlich, dass wir mit dem Körper der komplexen Zahlen arbeiten. Es ist immer noch korrekt, dass $E:=\End_{\IK G}(V)$ ausschließlich aus Null und invertierbaren Abbildungen besteht, dass $E$ also ein Schiefkörper ist (d.h. so wie ein Körper, nur dass Kommutativität der Multiplikation nicht gelten muss), aber ohne die Eigenschaft, algebraisch abgeschlossen zu sein, kann es (und wird es) Darstellungen geben, für die $E$ nicht $\IK$ selbst, sondern ein größerer Schiefkörper, ist.
+
+Beispielsweise gibt es über $\IK=\IR$ drei endlich-dimensionale Schiefkörper: $\IR$ selbst, $\IC$ und die Quaternionen $\mathbb{H}$. Entsprechend finden sich auch Gruppen $G$, die irreduzible Darstellungen mit $\dim_\IR \End_{\IR G}(V)=2$ oder $=4$ besitzen.
+
+Die Gruppe $G=SO_3$, die uns vor allem interessiert, hat interessanterweise keine solche Darstellungen, aber das ist ein nichttrivialer Fakt, den wir nicht beweisen werden. Die Gruppe $G=SO_2$ zeigt aber tatsächlich dieses Phänomen; sogar haben \emph{alle} bis auf eine irreduzible reelle Darstellung von $SO_2$ einen zweidimensionalen Endomorphismenraum.
+\end{remark}
+
+\begin{theorem}[Satz von Maschke]
+Ist $G$ eine kompakte Gruppe und $V$ eine stetige, endlich-dimensionale Darstellung von $G$, dann ist $V$ \emph{halbeinfach}, d.h. $V$ ist die direkte Summe von einigen seiner einfachen Unterdarstellungen:
+\begin{enumerate}
+\item Es gibt irreduzible Unterdarstellungen $V_i$ mit $V=V_1\oplus V_2\oplus\cdots\oplus V_k$.
+\end{enumerate}
+
+Speziell für unseren Fall $\IK\in\set{\IR,\IC}$ ist es sinnvoll, von Skalarprodukten auf $V$ zu sprechen. Dann gelten folgende zusätzliche Aussagen:
+\begin{enumerate}[resume]
+\item Es gibt ein \emph{$G$-invariantes} Skalarprodukt, d.h. eines, dass $\forall g\in G, v,w\in V: \braket{gv,gw} = \braket{v,w}$ erfüllt. Äquivalent formuliert: Die Darstellung $\Delta: G\to GL(V)$ ist in Wirklichkeit eine Darstellung $G\to O(V)$ (bzw. $U(V)$ im komplexen Fall).
+\item Ist ein $G$-invariante Skalarprodukt gegeben, kann man die Zerlegung in a. sogar so wählen, dass die Summanden paarweise senkrecht aufeinander stehen. Unterdarstellungen, die nicht zueinander isomorph sind, sind sogar bzgl. \emph{jedem} $G$-invarianten Skalarprodukt senkrecht aufeinander.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+a. gilt allgemein für alle Körper $\IK$, aber wir zeigen nur den reellen/komplexen Fall. Dazu beginnen wir mit b.: Zunächst gibt es überhaupt ein Skalarprodukt $[,]: V\times V\to\IK$. Mit Hilfe des Mittelwerttricks können wir daraus ein $G$-invariantes Skalarprodukt zaubern:
+\[\braket{v,w} := \int_G [gv,gw] \,\textrm{d}g\]
+Für jedes feste $g$ ist $(v,w) \mapsto [gv,gw]$ selbst ein Skalarprodukt. Der Mittelwert $\braket{,}$ ist also auch ein Skalarprodukt, weil es ein Grenzwert von (reellen, nicht-negativen) Linearkombinationen von Skalarprodukten ist. Nach Konstruktion ist es auch $G$-invariant.
+
+\smallbreak
+Daraus folgt nun a., denn wenn wir eine Unterdarstellung $U\leq V$ haben, dann ist das orthogonale Komplement (bzgl. $\braket{,}$) auch eine Unterdarstellung von $V$ und wir haben eine Zerlegung $V=U\oplus U^\perp$. Jetzt zerlegen wir $U$ und $U^\perp$ so lange weiter, bis wir nicht weiter zerlegen können (es gibt ein Ende, weil $V$ endlich-dimensional ist), weil es keine nichttrivialen, echten Untermoduln mehr gibt, d.h. bis wir bei irreduziblen Summanden angekommen sind.
+
+\smallbreak
+c. folgt aus dem Lemma von Schur: Wenn ein beliebiges $G$-invariantes Skalarprodukt und $U,U'\leq V$ zwei irreduzible Unterdarstellungen sind, dann können wir die orthogonale Projektion bzgl. $\braket{,}$ auf $U$ betrachten und auf $U'$ einschränken. Damit erhalten wir eine $\IK G$-lineare Abbildung $U'\to U$. Wenn $U$ und $U'$ nicht isomorph sind, dann kann es keine bijektive $\IK G$-lineare Abbildung zwischen ihnen geben und laut dem Lemma von Schur ist die einzige andere Möglichkeit die Nullabbldung, d.h. $U$ und $U'$ sind senkrecht bzgl. $\braket{,}$.
+\end{proof}
+
+\begin{remark}
+Der Satz von Maschke ist falsch für beliebige Gruppen und beliebige Darstellungen. Selbst sehr einfache, nichtkompakte Gruppen erfüllen ihn nicht, selbst für sehr einfach gestrickte Darstellungen. Schon $G=\IZ$ ist ein Gegenbeispiel.
+
+Und selbst, wenn die Gruppe kompakt ist, müssen unstetige oder unendlich-dimensionale Darstellungen ihn nicht erfüllen.
+\end{remark}
+
+\begin{corollary}[Umkehrung des Satzes von Schur]
+Ist $V$ eine endlich-dimensionale, stetige Darstellung der kompakten Gruppe $G$ über den komplexen Zahlen, dann gilt: $\dim_\IC \End_{\IC G}(V) = 1 \implies V$ ist irreduzibel.
+\end{corollary}
+\begin{proof}
+Die Voraussetzungen erlauben es uns, auf $V$ den Satz von Maschke anzuwenden, d.h. $V=V_1\oplus V_2\oplus ...$ zu zerlegen. Wenn $V$ nicht selbst irreduzibel wäre, dann gäbe es mindestens zwei solche Summanden und die beiden Projektionen $(v_1,v_2, ...) \mapsto (v_1,0,\ldots)$ bzw. $(v_1,v_2,\ldots)\mapsto (0,v_2,\ldots)$ wären zwei lineare unabhängige $\IC G$-lineare Abbildungen $V\to V$ und somit ein Widerspruch zur Annahme $\dim_\IC \End_{\IC G}(V)=1$.
+\end{proof}
+
+\begin{remark}
+Der Satz von Maschke sagt uns, dass wir jede Darstellung bis auf Isomorphie festlegen können, indem wir angeben, wie oft welche irreduzible Darstellung als direkter Summand in $V$ vorkommt. Ein fundamentales Problem das Studium einer (oder aller) Darstellungen ist deshalb die Frage, welche irreduziblen Darstellungen die jeweilige Gruppe überhaupt besitzt. Je nach Gruppe ist das ein mehr oder weniger schwieriges Problem.
+
+Der zweite Teil, die Frage, wie man die Vielfachheiten bestimmt, stellt sich als sehr zugängliches Problem heraus, sofern man Charaktertheorie kennt.
+\end{remark}
