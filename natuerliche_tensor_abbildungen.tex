@@ -1,0 +1,76 @@
+Im Kontext unserer physikalischen Welt wollen wir Messungen von Quantitäten durchführen. Diese Quantitäten können unter anderem als Tensoren verstanden werden, z. B. beschreibt der Spannungstensor die Zug-, Druck- und Scherspannungen in einem Festkörper.
+
+Eine fundamentale Eigenschaft, die wir von allen messbaren Quantitäten erwarten, ist, dass das Ergebnis der Messung unabhängig von der Wahl des Koordinatensystem ist. Ein bestimmter Geschwindigkeitsvektor sollte immer in die gleiche Richtung zeigen, völlig unabhängig davon, ob seine Koordinaten nun $(3,4,0)$ oder $(0,0,5)$ sind. Gleiches gilt für seine Länge, oder die Determinante einer Matrix. Generell sind wir an den Eigenschaften interessiert, die charakteristisch sind für das untersuchte System, nicht für das Koordinatensystem, mit dem wir das System untersuchen.
+
+Konkreter: Die Eigenschaften sollen \emph{unabhängig von der Orientierung} des Koordinatensystems sein, die Basisvektoren zu rotieren, zu invertieren oder zu spiegeln sollte den gemessenen Wert einer Eigenschaft nicht verändern.
+
+Gleiches gilt auch bei Interaktionen in der physikalischen Welt, die Wirkung eines bestimmten Zustandes auf zukünftige Zustände ist ebenfalls völlig unabhängig von dem Koordinatensystem, mit dem wir den Zustand und seine Wirkung beschreiben.
+
+Diese Idee lässt sich mathematisch präzisieren, sobald einem klar ist, dass jeder physikalische Prozess eine Abbildung von einem Zustand in einen anderen ist. Auch eine Messung ist eine Abbildung vom Zustand auf eine Zahl.
+
+\begin{definition}[Natürliche Abbildungen]
+	Sei $\phi$ eine Abbildung von $X$ nach $Y$, mit $X,Y$ zwei Vektorräume und $G$ eine Gruppe. $\phi$ heißt \emph{natürlich}, oder \emph{$G$-kompatibel}, wenn 
+	\begin{equation*}
+		\forall \rho\in O^3 \phi \circ \rho = \rho \circ \phi.
+	\end{equation*}
+\end{definition}
+In unserem Kurs behandeln wir nur lineare Abbildungen, wobei multi-lineare Abbildungen durch das Tensorprodukt linearisiert werden können. $G$ ist für uns typischerweise $O^3$, wir betrachten also $O^3$-kompatible, lineare Abbildungen.
+
+Wenden wir uns nun den Abbildungen zwischen Tensoren zu. Wir haben sie im ersten Kapitel bereits klassifiziert mit folgendem Versprechen:
+\begin{lemma}[Brauer-Diagramme beschreiben alle natürlichen linearen Abbildungen zwischen Tensoren]
+	\label{bem:Brauer}
+	Die Menge aller Linearkombinationen von allen Brauer-Diagrammen ist gleich der Menge aller natürlichen linearen Abbildungen zwischen Tensoren.
+\end{lemma}
+\begin{proof}[Skizze des Beweises]
+Zunächst gilt es festzustellen, dass die vier Klassen von linearen Abbildungen zwischen Tensoren (\ref{def:skalarmultTensor}, \ref{def:permutation}, \ref{def:spur} und \ref{def:casimireinfuegen}) tatsächlich natürliche Abbildungen sind (s. Aufgabe \ref{aufg:natAbbKlass}).
+Die Hintereinanderausführung und Linearkombination von linearen natürlichen Abbildungen ist selbst ebenfalls eine lineare natürliche Abbildung. 
+ 
+In Aufgabe \ref{ex:hom_tensor_isomorphismus} haben wir festgestellt, dass jede lineare Abbildung $V^{\otimes m} \to V^{\otimes n}$ einem Element des Tensorraums $\left(V^{\otimes m}\right)^\ast \otimes V^{\otimes n}$ entspricht. Die Suche nach einer $O^3$-kompatiblen linearen Abbildung $V^{\otimes m} \to V^{\otimes n}$ entspricht also der Suche nach einem $O^3$ Fixpunkt in $\left(V^{\otimes m}\right)^\ast \otimes V^{\otimes n}$.
+Dieser Schritt lässt sich an Hand eines Brauer-Diagramms verdeutlichen: Die Knoten der oberen Zeile werden nach unten vor die untere Zeile verschoben und alle Kanten werden beibehalten. Das Ergebnis lässt sich als ein Brauer-Diagramm lesen, welches nur aus Casimir-Elementen besteht und keinen Knoten in der unteren Zeile hat.
+\begin{align*}
+	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+		\foreach\x in {1,2,...,5}{
+			\node[v] (s\x) at (\x,1){};
+		}
+		\foreach\x in {1,2,...,7}{
+			\node[v] (h\x) at (\x,0){};
+		}
+		\draw (s1) to (h1);
+		\draw (s2) to (h3);
+		\draw (s3) to (h2);
+		\draw (s4) to [bend right=30] (s5);
+		\draw (h4) to [bend left=30] (h5);
+		\draw (h6) to [bend left=30] (h7);
+	\end{tikzpicture} &
+	\\ \\ \\
+	\mapsto
+	\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
+		\foreach\x  in {1,2,...,5}{
+			\node[v] (s\x) at (\x,0.5){};
+		}
+		\foreach\x [evaluate=\x as \y using {int(\x+6)}] in {1,2,...,7}{
+			\node[v] (h\x) at (\y,0.5){};
+		}
+		\draw (s1) to [bend left=30] (h1);
+		\draw (s2) to [bend left=30] (h3);
+		\draw (s3) to [bend left=30] (h2);
+		\draw (s4) to [bend left=30] (s5);
+		\draw (h4) to [bend left=30] (h5);
+		\draw (h6) to [bend left=30] (h7);
+	\end{tikzpicture} &
+\end{align*}
+
+
+Es ist noch zu klären, dass tatsächlich keine Abbildung übersehen wurde, z.B. weil sie nicht als Brauer-Diagramm darstellbar ist.
+Für diese Suche wenden wir wieder den Mittelwert-Trick an, diesmal mit einer kompakten Gruppe anstelle einer endlichen, d.h. wir integrieren anstelle zu summieren. Das Maß $|O^3|$ können wir wählen und setzen es auf $1$, unsere Projektion auf den Raum der Fixpunkte sieht also folgendermaßen aus:
+\begin{equation}
+	\Psi_{O^3}^{mn} : \left\lbrace\begin{array}{rcl}
+				V^{\ast \otimes m} \otimes V^{\otimes n} &\to& V^{\ast \otimes m} \otimes V^{\otimes n}
+		\\
+			v &\mapsto& \int_{O^3} \rho(v) \dd \rho
+		\end{array}\right.
+\end{equation}
+Ein vollständiger Beweis würde nun allgemeine Tensoren auf ihre Fixpunkte projizieren, wir werden uns hier auf ein paar Beispiele einschränken (siehe Aufgabe \ref{aufg:TensorfixProj}.
+
+\end{proof}
+
