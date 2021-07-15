@@ -1,0 +1,78 @@
+% !TeX root = spherical_harmonics.tex
+% !TeX spellcheck = de_DE
+\begin{definition}[Charaktere]
+Es sei $G$ eine Gruppe und $\mathcal{D}: G\to GL(T)$ eine endlichdimensionale Darstellung von $G$ über $\IK$. Der \emph{Charakter von $T$} ist die Abbildung
+\[\chi_T: G\to \IK, g\mapsto \tr(\mathcal{D}(g))\]
+Ist $D: G\to GL_n(\IK)$ eine Matrixdarstellung von $\mathcal{D}$ bzgl. irgendeiner Basis, so ist $\chi_T(g)$ also auch gleich der Spur der Matrix $D(g)$.
+
+Ist $T$ eine irreduzible Darstellung, so nennt man $\chi_T$ \emph{irreduziblen Charakter}.
+\end{definition}
+
+\begin{remark}
+Man beachte, dass die Spur einer Matrix unabhängig von der Basiswahl ist. Man erinnere sich, dass allgemein
+\[\forall A,B\in \IK^{n\times n}: \tr(AB) = \tr(BA)\]
+gilt, für invertierbare $A$ also auch $\tr(ABA^{-1}) = \tr(B)$.
+
+Oder basisfrei formuliert: Für alle $\IK$-linearen Abbildungen $\phi: X \leftrightarrows Y : \psi$ zwischen endlichdimensionalen $\IK$-Vektorräumen gilt $\tr(\phi\circ\psi) = \tr(\psi\circ\phi)$, für invertierbare $\phi$ also auch $\tr(\phi\circ\psi\circ\phi^{-1}) = \tr(\psi)$.
+\end{remark}
+
+\begin{lemma}
+Charaktere erfüllen:
+\begin{enumerate}
+\item Charaktere unterscheiden nicht zwischen isomorphen Darstellungen: $T\isomorphic T' \implies \chi_T = \chi_{T'}$.
+\item Charaktere unterscheiden nicht zwischen konjugierten Elementen: Sind $g,g'\in G$ konjugiert, d.h. existiert ein $h\in G$ mit $g'=hgh^{-1}$, so gilt $\chi_T(g)=\chi_T(g')$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Beide Aussagen folgen aus dieser Eigenschaft der Spur: Ist $\phi: T\to T'$ ein Isomorphismus, dann ist $\mathcal{D}'(g) = \phi\circ\mathcal{D}(g)\circ\phi^{-1}$ und somit $\tr(\mathcal{D}(g)) = \tr(\mathcal{D}'(g))$. Sind $g,g'$ konjugiert, so ist $\mathcal{D}(g') = \mathcal{D}(h)\mathcal{D}(g)\mathcal{D}(h)^{-1}$ und somit $\tr(\mathcal{D}(g)) = \tr(\mathcal{D}(g'))$.
+\end{proof}
+
+\begin{remark}
+Es scheint, als ob Charaktere viel Information über ihre Darstellung verlieren würden, wenn sie die ganze Abbildung $\mathcal{D}(g)$ auf eine einzelne Zahl reduzieren und dann auch noch sehr viele Gruppenelemente dieselbe Zahl zugeordnet bekommen. Im allgemeinsten Fall ist das auch so.
+
+Das große Wunder ist aber, dass im für uns interessanten Fall einer kompakten Gruppe und stetiger Darstellungen, nicht zu viel Information verloren geht, sondern Charaktere immer noch hinreichend viel enthalten, um ihre Darstellung vollständig bis auf Isomorphie zu beschreiben, d.h. in unserem Fall gilt die Umkehrung von a.
+\end{remark}
+
+\begin{theorem}[1.Orthogonalitätsrelation]
+Es sei $G$ eine kompakte Gruppe und $\IK\in\set{\IR,\IC}$. Auf der Menge der stetigen Abbildungen $G\to\IC$ definieren wir die folgende Bilinearform:
+\[\braket{\phi,\psi} = \int_G \phi(g)\psi(g^{-1}) \dd g\]
+Speziell für Charaktere von stetigen Darstellungen gilt:
+\[\braket{\chi_T, \chi_{T'}} = \dim_\IK \Hom_{\IK G}(T,T')\]
+Insbesondere gilt für irreduzible Charaktere:
+\[\braket{\chi_T, \chi_{T'}} = \begin{cases} 0 & \text{falls }T\not\isomorphic T' \\ \dim_\IK \End_{\IK G}(T) & \text{falls }T\isomorphic T'\end{cases}\]
+\end{theorem}
+\begin{proof}
+Wir betrachten die beiden Darstellungen $\mathcal{D}$ und $\mathcal{D}'$ von $T$ bzw. $T'$ sowie die Darstellung $X:=\Hom_\IK(T,T')$. Zur Erinnerung: $G$ operiert auf $X$ via $g\phi := \mathcal{D}(g)\circ\phi\circ \mathcal{D}'(g)^{-1}$, d.h. $g\phi$ ist die Abbildung $t\mapsto g\cdot\phi(g^{-1}\cdot t)$. Anhand dieser Definition ist klar, dass der Raum der $G$-Fixpunkte von $X$ genau der Raum der $\IK G$-linearen Abbildungen ist.
+
+\smallbreak
+Wir wenden also wieder einmal den Mittelwerttrick an: Die Projektion auf den Fixpunktraum ist gegeben durch
+\[pr(\phi) := \int_G g\circ\phi\circ g^{-1} \dd g\]
+Wenn wir nun die Dimension des Fixpunktraums bestimmen wollen, können wir die Spur der Projektion ausrechnen. Weil (konstante) $\IK$-lineare Abbildungen mit dem Integral vertauschen, erhalten wir also
+\[\dim_\IK \Hom_{\IK G}(T,T') = \tr(pr) = \tr\left(\phi \mapsto \int_G g\circ\phi\circ g^{-1} \dd g \right) = \int_G \tr(\phi \mapsto g\circ \phi\circ g^{-1}) \dd g\]
+Es ist eine Standardaufgabe aus der linearen Algebra, zu beweisen, dass die Abbildung $\Hom_\IK(T,T') \to \Hom_\IK(T,T'), \phi \mapsto \alpha\circ\phi\circ\beta$ genau die Spur $\tr(\alpha)\tr(\beta)$ hat. Also ist der Integrand gleich $\chi_T(g)\chi_{T'}(g^{-1})$ und das zeigt die Behauptung.
+\end{proof}
+
+\begin{remark}[Diverse Charakterformeln]
+Für sehr viele Standardkonstruktionen ist es möglich, explizit anzugeben, wie sie sich mit Charakteren vertragen:
+\begin{enumerate}
+\item $\chi_{T\oplus T'} = \chi_T + \chi_{T'}$
+\item $\chi_{T\otimes T'} = \chi_T \cdot \chi_{T'}$
+\item $\chi_{T^\ast} = \overline{\chi_T}$
+\item Es gibt explizite, aber relativ aufwändige kombinatorische Formeln, die z.B. die Charaktere der symmetrischen Potenzen $Sym^m(T)$ durch $\chi_T$ ausdrücken.
+\item uvm.
+\end{enumerate}
+\end{remark}
+
+\begin{corollary}
+Ist $G$ eine kompakte Gruppe und $\IK\in\set{\IR,\IC}$, so gilt für stetige, endlich-dimensionale Darstellungen:
+\[\chi_T = \chi_{T'} \iff T \isomorphic T'\]
+\end{corollary}
+\begin{proof}
+Aufgrund des Satzes von Maschke genügt es, zu zeigen, dass $T$ und $T'$ isomorphe irreduzible Darstellungen in den gleichen Vielfachheiten enthalten.
+
+Wenn also $T \isomorphic T_1 ^{\oplus n_1} \oplus \cdots T_k^{\oplus n_k}$ und $T' \isomorphic T_1^{\oplus n_1'} \oplus \cdots \oplus T_k^{n_k'}$ mit paarweise nicht-isomorphen, irreduziblen Darstellungen $T_i$ ist, dann wollen wir $n_i=n_i'$ zeigen. Die Charaktere erfüllen
+\[\chi_T = n_1 \chi_{T_1} + \ldots + n_k\chi_{T_k} \quad\text{bzw.}\quad \chi_{T'} = n_1' \chi_{T_1} + \ldots + n_k' \chi_{T_k}\] 
+Die Orthogonalitätsrelation zeigt, dass die $\chi_{T_i}$ paarweise orthogonal bzgl. der dort definierten Bilinearform sind. Also gilt
+\[n_i = \frac{\braket{\chi_T, \chi_{T_i}}}{\dim_\IK \End_{\IK G}(T_i)} = \frac{\braket{\chi_{T'}, \chi_{T_i}}}{\dim_\IK \End_{\IK G}(T_i)} = n_i'\]
+und das wollten wir zeigen.
+\end{proof}
