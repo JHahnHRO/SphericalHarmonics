@@ -21,12 +21,45 @@ Wenden wir uns nun den Abbildungen zwischen Tensoren zu. Wir haben sie im ersten
 	\label{bem:Brauer}
 	Die Menge aller Linearkombinationen von allen Brauer-Diagrammen ist gleich der Menge aller natürlichen linearen Abbildungen zwischen Tensoren.
 \end{lemma}
-\begin{proof}[Skizze des Beweises]
+\begin{proof}[Beweis per Induktion]
 Zunächst gilt es festzustellen, dass die vier Klassen von linearen Abbildungen zwischen Tensoren (\ref{def:skalarmultTensor}, \ref{def:permutation}, \ref{def:spur} und \ref{def:casimireinfuegen}) tatsächlich natürliche Abbildungen sind (s. Aufgabe \ref{aufg:natAbbKlass}).
 Die Hintereinanderausführung und Linearkombination von linearen natürlichen Abbildungen ist selbst ebenfalls eine lineare natürliche Abbildung. 
  
 In Aufgabe \ref{ex:hom_tensor_isomorphismus} haben wir festgestellt, dass jede lineare Abbildung $V^{\otimes m} \to V^{\otimes n}$ einem Element des Tensorraums $\left(V^{\otimes m}\right)^\ast \otimes V^{\otimes n}$ entspricht. Die Suche nach einer $O^3$-kompatiblen linearen Abbildung $V^{\otimes m} \to V^{\otimes n}$ entspricht also der Suche nach einem $O^3$ Fixpunkt in $\left(V^{\otimes m}\right)^\ast \otimes V^{\otimes n}$.
-Dieser Schritt lässt sich an Hand eines Brauer-Diagramms verdeutlichen: Die Knoten der oberen Zeile werden nach unten vor die untere Zeile verschoben und alle Kanten werden beibehalten. Das Ergebnis lässt sich als ein Brauer-Diagramm lesen, welches nur aus Casimir-Elementen besteht und keinen Knoten in der unteren Zeile hat.
+Dieser Schritt lässt sich an Hand eines farbigen Brauer-Diagramms verdeutlichen: Die Knoten der oberen Zeile werden nach unten vor die untere Zeile verschoben und alle Kanten werden beibehalten. Das Ergebnis lässt sich als ein Brauer-Diagramm lesen, welches nur aus Casimir-Elementen besteht und keinen Knoten in der oberen Zeile hat, also streng genommen als eine Abbildung $\IR \to \left(V^{\otimes m}\right)^\ast \otimes V^{\otimes n}$.
+\begin{align*}
+	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+		\foreach\x in {1,2,...,5}{
+			\node[r] (s\x) at (\x,1){};
+		}
+		\foreach\x in {1,2,...,7}{
+			\node[b] (h\x) at (\x,0){};
+		}
+		\draw[purple] (s1) to (h1);
+		\draw[purple] (s2) to (h3);
+		\draw[purple] (s3) to (h2);
+		\draw[red] (s4) to [bend right=30] (s5);
+		\draw[blue] (h4) to [bend left=30] (h5);
+		\draw[blue] (h6) to [bend left=30] (h7);
+	\end{tikzpicture} &
+	\\ \\ \\
+	\mapsto
+	\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
+		\foreach\x  in {1,2,...,5}{
+			\node[r] (s\x) at (\x,0.5){};
+		}
+		\foreach\x [evaluate=\x as \y using {int(\x+6)}] in {1,2,...,7}{
+			\node[b] (h\x) at (\y,0.5){};
+		}
+		\draw[purple] (s1) to [bend left=30] (h1);
+		\draw[purple] (s2) to [bend left=30] (h3);
+		\draw[purple] (s3) to [bend left=30] (h2);
+		\draw[red] (s4) to [bend left=30] (s5);
+		\draw[blue] (h4) to [bend left=30] (h5);
+		\draw[blue] (h6) to [bend left=30] (h7);
+	\end{tikzpicture} &
+\end{align*}
+Um unser gewohntes Brauer-Diagramm zu erhalten, wenden wir außerdem den Isomorphismus zwischen $V^\ast$ und $V$ an und überführen die lineare Abbildung $V^{\otimes m} \to V^{\otimes n}$ in ein Element des Tensorraums $V^{\otimes m}\otimes V^{\otimes n}=V^{\otimes m+n}$:
 \begin{align*}
 	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
 		\foreach\x in {1,2,...,5}{
@@ -35,12 +68,12 @@ Dieser Schritt lässt sich an Hand eines Brauer-Diagramms verdeutlichen: Die Kno
 		\foreach\x in {1,2,...,7}{
 			\node[v] (h\x) at (\x,0){};
 		}
-		\draw (s1) to (h1);
-		\draw (s2) to (h3);
-		\draw (s3) to (h2);
-		\draw (s4) to [bend right=30] (s5);
-		\draw (h4) to [bend left=30] (h5);
-		\draw (h6) to [bend left=30] (h7);
+		\draw[] (s1) to (h1);
+		\draw[] (s2) to (h3);
+		\draw[] (s3) to (h2);
+		\draw[] (s4) to [bend right=30] (s5);
+		\draw[] (h4) to [bend left=30] (h5);
+		\draw[] (h6) to [bend left=30] (h7);
 	\end{tikzpicture} &
 	\\ \\ \\
 	\mapsto
@@ -51,15 +84,14 @@ Dieser Schritt lässt sich an Hand eines Brauer-Diagramms verdeutlichen: Die Kno
 		\foreach\x [evaluate=\x as \y using {int(\x+6)}] in {1,2,...,7}{
 			\node[v] (h\x) at (\y,0.5){};
 		}
-		\draw (s1) to [bend left=30] (h1);
-		\draw (s2) to [bend left=30] (h3);
-		\draw (s3) to [bend left=30] (h2);
-		\draw (s4) to [bend left=30] (s5);
-		\draw (h4) to [bend left=30] (h5);
-		\draw (h6) to [bend left=30] (h7);
+		\draw[] (s1) to [bend left=30] (h1);
+		\draw[] (s2) to [bend left=30] (h3);
+		\draw[] (s3) to [bend left=30] (h2);
+		\draw[] (s4) to [bend left=30] (s5);
+		\draw[] (h4) to [bend left=30] (h5);
+		\draw[] (h6) to [bend left=30] (h7);
 	\end{tikzpicture} &
 \end{align*}
-
 
 Es ist noch zu klären, dass tatsächlich keine Abbildung übersehen wurde, z.B. weil sie nicht als Brauer-Diagramm darstellbar ist.
 Für diese Suche wenden wir wieder den Mittelwert-Trick an, diesmal mit einer kompakten Gruppe anstelle einer endlichen, d.h. wir integrieren anstelle zu summieren. Das Maß $|O^3|$ können wir wählen und setzen es auf $1$, unsere Projektion auf den Raum der Fixpunkte sieht also folgendermaßen aus:
@@ -70,7 +102,55 @@ Für diese Suche wenden wir wieder den Mittelwert-Trick an, diesmal mit einer ko
 			v &\mapsto& \int_{O^3} \rho(v) \dd \rho
 		\end{array}\right.
 \end{equation}
-Ein vollständiger Beweis würde nun allgemeine Tensoren auf ihre Fixpunkte projizieren, wir werden uns hier auf ein paar Beispiele einschränken (siehe Aufgabe \ref{aufg:TensorfixProj}.
+Wir könnten nun allgemeine Tensoren auf ihre Fixpunkte projizieren, werden uns hier zunächst auf ein paar Beispiele einschränken (siehe Aufgabe \ref{aufg:TensorfixProj}).
 
+Den vollständigen Beweis führen wir nun per Induktion.
+
+Induktionsbehauptung: 
+Das Mittelwertintegral über $O_d$ dargestellt auf $\IR^d$ von irgendeinem Tensor von Grad $n$ ergibt immer eine Linearkombination der Permutation von Casimir-Elementen $\Omega_{\IR^d}$ (oder $0$), wobei wir die Permutation von Casimir-Elementen auch mit einem entsprechenden einzeiligen Brauer-Diagramm darstellen können.
+ 
+Induktionsanfang:
+Dazu bestimmen wir zunächst den Fixpunktraum von $O_1$ dargestellt auf $\IR$:
+\[
+\int_{O_1} \rho (v^{\otimes n}) \dd \rho, v\in\IR
+\]
+Wir haben also für $d=1$ festgestellt, dass der Fixpunktraum mit geraden Potenzen von Casimir-Elementen aufgespannt wird, für einen bestimmten Tensorgrad $2n$ ist der Fixpunktraum eindimensional und wird von $v^{\otimes 2n}$ aufgespannt.
+
+Induktionsschritt: 
+Für $d+1$ nutzen wir folgenden Zusammenhang, $ v_i\in\IR^{d+1}$ :
+\begin{align*}
+\int_{O_{d+1}} \rho (v_1\otimes\cdots \otimes v_n) \dd \rho &= \int_{O_{d}} \int_{O_{d+1}} \tau(\rho (v_1\otimes\cdots \otimes v_n)) \dd \rho \dd \tau \\
+&=  \int_{O_{d+1}} \int_{O_{d}} \rho(\tau (v_1\otimes\cdots \otimes v_n)) \dd \tau \dd \rho
+\end{align*}
+wobei wir $O_d$ in $O_{d+1}$ auf bestimmte Weise einbetten. 
+Jede Einbettung von $O_d$ in $O_{d+1}$ wird eine ausgezeichnete Richtung haben, deren Unterraum von der Untergruppe nicht verändert wird. Wir wählen uns die Standardeinbettung so, dass $v_1$ von $O_d$ nicht verändert wird und zerlegen alle $v_i$ in zu $v_1$ senkrechte und parallele Anteile,
+\[
+v_1\otimes\cdots \otimes v_n = v_1 \otimes (c_2 v_1 + s_2 v_2^\perp)\otimes \cdots \otimes (c_n v_1 + s_n v_n^\perp) .
+\]
+Damit ist
+\begin{align*}
+\tau(v_1\otimes\cdots \otimes v_n) &= \tau(v_1) \otimes (c_2 \tau(v_1) + s_2 \tau( v_2^\perp))\otimes \cdots \otimes (c_n \tau(v_1) + s_n \tau(v_n^\perp)) \\
+&= v_1 \otimes (c_2 v_1 + s_2 \tau(v_2^\perp))\otimes \cdots \otimes (c_n v_1 + s_n \tau(v_n^\perp)) .
+\end{align*}
+Durch Ausmultiplizieren bekommen wir eine Summe von reinen Tensoren, in denen jeder Faktor parallel oder senkrecht zu $v_1$ ist. Für jeden reinen Tensor können wir uns eine Permutation aussuchen, die alle senkrechten Faktoren nach rechts schiebt und alle parallelen Faktoren nach links. Die Skalare $s_i$ und $c_i$ können in einer Konstante zusammengefasst werden, welche wir zur Einfachheit auf 1 setzen. Rechnen wir also o.b.d.A. mit dem Tensor
+\[
+ v_1^{\otimes l} \otimes \tau(v_{l+1}^\perp) \otimes \cdots \otimes \tau(v_n^\perp),
+\] 
+so erhalten wir
+\begin{align*}
+	&\int_{O_{d+1}} \int_{O_{d}} \rho\left(v_1^{\otimes l} \otimes \tau(v_{l+1}^\perp) \otimes \cdots \otimes \tau(v_n^\perp)\right) \dd \tau \dd \rho \\
+	= &\int_{O_{d+1}} \rho(v_1) \otimes c_2 \rho(v_1)^{\otimes l}\otimes \rho\left(\int_{O_{d}}\tau(v_{l+1}^\perp) \otimes \cdots \otimes \tau(v_n^\perp) \dd \tau \right) \dd \rho
+\end{align*}
+Das innere Integral ergibt nach Induktionsanfang eine Linearkombination von Permutationen von Casimir-Elementen $\Omega_{\IR^d}$. Jedes einzelne Casimir-Element können wir nun schreiben als $\Omega_{\IR^d} = \Omega_{\IR^{d+1}} - v_1 \otimes v_1$, wobei wir o.b.d.A. annehmen können, dass $v_1$ normiert ist. Diese Summe multiplizieren wir erneut aus, sodass wir Permutationen von Tensoren der Form
+\begin{align*}
+	v_1^{\otimes l+2k} \otimes \underbrace{\Omega_{\IR^{d+1}} \otimes \cdots \otimes \Omega_{\IR^{d+1}}}_{\frac{n-l-2k}{2} \text{viele}}
+\end{align*}
+erhalten. Integrieren wir diesen Tensor über $O_{d+1}$: 
+\begin{align*}
+	&\int_{O_{d+1}} \rho(v_1)^{\otimes l+2k} \otimes \rho\left(\Omega_{\IR^{d+1}}\right) \otimes \cdots \otimes \rho\left(\Omega_{\IR^{d+1}}\right)\dd \rho \\
+	=& \int_{O_{d+1}} \rho(v_1)^{\otimes l+2k} \dd \rho \otimes \Omega_{\IR^{d+1}} \otimes \cdots \otimes \Omega_{\IR^{d+1}}\\
+	=& q\left(\Omega_{\IR^{d+1}}^{\otimes \frac{ l+2k}{2}}\right) \otimes \Omega_{\IR^{d+1}} \otimes \cdots \otimes \Omega_{\IR^{d+1}},
+\end{align*}
+unter der Voraussetzung, dass $l+2k$ und $n-l-2k$ gerade ist (siehe Aufgaben \ref{aufg:TensorfixProj}\ref{aufg:TensorfixProjgeradeu} und \ref{aufg:TensorfixProj}\ref{aufg:TensorfixProjungeradeu}).
 \end{proof}
 
