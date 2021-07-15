@@ -3,9 +3,9 @@
 \subsection{Symmetrische Tensoren: Die Verbindung zwischen Polynomen und Tensoren}
 
 \begin{definition}\label{symmetrische_tensoren:def}
-Ein Tensor $m$-ten Grades $t\in V^{\otimes m}$ heißt \emph{symmetrisch}, wenn er ein Fixpunkt der Operation der Permutationsgruppe $Sym(m)$ ist, d.h. wenn
-\[\forall \sigma\in Sym(m): \sigma\cdot t = t\]
-gilt. Der Raum der symmetrischen Tensoren wird \emph{symmetrische (Tensor-)Potenz} genannt und $Sym^m(V)$ geschrieben.
+Ein Tensor $m$-ten Grades $t\in V^{\otimes m}$ heißt \emph{symmetrisch}, wenn er ein Fixpunkt der Operation der Permutationsgruppe $S_m$ ist, d.h. wenn
+\[\forall \sigma\in S_m: \sigma\cdot t = t\]
+gilt. Der Raum der symmetrischen Tensoren wird \emph{symmetrische (Tensor-)Potenz} genannt und $\Sym^m(V)$ geschrieben.
 \end{definition}
 
 \begin{example}
@@ -17,6 +17,31 @@ gilt. Der Raum der symmetrischen Tensoren wird \emph{symmetrische (Tensor-)Poten
 
 \begin{lemma}[Mittelwerttrick]\label{symmetrische_tensoren:projektion}
 Die Projektion auf den Unterraum der symmetrischen Tensoren gegeben durch
-\[q(t) := \frac{1}{m!} \sum_{\sigma\in Sym(m)} \sigma\cdot t\]
-und $O_n$-linear.
+\[q(t) := \frac{1}{m!} \sum_{\sigma\in S_m} \sigma\cdot t\]
+und $O_n$-linear. Zur Erinnerung: $|S_m| = m!$.
 \end{lemma}
+
+Die obige Idee, den Mittelwert über eine Gruppe zu bilden und daraus eine Projektion zu basteln, werden wir häufiger verwenden. Definieren wir uns also allgemeiner:
+\begin{definition}[Mittelwerttrick für endliche Gruppen]
+	Der Mittelwert der Wirkung einer endlichen Gruppe $G$ auf einen Vektor $v$ des Darstellungsraumes berechnet sich wie folgt:
+	\[
+		\frac{1}{|G|} \sum_{g\in G} g(v)
+	\]
+\end{definition}
+
+Da wir uns vorwiegend mit $O_3$ beschäftigen, reicht diese Definition allerdings nicht aus. Wie uns bestimmt bereits aufgefallen ist, ist $O_3$ nicht endlich, was uns auf den ersten Blick ein paar Schwierigkeiten für die obige Operation einhandelt. Zum Glück zählt $O_3$ zu den kompakten Gruppen, sodass wir die Summe infinitesimalisieren können, ohne über ein unendliches Volumen zu integrieren.
+\begin{definition}[Mittelwerttrick für kompakte Gruppen \& Integration über eine kompakte Gruppe]
+	Sei $G$ eine kompakte Gruppe mit Darstellung auf einem Vektorraum $V$. Dann können wir den Mittelwerttrick auffassen als Integral über die Wirkung von $G$ auf einen Vektor $v\in V$:
+	\[
+		\frac{1}{|G|} \int_{G} g(v) \dd g
+	\]
+	Wir werden nicht präzise machen, wie das Integral tatsächlich definiert ist. Man kann aber zeigen, dass für alle kompakten Gruppen $G$ ein Integral $\int_G$ existiert (das sogenannte Haar\footnote{Alfréd Haar (1885--1933), ungarischer Mathematiker}-Integral), das stetige Funktionen von $G$ in einen endlich-dimensionalen $\IR$- oder $\IC$-Vektorraum $X$ als Input nimmt, einen Wert aus $X$ als Output hat und u.A. folgende Eigenschaften hat: 
+	\begin{enumerate}
+		\item Das Volumen von $G$, also $\abs{G} = \int_G 1 \dd g$ kann auf einen beliebigen konstanten Faktor $\neq0$ festgelegt werden. Wir setzen immer $\abs{G}=1$.
+		\item Das Integral ist rechts- und linksinvariant, es gilt also für jede integrierbare Funktion $\phi: G\to X$ und jedes feste Gruppenelement $h\in G$:
+			\[
+			\int_{G} \phi(gh) \dd g = \int_{G} \phi(g) \dd g  = \int_{G} \phi(hg) \dd g 
+			\]
+	\end{enumerate}
+	Für endliche Gruppen ist das Haar-Integral einfach der diskrete Mittelwert: $\int_G \phi(g) \dd g = \frac{1}{\abs{G}} \sum_{g\in G} \phi(g)$.
+\end{definition}
