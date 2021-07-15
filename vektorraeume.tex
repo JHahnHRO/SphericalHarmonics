@@ -1,5 +1,6 @@
 % !TeX spellcheck = de_DE
 % !TeX root = spherical_harmonics.tex
+\subsection{Vektorräume}
 Wir kennen uns bereits mit Vektorräumen aus. Typische Beispiele sind $\IR^3$ oder der Raum der Polynome von einem bestimmten Grad $n$. Da uns in diesem Kurs noch weitere Vektorräume begegnen werden und zum Vergleich mit anderen mathematischen Objekten (z.B. Darstellungen), ist hier ihre Definition zusammengefasst.
 
 
@@ -57,3 +58,77 @@ der \emph{Kern von $f$} und
 \[\im(f) := \Set{w\in W | \exists v\in V: f(v)=w}\]
 das \emph{Bild von $f$}.
 \end{definition}
+
+\subsection{Bilineare Abbildungen}
+
+\begin{remark}
+	Es gibt i.A. keine Multiplikation zweier Vektoren miteinander in irgendeinem Sinne. Wir können immer Skalare mit Vektoren multiplizieren, aber nicht Vektoren mit Vektoren. Nichts desto trotz ist es \emph{manchmal} doch so, dass zusätzlich zu Addition und Skalarmultiplikation eine weitere Operation existiert, die ein sinnvolles Konzept von Multiplikation liefert, z.B.
+	\begin{enumerate}
+		\item Der Vektorraum der Polynome $\IR[X]$ hat die Polynommultiplikation, d.h.
+		\[\left(\sum_{i=0}^n a_i X^i\right) \cdot \left(\sum_{j=0}^m b_j X^j\right) := \sum_{k=0}^{n+m} (\sum_{\substack{i,j \\ i+j=k}} a_i b_j) X^k\]
+		\item Der Vektorraum der Funktionen $X\to\IC$ für einen festen Definitionsbereich $X$ hat die punktweise Multiplikation, d.h.
+		\[f\cdot g := x\mapsto f(x)g(x)\]
+		\item Die Hintereinanderausführung von linearen Abbildungen $\Hom_K(V,W) \times \Hom_K(U,V) \to \Hom_K(U,W), (f,g) \mapsto f\circ g$ ist eine Abbildung, die sich in vielerlei Hinsicht auch wie eine Multiplikation verhält. Für $U=V=W$ erhält man insbesondere eine Multiplikation $\End_K(V) \times \End_K(V) \to \End_K(V)$.
+		
+		Nach Wahl von je einer Basis können wir $\Hom_K(V,W)$, $\Hom_K(U,V)$ und $\Hom_K(U,W)$ mit $K^{n\times m}$, $K^{m\times p}$ und $K^{n\times p}$ identifizieren. Die Hintereinanderausführung von linearen Abbildung entspricht dann der Matrixmultiplikation.
+		\item ...
+	\end{enumerate}
+	
+\end{remark}
+
+\begin{definition}[Bilineare \& multilineare Abbildungen]\label{bilineare_abb:def}
+	Sind $V,W,X$ drei $K$-Vektorräume, so heißt eine Abbildung $\phi: V\times W\to X$ \emph{bilinear}, falls sie beiden Linearitätsbedingungen in Tabelle \ref{bilineare_abb:def_table} erfüllt, d.h. die Funktion ist separat linear, wenn man nur den ersten oder nur den zweiten Input variiert und den anderen festhält.
+	
+	\begin{table}[!ht]
+		\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
+		\hspace{-0.1\textwidth}
+		\begin{tabularx}{1.2\textwidth}{p{6.5cm} p{9.5cm}}
+			\toprule
+			\textbf{Axiom}                  & \textbf{Bedeutung} \hspace{0.5cm} \\ 
+			\midrule
+			Linearität: \\
+			\hspace{1cm}im ersten Argument  & $\forall v_1,v_2\in V, w\in W: \phi(v_1+v_2,w) = \phi(v_1,w) + \phi(v_2,w)$ \\
+			& $\forall \lambda\in K, v\in W, w\in W: \phi(\lambda v, w) = \lambda \phi(v,w)$ \\
+			\hspace{1cm}im zweiten Argument & $\forall v\in V, w_1, w_2\in W: \phi(v,w_1+w_2) = \phi(v,w_1) + \phi(v,w_2)$ \\
+			& $\forall \lambda\in K, v\in W, w\in W: \phi(v, \lambda w) = \lambda \phi(v,w)$ \\
+			Falls $\phi: V\times V \to X$, kann optional gelten: \\
+			\hspace{1cm}Symmetrie bzw. Kommutativität & $\forall u,v\in V: \phi(u,v) = \phi(v,u)$ \\
+			\hspace{1cm}Antisymmetrie & $\forall u,v\in V: \phi(u,v) = -\phi(v,u)$ \\
+			Falls $\phi: V\times V\to V$, kann optional gelten: \\
+			\hspace{1cm}Assoziativität & $\forall u,v,w\in V: \phi(u,\phi(v,w)) = \phi(\phi(u,v),w)$ \\
+			\bottomrule
+		\end{tabularx}
+		\label{bilineare_abb:def_table}
+		\caption{Eigenschaften von bilinearen Abbildungen}
+	\end{table}
+	
+	Für Abbildungen $V_1\times V_2\times V_3\to X$, die von drei Inputvektoren abhängig sind, kann man entsprechend definieren, dass eine Abbildung \emph{trilinear} heißt, wenn sie die drei Distributivgesetze erfüllt. Für vier, fünf, ... $k$ Input-Vektoren spricht man entsprechend von \emph{$k$-fach linearen} Abbildungen.
+\end{definition}
+
+\begin{example}
+	Die drei genannten \enquote{Multiplikationen} von oben sind bilinear. Polynommultiplikation und punktweise Multiplikation von Funktionen sind kommutativ und assoziativ. Die Komposition $\End_K(V)\times\End_K(V)\to\End_K(V)$ ist assoziativ, aber nicht kommutativ, falls $\dim(V) > 1$.
+	
+	Es gibt viele weitere, äußerst nützliche Beispiele.
+	\begin{enumerate}[start=4]
+		\item Richtungsableitungen sind bilinear in der Richtung und der Funktion:
+		
+		Sei $X\subseteq\IR^n$ ein geeigneter Definitionsbereich (z.B. eine offene Menge). Sei außerdem $f:X \to\IC$ eine differenzierbare Funktion. Dann existieren insbesondere alle Richtungsableitungen $(\partial_vf)(x_0) = \lim_{t\to 0} \frac{f(x_0)-f(x_0+tv)}{t}$ in allen Punkten $x_0\in X$. Die Abbildungsvorschrift $(v,f) \mapsto \partial_v f$ liefert eine bilineare Abbildung für mehrere Kombinationen von Vektorräumen, z.B. $\IR^n \times C^1(\IR^n) \to C^0(\IR^n)$ oder $\IR^n \times C^\infty(\IR^n) \to C^\infty(\IR^n)$.
+		
+		\item Allgemeiner: Lineare Differentialoperatoren:
+		
+		Für mehrfach differenzierbare Funktionen kann man natürlich auch mehrere Ableitungsschritte hintereinander ausführen. Auf diese Weise erhält man multilineare Abbildungen: $k$-faches Ableiten in $k$ Richtungen, also der Differentialoperator $\partial_{v_1} \partial_{v_2} \cdots \partial_{v_k}$ ist $k$-fach linear in den Vektoren $v_1, ..., v_k$ als Inputs. Die Anwendung auf eine Funktion ist entsprechend $(k+1)$-fach linear in den $k$ Richtungsvektoren und der Funktion als Inputs.
+		
+		Als $k$-lineare Abbildung ist dies eine symmetrische Abbildung, d.h. $\partial_v \partial w f = \partial_w\partial_v f$, sofern $f$ zweimal stetig differenzierbar ist. Das ist der Satz von Schwarz\footnote{Hermann Amandus Schwarz (1843 -- 1921), dt. Mathematiker.}.
+		
+		\item Kreuzprodukt:
+		
+		Es gibt eine besondere bilineare Abbildung $\textsc{x} : \IR^3 \times \IR^3 \to \IR^3$, genannt \udot{Kreuzprodukt}, die in anderen Dimensionen keine gute Analogie hat, nämlich
+		
+		\[\begin{pmatrix}x_1\\y_1\\z_1\end{pmatrix} \textsc{x} \begin{pmatrix}x_2\\y_2\\z_2\end{pmatrix} := \begin{pmatrix}
+			y_1 z_2 - y_2 z_1 \\
+			x_1 z_2 - x_2 z_1 \\
+			x_1 y_2 - x_2 y_1
+		\end{pmatrix}\]
+		Es ist bilinear, aber weder kommutativ noch assoziativ. Stattdessen ist es antisymmetrisch.
+	\end{enumerate}
+\end{example}
