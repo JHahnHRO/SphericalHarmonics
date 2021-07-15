@@ -1,6 +1,6 @@
 % !TeX root = spherical_harmonics.tex
 % !TeX spellcheck = de_DE
-
+\subsection{Gruppen}
 
 \begin{definition}[Gruppen und Gruppenhomomorphismen]\label{gruppen:def}
 Eine \udot{Gruppe} $(G,\cdot)$ besteht aus
@@ -21,7 +21,7 @@ die die Gruppen-Axiome in Tabelle \ref{gruppen:def_table} erfüllen.
 		\hspace{1cm}Neutrales Element bzw. \enquote{Eins}    & $\exists 1\in V\forall g\in G: g\cdot 1 = g = 1\cdot g$  \\
 		\hspace{1cm}Inverse Elemente                         & $\forall g \in G\exists h \in G: g\cdot h = 1 = h\cdot g$ \\
 		Optional kann gelten & \\
-        \hspace{1cm}Kommutativität                           & $\forall g,h\in G: g\cdot h=h\cdot g$ \\
+        \hspace{1cm}Kommutativität (\emph{abelsche Gruppe})  & $\forall g,h\in G: g\cdot h=h\cdot g$ \\
         \textbf{Axiom von Gruppenhomomorphismen}             & \textbf{Bedeutung} \\
         \midrule
         Verträglichkeit mit Multiplikation & $\forall g,h\in G: f(g\cdot h) = f(g)\cdot f(h)$ \\
@@ -35,3 +35,5 @@ Sind $G,H$ zwei Gruppen und $f: G\to H$ eine Abbildung, so heißt $f$ \emph{Grup
 
 Existiert ein Homomorphismus $f': W\to V$ mit $f\circ f'=f'\circ f=\id$, so nennt man $f$ \emph{Isomorphismus} der Gruppen.
 \end{definition}
+
+
