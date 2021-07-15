@@ -20,3 +20,24 @@ Die Projektion auf den Unterraum der symmetrischen Tensoren gegeben durch
 \[q(t) := \frac{1}{m!} \sum_{\sigma\in Sym(m)} \sigma\cdot t\]
 und $O_n$-linear.
 \end{lemma}
+
+\begin{theorem}[Isomorphismus von Polynom(iellen Abbildung)en und symmetrischen Tensoren]
+\begin{enumerate}
+\item Es sei $e_1, e_2, \ldots, e_n$ eine Basis von $V$. Der Raum der Polynome ist isomorph zu $\bigoplus_{m=0}^\infty \Sym^m(V)$. Der Isomorphismus ist die Einschränkung der Abbildung $\bigoplus_{m=0}^\infty V^{\otimes m} \to \IK[x_1,\ldots,x_n]$
+\[e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_m} \mapsto x_{i_1}\cdot x_{i_2} \cdots x_{i_m}\]
+Die umgekehrte Richtung ist durch $x_1^{k_1} \cdots x_n^{k_n} \mapsto q(e_1^{\otimes k_1} \otimes e_2^{\otimes k_2} \otimes \cdots \otimes e_n^{\otimes k_n})$ gegeben.
+\end{enumerate}
+Diese Aussage ist nicht basis-frei und kann auch basis-frei gemacht werden, da es in $\IK[x_1, \ldots, x_n]$ ja $n$ ausgezeichnete Elemente vom Grad 1 gibt, eben die Unbekannten. Jeder Isomorphismus würde also auch eine Basis von $V$ auszeichnen.
+
+Eine moralisch äquivalente, basisfreie Aussage ist aber die folgende:
+\begin{enumerate}[resume]
+\item Der Raum der polynomiellen Abbildungen $V\to\IK$ ist isomorph zu $\bigoplus_{m=0}^\infty \Sym^m(V)$. Der Isomorphismus ist die Einschränkung der Abbildung $\bigoplus_{m=0}^\infty V^{\otimes m} \to \IK[x_1,\ldots,x_n]$
+\[v_{i_1} \otimes v_{i_2} \otimes \cdots \otimes v_{i_m} \mapsto (v\mapsto \braket{v_{i_1},v} \cdot \braket{v_{i_2},v} \cdots \braket{v_{i_m},v}) \]
+\item In beiden Fällen gilt: Die Räume sind als Darstellungen der orthogonalen Gruppe isomorph; die angegebenen Isomorphismen sind $O_n$-linear.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Da das Produkt von Polynomen kommutativ ist, werden $e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_m}$ und alle Permutationen $e_{i_{\sigma(1)}} \otimes e_{i_{\sigma(2)}} \otimes \cdots \otimes e_{i_{\sigma(m)}}$ auf denselben Wert abgebildet. Also wird der Mittelwert dieser $m!$ Tensoren ebenfalls auf denselben Wert abgebildet, d.h. $q(e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_m})$ geht auch auf $x_{i_1}\cdot x_{i_2} \cdots x_{i_m}$. Das zeigt, dass die beiden in a. definierten Abbildungen zueinander invers sind.
+
+Indem man eine Orthonormalbasis für $e_1, \ldots, e_n$ einsetzt, sieht man, dass in b. tatsächlich derselbe Isomorphismus definiert wird, da $v\mapsto \braket{e_i, v}$ genau die $i$-te Koordinatenabbildung bzgl. dieser Basis ist, d.h. die Abbildung, die den Vektor mit den Koordinaten $(x_1, x_2, \ldots, x_n)$ auf $x_i$ schickt. An der Schreibweise in b. sieht man aber leichter als der in a., dass die Isomorphismen $O_n$-linear sind. 
+\end{proof}
