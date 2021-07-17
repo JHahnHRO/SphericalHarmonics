@@ -26,37 +26,64 @@ Die obige Idee, den Mittelwert über eine Gruppe zu bilden und daraus eine Proje
 	\[
 		\frac{1}{\abs{G}} \sum_{g\in G} g(v)
 	\]
+	Dies ist genau die Projektion von $V$ auf den Unterraum der $G$-Fixpunktraum.
 \end{definition}
 
+\begin{remark}
 Da wir uns vorwiegend mit $O_3$ beschäftigen, reicht diese Definition allerdings nicht aus. Wie uns bestimmt bereits aufgefallen ist, ist $O_3$ nicht endlich, was uns auf den ersten Blick ein paar Schwierigkeiten für die obige Operation einhandelt. Zum Glück zählt $O_3$ zu den kompakten Gruppen, sodass wir die Summe infinitesimalisieren können, ohne über ein unendliches Volumen zu integrieren.
-\begin{definition}[Mittelwerttrick für kompakte Gruppen \& Integration über eine kompakte Gruppe]
+\end{remark}
+
+\begin{definition}[Mittelwerttrick für kompakte Gruppen \& Integration über kompakte Gruppen]
 	Sei $G$ eine kompakte Gruppe mit Darstellung auf einem Vektorraum $V$. Dann können wir den Mittelwerttrick auffassen als Integral über die Wirkung von $G$ auf einen Vektor $v\in V$:
 	\[
-		\frac{1}{|G|} \int_{G} g(v) \dd g
+		\frac{1}{\abs{G}} \int_{G} g(v) \dd g
 	\]
+	Auch dies ist die Projektion von $V$ auf den Unterraum der $G$-Fixpunkte.
+	
+	\medbreak
 	Wir werden nicht präzise machen, wie das Integral tatsächlich definiert ist. Man kann aber zeigen, dass für alle kompakten Gruppen $G$ ein Integral $\int_G$ existiert (das sogenannte Haar\footnote{Alfréd Haar (1885--1933), ungarischer Mathematiker}-Integral), das stetige Funktionen von $G$ in einen endlich-dimensionalen $\IR$- oder $\IC$-Vektorraum $X$ als Input nimmt, einen Wert aus $X$ als Output hat und u.A. folgende Eigenschaften hat: 
 	\begin{enumerate}
-		\item Das Volumen von $G$, also $\abs{G} = \int_G 1 \dd g$ kann auf einen beliebigen konstanten Faktor $\neq0$ festgelegt werden. Wir setzen immer $\abs{G}=1$.
-		\item Das Integral ist rechts- und linksinvariant, es gilt also für jede integrierbare Funktion $\phi: G\to X$ und jedes feste Gruppenelement $h\in G$:
-			\[
-			\int_{G} \phi(gh) \dd g = \int_{G} \phi(g) \dd g  = \int_{G} \phi(hg) \dd g 
-			\]
+		\item Das Volumen von $G$, also $\abs{G} = \int_G 1 \dd g$ kann auf einen beliebigen konstanten Faktor $\neq0$ festgelegt werden. Wir setzen der Einfachheit halber immer $\abs{G}=1$.
+		\item Das Integral ist rechts- und linksinvariant, es gilt also für alle $\phi: G\to X$ und jedes feste Gruppenelement $h\in G$:
+		\[\int_{G} \phi(gh) \dd g = \int_{G} \phi(g) \dd g  = \int_{G} \phi(hg) \dd g\]
+		(Im üblichen Sinne: Das eine Integral existiert genau dann, wenn das andere existiert, und dann haben beide den gleichen Wert)
+		\item Invertieren ist volumenerhaltend, d.h. es gilt für alle $\phi: G\to X$:
+		\[\int_G \phi(g) \dd g = \int_G \phi(g^{-1}) \dd g\]
+		\item Konstante (also nicht vom Gruppenelement abhängige) lineare Abbildungen $f: X\to X'$ können am Integral vorbeigezogen werden, es gilt also für alle $\phi: G\to X$:
+		\[\int_G f(\phi(g)) \dd g = f\left(\int_G \phi(g) \dd g\right)\]
 	\end{enumerate}
-	Für endliche Gruppen ist das Haar-Integral einfach der diskrete Mittelwert: $\int_G \phi(g) \dd g = \frac{1}{\abs{G}} \sum_{g\in G} \phi(g)$.
+	
+	Konkrete Beispiele für Haar-Integrale:
+	
+	\begin{itemize}
+	\item Für endliche Gruppen ist das Haar-Integral einfach der diskrete Mittelwert: $\int_G \phi(g) \dd g = \frac{1}{\abs{G}} \sum_{g\in G} \phi(g)$.
+	\item Für die zweidimensionale Drehgruppe $G=SO_2$ ist das Haarintegral durch Integration über alle Drehwinkel $\alpha\in[0,2\pi]$ gegeben (ggf. normiert mit $\frac{1}{2\pi}$, damit das Gesamtvolumen 1 wird)
+	\item Für die Drehgruppe $SO_3$ ist das Haar-Integral gegeben durch ein Doppelintegral der Form $\int_{S^2} \int_{[0,2\pi]} \ldots \dd \alpha \dd v$: Es wird über die Einheitssphäre $S^2$ integriert, das sind alle Drehachsen, und über $[0,2\pi]$, das sind alle möglichen Drehwinkel. Da eine Drehung um Winkel $\alpha$ um eine Achse $v$ dasselbe ist wie eine Drehung um $-\alpha$ um die Achse $-v$, haben wir dabei jede Drehung doppelt erwischt, aber das kann man ausgleichen, indem man dem Normierungsfaktor eine zusätzliche $\frac{1}{2}$ spendiert.
+	\item Die Isometriegruppen $O_2$ und $O_3$ bestehen aus der Untergruppe der Drehungen $SO_n$ und ihrem Komplement, die beide jeweils die Hälfte des Gesamtvolumens haben. Das Komplement hat jeweils die Form $h\cdot SO_n = \set{hg | g\in SO_n}$ für ein beliebiges, fest gewähltes Gruppenelement $h\in O_n \setminus SO_n$. Über das Komplement zu integrieren funktioniert also genauso wie über $SO_n$ selbst zu integrieren. Man kann integriert über $O_n$, indem man die Integrale über beide Hälften summiert.
+	\end{itemize}
+	
+	Äquivalent zur Existenz des Haar-Integrals ist die Existenz einer \enquote{uniformen} Wahrscheinlichkeitsverteilung auf $G$. Man kann also alternativ das Integral auch mit einer Monte-Carlo-Methode definieren als \enquote{Wähle unabhängig und gleichverteilt $N$ zufällige Gruppenelemente, bilde den Mittelwert $\frac{1}{N} \sum_{i=1}^N \phi(g_i)$ und lasse $N\to\infty$ gehen}.
 \end{definition}
 
 \begin{theorem}[Isomorphismus von Polynom(iellen Abbildung)en und symmetrischen Tensoren]
 \begin{enumerate}
-\item Es sei $e_1, e_2, \ldots, e_n$ eine Basis von $V$. Der Raum der Polynome ist isomorph zu $\bigoplus_{m=0}^\infty \Sym^m(V)$. Der Isomorphismus ist die Einschränkung der Abbildung $\bigoplus_{m=0}^\infty V^{\otimes m} \to \IK[x_1,\ldots,x_n]$
-\[e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_m} \mapsto x_{i_1}\cdot x_{i_2} \cdots x_{i_m}\]
+\item Es sei $e_1, e_2, \ldots, e_n$ eine Basis von $V$. Der Raum der Polynome ist isomorph zu $\bigoplus_{m=0}^\infty \Sym^m(V)$. Der Isomorphismus ist die Einschränkung der Abbildung
+\[\left\lbrace\begin{array}{rcl}
+\bigoplus_{m=0}^\infty V^{\otimes m} &\to& \IK[x_1,\ldots,x_n] \\
+e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_m} &\mapsto& x_{i_1}\cdot x_{i_2} \cdots x_{i_m}
+\end{array}\right.\]
 Die umgekehrte Richtung ist durch $x_1^{k_1} \cdots x_n^{k_n} \mapsto q(e_1^{\otimes k_1} \otimes e_2^{\otimes k_2} \otimes \cdots \otimes e_n^{\otimes k_n})$ gegeben.
 \end{enumerate}
-Diese Aussage ist nicht basis-frei und kann auch basis-frei gemacht werden, da es in $\IK[x_1, \ldots, x_n]$ ja $n$ ausgezeichnete Elemente vom Grad 1 gibt, eben die Unbekannten. Jeder Isomorphismus würde also auch eine Basis von $V$ auszeichnen.
-
+\smallbreak
+Diese Aussage ist nicht basis-frei und kann auch nicht basis-frei gemacht werden, da es in $\IK[x_1, \ldots, x_n]$ ja $n$ ausgezeichnete Elemente vom Grad 1 gibt, eben die Unbekannten. Jeder Isomorphismus würde also auch eine Basis von $V$ auszeichnen.
+\smallbreak
 Eine moralisch äquivalente, basisfreie Aussage ist aber die folgende:
 \begin{enumerate}[resume]
-\item Der Raum der polynomiellen Abbildungen $V\to\IK$ ist isomorph zu $\bigoplus_{m=0}^\infty \Sym^m(V)$. Der Isomorphismus ist die Einschränkung der Abbildung $\bigoplus_{m=0}^\infty V^{\otimes m} \to \IK[x_1,\ldots,x_n]$
-\[v_{i_1} \otimes v_{i_2} \otimes \cdots \otimes v_{i_m} \mapsto (v\mapsto \braket{v_{i_1},v} \cdot \braket{v_{i_2},v} \cdots \braket{v_{i_m},v}) \]
+\item Der Raum der polynomiellen Abbildungen $V\to\IK$ ist isomorph zu $\bigoplus_{m=0}^\infty \Sym^m(V)$. Der Isomorphismus ist die Einschränkung der Abbildung
+\[\left\lbrace\begin{array}{rcl}
+\bigoplus_{m=0}^\infty V^{\otimes m} &\to& \IK[V] \\
+v_{i_1} \otimes v_{i_2} \otimes \cdots \otimes v_{i_m} &\mapsto& (v\mapsto \braket{v_{i_1},v} \cdot \braket{v_{i_2},v} \cdots \braket{v_{i_m},v})
+\end{array}\right. \]
 \item In beiden Fällen gilt: Die Räume sind als Darstellungen der orthogonalen Gruppe isomorph; die angegebenen Isomorphismen sind $O_n$-linear.
 \end{enumerate}
 \end{theorem}
