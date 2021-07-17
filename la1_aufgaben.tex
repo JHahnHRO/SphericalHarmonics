@@ -1,0 +1,60 @@
+% !TeX root = spherical_harmonics.tex
+% !TeX spellcheck = de_DE
+\begin{sheet}
+
+\begin{problem}[title={Simultane Diagonalisierbarkeit}]\label{ex:simultan_diagonalisieren}
+Es seien $\alpha_1,\ldots,\alpha_n$ diagonalisierbare Endomorphismen von $V$. Es gelte $\alpha_i\circ\alpha_j = \alpha_j\circ\alpha_i$ für alle $1\leq i,j\leq n$.
+
+Ziel dieser Aufgabe ist es, zu zeigen, dass die Endomorphismen \emph{simultan diagonalisierbar sind}, d.h. dass eine Basis von $V$ existiert mit der Eigenschaft, dass jeder Vektor in $B$ ein Eigenvektor für alle $\alpha_i$ ist.
+
+\begin{subproblem}
+Zeige, dass $\alpha_1$ sich zu einem Endomorphismus $\alpha_{1,\mu}$ von $\operatorname{Eig}_\mu(\alpha_2)$ einschränkt für $\lambda\in K$.
+\end{subproblem}
+\begin{subproblem}
+Zeige, dass $\operatorname{Eig}_\lambda(\alpha_{1,\mu}) = \operatorname{Eig}_\lambda(\alpha_1) \cap \operatorname{Eig}_\mu(\alpha_2)$ und
+\[\operatorname{Eig}_\lambda(\alpha_1) = \bigoplus_{\mu\in\sigma(\alpha_2)} \operatorname{Eig}_\lambda(\alpha_{1,\mu})\]
+gilt.
+\end{subproblem}
+\begin{subproblem}
+Folgere daraus die Aussage für $n=2$, indem du zeigst, dass $\alpha_{1,\mu}$ diagonalisierbar ist.
+\end{subproblem}
+\begin{subproblem}
+Beweise den allgemeinen Fall per Induktion. 
+\end{subproblem}
+\begin{subproblem}
+Beweise auch den Fall von unendlich vielen, paarweise kommutierenden $\alpha$ unter der Annahme, dass $V$ endlich-dimensional ist.
+\end{subproblem}
+\end{problem}
+
+\begin{problem}[title={Hermite Normalform}]
+$A\in\IC^{n\times n}$ sei beliebig. Zeige:
+\begin{subproblem}
+Es gibt eine unitäre Matrix $U$, sodass 
+\[U^H A U = \begin{pmatrix}
+\lambda_1&\ast\\0&A'
+\end{pmatrix}\]
+ist. Hinweis: Was heißt das für die erste Spalte von $U$?
+\end{subproblem}
+\begin{subproblem}
+Folgere: Es gibt eine (andere) unitäre Matrix $U$, sodass $U^H A U$ obere Dreiecksgestalt hat.
+\end{subproblem}
+Hinweis: Benutze, dass alle Polynome über $\IC$ vollständig in Linearfaktoren zerfallen.
+\end{problem}
+
+\begin{problem}[title={Normale Matrizen}]
+Eine Matrix $A\in\IC^{n\times n}$ heißt \udot{normal}, falls $AA^H=A^H A$ gilt. Beispiele für normale Matrizen sind hermitesche und unitäre Matrizen, insbesondere auch reelle symmetrische bzw. orthogonale Matrizen.
+
+Zeige:
+\begin{subproblem}
+Wenn $A$ eine Dreiecksmatrix und gleichzeitig eine normale Matrix ist, dann ist $A$ automatisch eine Diagonalmatrix.
+\end{subproblem}
+\begin{subproblem}
+Folgere: Normale Matrizen sind immer unitär diagonalisierbar.
+\end{subproblem}
+\begin{subproblem}
+Umgekehrt ist jede unitär diagonalisierbare Matrix auch normal.
+\end{subproblem}
+\end{problem}
+
+
+\end{sheet}
