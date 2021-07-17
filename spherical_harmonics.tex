@@ -8,6 +8,85 @@
 
 \input{_preamble/master_preamble.tex}
 
+%Make Cyrillic letters available for math mode
+\usepackage[T2A,T1]{fontenc}
+\DeclareSymbolFont{cyrillic}{T2A}{cmr}{m}{n}
+\DeclareSymbolFont{cyrillic}{T2A}{cmr}{m}{n}
+\def\makecyrsymbol#1#2{%
+	\begingroup\edef\temp{\endgroup
+		\noexpand\DeclareMathSymbol{\noexpand#1}
+		{\noexpand\mathalpha}{cyrillic}%
+		{\expandafter\expandafter\expandafter
+			\calccyr\expandafter\meaning\csname T2A\string#2\endcsname\end}}%
+	\temp}
+\expandafter\def\expandafter\calccyr\string\char#1\end{#1}
+
+
+\makecyrsymbol\A\CYRA
+\makecyrsymbol\aaa\cyra
+\makecyrsymbol\Bae\CYRB
+\makecyrsymbol\bae\cyrb
+\makecyrsymbol\wae\CYRV
+\makecyrsymbol\wae\cyrv
+\makecyrsymbol\Gae\CYRG
+\makecyrsymbol\gae\cyrg
+\makecyrsymbol\Dae\CYRD
+\makecyrsymbol\dae\cyrd
+\makecyrsymbol\Jae\CYRE
+\makecyrsymbol\jae\cyre
+\makecyrsymbol\Zhae\CYRZH
+\makecyrsymbol\zhae\cyrzh
+\makecyrsymbol\sae\CYRZ
+\makecyrsymbol\sae\cyrz
+\makecyrsymbol\I\CYRI
+\makecyrsymbol\iii\cyri
+\makecyrsymbol\J\CYRISHRT
+%\makecyrsymbol\j\cyrishrt
+\makecyrsymbol\Ka\CYRK
+\makecyrsymbol\ka\cyrk
+\makecyrsymbol\El\CYRL
+\makecyrsymbol\el\cyrl
+\makecyrsymbol\Em\CYRM
+%\makecyrsymbol\em\cyrm
+\makecyrsymbol\En\CYRN
+\makecyrsymbol\en\cyrn
+%\makecyrsymbol\O\CYRO
+\makecyrsymbol\ooo\cyro
+\makecyrsymbol\Pae\CYRP
+\makecyrsymbol\pae\cyrp
+\makecyrsymbol\Rae\CYRR
+\makecyrsymbol\rae\cyrr
+\makecyrsymbol\Ssae\CYRS
+\makecyrsymbol\ssae\cyrs
+\makecyrsymbol\Tae\CYRT
+\makecyrsymbol\tae\cyrt
+%\makecyrsymbol\U\CYRU
+%\makecyrsymbol\u\cyru
+\makecyrsymbol\Fae\CYRF
+\makecyrsymbol\fae\cyrf
+\makecyrsymbol\Xa\CYRH
+\makecyrsymbol\xa\cyrh
+\makecyrsymbol\Zae\CYRC
+\makecyrsymbol\zae\cyrc
+\makecyrsymbol\Tschae\CYRCH
+\makecyrsymbol\tschae\cyrch
+\makecyrsymbol\Scha\CYRSH
+\makecyrsymbol\scha\cyrsh
+\makecyrsymbol\Schta\CYRSHCH
+\makecyrsymbol\Schta\cyrshch
+\makecyrsymbol\Hart\CYRHRDSN
+\makecyrsymbol\hart\cyrhrdsn
+\makecyrsymbol\Iue\CYRERY
+\makecyrsymbol\iue\cyrery
+\makecyrsymbol\soft\CYRSFTSN
+\makecyrsymbol\soft\cyrsftsn
+\makecyrsymbol\Ae\CYREREV
+%\makecyrsymbol\ae\cyrerev
+\makecyrsymbol\Ju\CYRYU
+\makecyrsymbol\ju\cyryu
+\makecyrsymbol\Ja\CYRYA
+\makecyrsymbol\ja\cyrya
+
 \begin{document}
 
 \maketitle
@@ -26,29 +105,37 @@
 \input{tensoren.tex}
 \input{tensoren_aufgaben.tex}
 
+\newpage
 \section{Warum Darstellungstheorie?}
 \input{motivationdarstellungstheorie.tex}
 \input{darstellungstheorie.tex}
 \input{darstellungstheorie_aufgaben.tex}
 
+\newpage
 \section{Darstellungstheorie -- Level 0}
 \input{symmetrische_tensoren.tex}
 \input{natuerliche_tensor_abbildungen.tex}
 \input{natuerliche_tensor_abbildungen_aufgaben.tex}
 
+\newpage
 \section{Darstellungstheorie -- Level 1}
 \input{schur_maschke.tex}
 \input{harmonische_polynome.tex}
 \input{level1_aufgaben.tex}
 
+\newpage
 \section{Darstellungstheorie -- Level 2}
 \input{charaktertheorie.tex}
 
+\newpage
 \section{Darstellungstheorie \texorpdfstring{von $O_2$}{der Isometriegruppe der Ebene}}
 \input{so2.tex}
+
+\newpage
 \section{Darstellungstheorie \texorpdfstring{von $O_3$}{der Isometriegruppe des dreidimensionalen Raums}}
 \input{so3.tex}
 
+\newpage
 \section{Warum Spherical Harmonics?}
 \input{gelfand_zetlin.tex}
 
