@@ -238,10 +238,12 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 \subsection{Lineare Abbildungen zwischen Tensoren}
 \begin{definition}[Brauer-Diagramm und deren Multiplikation]
 	Ein Brauer-Diagramm ist ein besonderer Graph. Er besteht aus zwei Zeilen von Knoten, $n$, $n\in\IN$, Knoten in der oberen Zeile und $n+2z$, $z\in\IZ$, Knoten in der unteren Zeile. Die Knoten sind paarweise miteinander verbunden, dabei dürfen die Verbindungen sowohl von einer Zeile zur anderen gehen, als auch innerhalb einer Zeile zwei Knoten miteinander verbinden.
+	
 	Brauer-Diagramme verstehen wir als visuelle Darstellung von linearen Abbildungen zwischen Tensoren. Entsprechend können sie linear miteinander kombiniert und auch mit Skalaren aus dem zum Tensorraum gehörenden Körper multipliziert werden.
+	
 	Zwei Brauer-Diagramme können außerdem \emph{miteinander multipliziert} werden zu einem dritten Brauer-Diagramm. Dies entspricht der Hintereinanderausführung zweier linearer Abbildungen. Ausgerechnet wird das Brauer-Diagramm der zusammengesetzten Abbildung, indem die zwei Brauer-Diagramme übereinander geschrieben werden und die Knoten der unteren Zeile vom ersten Diagramm reihenfolgeerhaltend mit den Knoten der oberen Zeile vom zweiten Diagramm verbunden werden. Falls geschlossene Kreise in diesem 4-zeiligen Graph existieren, so wird das Ergebnis für jeden geschlossenen Kreis mit einem Skalarfaktor $\alpha$ multipliziert, für unsere Anwendungen ist $\alpha$ gleich der Dimension des Vektorraums $V$, von dem wir Tensorprodukte bilden,
 	\[\alpha = \dim{V}.\]
-	 Bei $k$ geschlossenen Kreisen ist das Ergebnis dann der Graph, der die Verbindung der obersten Knoten-Zeile zur untersten Knoten-Zeile darstellt multipliziert mit $\alpha^k$.
+	Bei $k$ geschlossenen Kreisen ist das Ergebnis dann der Graph, der die Verbindung der obersten Knoten-Zeile zur untersten Knoten-Zeile darstellt multipliziert mit $\alpha^k$.
 \end{definition}
 \begin{example}[Brauer-Diagramme]
 	Folgende Graphen sind alles Brauer-Diagramme:
@@ -474,7 +476,7 @@ Diese Definition ist auch in entgegengesetzte Richtung zu verstehen: Wenden wir 
 	das mit $\casimir$ eingefügte $\Omega_V$ in zwei Teile zerlegt.
 	
 \begin{remark}[Brauer-Diagramme beschreiben alle sinnvollen (bzw. natürlichen) linearen Abbildungen zwischen Tensoren]
-	\label{bem:Brauer}
+	\label{brauer:bem:klassifikation}
 	Die Menge aller Linearkombinationen von allen Brauer-Diagrammen ist gleich der Menge aller natürlichen linearen Abbildungen zwischen Tensoren.
 \end{remark}
 \begin{remark}[Bilineare Abbildungen]
