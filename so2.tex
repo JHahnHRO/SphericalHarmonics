@@ -1,0 +1,94 @@
+% !TeX root = spherical_harmonics.tex
+% !TeX spellcheck = de_DE
+\begin{remark}
+Ein kurioser Fakt über $O_2$ und $SO_2$ ist, dass man diese Gruppe durch Matrizen basisfrei beschreiben kann:
+\[O_2 = \underbrace{\Set{\begin{pmatrix} \cos(\alpha) & -\sin(\alpha) \\ \sin(\alpha) & \cos(\alpha)\end{pmatrix} | \alpha\in\IR}}_{=SO_2} \cup \Set{\begin{pmatrix} \cos(\alpha) & \sin(\alpha) \\ \sin(\alpha) & -\cos(\alpha)\end{pmatrix} | \alpha\IR}\]
+Etwas genauer: Eine ebene Drehung hat bzgl. \emph{jeder} Orthonormalbasis der Ebene eine Matrix der Form $\rho_\alpha=\begin{psmallmatrix} \cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix}$; es kann sich der Winkel $\alpha$ in $-\alpha$ ändern, wenn der Basiswechsel nicht orientierungserhaltend ist, aber das war's auch schon.
+
+Eine Spiegelung ist immer von der Form $\begin{psmallmatrix}\cos(\alpha)&\sin(\alpha)\\\sin(\alpha)&-\cos(\alpha)\end{psmallmatrix}$; dabei ist der Winkel $\alpha$ aber von der Basiswahl abhängig, denn in diesem Fall legt $\alpha$ fest, wie die Gerade, an der gespiegelt wird, im Vergleich zur Basis orientiert ist. (Man beachte aber, dass für uns wichtige Informationen wie die Spur der Matrix unabhängig von $\alpha$ sind)
+\end{remark}
+
+\begin{theorem}[Darstellungstheorie von kommutativen Gruppen]
+Es sei $G$ eine kompakte, \emph{kommutative} Gruppe. Dann ist jede stetige, irreduzible, endlich-dimensionale Darstellung über $\IC$ eindimensional.
+\end{theorem}
+\begin{proof}
+Im Satz von Maschke \ref{darstellungen:maschke} haben wir gezeigt, dass man die Darstellung $\mathcal{D} : G \to GL(T)$ so wählen kann, dass sie ein Skalarprodukt invariant lässt, also jedes $\mathcal{D}(g)$ eine \emph{unitäre} Abbildung $T\to T$ ist.
+
+Unitäre Abbildungen sind diagonalisierbar (siehe Aufgabe~\ref{ex:normale_matrizen}.\ref{ex:unitaere_matrizen_diagonalisierbar}). Da die Gruppe $G$ kommutativ ist, kommutieren die Abbildungen $\mathcal{D}(g)$ natürlich auch miteinander. Es ist ein Fakt der linearen Algebra (und keine schwere Übungsaufgabe, siehe Aufgabe~\ref{ex:simultan_diagonalisieren}), dass man kommutierende, diagonalisierbare Abbildungen auch \emph{simultan} diagonalisieren kann, d.h. man kann eine Basis $b_1, \ldots, b_n$ von $T$ aus \emph{gemeinsamen} Eigenvektoren finden, sodass also
+\[\forall g: g\cdot b_i = \lambda_i(g) b_i\]
+gilt für geeignete Funktionen $\lambda_i: G\to\IC$. Insbesondere sind die eindimensionalen Unterräume $\IC b_i$ Unterdarstellungen von $T$. Alle mindestens zwei-dimensionalen Darstellungen sind mit anderen Worten reduzibel.
+\end{proof}
+
+\begin{remark}
+Es gilt auch die Umkehrung: Besitzt eine kompakte Gruppe nur eindimensionale irreduzible Darstellungen, dann ist sie kommutativ.
+\end{remark}
+
+\begin{remark}
+Fourieranalyse basiert wesentlich auf dieser Aussage. Die verschiedenen Formen der Fourieranalyse haben alle das gleiche zugrunde liegende Prinzip: Die Zerlegung von (meist unendlich-dimensionalen) Darstellungen einer kommutativen Gruppe in ihre eindimensionalen, irreduziblen Bestandteile. Die geschieht, indem man eine Basis so wählt, dass aus diesen eindimensionalen Untervektorräumen je ein Vektor Teil der Basis ist. Der Unterschied zwischen den verschiedenen Arten von Fouriertransformation ist, welches die dahinter stehende Gruppe ist:
+
+\begin{itemize}
+\item Die diskrete Fouriertransformation (inkl. FFT) ist die Darstellungstheorie der zyklischen Gruppen $C_n = \set{\exp(\frac{2\pi k i}{n}) | k=0,\ldots,n-1}$.
+\item Die Fouriertransformation periodischer Funktionen (=Fourierreihe) ist die Darstellungstheorie der Kreisgruppe $S^1 = \set{\exp(i\alpha) | \alpha\in[0,2\pi)}$ (welche zu $SO_2$ isomorph ist)
+\item Die kontinuierliche Fouriertransformation ist die Darstellungstheorie der reellen Gerade $\IR$. ($\IR$ ist nicht kompakt, aber lokalkompakt. Für solche Gruppen gibt es auch ein Haar-Integral)
+\end{itemize}
+
+Für eine beliebige, (lokal)kompakte kommutative Gruppe spricht man auch von
+%$\Pae\ooo\en\tae\rae\ja\gae\iii\en$
+Pontrjagin\footnote{Lev Prontrjagin (), russ. Mathematiker}-Dualität.
+\end{remark}
+
+\begin{theorem}[Darstellungstheorie von $SO_2$ über $\IK=\IC$]
+Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_2$ über $\IC$ ist zu genau einer der Darstellungen
+\[\mathcal{D}_k : \begin{psmallmatrix}\cos(\alpha)&\sin(\alpha)\\\sin(\alpha)&-\cos(\alpha)\end{psmallmatrix} \mapsto e^{ik\alpha}\]
+für eine ganze Zahl $k$ isomorph und diese Darstellungen sind paarweise nicht-isomorph.
+\end{theorem}
+\begin{proof}
+Dass die Darstellungen irreduzibel sind, ist klar, da sie eindimensional sind. Dass sie stetig sind, sieht man ihnen an. Dass sie paarweise nicht isomorph sind, kann man direkt überprüfen, oder man benutzt abstrakt, dass ihre Charaktere verschieden sind.
+
+Der nichttriviale Teil ist also zu zeigen, dass jede endlich-dimensionale, stetige, irreduzible Darstellung in dieser Liste vorkommt. $SO_2$ ist kommutativ, also muss jede irreduzible Darstellung ein-dimensional sein, d.h. es handelt sich um eine stetige Abbildung $\mathcal{D}: G\to\IC$. Betrachte die Rotationen um $\alpha:=\frac{2\pi}{n}$. Dies sind Gruppenelemente mit $\rho_\alpha^n=1$. Also muss auch $\mathcal{D}(\rho_\alpha)^n=1$ gelten, d.h. $\mathcal{D}(\rho_\alpha) = \exp(\frac{2\pi i k}{n})$ für ein geeignetes $k\in\IZ$. Ohne Stetigkeit könnte dieses $k$ von $n$ abhängig sein. Wir zeigen, dass es unabhängig von $n$ ist, wenn $\mathcal{D}$ stetig ist.
+
+Es gilt natürlich auch $\mathcal{D}(\rho_\alpha^m) = (\exp(\frac{2\pi i k}{n}))^m = \exp(\frac{2\pi i\cdot  km}{n})$, d.h. die $n$ Elemente $1=\rho_\alpha^0, \rho_\alpha^1, \ldots, \rho_\alpha^{n-1}$ erfüllen die Gleichung, die wir haben wollen, bereits. Welches $k$ erhalten wir, wenn wir von $n$ zu $2n$ wechseln? Die Drehung um $\alpha/2$ erfüllt $\rho_{\alpha/2}^2=\rho_\alpha$, d.h. $\mathcal{D}(\rho_{\alpha/2})$ ist eine der beiden Quadratwurzeln von $\mathcal{D}(\rho_\alpha)=\exp(\frac{2\pi i k}{n})$, also entweder $\exp(\frac{2\pi i k}{2n})$ oder $\exp(\frac{2\pi i(k+n)}{2n})$. Wenn $n$ hinreichend groß ist, sind $\rho_\alpha$ und $\rho_{\alpha/2}$ aber nah beieinander, und die Stetigkeitsbedingung verlangt, dass auch $\mathcal{D}(\rho_\alpha)$ und $\mathcal{D}(\rho_{\alpha/2})$ beide nah beieinander sind, was $k+n$ ausschließt, weil das auf der entgegengesetzten Seite des Einheitskreises liegt.
+
+Per Induktion erfüllen also alle Drehungen um $\frac{2\pi}{2^l n}$ die Gleichung, die wir haben wollen. Jede Drehung kann durch diese beliebig genau approximiert werden. Aus der Stetigkeit folgt also, dass alle Drehungen die Gleichung erfüllen.
+\end{proof}
+
+\begin{remark}
+Wenn man den komplexen Fall einmal hat, kann man den reellen Fall daraus folgern.
+\end{remark}
+
+\begin{corollary}[Darstellungstheorie von $SO_2$ über $\IK=\IR$]
+Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_2$ über $\IR$ ist entweder die triviale Darstellung oder zu genau einer der Darstellungen
+\[\mathcal{D}_k : \begin{psmallmatrix}\cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix} \mapsto \begin{psmallmatrix}\cos(k\alpha)&-\sin(k\alpha)\\\sin(k\alpha)&\cos(k\alpha)\end{psmallmatrix}\]
+für eine natürliche Zahl $k>0$ isomorph und diese Darstellungen sind paarweise nicht-isomorph.
+\end{corollary}
+
+\begin{remark}
+Wenn man nun die Spiegelungen hinzunimmt, ist die Gruppe nicht länger kommutativ. Eine wichtige Beobachtung ist, dass in $O_2$ die Drehung um $\alpha$ und die Drehung um $-\alpha$ zueinander konjugiert sind. Wenn wir Darstellungen also in Termen von Charakteren klassifizieren wollten, dann halten wir fest, dass Charaktere von $O_2$ nicht zwischen diesen beiden unterscheidet.
+
+Andererseits können wir natürlich jede $O_2$-Darstellung auf $SO_2$ einschränken und in irreduzible Bestandteile bzgl. $SO_2$ zerlegen, deren Charaktere wir jetzt kennen. Der Wert $\chi_T(\rho_\alpha)$ muss also eine Summe von Exponentialfunktionen sein. Welche solche Summen unterscheiden nicht zwischen $\alpha$ und $-\alpha$ ? $2\cos(\alpha) = e^{i\alpha k} + e^{-i\alpha k}$ und Kombinationen davon.
+
+Weil $O_2$ nur einen \enquote{Faktor 2 entfernt} von $SO_2$ ist (z.B. bzgl. Volumen, aber auch im etwas technischen gruppentheoretischen Sinne $O_2 / SO_2 \isomorphic C_2$), liegt die Vermutung nahe, dass diese einfachen Kombinationen schon die Charaktere von $O_2$ sind. 
+\end{remark}
+
+\begin{theorem}[Darstellungstheorie von $O_2$]
+Jede stetige, endlich-dimensionale, irreduzible Darstellung von $O_2$ über $\IK\in\set{\IR,\IC}$ ist entweder die triviale Darstellung oder zu genau einer der Darstellungen
+\[\mathcal{D}_k : \begin{psmallmatrix}\cos(\alpha)&\mp\sin(\alpha)\\\sin(\alpha)&\pm\cos(\alpha)\end{psmallmatrix} \mapsto \begin{psmallmatrix}\cos(k\alpha)&\mp\sin(k\alpha)\\\sin(k\alpha)&\pm\cos(k\alpha)\end{psmallmatrix}\]
+für eine natürliche Zahl $k>0$ isomorph und diese Darstellungen sind paarweise nicht-isomorph. In der Tat ist $\mathcal{D}_k$ isomorph zur Darstellung $STF^k$.
+\end{theorem}
+\begin{proof}
+Man kann von Hand nachprüfen, dass diese Definitionen tatsächlich Darstellungen sind. Indem wir die Spur bilden, können wir den Charakter bestimmen: Für Drehungen um $\pm\alpha$ ist $\chi_k(\rho_\alpha) = 2\cos(k\alpha)$ und für Spiegelungen ist $\chi_k()=0$. Wir zeigen die Irreduzibilität, indem wir die Bilinearform auf Charakteren anwenden und $\braket{\chi_k,\chi}$ für einen beliebigen Charakter $\chi$ von $O_2$ ausrechnen:
+\begin{align*}
+\braket{\chi_k,\chi}_{O_2} &= \frac{1}{2}\int_{SO_2} \chi_k(g)\chi_k(g^{-1}) \dd g + \frac{1}{2}\int_{SO_2} \underbrace{\chi_k(hg)}_{=0}\chi((hg)^{-1})\dd g &\text{für}\,h\in O_2\setminus SO_2\\
+&= \frac{1}{2}\int_{SO_2} \chi_k(g)\chi(g^{-1}) \dd \alpha \\
+&= \frac{1}{2} \braket{ (\chi_k)_{|SO_2} , (chi_{|SO_2}}_{SO_2} \\
+\intertext{Speziell für $\chi=\chi_k$ also:}
+&= \frac{1}{2} \braket{e^{ik\alpha} + e^{-ik\alpha}, e^{ik\alpha} + e^{-ik\alpha}}_{SO_2} \\
+&=\frac{1}{2}(1^2 + 1^2) &\text{Orthoginalitätsrelation}
+\end{align*}
+Also sind die $\chi_k$ tatsächlich irreduzible Charaktere von $O_2$ nach \ref{darstellungen:schur_umkehrung}. Unsere Behauptung ist u.A., dass es keine weiteren irreduziblen Charaktere von $O_2$ gibt. Wir haben schon festgestellt, dass in $O_2$ die Charakterwerte eingeschränkt auf $SO_2$ immer Summen von $2\cos(k\alpha)$ sein müssen. Diese werden aber schon alle mittels $\chi_k$ realisiert, d.h. $\chi$ kann nicht senkrecht auf allen $\chi_k$ stehen, da in $\chi_{SO_2}$ ja irgendwelche $2\cos(k\alpha)$ mit positivem Koeffizienten vorkommen müssen, wenn $\chi\neq 0$. Also kann $\chi$ insbesondere nicht ein uns noch unbekannter irreduzibler Charakter sein, denn der müsste ja auf allen schon bekannten Charakteren senkrecht stehen.
+
+\medbreak
+Damit ist also insbesondere zeigt, dass die Darstellungen $STF^k$, die wir schon vor der Charaktertheorie als irreduzibel erkannt hatten, irgendwo in dieser Liste vorkommen müssen. Wir nutzen aus, dass $STF^k$ zum Raum der homogenen, harmonischen Polynome in zwei Variablen vom Grad $k$ isomorph ist.
+
+Für Polynome in zwei Variablen kann man zufällig explizit die harmonischen hinschreiben: Es sind genau die Real- und Imaginärteile der Polynome in einer komplexen Variable. In Grad $k$ haben wir also $\Re((x+iy)^k)$ und $\Im((x+iy)^k)$ als Basis des Raums der harmonischen Polynome vom Grad $k$. Auf $\IR^2$, also der komplexen Ebene operiert $SO_2$ durch einfache Drehung, also Multiplikation mit $e^{i\alpha}$. Im Polynomraum wird also insbesondere $z^k$ auf $e^{ik\alpha}z^k$ abgebildet, d.h. auf den Grad-$k$-Polynomen operiert $SO_2$ durch $k$-fache Drehung, also muss es die irreduzible Darstellung $\mathcal{D}_k$ sein.
+\end{proof}
