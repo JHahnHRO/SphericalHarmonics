@@ -3,6 +3,47 @@
 Auch wenn wir eingangs in unserem Kurs so sehr über Basen geschimpft haben\footnote{Wir wollen keine Namen nennen, aber Johannes war besonders hartnäckig...}, so ist uns natürlich bewusst, dass gerade für effiziente Berechnungen eine Basis praktisch immer gewählt wird. Welche Basis man wählt, ist dabei von großer Bedeutung: Andrea hat in ihrer Doktor-Arbeit eine bestimmte Berechnung, welche z.B. zur Modellierung von Luftbewegung millionenfach wiederholt genutzt werden soll, um den Faktor 1000 verschnellern können, und das nur durch geschickte Basiswahl. 
 
 \begin{remark}
+	Meistens ist eine Basis geschickt gewählt, wenn sie orthogonal ist. Nun gibt es aber viele Skalarprodukte, die man wählen kann, die durchaus auch unterschiedliches Verständnis von Orthogonalität festlegen.
+\end{remark}
+Schauen wir uns einmal einige Beispiele für mögliche Skalarprodukte auf dem Raum der Polynome an:
+\begin{example}
+	Sei $B$ die Kugel in $\IR^3$ mit Radius 1 und $S^2$ die Oberfläche dieser Kugel. Dann sind mit
+	\begin{align*}
+		\braket{f,g}_B :&= \int_B f g \dd B & \braket{f,g}_{S^2} :&= \int_{S^2} f g \dd {S^2}
+	\end{align*}
+	zwei Skalarprodukte auf dem Raum der Polynome gegeben.
+\end{example}
+
+\begin{example}
+	Sei $Z$ ein Zyliner in $\IR^3$, z.B. mit Radius und Höhe 1. Dann ist mit 
+	\begin{align*}
+		\braket{f,g}_Z :&= \int_Z f g \dd Z
+	\end{align*}
+	ein Skalarprodukt auf dem Raum der Polynome gegeben.
+\end{example}
+
+\begin{example}
+	Sei $K$ ein Kegelstumpf in $\IR^3$, z.B. mit oberen Radius und Höhe 1, unterem Radius $\frac{1}{2}$. Dann ist mit 
+	\begin{align*}
+		\braket{f,g}_K :&= \int_K f g \dd K
+	\end{align*}
+	ein Skalarprodukt auf dem Raum der Polynome gegeben.
+\end{example}
+
+\begin{example}
+	Sei $Q$ ein Quader in $\IR^3$, z.B. mit den Kantenlängen 1, 2, und 3. Dann ist mit 
+	\begin{align*}
+		\braket{f,g}_Q :&= \int_Q f g \dd Q
+	\end{align*}
+	ein Skalarprodukt auf dem Raum der Polynome gegeben.
+\end{example}
+
+\begin{centralquestion}
+Wäre es nicht praktisch, eine Basis zu finden, die für möglichst viele Skalarprodukte orthogonal ist? Wie würdet ihr mit dem neu erworbenen Wissen nach solch einer Basis suchen? Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der eine möglichst allgemein einsetzbare Basis konstruiert.
+\end{centralquestion}
+
+\pagebreak
+\begin{remark}
 Am besten wählt man eine Basis, die möglichst gut an das gegebene Problem angepasst ist, doch was genau heißt das? Für die Auswahl an Problemen in diesem Kurs haben wir festgelegt, dass es sich um Probleme in unserer physikalischen Welt handeln soll. Wir haben uns bereits angeschaut, wie sich diese Einschränkung mathematisch äußert: Alles was wir messen wollen, muss natürlich, also $O_3$-verträglich sein. Wir haben uns auch schon mit der Darstellungstheorie von $O_3$ und einigen ihrer Untergruppen beschäftigt und festgestellt, dass $O_3$ den Raum der Polynome (oder äquivalent: den Raum der symmetrischen Tensoren) in irreduzible Unterräume zerlegt. 
 \end{remark}
 \begin{remark}
