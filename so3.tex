@@ -1,0 +1,40 @@
+% !TeX root = spherical_harmonics.tex
+% !TeX spellcheck = de_DE
+
+\begin{remark}
+Jedes Element von $SO_3$ ist bekanntlich eine Drehung $\rho_{\alpha,v}$ um eine Drehachse $v\in S^2$ und einen Drehwinkel $\alpha$. Wir erinnern noch einmal, dass $\rho_{\alpha,v} =\rho_{-\alpha,-v}$ ist.
+
+\smallbreak
+Besonders wichtig für uns ist, dass alle Drehungen um den gleichen Drehwinkel zueinander konjugiert sind. Insbesondere sind also alle Charaktere aller Darstellungen von $SO_3$ nur von $\alpha$, nicht von $v$ abhängige, (gerade) Funktionen.
+\end{remark}
+
+\begin{theorem}[Darstellungstheorie von $SO_3$]
+Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_3$ über $\IK\in\set{\IR,\IC}$ ist zu $STF^k$ für ein $k\in\IN$ isomorph. Der Charakter von $STF^k$ ist genau $\chi_k(\rho_{\alpha,v}) = \sum_{j=-k}^k e^{ij\alpha} = 1+\sum_{j=1}^k 2\cos(j\alpha)$. 
+\end{theorem}
+\begin{proof}
+Wir zeigen zunächst, dass der Charakter der Darstellung $STF^k$ genau die angegebene Form hat. Wie wir eben festgestellt haben, ist es ausreichend, eine feste Drehachse zu betrachten und für jeden Drehwinkel um diese Achse den Charakterwert auszurechnen.
+
+Wir benutzen außerdem, dass $STF^k$ zum Raum der harmonischen, homogenen Polynome vom Grad $k$ isomorph ist. Dieser Isomorphismus ist basis-abhängig und wir wählen die Basis so, dass die Unbekannte $z$ unsere feste Drehachse ist. Wir schreiben ein beliebiges homogenes Polynom dann als $p = \sum_{a=0}^k p_a(x,y)z^a$, wobei $p_a$ ein homogenes Polynom vom Grad $k-a$ ist. Dass $p$ harmonisch ist, ist äquivalent zu
+\begin{align*}
+0 &= \Delta p \\
+\iff \partial_z^2 p &= -(\partial_x^2+\partial_y^2)p \\
+\iff \sum_{a\geq 2} p_a(x,y) a(a-1)z^{a-2} &= -\sum_a (\partial_x^2+\partial_y^2)p_a z^a \\
+\iff \forall a: p_{a+2}(x,y) &= \frac{-1}{(a+1)(a+2)}(\partial_x^2+\partial_y^2)p_a(x,y)
+\end{align*}
+Mit anderen Worten können wir $p$ eindeutig festlegen, indem wir $p_0$ und $p_1$ beliebig festlegen und diese Rekursion anwenden. Die Rekursion liefert uns einen expliziten Isomorphismus der Vektorräume $P^{k}\oplus P^{k-1}$ mit $P_h^k$. Außerdem ist die Rekursion offenbar $SO_2$-linear, weil der 2D-Laplace-Operator $SO_2$-linear ist. Das zeigt uns, dass das sogar ein Isomorphismus von Darstellungen ist. Wir erhalten also die Aussage, dass die Restriktion von $STF^k$ auf $SO_2$ isomorph ist zu $Sym^k(\IR^2)\oplus Sym^{k-1}(\IR^2)$ und wie sich die symmetrischen Tensoren in irreduzible zerlegen, wissen wir bereits.
+
+Insbesondere können wir also die Charaktere explizit ausrechnen: Es ist
+\begin{align*}
+    \chi_{STF^k}(\rho_{\alpha,v}) &= \chi_{Sym^k(\IR^2)}(\rho_\alpha) + \chi_{Sym^{k-1}(\IR^2)}(\rho_\alpha) \\
+    &= (2\cos(k\alpha)+2\cos((k-2)\alpha)+\ldots)+(2\cos((k-1)\alpha)+2\cos((k-3)\alpha) +\ldots) \\
+    &= 1+\sum_{j=1}^k \cos(j\alpha)
+\end{align*}
+wie behauptet.
+
+\medbreak
+Wieso sind das nun alle irreduziblen Charaktere? Wir haben bereits festgestellt, dass jeder Charakter $\chi: SO_3\to\IK$ nur vom Drehwinkel $\alpha$ abhängig ist und eine gerade Funktion von $\alpha$ ist. Als Darstellung von $SO_2$ betrachtet, muss es also die Form $a_0 + \sum_{k>0} a_k\cdot 2\cos(k\alpha)$ mit $a_k\in\IN$ haben. Die Funktionen $2\cos(k\alpha)$ bilden eine Basis des Vektorraum solcher Funktionen. Die Funktionen $\sum_{j=0}^k \cos(j\alpha)$ also auch. Es kann also keinen weiteren irreduziblen Charakter geben, denn der müsste im selben Vektorraum liegen, aber orthogonal zu allen diesen Basiselementen sein.
+\end{proof}
+
+\begin{remark}
+Man beachte, dass beide Basen im letzten Abschnitt zwar Orthonormalbasen sind, aber bzgl. verschiedener Skalarprodukte (Haar-Integral von $SO_2$ vs. $SO_3$).
+\end{remark}
