@@ -2,7 +2,7 @@
 % !TeX spellcheck = de_DE
 \begin{remark}
 Ein kurioser Fakt über $O_2$ und $SO_2$ ist, dass man diese Gruppe durch Matrizen basisfrei beschreiben kann:
-\[O_2 = \underbrace{\Set{\begin{pmatrix} \cos(\alpha) & -\sin(\alpha) \\ \sin(\alpha) & \cos(\alpha)\end{pmatrix} | \alpha\in\IR}}_{=SO_2} \cup \Set{\begin{pmatrix} \cos(\alpha) & \sin(\alpha) \\ \sin(\alpha) & -\cos(\alpha)\end{pmatrix} | \alpha\IR}\]
+\[O_2 = \underbrace{\Set{\begin{pmatrix} \cos(\alpha) & -\sin(\alpha) \\ \sin(\alpha) & \cos(\alpha)\end{pmatrix} | \alpha\in\IR}}_{=SO_2} \cup \Set{\begin{pmatrix} \cos(\alpha) & \sin(\alpha) \\ \sin(\alpha) & -\cos(\alpha)\end{pmatrix} | \alpha\in\IR}\]
 Etwas genauer: Eine ebene Drehung hat bzgl. \emph{jeder} Orthonormalbasis der Ebene eine Matrix der Form $\rho_\alpha=\begin{psmallmatrix} \cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix}$; es kann sich der Winkel $\alpha$ in $-\alpha$ ändern, wenn der Basiswechsel nicht orientierungserhaltend ist, aber das war's auch schon.
 
 Eine Spiegelung ist immer von der Form $\begin{psmallmatrix}\cos(\alpha)&\sin(\alpha)\\\sin(\alpha)&-\cos(\alpha)\end{psmallmatrix}$; dabei ist der Winkel $\alpha$ aber von der Basiswahl abhängig, denn in diesem Fall legt $\alpha$ fest, wie die Gerade, an der gespiegelt wird, im Vergleich zur Basis orientiert ist. (Man beachte aber, dass für uns wichtige Informationen wie die Spur der Matrix unabhängig von $\alpha$ sind)
@@ -39,7 +39,7 @@ Pontrjagin\footnote{Lev Prontrjagin (), russ. Mathematiker}-Dualität.
 
 \begin{theorem}[Darstellungstheorie von $SO_2$ über $\IK=\IC$]
 Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_2$ über $\IC$ ist zu genau einer der Darstellungen
-\[\mathcal{D}_k : \begin{psmallmatrix}\cos(\alpha)&\sin(\alpha)\\\sin(\alpha)&-\cos(\alpha)\end{psmallmatrix} \mapsto e^{ik\alpha}\]
+\[\mathcal{D}_k : \begin{psmallmatrix}\cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix} \mapsto e^{ik\alpha}\]
 für eine ganze Zahl $k$ isomorph und diese Darstellungen sind paarweise nicht-isomorph.
 \end{theorem}
 \begin{proof}
@@ -66,29 +66,41 @@ für eine natürliche Zahl $k>0$ isomorph und diese Darstellungen sind paarweise
 Wenn man nun die Spiegelungen hinzunimmt, ist die Gruppe nicht länger kommutativ. Eine wichtige Beobachtung ist, dass in $O_2$ die Drehung um $\alpha$ und die Drehung um $-\alpha$ zueinander konjugiert sind. Wenn wir Darstellungen also in Termen von Charakteren klassifizieren wollten, dann halten wir fest, dass Charaktere von $O_2$ nicht zwischen diesen beiden unterscheidet.
 
 Andererseits können wir natürlich jede $O_2$-Darstellung auf $SO_2$ einschränken und in irreduzible Bestandteile bzgl. $SO_2$ zerlegen, deren Charaktere wir jetzt kennen. Der Wert $\chi_T(\rho_\alpha)$ muss also eine Summe von Exponentialfunktionen sein. Welche solche Summen unterscheiden nicht zwischen $\alpha$ und $-\alpha$ ? $2\cos(\alpha) = e^{i\alpha k} + e^{-i\alpha k}$ und Kombinationen davon.
-
-Weil $O_2$ nur einen \enquote{Faktor 2 entfernt} von $SO_2$ ist (z.B. bzgl. Volumen, aber auch im etwas technischen gruppentheoretischen Sinne $O_2 / SO_2 \isomorphic C_2$), liegt die Vermutung nahe, dass diese einfachen Kombinationen schon die Charaktere von $O_2$ sind. 
 \end{remark}
 
 \begin{theorem}[Darstellungstheorie von $O_2$]
-Jede stetige, endlich-dimensionale, irreduzible Darstellung von $O_2$ über $\IK\in\set{\IR,\IC}$ ist entweder die triviale Darstellung oder zu genau einer der Darstellungen
-\[\mathcal{D}_k : \begin{psmallmatrix}\cos(\alpha)&\mp\sin(\alpha)\\\sin(\alpha)&\pm\cos(\alpha)\end{psmallmatrix} \mapsto \begin{psmallmatrix}\cos(k\alpha)&\mp\sin(k\alpha)\\\sin(k\alpha)&\pm\cos(k\alpha)\end{psmallmatrix}\]
-für eine natürliche Zahl $k>0$ isomorph und diese Darstellungen sind paarweise nicht-isomorph. In der Tat ist $\mathcal{D}_k$ isomorph zur Darstellung $STF^k$.
+Jede stetige, endlich-dimensionale, irreduzible Darstellung von $O_2$ über $\IK\in\set{\IR,\IC}$ ist isomorph zu genau einer Darstellung der folgenden Liste:
+\begin{enumerate}
+\item Die triviale Darstellung $O_2\to\IC, g\mapsto 1$
+\item Die Determinante $\det: O_2\to\IC$, d.h. $g\mapsto\begin{cases}+1&g\in SO_2 \\ -1&g\notin SO_2\end{cases}$.
+\item Eine der Darstellungen
+\[\mathcal{D}_k : \begin{pmatrix}\cos(\alpha)&\mp\sin(\alpha)\\\sin(\alpha)&\pm\cos(\alpha)\end{pmatrix} \mapsto \begin{pmatrix}\cos(k\alpha)&\mp\sin(k\alpha)\\\sin(k\alpha)&\pm\cos(k\alpha)\end{pmatrix}\]
+für eine natürliche Zahl $k>0$ mit dazugehörigem Charakter $\chi_k(g) = \begin{cases} 2\cos(k\alpha) & g=\rho_\alpha \\ 0 & g\notin SO_2\end{cases}$.
+\end{enumerate}
+$\mathcal{D}_k$ ist isomorph zur Darstellung $STF^k$.
 \end{theorem}
 \begin{proof}
-Man kann von Hand nachprüfen, dass diese Definitionen tatsächlich Darstellungen sind. Indem wir die Spur bilden, können wir den Charakter bestimmen: Für Drehungen um $\pm\alpha$ ist $\chi_k(\rho_\alpha) = 2\cos(k\alpha)$ und für Spiegelungen ist $\chi_k()=0$. Wir zeigen die Irreduzibilität, indem wir die Bilinearform auf Charakteren anwenden und $\braket{\chi_k,\chi}$ für einen beliebigen Charakter $\chi$ von $O_2$ ausrechnen:
+Man kann von Hand nachprüfen, dass diese Definitionen tatsächlich Darstellungen sind. Die beiden eindimensionalen sind automatisch auch irreduzibel.
+
+Wir zeigen die Irreduzibilität von $\mathcal{D}_k$, indem wir die Bilinearform auf Charakteren anwenden und $\braket{\chi_k,\chi}$ für einen beliebigen Charakter $\chi$ von $O_2$ ausrechnen:
 \begin{align*}
 \braket{\chi_k,\chi}_{O_2} &= \frac{1}{2}\int_{SO_2} \chi_k(g)\chi_k(g^{-1}) \dd g + \frac{1}{2}\int_{SO_2} \underbrace{\chi_k(hg)}_{=0}\chi((hg)^{-1})\dd g &\text{für}\,h\in O_2\setminus SO_2\\
 &= \frac{1}{2}\int_{SO_2} \chi_k(g)\chi(g^{-1}) \dd \alpha \\
-&= \frac{1}{2} \braket{ (\chi_k)_{|SO_2} , (chi_{|SO_2}}_{SO_2} \\
-\intertext{Speziell für $\chi=\chi_k$ also:}
+&= \frac{1}{2} \braket{ (\chi_k)_{|SO_2} , \chi_{|SO_2}}_{SO_2} \\
+\intertext{Speziell für $\chi=\chi_k$ selbst ist das}
 &= \frac{1}{2} \braket{e^{ik\alpha} + e^{-ik\alpha}, e^{ik\alpha} + e^{-ik\alpha}}_{SO_2} \\
-&=\frac{1}{2}(1^2 + 1^2) &\text{Orthoginalitätsrelation}
+&=\frac{1}{2}(1^2 + 1^2)=1 &\text{Orthogonalitätsrelation}
 \end{align*}
-Also sind die $\chi_k$ tatsächlich irreduzible Charaktere von $O_2$ nach \ref{darstellungen:schur_umkehrung}. Unsere Behauptung ist u.A., dass es keine weiteren irreduziblen Charaktere von $O_2$ gibt. Wir haben schon festgestellt, dass in $O_2$ die Charakterwerte eingeschränkt auf $SO_2$ immer Summen von $2\cos(k\alpha)$ sein müssen. Diese werden aber schon alle mittels $\chi_k$ realisiert, d.h. $\chi$ kann nicht senkrecht auf allen $\chi_k$ stehen, da in $\chi_{SO_2}$ ja irgendwelche $2\cos(k\alpha)$ mit positivem Koeffizienten vorkommen müssen, wenn $\chi\neq 0$. Also kann $\chi$ insbesondere nicht ein uns noch unbekannter irreduzibler Charakter sein, denn der müsste ja auf allen schon bekannten Charakteren senkrecht stehen.
+Also sind die $\chi_k$ tatsächlich irreduzible Charaktere von $O_2$ nach \ref{darstellungen:schur_umkehrung}.
 
 \medbreak
-Damit ist also insbesondere zeigt, dass die Darstellungen $STF^k$, die wir schon vor der Charaktertheorie als irreduzibel erkannt hatten, irgendwo in dieser Liste vorkommen müssen. Wir nutzen aus, dass $STF^k$ zum Raum der homogenen, harmonischen Polynome in zwei Variablen vom Grad $k$ isomorph ist.
+Unsere Behauptung ist u.A., dass es keine weiteren, uns noch unbekannten irreduziblen Charaktere von $O_2$ gibt. Wir nehmen uns also einen irreduziblen Charakter $\chi$, der nicht einer der $\chi_k$ ist und auch nicht trivial ist, und zeigen, dass er gleich der Determinante sein muss.
+
+\smallbreak
+Wir haben schon festgestellt, dass in $O_2$ die Charakterwerte eingeschränkt auf $SO_2$ immer die Form $\chi(\rho_\alpha) = \sum_{k\in\IZ} a_k\cdot  e^{ik\alpha}$ mit $a_k=a_{-k}\in\IN$ haben müssen. Wenn wir nun ausnutzen, dass $\braket{\chi_k,\chi}_{O_2}=0$ sein müsste aufgrund der Orthogonalitätsrelation, dann folgern wir $a_k=0$ für $k\neq 0$, d.h. $\chi(\rho_\alpha)=a_0$ ist konstant auf $SO_2$. Das Komplement von $SO_2$ besteht ausschließlich aus Spiegelungen und die sind alle zueinander konjugiert, sodass $\chi$ auch auf dem Komplement $O_2\setminus SO_2$ konstant sein muss. Die Orthogonalitätsrelation $\braket{1,\chi}_{O_2}=0$ impliziert dann, dass die Konstante auf dem Komplement genau $-a_0$ sein muss, d.h. $\chi = a_0\cdot \det$. Wegen der Irreduzibilität muss $a_0=1$ sein.
+
+\medbreak
+Damit ist also insbesondere zeigt, dass die Darstellungen $STF^k$, die wir schon vor der Charaktertheorie als irreduzibel erkannt hatten, irgendwo in der Liste vorkommen müssen. Wir nutzen aus, dass $STF^k$ zum Raum der homogenen, harmonischen Polynome in zwei Variablen vom Grad $k$ isomorph ist.
 
 Für Polynome in zwei Variablen kann man zufällig explizit die harmonischen hinschreiben: Es sind genau die Real- und Imaginärteile der Polynome in einer komplexen Variable. In Grad $k$ haben wir also $\Re((x+iy)^k)$ und $\Im((x+iy)^k)$ als Basis des Raums der harmonischen Polynome vom Grad $k$. Auf $\IR^2$, also der komplexen Ebene operiert $SO_2$ durch einfache Drehung, also Multiplikation mit $e^{i\alpha}$. Im Polynomraum wird also insbesondere $z^k$ auf $e^{ik\alpha}z^k$ abgebildet, d.h. auf den Grad-$k$-Polynomen operiert $SO_2$ durch $k$-fache Drehung, also muss es die irreduzible Darstellung $\mathcal{D}_k$ sein.
 \end{proof}
