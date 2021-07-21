@@ -22,7 +22,7 @@ Im übrigen: Für bilineare Abbildungen ist es etwas komplizierter, aber die gru
  \begin{remark}
  	Idealerweise ist unsere Basis auch für solche Fälle ausgelegt. Es stellt sich heraus, dass beide Probleme gleichzeitig gelöst werden können.
  \end{remark}
- \begin{definition}[Konstruktion der $\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Bae\aaa\sae\aaa$ (Gelfand-Zetlin-Basis)]
+ \begin{definition}[Konstruktion der $\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Bae\aaa\sae\iue$ (Gelfand\footnote{Israel Gelfand, $\I\sae\rae\aaa\iii\el\soft$ $\Em\ooo\iii\ssae\jae\jae\wae\iii\tschae$ $\Gae\jae\el\soft\fae\aaa\en\dae$ (1913-2009), sovietischer Mathematiker}-Zetlin\footnote{Michael Zetlin, $\Em\iii\xa\aaa\iii\el$ $\El\soft\wae\ooo\wae\iii\tschae$ $\Zae\jae\tae\el\iii\en$ (1924-1966), russ. Mathematiker und Physiker}-Basis]
  	\label{def:konstruktion_gz_basis}
 	Sei $G$ eine Gruppe mit halb-einfacher Darstellung auf einem Vektorraum $V$ und $U^i_0$ einer der irreduziblen Unterräume von $V$. Für diesen Unterraum wird dessen \emph{Gelfand-Zetlin-Basis} wie folgt konstruiert:
 	\begin{enumerate}[label={\arabic*.)}]
@@ -33,7 +33,8 @@ Im übrigen: Für bilineare Abbildungen ist es etwas komplizierter, aber die gru
 			\item Ist $U_l^i$ 1-dimensional? Dann wähle einen Vektor aus $U_l^i$ als einen der Basisvektoren von $U^1_0$.
 			\item Ist $U_l^i$ $>1$-dimensional? Dann merke dir $U_l^i$ für den nächsten Schritt.
 		\end{enumerate}
-		\item Wähle geschickt eine möglichst große Untergruppe $H_{l+1}$ von $H_{l}$, sodass jeder Unterraum $U_l^i$ mit $\dim{U_l^i}>1$ in für $H_{l+1}$ irreduzible Unterräume $U_{l+1}^{1}, \cdots, U_{l+1}^{k}$ zerfällt. Dabei müssen alle Unterräume, die von einem gemeinsamen $U_l^i$ stammen, paarweise nicht isomorph sein (Klappt dies nicht, ist entweder eine andere Untergruppe zu finden, oder es gibt keine Gelfand-Zetlin-Basis). \label{def:gz_it_ugschritt}
+		\item Wähle geschickt eine möglichst große Untergruppe $H_{l+1}$ von $H_{l}$, sodass jeder Unterraum $U_l^i$ mit $\dim{U_l^i}>1$ in für $H_{l+1}$ irreduzible Unterräume  zerfällt. Dabei müssen alle Unterräume, die von einem gemeinsamen $U_l^i$ stammen, paarweise nicht isomorph sein (Klappt dies nicht, ist entweder eine andere Untergruppe zu finden, oder es gibt keine Gelfand-Zetlin-Basis). \label{def:gz_it_ugschritt}
+		\item Nummeriere die Unterräume des nächst-höheren Levels: Nenne alle für $H_{l+1}$ irreduziblen Unterräume $U_{l+1}^{1}, \cdots, U_{l+1}^{k}$, inklusive der bereits für $H_l$ 1-dimensionalen Unterräume.
 		\item Erhöhe das Level um 1: $l++$. \label{def:gz_it_ende}
 		\item Wiederhole die Schritte \ref{def:gz_it_anfang} bis \ref{def:gz_it_ende}, bis alle Unterräume vom nächst-höheren Level 1-dimensional sind.
 		\item $l_{\text{max}} = l$
@@ -42,12 +43,55 @@ Im übrigen: Für bilineare Abbildungen ist es etwas komplizierter, aber die gru
 \begin{remark}
 	Formal betrachtet, brauchen die 1-dimensionalen Untergruppen nicht für Schritt \ref{def:gz_it_ugschritt} ausgeschlossen werden. Sie werden für jede Untergruppe 1-dimensional bleiben und sich nicht weiter ändern, entsprechend braucht man sie für die weiteren Schritte auch nicht zu berücksichtigen.
 \end{remark}
-\begin{definition}{Gelfand-Zetlin-Baum}
-		Mit der Konstruktion nach \ref{def:konstruktion_gz_basis} bauen wir einen Baum mit $l_{\text{max}}$ Leveln. Der Stammknoten ist $U_0^i$, die Blätter sind alle gefundenen 1-dimensionale Unterräume. Die Knoten zwischen dem Stammknoten und den Blättern entsprechen den irreduziblen Unterräumen der jeweiligen Level, die Kanten verbinden einen irreduziblen Unterraum $U$ eines Levels mit allen irreduziblen Unterräumen des nächst-höheren Levels, die aus $U$ im Schritt \ref{def:gz_it_ugschritt} herauskommen. Eindimensionale Unterräume, die bereits in kleineren Leveln auftreten, werden hier als Knoten auf jedem höheren Level wiederholt bis zum maximalen Level.
-		Diesen Baum nennen wir \emph{Gelfand-Zetlin-Baum}.
+\begin{definition}[$\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Dae\jae\rae\jae\wae\ooo$ (Gelfand-Zetlin-Baum)]
+	Mit der Konstruktion nach \ref{def:konstruktion_gz_basis} bauen wir einen Baum mit $l_{\text{max}}$ Leveln. Der Stammknoten ist $U_0^i$, die Blätter sind alle gefundenen 1-dimensionale Unterräume. Die Knoten zwischen dem Stammknoten und den Blättern entsprechen den irreduziblen Unterräumen der jeweiligen Level, die Kanten verbinden einen irreduziblen Unterraum $U$ eines Levels mit allen irreduziblen Unterräumen des nächst-höheren Levels, die aus $U$ im Schritt \ref{def:gz_it_ugschritt} herauskommen. Eindimensionale Unterräume, die bereits in kleineren Leveln auftreten, werden hier als Knoten auf jedem höheren Level wiederholt bis zum maximalen Level.
+	Diesen Baum nennen wir \emph{Gelfand-Zetlin-Baum}. Er kann z.B. wie folgt aussehen:
 	\begin{align*}
+		\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
+			\foreach\x  in {1,2,...,11}{
+				\node (u3\x) at (\x,-4.5){$U_3^{\x}$};
+			}
+%			\foreach\x  in {1,2,3.5,6,8,9.5,11}{
+%				\node (u2\x) at (\x,-3){$U_2^{\x}$};
+%			}
+			\foreach\x [evaluate=\x as \y using {\x*10/7}] in {1,2,...,7}{
+				\node (u2\x) at (\y,-3){$U_2^{\x}$};
+			}
+%			\foreach\x  in {1,2.75,6,9.5}{
+%				\node (u1\x) at (\x,-1.5){$U_1^{\x}$};
+%			}
+			\foreach\x [evaluate=\x as \y using {\x*10/5}] in {1,2,...,4}{
+				\node (u1\x) at (\y,-1.5){$U_1^{\x}$};
+			}
+			\node (u0) at (4.7875,0){$U_0^i$};
+			\foreach\x in {1,2,...,4}{
+				\draw[] (u0) to (u1\x);
+			}
+			\draw[] (u11) to (u21);
+			\draw[] (u12) to (u22);
+			\draw[] (u12) to (u23);
+			\draw[] (u13) to (u24);
+			\draw[] (u14) to (u25);
+			\draw[] (u14) to (u26);
+			\draw[] (u14) to (u27);
+			\draw[] (u21) to (u31);
+			\draw[] (u22) to (u32);
+			\draw[] (u23) to (u33);
+			\draw[] (u23) to (u34);
+			\draw[] (u24) to (u35);
+			\draw[] (u24) to (u36);
+			\draw[] (u24) to (u37);
+			\draw[] (u25) to (u38);
+			\draw[] (u26) to (u39);
+			\draw[] (u26) to (u310);
+			\draw[] (u27) to (u311);
+			\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,3}{
+				\node (l\x) at (-2,\y){$l=\x$};
+				\node (h\x) at (-1,\y){$H_{\x}$};
+			}
+		\end{tikzpicture}
 	\end{align*}
-	
+	In einem Gelfand-Zetlin-Baum sind alle Darstellungen paarweise ungleich. Es kann aber auftreten, dass manche Darstellungen isomorph zueinander sind (wobei die Kinder eines Knotens niemals isomorph zueinander sein dürfen).
 \end{definition}
 \begin{remark}
 		Die Wahl der Untergruppen-Kette $H_1\cdots H_{l_{\text{max}}}$ ist hier spielentscheidend und keinesfalls eindeutig. Aus diesem Grund gehört zu einer vollständigen Anweisung \enquote{Wähle eine Gelfand-Zetlin-Basis für $G$ auf $V$} auch die Angabe der Untergruppenkette $H_1\cdots H_{l_{\text{max}}}$.
