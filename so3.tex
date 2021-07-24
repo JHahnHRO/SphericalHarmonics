@@ -1,40 +1,134 @@
 % !TeX root = spherical_harmonics.tex
 % !TeX spellcheck = de_DE
 
-\begin{remark}
+\begin{lemma}[Die zweidimensionale Sicht auf eine dreidimensionale Darstellung]
+Sei $V$ ein dreidimensionaler, reeller Vektorraum mit Skalarprodukt und $E\leq V$ eine Ebene darin. Dann ist die Einschränkung der Darstellung $STF^k(V)$ auf die Untergruppe $O_2(E) \leq O_3(V)$ isomorph zu $\Sym^k(E) \oplus \Sym^{k-1}(E)$.
+\end{lemma}
+\begin{proof}
+Man sieht den Isomorphismus besonders gut, wenn man benutzt, dass $STF^k(V)$ isomorph zum Raum der harmonischen, homogenen, polynomiellen Funktionen $V\to\IK$ vom Grad $k$ ist, d.h. zu
+\[\Set{p: V\to\IK \,\text{polynomiell} | \forall\lambda\in\IK: p(\lambda x) = \lambda^k p(x) \wedge \Delta p = 0}\]
+Wir wählen einen Vektor $e_z$ der Länge 1, der senkrecht auf $E$ steht. Die Polynomfunktion $\braket{e_z,\cdot}$ bezeichnen wir einfach als $z$.
+
+Dann können wir jede polynomielle Funktion $p$ nach Potenzen von $z$ sortieren, d.h. wir können $p$ schreiben als $p = \sum_{a=0}^k p_a \cdot z^a$ mit eindeutig bestimmten, homogenen Polynomen $p_a: E\to\IK$ vom Grad $k-a$. In dieser Schreibweise können wir ein Kriterium aufschreiben, wie wir $p$ als harmonisch erkennen, da wir den Laplace-Operator $\Delta=\Delta_V$ als $\Delta_V = \Delta_E + \partial_z^2$ zerlegen können (man erinnere sich an die entsprechende Zerlegung des Casimir-Elements $\Omega_V=\Omega_E + e_z\otimes e_z$):
+\begin{align*}
+0 &= \Delta p \\
+\iff \partial_z^2 p &= -\Delta_ E p \\
+\iff \sum_{a\geq 2} p_a \cdot a(a-1)z^{a-2} &= -\sum_a (\Delta_E p_a)\cdot z^a \\
+\iff \sum_a p_{a+2}\cdot  (a+2)(a+1)z^a &= -\sum_a (\Delta_E p_a)\cdot z^a \\
+\iff \forall a: p_{a+2} &= \frac{-\Delta_E p_a}{(a+1)(a+2)}
+\end{align*}
+Harmonische Polynomfunktionen sind also eindeutig festgelegt, indem wir eine beliebige homogene Polynomfunktion vom Grad $k$ für $p_0$ und eine beliebige homogene Polynomfunktion vom Grad $k-1$ für $p_1$ festlegen und alle anderen $p_a$ mittels der Rekursion bestimmen. Wir erhalten so einen Isomorphismus von $\IK$-Vektorräumen $Sym^k(E) \oplus Sym^{k-1}(E) \to STF^k(V)$. Da $\Delta_E$ ein mit $O_2(E)$ verträglicher Differentialoperator ist, ist dieser Isomorphismus sogar $O_2(E)$-linear.
+\end{proof}
+
+\begin{remark}[Struktur von $SO_3$]
 Jedes Element von $SO_3$ ist bekanntlich eine Drehung $\rho_{\alpha,v}$ um eine Drehachse $v\in S^2$ und einen Drehwinkel $\alpha$. Wir erinnern noch einmal, dass $\rho_{\alpha,v} =\rho_{-\alpha,-v}$ ist.
 
 \smallbreak
-Besonders wichtig für uns ist, dass alle Drehungen um den gleichen Drehwinkel zueinander konjugiert sind. Insbesondere sind also alle Charaktere aller Darstellungen von $SO_3$ nur von $\alpha$, nicht von $v$ abhängige, (gerade) Funktionen.
+Besonders wichtig für uns ist, dass alle Drehungen um den gleichen Drehwinkel zueinander konjugiert sind. Insbesondere sind also alle Charaktere aller Darstellungen von $SO_3$ nur von $\alpha$, nicht von $v$ abhängige, (gerade) Funktionen. Wenn wir also die Charakterwerte für die Elemente einer geschickt gewählten $SO_2$-Untergruppe (d.h. alle Drehungen um alle Winkel, aber um eine feste, richtig gewählte Drehachse) ausrechnen können, haben wir schon alle Charakterwerte ausgerechnet. 
 \end{remark}
 
+
 \begin{theorem}[Darstellungstheorie von $SO_3$]
-Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_3$ über $\IK\in\set{\IR,\IC}$ ist zu $STF^k$ für ein $k\in\IN$ isomorph. Der Charakter von $STF^k$ ist genau $\chi_k(\rho_{\alpha,v}) = \sum_{j=-k}^k e^{ij\alpha} = 1+\sum_{j=1}^k 2\cos(j\alpha)$. 
+Es sei $V$ ein drei-dimensionaler, reeller Vektorraum mit Skalarprodukt.
+
+Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_3(V)$ über $\IK\in\set{\IR,\IC}$ ist zu $STF^k(V)$ für ein $k\in\IN$ isomorph. Der Charakter von $STF^k(V)$ ist genau $\chi_k(\rho_{\alpha,v}) = \sum_{j=-k}^k e^{ij\alpha} = 1+\sum_{j=1}^k 2\cos(j\alpha)$. 
 \end{theorem}
 \begin{proof}
-Wir zeigen zunächst, dass der Charakter der Darstellung $STF^k$ genau die angegebene Form hat. Wie wir eben festgestellt haben, ist es ausreichend, eine feste Drehachse zu betrachten und für jeden Drehwinkel um diese Achse den Charakterwert auszurechnen.
+Wir zeigen zunächst, dass der Charakter der Darstellung $STF^k(V)$ genau die angegebene Form hat. Wie wir eben festgestellt haben, ist es ausreichend, eine feste Drehachse zu betrachten und für jeden Drehwinkel um diese Achse den Charakterwert auszurechnen.
 
-Wir benutzen außerdem, dass $STF^k$ zum Raum der harmonischen, homogenen Polynome vom Grad $k$ isomorph ist. Dieser Isomorphismus ist basis-abhängig und wir wählen die Basis so, dass die Unbekannte $z$ unsere feste Drehachse ist. Wir schreiben ein beliebiges homogenes Polynom dann als $p = \sum_{a=0}^k p_a(x,y)z^a$, wobei $p_a$ ein homogenes Polynom vom Grad $k-a$ ist. Dass $p$ harmonisch ist, ist äquivalent zu
-\begin{align*}
-0 &= \Delta p \\
-\iff \partial_z^2 p &= -(\partial_x^2+\partial_y^2)p \\
-\iff \sum_{a\geq 2} p_a(x,y) a(a-1)z^{a-2} &= -\sum_a (\partial_x^2+\partial_y^2)p_a z^a \\
-\iff \forall a: p_{a+2}(x,y) &= \frac{-1}{(a+1)(a+2)}(\partial_x^2+\partial_y^2)p_a(x,y)
-\end{align*}
-Mit anderen Worten können wir $p$ eindeutig festlegen, indem wir $p_0$ und $p_1$ beliebig festlegen und diese Rekursion anwenden. Die Rekursion liefert uns einen expliziten Isomorphismus der Vektorräume $P^{k}\oplus P^{k-1}$ mit $P_h^k$. Außerdem ist die Rekursion offenbar $SO_2$-linear, weil der 2D-Laplace-Operator $SO_2$-linear ist. Das zeigt uns, dass das sogar ein Isomorphismus von Darstellungen ist. Wir erhalten also die Aussage, dass die Restriktion von $STF^k$ auf $SO_2$ isomorph ist zu $Sym^k(\IR^2)\oplus Sym^{k-1}(\IR^2)$ und wie sich die symmetrischen Tensoren in irreduzible zerlegen, wissen wir bereits.
+Sobald wir die Drehachse fixiert haben, zeigt das eben bewiesene Lemma, dass $STF^k(V)$ als $O_2(E)$-Darstellung isomorph ist zu $\Sym^k(E)\oplus \Sym^{k-1}(E)$ ist, wobei $E$ die Ebene ist, die senkrecht zur Drehachse ist. Und wie sich die symmetrischen Tensoren in irreduzible zerlegen, wissen wir bereits.
 
 Insbesondere können wir also die Charaktere explizit ausrechnen: Es ist
 \begin{align*}
-    \chi_{STF^k}(\rho_{\alpha,v}) &= \chi_{Sym^k(\IR^2)}(\rho_\alpha) + \chi_{Sym^{k-1}(\IR^2)}(\rho_\alpha) \\
-    &= (2\cos(k\alpha)+2\cos((k-2)\alpha)+\ldots)+(2\cos((k-1)\alpha)+2\cos((k-3)\alpha) +\ldots) \\
+    \chi_{STF^k(V}(\rho_{\alpha,v}) &= \chi_{Sym^k(E}(\rho_\alpha) + \chi_{Sym^{k-1}(E)}(\rho_\alpha) \\
+    &= (2\cos(k\alpha)+2\cos((k-2)\alpha)+\ldots) \\ &\phantom{=}+(2\cos((k-1)\alpha)+2\cos((k-3)\alpha) +\ldots) \\
     &= 1+\sum_{j=1}^k \cos(j\alpha)
 \end{align*}
 wie behauptet.
 
 \medbreak
-Wieso sind das nun alle irreduziblen Charaktere? Wir haben bereits festgestellt, dass jeder Charakter $\chi: SO_3\to\IK$ nur vom Drehwinkel $\alpha$ abhängig ist und eine gerade Funktion von $\alpha$ ist. Als Darstellung von $SO_2$ betrachtet, muss es also die Form $a_0 + \sum_{k>0} a_k\cdot 2\cos(k\alpha)$ mit $a_k\in\IN$ haben. Die Funktionen $2\cos(k\alpha)$ bilden eine Basis des Vektorraum solcher Funktionen. Die Funktionen $\sum_{j=0}^k \cos(j\alpha)$ also auch. Es kann also keinen weiteren irreduziblen Charakter geben, denn der müsste im selben Vektorraum liegen, aber orthogonal zu allen diesen Basiselementen sein.
+Wieso sind das nun alle irreduziblen Charaktere? Wir haben bereits festgestellt, dass jeder Charakter $\chi: SO_3(V)\to\IK$ nur vom Drehwinkel $\alpha$ abhängig ist und eine gerade Funktion von $\alpha$ ist. Als Darstellung von $SO_2(E)$ betrachtet, muss es also die Form $a_0 + \sum_{k>0} a_k\cdot 2\cos(k\alpha)$ mit $a_k\in\IN$ haben. Die Funktionen $2\cos(k\alpha)$ bilden eine Basis des Vektorraum solcher Funktionen, Die Funktionen $\sum_{j=0}^k \cos(j\alpha)$ also auch. Es kann also keinen weiteren irreduziblen Charakter geben, denn der müsste im selben Vektorraum liegen, aber orthogonal zu allen diesen Basiselementen sein.
 \end{proof}
 
 \begin{remark}
-Man beachte, dass beide Basen im letzten Abschnitt zwar Orthonormalbasen sind, aber bzgl. verschiedener Skalarprodukte (Haar-Integral von $SO_2$ vs. $SO_3$).
+Man beachte, dass beide Basen im letzten Abschnitt des Beweises zwar Orthonormalbasen sind, aber bzgl. verschiedener Skalarprodukte (Haar-Integral von $SO_2$ vs. $SO_3$).
+\end{remark}
+
+\begin{remark}[Struktur von $O_3$]
+Die entscheidende Einsicht für den Schritt von $SO_3$ zu $O_3$ ist, dass die Inversion
+\[\iota := \begin{pmatrix} -1 && \\ &-1& \\ &&-1 \end{pmatrix} = -\id_V\]
+ein \udot{zentrales Element} der Gruppe ist, d.h. $\forall g\in O_3: g\iota = \iota g$ erfüllt, und zum anderen Determinante $-1$ hat. Konsequenz daraus ist, dass wir $O_3$ als direktes Produkt von $SO_3$ und einer Gruppe mit zwei Elementen zerlegen können:
+\[\left\lbrace
+\begin{array}{rcl}
+O_3 & \leftrightarrow & SO_3 \times \set{\pm 1} \\
+g &\mapsto& (\det(g)g, \det(g)) \\
+s\cdot\rho && (\rho,s) 
+\end{array}
+\right.\]
+ein Paar von zueinander inversen Isomorphismen.
+
+\medbreak
+Die Darstellungstheorie von Gruppen, die sich als direktes Produkt zerlegen, lässt sich sehr sauber auf die Darstellungstheorie der einzelnen Faktoren reduzieren.
+\end{remark}
+
+\begin{theorem}[Darstellungstheorie von direkten Produkten $G\times H$]
+Es seien $G_1$ und $G_2$ zwei kompakte Gruppen. Wir betrachten $\IK=\IC$.
+\begin{enumerate}
+\item Sind $T_1$ und $T_2$ zwei stetige, komplexe, endlich-dimensionale, irreduzible Darstellungen von $G_1$ bzw. $G_2$, dann ist das Tensorprodukt $T:=T_1\otimes T_2$ der beiden Vektorräume eine $G_1\times G_2$-Darstellung via
+\[(g_1,g_2) \cdot (t_1\otimes t_2) := (g_1 t_1) \otimes (g_2 t_2) \]
+und diese ist selbst irreduzibel. Für die Charaktere gilt $\chi_T(g_1,g_2) = \chi_{T_1}(g_1)\cdot\chi_{T_2}(g_2)$.
+\item Es auch gilt die Umkehrung: Jede stetige, komplexe, endlich-dimensionale, irreduzible Darstellung $T$ von $G_1\times G_2$ ist isomorph zu einem Tensorprodukt wie in a. für geeignete Darstellungen $T_1$ und $T_2$
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+Unter bestimmten technischen Voraussetzungen gilt die eine, die andere oder beide Aussagen auch im reellen Fall. Unter bestimmten, anderen technischen Voraussetzungen gelten eine oder beide Aussagen auch allgemeiner ohne die Annahmen Stetigkeit bzw. endliche Dimension.
+
+Wir wollen keine Zeit mit dem Definieren dieser Bedingungen oder dem Beweis des allgemeinen Falls verbringen, denn der Fall $O_3\isomorphic SO_3\times\set{\pm 1}$, der uns gerade am meisten interessiert, erfüllt diese Voraussetzungen sowieso alle und der zweite Faktor $\set{\pm1}$ ist so einfach gestrickt, dass man einen besonders einfachen Beweis zu Fuß hinbekommt.
+\end{remark}
+
+\begin{proof}[Beweis des Falls $G_1=SO_3$, $G_2=\set{\pm 1}$, aber $\IK\in\set{\IR,\IC}$]
+a. Wir wissen bereits, dass $G_2$ genau zwei irreduzible Darstellungen hat: Die triviale und die Darstellung $G_2\to\IK, \pm 1 \mapsto \pm 1$. Jedenfalls sind beides eindimensionale Darstellungen, deren zugrundeliegender Vektorraum also $\IK$ selbst ist.
+
+Das Tensorprodukt $T=T_1\otimes T_2$ ist also nichts anderes als $T_1$ selbst und die Operation des Produkts schreibt sich als: $(\rho,s)t_1 = \tau(s)\cdot (\rho t_1)$ für alle $\rho\in SO_3, s\in\set{\pm 1}$, wobei $\tau: \set{\pm 1} \to \IK$ entweder die triviale Darstellung $\tau(s)=1$ oder die nichttriviale Darstellung $\tau(s)=s$ ist.
+
+Wie sehen die Unterdarstellungen dieser $O_3$-Darstellung also aus? Es sind Untervektorräume, die unter der Operation von $SO_3$ und unter Multiplikation mit $\pm 1$ abgeschlossen sind. Zweiteres ist natürlich immer erfüllt, sodass die Unterdarstellungen von $T$ also exakt dieselben Untervektorräume sind wie die Unterdarstellungen von $T_1$ (nur dass wir sie eben jetzt als $O_3$-Darstellungen auffassen statt als $SO_3$-Darstellungen).
+
+Insbesondere ist $T$ irreduzibel, weil $T_1$ genau zwei Unterdarstellungen hat.
+
+\medbreak
+b. Es sei umgekehrt $\mathcal{D}: O_3\to GL(T)$ eine irreduzible Darstellung von $O_3$. Dann erfüllt $\mathcal{D}(\iota)^2=1$, also ist $\mathcal{D}(\iota)$ diagonalisierbar. Wir können also $T$ in die beiden Eigenräume von $\mathcal{D}(\iota)$ zerlegen.
+
+Andererseits ist $\iota$ zentral, erfüllt also $g\iota=\iota g$ für alle $g\in O_3$, d.h. $\mathcal{D}(\iota)$ ist eine $O_3$-lineare Abbildung $T\to T$. Die beiden Eigenräume sind also nicht nur Untervektorräume, sondern sogar Unterdarstellungen von $T$. Da $T$ irreduzibel ist, ist also genau einer der beiden gleich Null und der andere gleich $T$.
+
+Mit anderen Worten: Alle Elemente $t\in T$ erfüllen $\mathcal{D}(\iota)t=\lambda t$, entweder mit $\lambda=+1$ oder mit $\lambda=-1$. Im ersten Fall setzen wir $T_2:=$triviale Darstellung, im zweiten $T_2:=$nichttriviale Darstellung. In beiden Fällen setzen wir $T_1=T$.
+\end{proof}
+
+\begin{corollary}[Darstellungstheorie von $O_3$]
+Es sei $V$ ein drei-dimensionaler, reeller Vektorraum mit Skalarprodukt.
+
+Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=O_3(V)$ über $\IK\in\set{\IR,\IC}$ ist zu $STF_{\pm}^k(V)$ für ein $k\in\IN$ und eine Wahl des Vorzeichens isomorph. Dabei meint $STF_{\pm}^k(V)$ die Darstellung, deren Einschränkung auf $SO_3$ gerade $STF^k(V)$ ist und auf der die Inversion $\iota$ anhand des gewählten Vorzeichens operiert:
+\[\iota \cdot t := \begin{cases}
+t & t\in STF_+^k(V) \\
+-t & t\in STF_-^k(V)
+\end{cases}\]
+
+Der Charakter von $STF_{\pm}^k(V)$ ist gegeben durch
+\[\chi_{\pm,k}(g) = \begin{cases}
+\sum_{j=-k}^k e^{ij\alpha} & g=\rho_{\alpha,v}\in SO_3(V) \\
+\pm 1 & g\,\text{ist eine Spiegelung} \\
+\pm (2k+1) & g=\iota
+\end{cases}\]
+\end{corollary}
+
+\begin{remark}
+Die triviale Darstellung ist $STF_+^0(V)$. Die einzige nichttriviale, eindimensionale Darstellung, die Determinante $\det: O_3 \to \IK$ ist $STF_-^0(V)$.
+
+Der Raum der harmonischen, spurfreien Tensoren $STF^k(V)$ ist die Darstellung, die im Satz $STF_+^k(V)$ heißt, falls $k$ gerade ist, und $STF_-^k(V)$, falls $k$ ungerade ist. Das heißt bis auf diesen Vorzeichen-Twist hatten wir bereits alle irreduziblen Darstellungen gefunden.
+\end{remark}
+
+\begin{remark}[Pseudo-Tensoren]
+Die Konstruktion, die uns aus einer $SO_3$-Darstellung $T_1$ und einer der beiden eindimensionalen Darstellungen $T_2$ von $\set{\pm 1}$ eine $O_3$-Darstellung $T=T_1\otimes T_2$ macht, die denselben zugrundeliegenden Vektorraum wie $T_1$ hat, benötigte nirgendwo, dass $T_1$ irreduzibel ist. Insbesondere können wir auch Darstellungen wie $T_1=V^{\otimes k}$ mit dem nichttrivialen $T_2$ \udot{twisten}.
+
+Physiker bezeichnen das Resultat als Raum der \udot{Pseudotensoren} und nennen die Elemente dieses Raums dann auch Pseudotensor. Das ist verwirrend, denn natürlich sieht man dem einzelnen Element nicht an, ob es ein Tensor oder ein Pseudotensor ist, d.h. ob es gerade als Element von $V^{\otimes k}$ oder $V^{\otimes k}\otimes\det$ betrachtet wird, denn der zugrundeliegende Vektorraum und damit auch die zugrundeliegende Menge dieser beiden Darstellungen ist ja der/dieselbe. Der Unterschied zwischen Tensoren und Pseudotensoren ist, wie die Gruppe $O_3$ (vor allem die Elemente mit Determinante $-1$) auf diesem Vektorraum operiert.
 \end{remark}
