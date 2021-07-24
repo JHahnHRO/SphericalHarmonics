@@ -15,7 +15,7 @@ Schauen wir uns einmal einige Beispiele für mögliche Skalarprodukte auf dem Ra
 \end{example}
 
 \begin{example}
-	Sei $Z$ ein Zylinder in $\IR^3$, z.B. mit Radius und Höhe 1. Dann ist mit 
+	Sei $Z$ ein Zylinder in $\IR^3$, z.B. mit Radius und Höhe 1. Dann ist mit
 	\begin{align*}
 		\braket{f,g}_Z :&= \int_Z f g \dd Z
 	\end{align*}
@@ -23,7 +23,7 @@ Schauen wir uns einmal einige Beispiele für mögliche Skalarprodukte auf dem Ra
 \end{example}
 
 \begin{example}
-	Sei $K$ ein Kegelstumpf in $\IR^3$, z.B. mit oberen Radius und Höhe 1 sowie unterem Radius $\frac{1}{2}$. Dann ist mit 
+	Sei $K$ ein Kegelstumpf in $\IR^3$, z.B. mit oberen Radius und Höhe 1 sowie unterem Radius $\frac{1}{2}$. Dann ist mit
 	\begin{align*}
 		\braket{f,g}_K :&= \int_K f g \dd K
 	\end{align*}
@@ -39,30 +39,36 @@ Schauen wir uns einmal einige Beispiele für mögliche Skalarprodukte auf dem Ra
 \end{example}
 
 \begin{centralquestion}
-Wäre es nicht praktisch, eine Basis zu finden, die für möglichst viele Skalarprodukte orthogonal ist? Wie würdet ihr mit dem neu erworbenen Wissen nach solch einer Basis suchen? Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der eine möglichst allgemein einsetzbare Basis konstruiert.
+Wäre es nicht praktisch, eine Basis zu finden, die für möglichst viele Skalarprodukte orthogonal ist? Wie würdet ihr mit dem neu erworbenen Wissen nach solch einer Basis suchen?
+
+Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der eine möglichst allgemein einsetzbare Basis konstruiert.
 \end{centralquestion}
 
 \pagebreak
-\begin{remark}
-Am besten wählt man eine Basis, die möglichst gut an das gegebene Problem angepasst ist, doch was genau heißt das? Für die Auswahl an Problemen in diesem Kurs haben wir festgelegt, dass es sich um Probleme in unserer physikalischen Welt handeln soll. Wir haben uns bereits angeschaut, wie sich diese Einschränkung mathematisch äußert: Alles was wir messen wollen, muss natürlich, also $O_3$-verträglich sein. Wir haben uns auch schon mit der Darstellungstheorie von $O_3$ und einigen ihrer Untergruppen beschäftigt und festgestellt, dass $O_3$ den Raum der Polynome (oder äquivalent: den Raum der symmetrischen Tensoren) in irreduzible Unterräume zerlegt. 
-\end{remark}
-\begin{remark}
-Die irreduziblen Unterräume sind besonders: Wir haben bereits sehr gut verstanden, dass sie immer (also für jedes $O_3$-verträgliche Skalarprodukt) senkrecht zueinander stehen und dass lineare Abbildungen zwischen zwei irreduziblen Unterräumen entweder 0 oder ein Vielfaches der Identität sein können. Wenn man also eine lineare Wirkung berechnen möchte, erspart man sich durch die Zerlegung in irreduzible Unterräume einiges an Arbeit: Alles, was zu bestimmen ist, sind die Konstanten, mit der die Identität zwischen zwei zueinander isomorphen irreduziblen Unterräumen koppeln.
-\end{remark}
-\begin{remark}
-Im übrigen: Für bilineare Abbildungen ist es etwas komplizierter, aber die grundsätzliche Aussage bleibt bestehen: Alle Abbildungen sind entweder 0 oder Vielfache einer Identität (auch dann wenn die Identität etwas komplizierter zu berechnen ist).
-\end{remark}
-\begin{remark}
- All dies legt nahe, dass eine Basiswahl, die an die irreduziblen Unterräume angepasst ist, praktisch immer eine gute Idee ist. Jetzt sind diese irreduziblen Unterräume aber allermeistens nicht ein-dimensional, wie sucht man sich nun eine möglichst kanonische Basis aus? 
-\end{remark}
-\begin{remark}
-	\label{rem:einbettung_in_physik}
- Hinzu kommt, dass die irreduziblen Unterräume zwar für ganz $O_3$ irreduzibel sind, aber es gibt einige Probleme in der Physik, die eher einer Einbettung von $O_2$ in $O_3$ gleichen, z.B. (Teilchen-) Kollision an einer Wand, eine ausgezeichnete Richtung haben, z.B. die Bewegung von geladenen Teilchen durch einen Kondensator, oder rotierende Systeme beschreiben (Einbettung von $SO_2$ in $O_3$.
-\end{remark}
+%\begin{remark}
+%Am besten wählt man eine Basis, die möglichst gut an das gegebene Problem angepasst ist, doch was genau heißt das? Für die Auswahl an Problemen in diesem Kurs haben wir festgelegt, dass es sich um Probleme in unserer physikalischen Welt handeln soll. Wir haben uns bereits angeschaut, wie sich diese Einschränkung mathematisch äußert: Alles was wir messen wollen, muss natürlich, also $O_3$-verträglich sein. Wir haben uns auch schon mit der Darstellungstheorie von $O_3$ und einigen ihrer Untergruppen beschäftigt und festgestellt, dass $O_3$ den Raum der Polynome (oder äquivalent: den Raum der symmetrischen Tensoren) in irreduzible Unterräume zerlegt.
+%\end{remark}
+%\begin{remark}
+%Die irreduziblen Unterräume sind besonders: Wir haben bereits sehr gut verstanden, dass sie immer (also für jedes $O_3$-verträgliche Skalarprodukt) senkrecht zueinander stehen und dass lineare Abbildungen zwischen zwei irreduziblen Unterräumen entweder 0 oder ein Vielfaches der Identität sein können. Wenn man also eine lineare Wirkung berechnen möchte, erspart man sich durch die Zerlegung in irreduzible Unterräume einiges an Arbeit: Alles, was zu bestimmen ist, sind die Konstanten, mit der die Identität zwischen zwei zueinander isomorphen irreduziblen Unterräumen koppeln.
+%\end{remark}
+%\begin{remark}
+%Im übrigen: Für bilineare Abbildungen ist es etwas komplizierter, aber die grundsätzliche Aussage bleibt bestehen: Alle Abbildungen sind entweder 0 oder Vielfache einer Identität (auch dann wenn die Identität etwas komplizierter zu berechnen ist).
+%\end{remark}
+%\begin{remark}
+% All dies legt nahe, dass eine Basiswahl, die an die irreduziblen Unterräume angepasst ist, praktisch immer eine gute Idee ist. Jetzt sind diese irreduziblen Unterräume aber allermeistens nicht ein-dimensional, wie sucht man sich nun eine möglichst kanonische Basis aus?
+%\end{remark}
+%\begin{remark}
+%	\label{rem:einbettung_in_physik}
+% Hinzu kommt, dass die irreduziblen Unterräume zwar für ganz $O_3$ irreduzibel sind, aber es gibt einige Probleme in der Physik, die eher einer Einbettung von $O_2$ in $O_3$ gleichen, z.B. (Teilchen-) Kollision an einer Wand, eine ausgezeichnete Richtung haben, z.B. die Bewegung von geladenen Teilchen durch einen Kondensator, oder rotierende Systeme beschreiben (Einbettung von $SO_2$ in $O_3$.
+%\end{remark}
+%
+% \begin{remark}
+% 	Idealerweise ist unsere Basis auch für solche Fälle ausgelegt. Es stellt sich heraus, dass beide Probleme gleichzeitig gelöst werden können.
+% \end{remark}
 
- \begin{remark}
- 	Idealerweise ist unsere Basis auch für solche Fälle ausgelegt. Es stellt sich heraus, dass beide Probleme gleichzeitig gelöst werden können.
- \end{remark}
+% \begin{remark}
+% 	Idealerweise ist unsere Basis auch für solche Fälle ausgelegt. Es stellt sich heraus, dass beide Probleme gleichzeitig gelöst werden können.
+ %\end{remark}
  \begin{definition}[Konstruktion der $\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Bae\aaa\sae\iue$ (Gelfand\footnote{Israel Gelfand, $\I\sae\rae\aaa\iii\el\soft$ $\Em\ooo\iii\ssae\jae\jae\wae\iii\tschae$ $\Gae\jae\el\soft\fae\aaa\en\dae$ (1913--2009), sowjetischer Mathematiker}-Zetlin\footnote{Michael Zetlin, $\Em\iii\xa\aaa\iii\el$ $\El\soft\wae\ooo\wae\iii\tschae$ $\Zae\jae\tae\el\iii\en$ (1924--1966), russ. Mathematiker und Physiker; Der Name wird leider auf viele verschiedene Weisen transkribiert, u.A. eben Zetlin (meist im dt. Sprachraum), aber auch Tsetlin (engl. Sprachraum), Zeitlin, Tseitlin, Ceitlin}-Basis]
  	\label{def:konstruktion_gz_basis}
 	Sei $G$ eine Gruppe mit halb-einfacher Darstellung auf einem Vektorraum $V$ und $U^i_0$ einer der irreduziblen Unterräume von $V$. Für diesen Unterraum wird dessen \emph{Gelfand-Zetlin-Basis} wie folgt konstruiert:
@@ -85,7 +91,7 @@ Im übrigen: Für bilineare Abbildungen ist es etwas komplizierter, aber die gru
 	Formal betrachtet, brauchen die 1-dimensionalen Untergruppen nicht für Schritt \ref{def:gz_it_ugschritt} ausgeschlossen werden. Sie werden für jede Untergruppe 1-dimensional bleiben und sich nicht weiter ändern, entsprechend braucht man sie für die weiteren Schritte auch nicht zu berücksichtigen.
 \end{remark}
 \begin{definition}[$\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Dae\jae\rae\jae\wae\ooo$ (Gelfand-Zetlin-Baum)]
-	Mit der Konstruktion nach \ref{def:konstruktion_gz_basis} bauen wir einen Baum mit $l_{\text{max}}$ Leveln. Der Stammknoten ist $U_0^i$, die Blätter sind alle gefundenen 1-dimensionale Unterräume. Die Knoten zwischen dem Stammknoten und den Blättern entsprechen den irreduziblen Unterräumen der jeweiligen Level, die Kanten verbinden einen irreduziblen Unterraum $U$ eines Levels mit allen irreduziblen Unterräumen des nächst-höheren Levels, die aus $U$ im Schritt \ref{def:gz_it_ugschritt} herauskommen. Eindimensionale Unterräume, die bereits in kleineren Leveln auftreten, werden hier als Knoten auf jedem höheren Level wiederholt bis zum maximalen Level.
+	Mit der Konstruktion nach \ref{def:konstruktion_gz_basis} bauen wir einen Baum mit $l_{\text{max}}+1$ Leveln. Der Stammknoten ist $U_0^i$, die Blätter sind alle gefundenen 1-dimensionale Unterräume. Die Knoten zwischen dem Stammknoten und den Blättern entsprechen den irreduziblen Unterräumen der jeweiligen Level, die Kanten verbinden einen irreduziblen Unterraum $U$ eines Levels mit allen irreduziblen Unterräumen des nächst-höheren Levels, die aus $U$ im Schritt \ref{def:gz_it_ugschritt} herauskommen. Eindimensionale Unterräume, die bereits in kleineren Leveln auftreten, werden hier als Knoten auf jedem höheren Level wiederholt bis zum maximalen Level.
 	Diesen Baum nennen wir \emph{Gelfand-Zetlin-Baum}. Er kann z.B. wie folgt aussehen:
 	\begin{align*}
 		\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
@@ -146,11 +152,170 @@ Im übrigen: Für bilineare Abbildungen ist es etwas komplizierter, aber die gru
 \end{definition}
 
 \begin{remark}
-	Wie in \ref{rem:einbettung_in_physik} bereits angemerkt, sind wir insbesondere an der Darstellung von $O_3$ auf dem Polynomraum und der Einbettung von $O_2$, $SO_2$ und $O_1$ interessiert. Praktischerweise gilt $O_3\gneq O_2\gneq SO_2 \gneq O_1$ und somit bilden die Gruppen $O_3, O_2,SO_2,O_1$ eine Untergruppenkette.
+	Wir sind insbesondere an der Darstellung von $O_3$ auf dem Polynomraum und der Einbettung von $O_2$, $SO_2$ bzw. $O_1$ interessiert. Praktischerweise gilt $O_3\gneq O_2\gneq SO_2$ und  $O_3\gneq O_2\gneq O_1$ und somit bilden die Gruppen $O_3, O_2, SO_2, O_1$ zwei Untergruppenketten.
 \end{remark}
 
-\begin{maintheorem}[Spherical Harmonics sind eine Gelfand-Zetlin-Basis]
+\begin{centralquestion}[Fortsetzung]\label{cq:fortsetzung}
+	Kann man mit den beiden Untergruppenketten $O_3\gneq O_2\gneq SO_2$ und  $O_3\gneq O_2\gneq O_1$ dargestellt auf dem komplexen oder reellen Polynomraum eine Gelfand-Zetlin-Basis basteln? Wie sehen solche von uns gewünschte Basen nun konkret aus?
+
+	Teilt euch in Gruppen auf und erstellt Gelfand-Zetlin-Bäume zu den vier Kombinationen
+	\begin{align*}
+		O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf }& \IC[x,y,z] & O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf }& \IR[x,y,z] \\
+		O_3\gneq O_2\gneq O_1 \text{ dargestellt auf }& \IC[x,y,z] & O_3\gneq O_2\gneq O_1 \text{ dargestellt auf }& \IR[x,y,z]
+	\end{align*}
+	Hinweis: Eine der vier Fälle funktioniert nicht -- warum?
+\end{centralquestion}
+
+\pagebreak
+\begin{maintheorem}[Spherical Harmonics sind eine Gelfand-Zetlin-Basis]\label{mt:sh_sind_gzb}
 	Die Darstellung von $O_3$ auf dem Polynomraum (egal, ob mit reellen oder komplexen Koeffizienten) hat die Gelfand-Zetlin-Basis bezüglich Untergruppenkette $O_3 \geq O_2 \geq O_1$. Die Element dieser Basis heißen \emph{reelle Spherical Harmonics} oder auch \emph{Kugelflächenfunktionen}.
-	
+
 	Sofern man mit komplexen Koeffizienten arbeitet, gibt es eine zweite Gelfand-Zetlin-Basis bezüglich der Untergruppenkette $O_3 \geq SO_3 \geq SO_2$. Die Elemente dieser Gelfand-Zetlin-Basis heißen \emph{komplexe Spherical Harmonics}.
 \end{maintheorem}
+
+\begin{lemma}[{Gelfand-Zetlin-Baum für $O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf } \IC[x,y,z]$}]
+	\begin{align*}
+		\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
+			\node (u20) at (0,-3){$\mathscr{E}_\IC^{0}$};
+			\foreach\x [evaluate=\x as \y using {(\x)*2.5-0.5},evaluate=\x as \z using {(\x)*2.5+0.5}] in {1,2,3}{
+				\node (u2m\x) at (\y,-3){$\mathscr{E}_\IC^{-\x}$};
+				\node (u2p\x) at (\z,-3){$\mathscr{E}_\IC^{\x}$};
+			}
+			\node (u2m4) at (4*2.5-0.5,-3){$\cdots$};
+			\node (u2p4) at (4*2.5+0.5,-3){$\cdots$};
+			\node (u2m5) at (5*2.5-0.5,-3){$\mathscr{E}_\IC^{-k}$};
+			\node (u2p5) at (5*2.5+0.5,-3){$\mathscr{E}_\IC^{k}$};
+			\node (u10) at (0*10/5,-1.5){$^2\mathscr{H}_\IC^0$};
+			\foreach\x [evaluate=\x as \y using {\x*2.5}] in {1,2,3}{
+				\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IC^{\x}$};
+			}
+			\node (u14) at (4*2.5,-1.5){$\cdots$};
+			\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IC^k$};
+			\node (u0) at (4.7875,0){$^3\mathscr{H}_\IC^k$};
+			\foreach\x in {0,1,...,5}{
+				\draw[] (u0) to (u1\x);
+			}
+			\foreach\x in {1,2,3,4,5}{
+				\draw[] (u1\x) to (u2m\x);
+				\draw[] (u1\x) to (u2p\x);
+			}
+			\draw[] (u10) to (u20);
+			\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
+				\node (l\x) at (-2,\y){$l=\x$};
+			}
+			\node (h0) at (-1,0){$O_3$};
+			\node (h1) at (-1,-1.5){$O_2$};
+			\node (h2) at (-1,-3){$SO_2$};
+		\end{tikzpicture}
+	\end{align*}
+\end{lemma}
+
+\begin{lemma}[{Gelfand-Zetlin-Baum für $O_3\gneq O_2\gneq O_1 \text{ dargestellt auf } \IC[x,y,z]$}]
+	\begin{align*}
+		\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
+			\node (u20) at (0,-3){$^1\mathscr{H}_\IC^{0}$};
+			\foreach\x [evaluate=\x as \y using {(\x)*2.5-0.5},evaluate=\x as \z using {(\x)*2.5+0.5}] in {1,2,3,5}{
+				\node (u2m\x) at (\y,-3){$^1\mathscr{H}_\IC^{0}$};
+				\node (u2p\x) at (\z,-3){$^1\mathscr{H}_\IC^{1}$};
+			}
+			\node (u2m4) at (4*2.5-0.5,-3){$\cdots$};
+			\node (u2p4) at (4*2.5+0.5,-3){$\cdots$};
+			\node (u10) at (0*10/5,-1.5){$^2\mathscr{H}_\IC^0$};
+			\foreach\x [evaluate=\x as \y using {\x*2.5}] in {1,2,3}{
+				\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IC^{\x}$};
+			}
+			\node (u14) at (4*2.5,-1.5){$\cdots$};
+			\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IC^k$};
+			\node (u0) at (4.7875,0){$^3\mathscr{H}_\IC^k$};
+			\foreach\x in {0,1,...,5}{
+				\draw[] (u0) to (u1\x);
+			}
+			\foreach\x in {1,2,3,4,5}{
+				\draw[] (u1\x) to (u2m\x);
+				\draw[] (u1\x) to (u2p\x);
+			}
+			\draw[] (u10) to (u20);
+			\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
+				\node (l\x) at (-2,\y){$l=\x$};
+			}
+			\node (h0) at (-1,0){$O_3$};
+			\node (h1) at (-1,-1.5){$O_2$};
+			\node (h2) at (-1,-3){$O_1$};
+		\end{tikzpicture}
+	\end{align*}
+\end{lemma}
+\begin{lemma}[{Gelfand-Zetlin-Baum für $O_3\gneq O_2\gneq O_1 \text{ dargestellt auf } \IR[x,y,z]$}]
+	\begin{align*}
+		\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
+			\node (u20) at (0,-3){$^1\mathscr{H}_\IR^{0}$};
+			\foreach\x [evaluate=\x as \y using {(\x)*2.5-0.5},evaluate=\x as \z using {(\x)*2.5+0.5}] in {1,2,3,5}{
+				\node (u2m\x) at (\y,-3){$^1\mathscr{H}_\IR^{0}$};
+				\node (u2p\x) at (\z,-3){$^1\mathscr{H}_\IR^{1}$};
+			}
+			\node (u2m4) at (4*2.5-0.5,-3){$\cdots$};
+			\node (u2p4) at (4*2.5+0.5,-3){$\cdots$};
+			\node (u10) at (0*10/5,-1.5){$^2\mathscr{H}_\IR^0$};
+			\foreach\x [evaluate=\x as \y using {\x*2.5}] in {1,2,3}{
+				\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IR^{\x}$};
+			}
+			\node (u14) at (4*2.5,-1.5){$\cdots$};
+			\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IR^k$};
+			\node (u0) at (4.7875,0){$^3\mathscr{H}_\IR^k$};
+			\foreach\x in {0,1,...,5}{
+				\draw[] (u0) to (u1\x);
+			}
+			\foreach\x in {1,2,3,4,5}{
+				\draw[] (u1\x) to (u2m\x);
+				\draw[] (u1\x) to (u2p\x);
+			}
+			\draw[] (u10) to (u20);
+			\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
+				\node (l\x) at (-2,\y){$l=\x$};
+			}
+			\node (h0) at (-1,0){$O_3$};
+			\node (h1) at (-1,-1.5){$O_2$};
+			\node (h2) at (-1,-3){$O_1$};
+		\end{tikzpicture}
+	\end{align*}
+\end{lemma}
+
+\begin{lemma}[{Versuchter Gelfand-Zetlin-Baum für $O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf } \IR[x,y,z]$}]
+	\begin{align*}
+		\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
+			\node (u24) at (4*2.5,-3){$\cdots$};
+			\foreach\x [evaluate=\x as \y using {\x*2.5}] in {0,1,2,3}{
+				\node (u2\x) at (\y,-3){$^2\mathscr{H}_\IR^{\x}$};
+				\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IR^{\x}$};
+			}
+			\node (u14) at (4*2.5,-1.5){$\cdots$};
+			\node (u25) at (5*2.5,-3){$^2\mathscr{H}_\IR^k$};
+			\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IR^k$};
+			\node (u0) at (4.7875,0){$^3\mathscr{H}_\IR^k$};
+			\foreach\x in {0,1,...,5}{
+				\draw[] (u0) to (u1\x);
+			}
+			\foreach\x in {0,1,2,3,4,5}{
+				\draw[] (u1\x) to (u2\x);
+			}
+			\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
+				\node (l\x) at (-2,\y){$l=\x$};
+			}
+			\node (h0) at (-1,0){$O_3$};
+			\node (h1) at (-1,-1.5){$O_2$};
+			\node (h2) at (-1,-3){$SO_2$};
+		\end{tikzpicture}
+	\end{align*}
+\end{lemma}
+
+\begin{proof}
+	Siehe vorherige Kapitel, insbesondere zur Darstellungstheorie von $O_3$.
+\end{proof}
+
+\begin{remark}
+	Meistens werden einem Spherical Harmonics als Basis-Satz mit besonderen Eigenschaften vorgesetzt und nicht als Gelfand-Zetlin-Basis definiert. Es fehlt also noch die Überprüfung, dass die üblichen Spherical Harmonics auch mit der Definition nach \ref{mt:sh_sind_gzb} übereinstimmen.
+\end{remark}
+\begin{lemma}[Die Bezeichnung \enquote{Spherical Harmonics} ist gerechtfertigt]
+	Die Gelfand-Zetlin-Basis von $O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf } \IC[x,y,z]$ stimmt bis auf skalare Vielfache mit den komplexen Spherical Harmonics, wie sie üblicherweise gegeben sind, überein. Gleiches gilt für die Gelfand-Zetlin-Basis von $O_3\gneq O_2\gneq O_1 \text{ dargestellt auf } \IR[x,y,z]$ für die reellen Spherical Harmonics.
+
+	Hierbei gilt zu beachten: Die Einbettung der Untergruppen in $O_3$ legt drei ausgezeichnete Raumrichtungen in Form von Fixpunkträumen fest: Die Drehachse $z$ ($O_2$ eingebettet in $O_3$),
+\end{lemma}
