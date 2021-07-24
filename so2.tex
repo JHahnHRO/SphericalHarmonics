@@ -37,7 +37,9 @@ Für eine beliebige, (lokal)kompakte kommutative Gruppe spricht man auch von Pon
 \end{remark}
 
 \begin{theorem}[Darstellungstheorie von $SO_2$ über $\IK=\IC$]
-Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_2$ über $\IC$ ist zu genau einer der Darstellungen
+Sei $V$ ein reeller, zwei-dimensionaler Vektorraum mit Skalarprodukt.
+
+Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_2(V)$ über $\IC$ ist zu genau einer der Darstellungen
 \[\mathcal{D}_k : \begin{psmallmatrix}\cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix} \mapsto e^{ik\alpha}\]
 für eine ganze Zahl $k$ isomorph und diese Darstellungen sind paarweise nicht-isomorph.
 \end{theorem}
@@ -56,7 +58,9 @@ Wenn man den komplexen Fall einmal hat, kann man den reellen Fall daraus folgern
 \end{remark}
 
 \begin{corollary}[Darstellungstheorie von $SO_2$ über $\IK=\IR$]
-Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_2$ über $\IR$ ist entweder die triviale Darstellung oder zu genau einer der Darstellungen
+Sei $V$ ein reeller, zwei-dimensionaler Vektorraum mit Skalarprodukt.
+
+Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_2(V)$ über $\IR$ ist entweder die triviale Darstellung oder zu genau einer der Darstellungen
 \[\mathcal{D}_k : \begin{psmallmatrix}\cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix} \mapsto \begin{psmallmatrix}\cos(k\alpha)&-\sin(k\alpha)\\\sin(k\alpha)&\cos(k\alpha)\end{psmallmatrix}\]
 für eine natürliche Zahl $k>0$ isomorph und diese Darstellungen sind paarweise nicht-isomorph.
 \end{corollary}
@@ -68,7 +72,9 @@ Andererseits können wir natürlich jede $O_2$-Darstellung auf $SO_2$ einschrän
 \end{remark}
 
 \begin{theorem}[Darstellungstheorie von $O_2$]
-Jede stetige, endlich-dimensionale, irreduzible Darstellung von $O_2$ über $\IK\in\set{\IR,\IC}$ ist isomorph zu genau einer Darstellung der folgenden Liste:
+Sei $V$ ein reeller, zwei-dimensionaler Vektorraum mit Skalarprodukt.
+
+Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=O_2(V)$ über $\IK\in\set{\IR,\IC}$ ist isomorph zu genau einer Darstellung der folgenden Liste:
 \begin{enumerate}
 \item Die triviale Darstellung $O_2\to\IC, g\mapsto 1$
 \item Die Determinante $\det: O_2\to\IC$, d.h. $g\mapsto\begin{cases}+1&g\in SO_2 \\ -1&g\notin SO_2\end{cases}$.
@@ -76,7 +82,7 @@ Jede stetige, endlich-dimensionale, irreduzible Darstellung von $O_2$ über $\IK
 \[\mathcal{D}_k : \begin{pmatrix}\cos(\alpha)&\mp\sin(\alpha)\\\sin(\alpha)&\pm\cos(\alpha)\end{pmatrix} \mapsto \begin{pmatrix}\cos(k\alpha)&\mp\sin(k\alpha)\\\sin(k\alpha)&\pm\cos(k\alpha)\end{pmatrix}\]
 für eine natürliche Zahl $k>0$ mit dazugehörigem Charakter $\chi_k(g) = \begin{cases} 2\cos(k\alpha) & g=\rho_\alpha \\ 0 & g\notin SO_2\end{cases}$.
 \end{enumerate}
-$\mathcal{D}_k$ ist isomorph zur Darstellung $STF^k$.
+$\mathcal{D}_k$ ist isomorph zur Darstellung $STF^k(V)$.
 \end{theorem}
 \begin{proof}
 Man kann von Hand nachprüfen, dass diese Definitionen tatsächlich Darstellungen sind. Die beiden eindimensionalen sind automatisch auch irreduzibel.
@@ -99,7 +105,7 @@ Unsere Behauptung ist u.A., dass es keine weiteren, uns noch unbekannten irreduz
 Wir haben schon festgestellt, dass in $O_2$ die Charakterwerte eingeschränkt auf $SO_2$ immer die Form $\chi(\rho_\alpha) = \sum_{k\in\IZ} a_k\cdot  e^{ik\alpha}$ mit $a_k=a_{-k}\in\IN$ haben müssen. Wenn wir nun ausnutzen, dass $\braket{\chi_k,\chi}_{O_2}=0$ sein müsste aufgrund der Orthogonalitätsrelation, dann folgern wir $a_k=0$ für $k\neq 0$, d.h. $\chi(\rho_\alpha)=a_0$ ist konstant auf $SO_2$. Das Komplement von $SO_2$ besteht ausschließlich aus Spiegelungen und die sind alle zueinander konjugiert, sodass $\chi$ auch auf dem Komplement $O_2\setminus SO_2$ konstant sein muss. Die Orthogonalitätsrelation $\braket{1,\chi}_{O_2}=0$ impliziert dann, dass die Konstante auf dem Komplement genau $-a_0$ sein muss, d.h. $\chi = a_0\cdot \det$. Wegen der Irreduzibilität muss $a_0=1$ sein.
 
 \medbreak
-Damit ist also insbesondere zeigt, dass die Darstellungen $STF^k$, die wir schon vor der Charaktertheorie als irreduzibel erkannt hatten, irgendwo in der Liste vorkommen müssen. Wir nutzen aus, dass $STF^k$ zum Raum der homogenen, harmonischen Polynome in zwei Variablen vom Grad $k$ isomorph ist.
+Damit ist also insbesondere zeigt, dass die Darstellungen $STF^k(V)$, die wir schon vor der Charaktertheorie als irreduzibel erkannt hatten, irgendwo in der Liste vorkommen müssen. Wir nutzen aus, dass $STF^k(V)$ zum Raum der homogenen, harmonischen Polynome in zwei Variablen vom Grad $k$ isomorph ist.
 
 Für Polynome in zwei Variablen kann man zufällig explizit die harmonischen hinschreiben: Es sind genau die Real- und Imaginärteile der Polynome in einer komplexen Variable. In Grad $k$ haben wir also $\Re((x+iy)^k)$ und $\Im((x+iy)^k)$ als Basis des Raums der harmonischen Polynome vom Grad $k$. Auf $\IR^2$, also der komplexen Ebene operiert $SO_2$ durch einfache Drehung, also Multiplikation mit $e^{i\alpha}$. Im Polynomraum wird also insbesondere $z^k$ auf $e^{ik\alpha}z^k$ abgebildet, d.h. auf den Grad-$k$-Polynomen operiert $SO_2$ durch $k$-fache Drehung, also muss es die irreduzible Darstellung $\mathcal{D}_k$ sein.
 \end{proof}
