@@ -36,4 +36,28 @@ Sind $G,H$ zwei Gruppen und $f: G\to H$ eine Abbildung, so heißt $f$ \emph{Grup
 Existiert ein Homomorphismus $f': W\to V$ mit $f\circ f'=f'\circ f=\id$, so nennt man $f$ \emph{Isomorphismus} der Gruppen.
 \end{definition}
 
+\begin{example}
+Wir interessieren uns vor allem für bestimmte Symmetriegruppen. Diese treten meist als \enquote{Menge aller bijektiven Abbildungen $X\to X$ mit [Zusatzeigenschaft]} mit der Komposition als Gruppenverknüpfung auf. Das neutrale Element ist dann immer die Identität $\id_X$, das inverse Gruppenelement ist dann immer die Umkehrabbildung.
 
+Konkret kommen folgende Gruppen bei uns vor:
+\begin{itemize}
+\item Für jede natürliche Zahl die \udot{symmetrische Gruppe} oder \udot{Gruppe aller Permutationen}
+\[S_n := \Set{f: \set{1,\ldots,n}\to\set{1,\ldots,n} | f\,\text{bijektiv}}\]
+\item Für jeden Vektorraum $X$ die \udot{allgemeine lineare Gruppe}
+\[GL(X):=\Set{f: X\to X | f\,\text{linear und invertierbar}}\]
+und die \udot{spezielle lineare Gruppe} $SL(X):=\Set{f\in GL(X) | \det(f)=1}$
+\item Für jeden $\IR$-Vektorraum $X$, auf dem wir ein Skalarprodukt gegeben haben, die \udot{orthogonale Gruppe} oder \udot{Gruppe der Isometrien}.
+\begin{align*}
+O(X) &:= \Set{f: X\to X | \forall x\in X: \norm{f(x)}=\norm{x}}\\
+&=\Set{f: X\to X | \forall x,x'\in X: \braket{f(x),f(x')}=\braket{x,x'}}
+\end{align*}
+und die \udot{spezielle orthogonale Gruppe} oder \udot{Gruppe der Drehungen} $SO(X) := O(X) \cap SL(X)$.
+\item Für jeden $\IC$-Vektorraum, auf dem wir ein komplexes Skalarprodukt gegeben haben, analog auch die \udot{unitäre Gruppe}
+\begin{align*}
+U(X) &:= \Set{f: X\to X | \forall x\in X: \norm{f(x)}=\norm{x}}\\
+&=\Set{f: X\to X | \forall x,x'\in X: \braket{f(x),f(x')}=\braket{x,x'}}
+\end{align*}
+und die \udot{spezielle unitäre Gruppe} $SU(X) := U(X) \cap SL(X)$.
+\end{itemize}
+Alle orthogonalen/unitären Gruppen von Räumen gleicher Dimension sind isomorph, deshalb schreiben wir auch $(S)O_n$ bzw. $(S)U_n$, wenn wir die orthogonale/unitäre Gruppe eines $n$-dimensionalen Raums meinen.
+\end{example}

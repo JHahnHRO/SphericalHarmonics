@@ -3,7 +3,6 @@
 \subsection{Vektorräume}
 Wir kennen uns bereits mit Vektorräumen aus. Typische Beispiele sind $\IR^3$ oder der Raum der Polynome von einem bestimmten Grad $n$. Da uns in diesem Kurs noch weitere Vektorräume begegnen werden und zum Vergleich mit anderen mathematischen Objekten (z.B. Darstellungen), ist hier ihre Definition zusammengefasst.
 
-
 \begin{definition}[Vektorräume und lineare Abbildungen]\label{vektorraeume:def}
 Sei $K$ ein Körper. Ein \udot{$K$-Vektorraum} $(V,+,\cdot)$ besteht aus
 \begin{itemize}
@@ -64,20 +63,20 @@ das \emph{Bild von $f$}.
 \begin{remark}
 	Es gibt i.A. keine Multiplikation zweier Vektoren miteinander in irgendeinem Sinne. Wir können immer Skalare mit Vektoren multiplizieren, aber nicht Vektoren mit Vektoren. Nichts desto trotz ist es \emph{manchmal} doch so, dass zusätzlich zu Addition und Skalarmultiplikation eine weitere Operation existiert, die ein sinnvolles Konzept von Multiplikation liefert, z.B.
 	\begin{enumerate}
-		\item Der Vektorraum der Polynome $\IR[X]$ hat die Polynommultiplikation, d.h.
+		\item Der Vektorraum der Polynome $\IK[X]$ hat die Polynommultiplikation, d.h.
 		\[\left(\sum_{i=0}^n a_i X^i\right) \cdot \left(\sum_{j=0}^m b_j X^j\right) := \sum_{k=0}^{n+m} (\sum_{\substack{i,j \\ i+j=k}} a_i b_j) X^k\]
-		\item Der Vektorraum der Funktionen $X\to\IC$ für einen festen Definitionsbereich $X$ hat die punktweise Multiplikation, d.h.
+		\item Der Vektorraum der Funktionen $X\to\IK$ für einen festen Definitionsbereich $X$ hat die punktweise Multiplikation, d.h.
 		\[f\cdot g := x\mapsto f(x)g(x)\]
-		\item Die Hintereinanderausführung von linearen Abbildungen $\Hom_K(V,W) \times \Hom_K(U,V) \to \Hom_K(U,W), (f,g) \mapsto f\circ g$ ist eine Abbildung, die sich in vielerlei Hinsicht auch wie eine Multiplikation verhält. Für $U=V=W$ erhält man insbesondere eine Multiplikation $\End_K(V) \times \End_K(V) \to \End_K(V)$.
+		\item Die Hintereinanderausführung von linearen Abbildungen $\Hom_\IK(V,W) \times \Hom_\IK(U,V) \to \Hom_\IK(U,W), (f,g) \mapsto f\circ g$ ist eine Abbildung, die sich in vielerlei Hinsicht auch wie eine Multiplikation verhält. Für $U=V=W$ erhält man insbesondere eine Multiplikation $\End_\IK(V) \times \End_\IK(V) \to \End_\IK(V)$.
 		
-		Nach Wahl von je einer Basis können wir $\Hom_K(V,W)$, $\Hom_K(U,V)$ und $\Hom_K(U,W)$ mit $K^{n\times m}$, $K^{m\times p}$ und $K^{n\times p}$ identifizieren. Die Hintereinanderausführung von linearen Abbildung entspricht dann der Matrixmultiplikation.
+		Nach Wahl von je einer Basis können wir $\Hom_\IK(V,W)$, $\Hom_\IK(U,V)$ und $\Hom_\IK(U,W)$ mit $\IK^{n\times m}$, $\IK^{m\times p}$ und $\IK^{n\times p}$ identifizieren. Die Hintereinanderausführung von linearen Abbildung entspricht dann der Matrixmultiplikation.
 		\item ...
 	\end{enumerate}
 	
 \end{remark}
 
 \begin{definition}[Bilineare \& multilineare Abbildungen]\label{bilineare_abb:def}
-	Sind $V,W,X$ drei $K$-Vektorräume, so heißt eine Abbildung $\phi: V\times W\to X$ \emph{bilinear}, falls sie beiden Linearitätsbedingungen in Tabelle \ref{bilineare_abb:def_table} erfüllt, d.h. die Funktion ist separat linear, wenn man nur den ersten oder nur den zweiten Input variiert und den anderen festhält.
+	Sind $V,W,X$ drei $\IK$-Vektorräume, so heißt eine Abbildung $\phi: V\times W\to X$ \emph{bilinear}, falls sie beiden Linearitätsbedingungen in Tabelle \ref{bilineare_abb:def_table} erfüllt, d.h. die Funktion ist separat linear, wenn man nur den ersten oder nur den zweiten Input variiert und den anderen festhält.
 	
 	\begin{table}[!ht]
 		\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
@@ -88,9 +87,9 @@ das \emph{Bild von $f$}.
 			\midrule
 			Linearität: \\
 			\hspace{1cm}im ersten Argument  & $\forall v_1,v_2\in V, w\in W: \phi(v_1+v_2,w) = \phi(v_1,w) + \phi(v_2,w)$ \\
-			& $\forall \lambda\in K, v\in W, w\in W: \phi(\lambda v, w) = \lambda \phi(v,w)$ \\
+			& $\forall \lambda\in\IK, v\in W, w\in W: \phi(\lambda v, w) = \lambda \phi(v,w)$ \\
 			\hspace{1cm}im zweiten Argument & $\forall v\in V, w_1, w_2\in W: \phi(v,w_1+w_2) = \phi(v,w_1) + \phi(v,w_2)$ \\
-			& $\forall \lambda\in K, v\in W, w\in W: \phi(v, \lambda w) = \lambda \phi(v,w)$ \\
+			& $\forall \lambda\in\IK, v\in W, w\in W: \phi(v, \lambda w) = \lambda \phi(v,w)$ \\
 			Falls $\phi: V\times V \to X$, kann optional gelten: \\
 			\hspace{1cm}Symmetrie bzw. Kommutativität & $\forall u,v\in V: \phi(u,v) = \phi(v,u)$ \\
 			\hspace{1cm}Antisymmetrie & $\forall u,v\in V: \phi(u,v) = -\phi(v,u)$ \\
@@ -106,7 +105,7 @@ das \emph{Bild von $f$}.
 \end{definition}
 
 \begin{example}
-	Die drei genannten \enquote{Multiplikationen} von oben sind bilinear. Polynommultiplikation und punktweise Multiplikation von Funktionen sind kommutativ und assoziativ. Die Komposition $\End_K(V)\times\End_K(V)\to\End_K(V)$ ist assoziativ, aber nicht kommutativ, falls $\dim(V) > 1$.
+	Die drei genannten \enquote{Multiplikationen} von oben sind bilinear. Polynommultiplikation und punktweise Multiplikation von Funktionen sind kommutativ und assoziativ. Die Komposition $\End_\IK(V)\times\End_\IK(V)\to\End_\IK(V)$ ist assoziativ, aber nicht kommutativ, falls $\dim(V) > 1$.
 	
 	Es gibt viele weitere, äußerst nützliche Beispiele.
 	\begin{enumerate}[start=4]
@@ -118,7 +117,7 @@ das \emph{Bild von $f$}.
 		
 		Für mehrfach differenzierbare Funktionen kann man natürlich auch mehrere Ableitungsschritte hintereinander ausführen. Auf diese Weise erhält man multilineare Abbildungen: $k$-faches Ableiten in $k$ Richtungen, also der Differentialoperator $\partial_{v_1} \partial_{v_2} \cdots \partial_{v_k}$ ist $k$-fach linear in den Vektoren $v_1, ..., v_k$ als Inputs. Die Anwendung auf eine Funktion ist entsprechend $(k+1)$-fach linear in den $k$ Richtungsvektoren und der Funktion als Inputs.
 		
-		Als $k$-lineare Abbildung ist dies eine symmetrische Abbildung, d.h. $\partial_v \partial w f = \partial_w\partial_v f$, sofern $f$ zweimal stetig differenzierbar ist. Das ist der Satz von Schwarz\footnote{Hermann Amandus Schwarz (1843 -- 1921), dt. Mathematiker.}.
+		Als $k$-lineare Abbildung ist dies eine symmetrische Abbildung, d.h. $\partial_v \partial_w f = \partial_w\partial_v f$, sofern $f$ zweimal stetig differenzierbar ist. Das ist der Satz von Schwarz\footnote{Hermann Amandus Schwarz (1843 -- 1921), dt. Mathematiker.}.
 		
 		\item Kreuzprodukt:
 		
