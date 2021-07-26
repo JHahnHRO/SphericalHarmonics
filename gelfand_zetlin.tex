@@ -1,5 +1,6 @@
 % !TeX root = spherical_harmonics.tex
 % !TeX spellcheck = de_DE
+\subsection{Die Suche nach einer guten Basis}
 Auch wenn wir eingangs in unserem Kurs so sehr über Basen geschimpft haben\footnote{Wir wollen keine Namen nennen, aber Johannes war besonders hartnäckig...}, so ist uns natürlich bewusst, dass gerade für effiziente Berechnungen eine Basis praktisch immer gewählt wird. Welche Basis man wählt, ist dabei von großer Bedeutung: Andrea hat in ihrer Doktor-Arbeit eine bestimmte Berechnung, welche z.B. zur Modellierung von Luftbewegung millionenfach wiederholt genutzt werden soll, um den Faktor 1000 verschnellern können, und das nur durch geschickte Basiswahl. 
 
 \begin{remark}
@@ -69,6 +70,7 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 % \begin{remark}
 % 	Idealerweise ist unsere Basis auch für solche Fälle ausgelegt. Es stellt sich heraus, dass beide Probleme gleichzeitig gelöst werden können.
  %\end{remark}
+ \subsection{Die Gelfand-Zetlin Basis}
  \begin{definition}[Konstruktion der $\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Bae\aaa\sae\iue$ (Gelfand\footnote{Israel Gelfand, $\I\sae\rae\aaa\iii\el\soft$ $\Em\ooo\iii\ssae\jae\jae\wae\iii\tschae$ $\Gae\jae\el\soft\fae\aaa\en\dae$ (1913--2009), sowjetischer Mathematiker}-Zetlin\footnote{Michael Zetlin, $\Em\iii\xa\aaa\iii\el$ $\El\soft\wae\ooo\wae\iii\tschae$ $\Zae\jae\tae\el\iii\en$ (1924--1966), russ. Mathematiker und Physiker; Der Name wird leider auf viele verschiedene Weisen transkribiert, u.A. eben Zetlin (meist im dt. Sprachraum), aber auch Tsetlin (engl. Sprachraum), Zeitlin, Tseitlin, Ceitlin}-Basis]
  	\label{def:konstruktion_gz_basis}
 	Sei $G$ eine Gruppe mit halb-einfacher Darstellung auf einem Vektorraum $V$ und $U^i_0$ einer der irreduziblen Unterräume von $V$. Für diesen Unterraum wird dessen \emph{Gelfand-Zetlin-Basis} wie folgt konstruiert:
@@ -319,3 +321,9 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 
 	Hierbei gilt zu beachten: Die Einbettung der Untergruppen in $O_3$ legt drei ausgezeichnete Raumrichtungen in Form von Fixpunkträumen fest: Die Drehachse $z$ ($O_2$ eingebettet in $O_3$),
 \end{lemma}
+
+\begin{figure}
+	\centering
+	\includegraphics[page=1,width=\textwidth]{pictures/Sphericalfunctions.pdf}
+	\caption{Reelle Spherical Harmonics. Der Abstand zum 0-Punkt korrespondiert zum Betrag von $Y_l^m$, die helle Oberfläche zeigt positive Werte von $Y_l^m$, dunkle Oberfläche negative Werte an.}
+\end{figure}

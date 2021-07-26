@@ -1,8 +1,9 @@
 % !TeX root = spherical_harmonics.tex
 % !TeX spellcheck = de_DE
-\subsection{Symmetrische Tensoren: Die Verbindung zwischen Polynomen und Tensoren}
+\subsection{Der Mittelwerttrick: Summieren und integrieren über eine Gruppe}
 
-\begin{definition}\label{symmetrische_tensoren:def}
+\begin{definition}{Symmetrische Tensoren}
+	\label{symmetrische_tensoren:def}
 Ein Tensor $m$-ten Grades $t\in V^{\otimes m}$ heißt \emph{symmetrisch}, wenn er ein Fixpunkt der Operation der Permutationsgruppe $S_m$ ist, d.h. wenn
 \[\forall \sigma\in S_m: \sigma\cdot t = t\]
 gilt. Der Raum der symmetrischen Tensoren wird \emph{symmetrische (Tensor-)Potenz} genannt und $\Sym^m(V)$ geschrieben.
@@ -16,7 +17,7 @@ gilt. Der Raum der symmetrischen Tensoren wird \emph{symmetrische (Tensor-)Poten
 \end{example}
 
 \begin{lemma}[Mittelwerttrick]\label{symmetrische_tensoren:projektion}
-Die Projektion auf den Unterraum der symmetrischen Tensoren gegeben durch
+Die Projektion auf den Unterraum der symmetrischen Tensoren ist gegeben durch
 \[q(t) := \frac{1}{\abs{S_m}} \sum_{\sigma\in S_m} \sigma\cdot t\]
 und $O_n$-linear. Zur Erinnerung: $\abs{S_m} = m!$.
 \end{lemma}
@@ -65,6 +66,7 @@ Da wir uns vorwiegend mit $O_3$ beschäftigen, reicht diese Definition allerding
 	Äquivalent zur Existenz des Haar-Integrals ist die Existenz einer \enquote{uniformen} Wahrscheinlichkeitsverteilung auf $G$. Man kann also alternativ das Integral auch mit einer Monte-Carlo-Methode definieren als \enquote{Wähle unabhängig und gleichverteilt $N$ zufällige Gruppenelemente, bilde den Mittelwert $\frac{1}{N} \sum_{i=1}^N \phi(g_i)$ und lasse $N\to\infty$ gehen}.
 \end{definition}
 
+\subsection{Symmetrische Tensoren: Die Verbindung zwischen Polynomen und Tensoren}
 \begin{theorem}[Isomorphismus von Polynom(iellen Abbildung)en und symmetrischen Tensoren]
 \begin{enumerate}
 \item Es sei $e_1, e_2, \ldots, e_n$ eine Basis von $V$. Der Raum der Polynome ist isomorph zu $\bigoplus_{m=0}^\infty \Sym^m(V)$. Der Isomorphismus ist die Einschränkung der Abbildung
