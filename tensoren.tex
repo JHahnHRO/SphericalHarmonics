@@ -116,7 +116,7 @@ v_1\otimes (v_2\otimes v_3) &\mapsto& (v_1\otimes v_2)\otimes v_3
 \end{array}\right.\]
 ein natürlicher Isomorphismus.
 
-Wir erlauben es uns, aufgrund der Natürlichkeit dieses Isomorphismus, Klammern in mehrfachen Tensorprodukten wegzulassen und kurz $V_1\otimes V_2\otimes V_3\otimes\cdots\otimes V_k$ zu schreiben. Der Kürze halber definieren wir außerdem die \emph{Tensorpotenzen} 
+Wir erlauben es uns, aufgrund der Natürlichkeit dieses Isomorphismus, Klammern in mehrfachen Tensorprodukten wegzulassen und kurz $V_1\otimes V_2\otimes V_3\otimes\cdots\otimes V_k$ zu schreiben. Der Kürze halber definieren wir außerdem die \emph{Tensorpotenzen}
 \[V^{\otimes k} := \begin{cases} K & k=0 \\ 
 \underbrace{V\otimes V\otimes\cdots\otimes V}_{k\text{ Faktoren}} & k>0\end{cases}\]
 Man spricht in diesem Zusammenhang auch von Tensoren vom \emph{Grad} $k$.
@@ -159,7 +159,7 @@ Haben wir ein Skalarprodukt auf $V$ gegeben und ist $e_1, \ldots, e_n$ eine Orth
 \end{corollary}
 
 \begin{definition}
-Wenn $e_1, \ldots, e_n$ zufällig eine Basis ist, die man \enquote{Standardbasis} nennt, dann nennt man $\Set{e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_k}}$ auch \emph{Standardbasis von $V^{\otimes k}$}. 
+Wenn $e_1, \ldots, e_n$ zufällig eine Basis ist, die man \enquote{Standardbasis} nennt, dann nennt man $\Set{e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_k}}$ auch \emph{Standardbasis von $V^{\otimes k}$}.
 
 Diese Basis wird sehr häufig implizit verwendet (siehe Aufgabe \ref{ex:TensorenMitIndizes}).
 \end{definition}
@@ -172,7 +172,7 @@ gilt und umgekehrt liefert jede Wahl von $\abs{I}\times \abs{J}$ vielen Skalaren
 Es hat sich in der Physik und Ingenieurwissenschaften daher leider (unhilfreicherweise\footnote{Wir nennen ja keine Namen, aber wer den Fehler macht, Johannes zu fragen, wieso er das unhilfreich findet, darf sich die nächste halbe bis dreiviertel Stunde genaustens all die vielen Gründe anhören. Wer lesen will, blättere vor bis Abschnitt \ref{tensoren:diskussion_basen}.}) eingebürgert, das Wort \enquote{Tensor} austauschbar mit \enquote{Ansammlungen von Zahlen, die mehrere Indizes haben} zu verwenden.
 \end{remark}
 
-\subsection{Lineare Abbildungen zwischen Tensoren}
+\subsection{Lineare Abbildungen zwischen Tensoren und ihre Klassifikation}
 
 \begin{remark}[Wozu Brauer-Diagramme?]\label{brauer:bem:klassifikation}
 Sobald man Tensoren kennt und sich fest vornimmt, nicht den Fehler früherer Generationen zu wiederholen und von Anfang an basis-frei mit Tensoren zu arbeiten, dann stellt sich sofort die Frage, welche Abbildungen zwischen Tensoren natürlich genug sind, um basis-frei beschreibbar zu sein. Diese Abbildungen sind durch \enquote{Brauer-Diagramme} klassifizierbar.
@@ -355,7 +355,7 @@ Auf einen reinen Tensor angewandt werden Brauer-Diagramme, indem jeder einzelne 
 			\draw (s5) to (h4);		
 		\end{tikzpicture}.
 	\end{align*}
-    
+
     Insbesondere ist $\Pi_{\id}$ die identische Abbildung $V^{\otimes n} \to V^{\otimes n}$.
 \end{example}
 
@@ -489,7 +489,7 @@ Nicht nur macht die abstrakte Sichtweise den Aufwand kleiner, sie macht ihn zu N
 
 \item \enquote{Aber, wenn ich Dinge ausrechnen will, brauche ich doch Basen!}
 
-Auch das ist ein weitverbreitetes Missverständnis. Viele Dinge sind in der Tat auch völlig basisfrei berechenbar, mindestens z.B. alle physikalisch sinnvollen Dinge, denn die sind eben -- wie wir bereits festgestellt haben --  von sich aus basisfrei und somit zwangsläufig auch basisfrei berechenbar, wenn sie überhaupt berechenbar sind. Und in der Tat kann man sie dann auch immer auf einem basisfreien Wege ausrechnen. 
+Auch das ist ein weitverbreitetes Missverständnis. Viele Dinge sind in der Tat auch völlig basisfrei berechenbar, mindestens z.B. alle physikalisch sinnvollen Dinge, denn die sind eben -- wie wir bereits festgestellt haben --  von sich aus basisfrei und somit zwangsläufig auch basisfrei berechenbar, wenn sie überhaupt berechenbar sind. Und in der Tat kann man sie dann auch immer auf einem basisfreien Wege ausrechnen.
 
 Man muss sich auch einmal klarmachen, was man mit \enquote{ausrechnen} meint und wozu man das tut. Was bedeutet es z.B. einen Spannungstensor \enquote{auszurechnen} ? Der Spannungstensor ist eben keine Zahl. Er ist ein Tensor. Was würde es in Analogie bedeuten, einen Vektor, z.B. eine Drehachse \enquote{auszurechnen} ? Die Drehachse ist die Drehachse, das, worum sich das System dreht. Welche andere Information möchte man über diesen Vektor ausrechnen? Und was würde man damit anfangen?
 
