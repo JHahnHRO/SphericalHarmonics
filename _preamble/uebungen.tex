@@ -20,14 +20,15 @@
 
 %% Config of problems
 
-\exerciseconfig{toclevelproblem}{subsubsection}
+\exerciseconfig{toclevelproblem}{}
 \exerciseconfig{styletitleproblem}{}
 
 \exerciseconfig{skipproblemabove}{\bigskipamount}
 \exerciseconfig{skipproblembelow}{\bigskipamount}
 \exerciseconfig{skipproblemtitle}{1pt}
 
-\exerciseconfig{composetitleproblem}[2]{\getexerciseconfig{termproblem} \getexerciseconfig{composeitemproblem}{#1}\exerciseifempty{#2}{}{ -- #2}}
+\exerciseconfig{composetitlesheet}[2]{\getexerciseconfig{termsheet} #1 \exerciseifnotempty{#2}{#2}}
+\exerciseconfig{composetitleproblem}[2]{\getexerciseconfig{termproblem} \getexerciseconfig{composeitemproblem}{#1}\exerciseifnotempty{#2}{ -- #2}}
 \showprobleminfo{difficulty}
 
 \exerciseconfig{composepointspair}[2]{%
