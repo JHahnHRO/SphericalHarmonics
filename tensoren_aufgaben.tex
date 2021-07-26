@@ -3,7 +3,7 @@
 
 \begin{sheet}
 
-\begin{problem}[title={Casimir-Elemente von euklidischen Räumen}]
+\begin{problem}[title={Casimir-Elemente von euklidischen Räumen}]\label{tensoren:ex:casimir_wohldef}
 Es sei $V$ ein endlich-dimensionaler $\IR$-Vektorraum mit Skalarprodukt und $e_1, ..., e_n$ eine Orthonormalbasis.
 
 \begin{subproblem}
@@ -16,15 +16,13 @@ Hinweis: Orthogonale Matrizen.
 \end{subproblem}
 
 \begin{subproblem}
-Zeige, dass $\Omega_V$ \enquote{isotrop} ist, d.h. für alle Isometrien $Q: V\to V$ gilt:
-\[(Q\otimes Q)(\Omega) = \Omega\]
-
+Zeige, dass $\Omega_V$ \enquote{isotrop} ist, d.h. für alle Isometrien $\rho: V\to V$ gilt: Die lineare Fortsetzung $\rho^{\otimes 2}$ von $v_1\otimes v_2 \mapsto \rho(v_1)\otimes\rho(v_2)$ erfüllt $\rho^{\otimes 2}(\Omega_V)=\Omega_V$.
 Hinweis: Benutze a.
 \end{subproblem}
 \end{problem}
 
 \begin{problem}[title={Casimir-Elemente allgemein}]
-Es sei $V$ ein endlich-dimensionaler $K$-Vektorraum, $b_1, ..., b_n$ eine beliebige Basis von $V$ und $b_1^\ast, ..., b_n^\ast$ die dazu duale Basis von $V^\ast$.
+Es sei $V$ ein endlich-dimensionaler $K$-Vektorraum, $b_1, ..., b_n$ eine beliebige Basis von $V$ und $b_1^\ast, ..., b_n^\ast$ die dazu passende duale Basis von $V^\ast$.
 
 \begin{subproblem}
 Zeige, dass
@@ -76,18 +74,13 @@ Wie entspricht das dem Casimir-Element euklidischer Räume?
 
 \end{problem}
 
-
-\begin{problem}[title={Warum heißt das Spur?}]
-	Der Begriff Spur kommt einem üblicherweise als Summe der Diagonaleinträge einer Matrix unter. Überzeuge dich, dass es sich im Falle von 2-Tensoren um genau diese Operation handelt.
-\end{problem}
-
 \begin{problem}[title={Brauer-Diagramme}]
 	Wir wollen uns im Folgenden anhand ein paar Beispielen überzeugen, dass die Multiplikation zweier Brauer-Diagrammen tatsächlich dem Hintereinanderausführen der dazugehörigen linearen Abbildungen entspricht.
 	\begin{subproblem}
 		Schreibe die Brauer-Diagramme von den beiden Abbildungen $\Pi_\sigma$ und $\casimir$ aus Gleichung \ref{eq:sigmaOfCasimir} auf und berechne das Brauer-Diagramm der  Abbildung $\Pi_\sigma \circ\casimir$.
 	\end{subproblem}
 	\begin{subproblem}
-		Wir haben für die Multiplikation zweier Brauer-Diagramme definiert, dass für jeden geschlossenen Kreis das Ergebnis-Diagramm mit dem Faktor $\dim{V}$ multipliziert wird. Dieser Faktor muss so festgelet werden, um Brauer-Diagramme als äquivalente Schreibweise für die vorgestellten linearen Abbildungen zwischen Tensoren benutzen zu können. Warum?
+		Wir haben für die Multiplikation zweier Brauer-Diagramme definiert, dass für jeden geschlossenen Kreis das Ergebnis-Diagramm mit dem Faktor $\dim{V}$ multipliziert wird. Dieser Faktor muss so festgelegt werden, um Brauer-Diagramme als äquivalente Schreibweise für die vorgestellten linearen Abbildungen zwischen Tensoren benutzen zu können. Warum?
 		
 		Hinweis: Spur vom Casimir-Element
 	\end{subproblem}
@@ -157,11 +150,14 @@ Wie entspricht das dem Casimir-Element euklidischer Räume?
 	\end{subproblem}
 \end{problem}
 
-\begin{problem}[title={Wiederholung von Isomorphie zwischen Vektorräumen: Matrix vs. 2-Tensor}]
-\todo{Ins Darstellungstheoriekapitel}
-	Matrizen und 2-Tensoren sind einander sehr ähnlich, so ähnlich sogar, dass sie zueinander isomorph sind. Gegeben ein $K$-Vektorraum $V$ der Dimension $n$. Genauer: Der Raum der Matrizen $K^{n\times n}$ und $V\otimes V^\ast$ sind isomorph zueinander. Wir wollen nun diesen Isomorphismus genauer betrachten.
-	
-$V\otimes V$, $V\otimes V^\ast$, $V^\ast \otimes V^\ast$
+
+\begin{problem}[title={Vom Sinn und Unsinn der Basen}]
+Anna und Bernd stehen einer flachen Wand gegenüber. Anna hat die Position $(9.5, 4,0)^T$ und  einen Ball in der Hand. Bernd steht bei $(5.5, 2, 0)^T$ und die Wand hat Normalengleichung \[2x-1.5y = 12.5\] mit Normalenvektor $\vc{n}=(2,-1.5,0)^T$ und Stützvektor $\vc{p}=(4,-3,0)^T$. 
+        
+Anna möchte Bernd den Ball so zuwerfen, dass er einmal an der Wand abprallt und dann in Bernds Händen landet. Dabei soll der Ball den Boden nicht berühren. Berechne die Trajektorie vom Ball und die Kraft, mit der Anna den Ball abwerfen muss unter der Annahme von Reibungsfreiheit.
+
+\medbreak
+Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr fragen: Ist die hier gewählte Basis zur Beschreibung der Ausgangssituation oder für die Berechnung hilfreich? Wäre es nicht viel einfacher, die Situation basisfrei zu beschreiben? Wie sähe eine solche Beschreibung aus?
 \end{problem}
 
 \begin{problem}[title={Wilde Behauptungen}, difficulty={schwer}]
@@ -173,6 +169,19 @@ Im Skript wurde behauptet:
 
 \medbreak
 \textcolor{red}{(Und es sei erneut davor gewarnt, dass \enquote{berechnen} nicht \enquote{effizient berechnen} bedeutet)}
+\end{problem}
+
+
+\begin{problem}[title={Wiederholung von Isomorphie zwischen Vektorräumen: Matrix vs. 2-Tensor}]
+\todo{Ins Darstellungstheoriekapitel}
+	Matrizen und 2-Tensoren sind einander sehr ähnlich, so ähnlich sogar, dass sie zueinander isomorph sind. Gegeben ein $K$-Vektorraum $V$ der Dimension $n$. Genauer: Der Raum der Matrizen $K^{n\times n}$ und $V\otimes V^\ast$ sind isomorph zueinander. Wir wollen nun diesen Isomorphismus genauer betrachten.
+	
+$V\otimes V$, $V\otimes V^\ast$, $V^\ast \otimes V^\ast$
+\end{problem}
+
+
+\begin{problem}[title={Warum heißt das Spur?}]
+	Der Begriff Spur kommt einem üblicherweise als Summe der Diagonaleinträge einer Matrix unter. Überzeuge dich, dass es sich im Falle von 2-Tensoren um genau diese Operation handelt.
 \end{problem}
 
 \end{sheet}

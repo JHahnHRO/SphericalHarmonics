@@ -52,13 +52,15 @@ Ein wichtiger, vielleicht der wichtigste Grund, Tensorräume als eigenständiges
 
 \medbreak
 Es stellt sich heraus, dass viele der wirklich interessanten Tensoren, die einem so in freier Wildbahn begegnen, nicht rein sind.
-
-Beispiel: In der Quantenmechanik wird das Tensorprodukt benutzt, um mehrere interagierende Quanten-Systeme als ein einziges großes System zu betrachten: Wenn $V$ und $W$ der Zustandsraum je einer Menge $X$ bzw. $Y$ quantenmechanischer Teilchen sind, dann ist $V\otimes W$ der Zustandsraum des quantenmechanischen Systems, das aus den Teilchen von $X$ und $Y$ besteht und beliebige Interaktionen zwischen ihnen erlaubt. Ein reiner Tensor $v\otimes w$ entspricht in dieser Sichtweise demjenige Zustand des Gesamtsystems, in dem sich die Teilchen aus $X$ im Zustand $v$, und das aus $Y$ im Zustand $w$ befinden. Die nicht-reinen Tensoren entsprechen dann \enquote{Überlagerungen} solcher reinen Zustände und das fundamental wichtige Phänomen von \enquote{verschränkten} Teilchen ist ein Ausdruck dessen, dass eben nicht alle Zustände reine Zustände sind, in denen man die Teilchen von $X$ unabhängig von denen in $Y$ einen Zustand zuschreiben kann: Es kann z.B. ein Zustand der Form $x_1\otimes y_1 + x_2\otimes y_2$ konstruiert (und auch experimentell realisiert) werden, in dem $x_1$ und $x_2$ sowie $y_1$ und $y_2$ beide jeweils senkrecht zueinander sind. In solch einem Zustand des Gesamtsystems können die $X$-Teilchen in Zustand $x_1$ oder $x_2$ gemessen werden, aber nur dann, wenn gleichzeitig die $Y$-Teilchen in Zustand $y_1$ bzw. $y_2$ liegen. Es kann eben nicht unabhängig voneinander der $X$-Anteil in Zustand $x_1$ sein, während der $Y$-Anteil des Gesamtsystems in Zustand $y_2$ ist (hier geht die Orthogonalität ein).
 \end{remark}
+\begin{example}
+In der Quantenmechanik wird das Tensorprodukt benutzt, um mehrere interagierende Quanten-Systeme als ein einziges großes System zu betrachten: Wenn $V$ und $W$ der Zustandsraum je einer Menge $X$ bzw. $Y$ quantenmechanischer Teilchen sind, dann ist $V\otimes W$ der Zustandsraum des quantenmechanischen Systems, das aus den Teilchen von $X$ und $Y$ besteht und beliebige Interaktionen zwischen ihnen erlaubt. Ein reiner Tensor $v\otimes w$ entspricht in dieser Sichtweise demjenige Zustand des Gesamtsystems, in dem sich die Teilchen aus $X$ im Zustand $v$, und das aus $Y$ im Zustand $w$ befinden. Die nicht-reinen Tensoren entsprechen dann \enquote{Überlagerungen} solcher reinen Zustände und das fundamental wichtige Phänomen von \enquote{verschränkten} Teilchen ist ein Ausdruck dessen, dass eben nicht alle Zustände reine Zustände sind, in denen man die Teilchen von $X$ unabhängig von denen in $Y$ einen Zustand zuschreiben kann: Es kann z.B. ein Zustand der Form $x_1\otimes y_1 + x_2\otimes y_2$ konstruiert (und auch experimentell realisiert) werden, in dem $x_1$ und $x_2$ sowie $y_1$ und $y_2$ beide jeweils senkrecht zueinander sind. In solch einem Zustand des Gesamtsystems können die $X$-Teilchen in Zustand $x_1$ oder $x_2$ gemessen werden, aber nur dann, wenn gleichzeitig die $Y$-Teilchen in Zustand $y_1$ bzw. $y_2$ liegen. Es kann eben nicht unabhängig voneinander der $X$-Anteil in Zustand $x_1$ sein, während der $Y$-Anteil des Gesamtsystems in Zustand $y_2$ ist (hier geht die Orthogonalität ein).
+\end{example}
 
 \begin{example}[Casimir-Element]\label{tensoren:casimir_element}
-Ist $V$ ein endlich-dimensionaler $\IR$-Vektorraum und haben wir ein Skalarprodukt fest gewählt, so gibt es einen besonderen Tensor $\Omega_V \in V\otimes V$. Für \textit{jede} Orthogonalbasis $e_1, \ldots, e_n$ von $V$ lässt er sich schreiben als
+Ist $V$ ein endlich-dimensionaler $\IR$-Vektorraum und haben wir ein Skalarprodukt fest gewählt, so gibt es einen besonderen Tensor $\Omega_V \in V\otimes V$, den wir \emph{Casimir-Element} nennen. Für \textit{jede} Orthonormalbasis $e_1, \ldots, e_n$ von $V$ lässt er sich schreiben als
 \[\Omega_V = \sum_{i=1}^n e_i \otimes e_i\]
+(laut Aufgabe~\ref{tensoren:ex:casimir_wohldef} ist dies wohldefiniert)
 Für $V=\IR^3$ und die Standardbasis $e_x, ey, e_z$ ist etwa
 \[\Omega_{\IR^3} = e_x\otimes e_x + e_y\otimes e_y + e_z\otimes e_z\]
 
@@ -80,10 +82,10 @@ Es ist i.A. ein sehr schwieriges Problem, einem konkreten Tensor anzusehen, ob e
 \end{remark}
 
 \begin{remark}[Diskussion: Das Wort \enquote{Tensor}]
-Im Gegensatz zum Wort \enquote{Vektor}, das zumindestens meistens \enquote{Element eines Vektorraums} bedeutet und selten anders verwendet wird, ist das Wort \enquote{Tensor} etwas überbelegt. Die verschiedenen Verwendungsformen des Worten fallen grob in zwei Kategorien: 1.) \enquote{ich habe keine Ahnung, was Tensoren sind, aber andere Leute benutzen das Wort, also tue ich das auch} und 2.) irgendetwas, das tatsächlich mit Tensorprodukten zu tun hat.
+Im Gegensatz zum Wort \enquote{Vektor}, das fast immer \enquote{Element eines Vektorraums} bedeutet und selten anders verwendet wird, ist das Wort \enquote{Tensor} etwas überbelegt. Die verschiedenen Verwendungsformen des Wortes fallen grob in zwei Kategorien: 1.) \enquote{ich habe keine Ahnung, was Tensoren sind, aber andere Leute benutzen das Wort, also tue ich das auch} und 2.) irgendetwas, das mit Tensorprodukten zu tun hat.
 
 \smallbreak
-Zu 1. später mehr, zu 2. nur soviel: \enquote{Tensor} kann sowohl \enquote{Element eines Tensorprodukts von Vektorräumen} bedeuten (so werden wir das Wort verwenden) als auch einen von diversen, verwandten Begriffe, z.B. wird das auch als Kurzform von \udot{Tensorfeld} verwendet. Ein Tensorfeld ist ein Funktion, die jedem Punkt des gerade betrachten geometrischen Raums $X$ (oder Raumzeit) je ein Element $t(x)\in V_x\otimes V_x \otimes V_x \otimes ... $ zuordnet, wobei gewisse Stetigkeitseigenschaften gefordert werden, die für zwei eng beieinander liegende Punkte $x,x'$ fordern, dass $V_x$ und $V_{x'}$ \enquote{im Wesentlichen der gleiche Raum} sind und $t(x),t(x')$ ebenfalls eng zusammen liegen (formal ist das natürlich eine richtige $\epsilon$-$\delta$-artige Definition). Ggf. wird auch nicht nur ein Vektorraum $V_x$ pro Punkt verwendet, sondern mehrere. Je nachdem, welche Zusatzeigenschaften man an solch ein Tensorfeld stellt, wird auch nicht nur das Tensorprodukt der Vektorräume selbst, sondern auch eine vom Tensorprodukt abgeleitete Konstruktion betrachtet (z.B. symmetrische oder äußere Potenzen, siehe weiter unten).
+Zu 1. später mehr, zu 2. nur soviel: \enquote{Tensor} kann sowohl \enquote{Element eines Tensorprodukts von Vektorräumen} bedeuten (so werden wir das Wort verwenden) als auch einen von diversen, verwandten Begriffe, z.B. wird das auch als Kurzform für \enquote{Elemente eines Tensorprodukts, die unter einer bestimmten Symmetrie invariant sind}, oder von \udot{Tensorfeld} verwendet. Ein Tensorfeld ist ein Funktion, die jedem Punkt eines aktuell relevanten geometrischen Raums (oder Raumzeit) $X$ je ein Element $t(x)\in V_x\otimes V_x \otimes V_x \otimes ... $ zuordnet, wobei gewisse Stetigkeitseigenschaften gefordert werden, die für zwei eng beieinander liegende Punkte $x,x'$ fordern, dass $V_x$ und $V_{x'}$ \enquote{im Wesentlichen der gleiche Raum} sind und $t(x),t(x')$ in selbigem eng beieinander liegen (formal ist das natürlich eine richtige $\epsilon$-$\delta$-artige Definition). Ggf. wird auch nicht nur ein Vektorraum $V_x$ pro Punkt verwendet, sondern mehrere. Je nachdem, welche Zusatzeigenschaften man an solch ein Tensorfeld stellt, wird auch nicht nur das Tensorprodukt der Vektorräume selbst, sondern auch eine vom Tensorprodukt abgeleitete Konstruktion betrachtet (z.B. symmetrische Potenzen).
 \end{remark}
 
 \subsection{Elementare Eigenschaften des Tensorprodukts}
@@ -95,7 +97,7 @@ K\otimes V & \leftrightarrows & V \\
 \alpha\otimes v & \mapsto & \alpha v \\
 1\otimes v & \reflectbox{$\mapsto$} & v
 \end{array}\right.\]
-ein Paar zueinander inverser Vektorraum-Isomorphismen.
+ein Paar zueinander inverser, natürlicher Isomorphismen.
 \end{lemma}
 
 \begin{remark}
@@ -112,11 +114,12 @@ Für alle $K$-Vektorräume $V_1, V_2, V_3$ ist
 V_1\otimes(V_2\otimes V_3) &\to& (V_1\otimes V_2)\otimes V_3 \\
 v_1\otimes (v_2\otimes v_3) &\mapsto& (v_1\otimes v_2)\otimes v_3
 \end{array}\right.\]
-ein Isomorphismus.
+ein natürlicher Isomorphismus.
 
-Wir erlauben es uns, aufgrund der Natürlichkeit dieses Isomorphismus, Klammern in mehrfachen Tensorprodukten wegzulassen und kurz $V_1\otimes V_2\otimes V_3\otimes\cdots\otimes V_k$ zu schreiben. Der Kürze halber definieren wir die \emph{Tensorpotenzen} 
+Wir erlauben es uns, aufgrund der Natürlichkeit dieses Isomorphismus, Klammern in mehrfachen Tensorprodukten wegzulassen und kurz $V_1\otimes V_2\otimes V_3\otimes\cdots\otimes V_k$ zu schreiben. Der Kürze halber definieren wir außerdem die \emph{Tensorpotenzen} 
 \[V^{\otimes k} := \begin{cases} K & k=0 \\ 
-\underbrace{V\otimes V\otimes\cdots\otimes V}_{k\text{-mal}} & k>0\end{cases}\]
+\underbrace{V\otimes V\otimes\cdots\otimes V}_{k\text{ Faktoren}} & k>0\end{cases}\]
+Man spricht in diesem Zusammenhang auch von Tensoren vom \emph{Grad} $k$.
 \end{lemmadef}
 
 \begin{remark}
@@ -125,7 +128,7 @@ Mit dieser Notation gelten dann (abzüglich eben jener natürlicher Isomorphisme
 \[(V^{\otimes n})^{\otimes m} = V^{\otimes nm}\]
 \end{remark}
 
-\subsection{Index-Notation - Was das ist und wie man sie loswird}
+\subsection{Index-Notation -- Die Sicht des 19.Jahrhunderts}
 
 \begin{remark}
 Alle vorher angedeuteten Aussagen über multilineare Abbildungen kann man auf Sätze über lineare Abbildungen und Tensorprodukte zurückführen, z.B.
@@ -156,95 +159,39 @@ Haben wir ein Skalarprodukt auf $V$ gegeben und ist $e_1, \ldots, e_n$ eine Orth
 \end{corollary}
 
 \begin{definition}
-Wenn $e_1, \ldots, e_n$ zufällig eine Basis ist, die man \enquote{Standardbasis} nennt, dann nennt man $\Set{e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_k}}$ auch Standardbasis von $V^{\otimes k}$. 
+Wenn $e_1, \ldots, e_n$ zufällig eine Basis ist, die man \enquote{Standardbasis} nennt, dann nennt man $\Set{e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_k}}$ auch \emph{Standardbasis von $V^{\otimes k}$}. 
 
 Diese Basis wird sehr häufig implizit verwendet (siehe Aufgabe \ref{ex:TensorenMitIndizes}).
 \end{definition}
 
-\begin{remark}[Index-Notation -- Was ist das?]
+\begin{remark}[Index-Notation -- Was ist das?]\label{tensoren:index_notation}
 Insbesondere heißt das, dass jeder Tensor $t\in V\otimes W$ eine eindeutige Koordinaten-Darstellung bzgl. solch einer Basis hat, d.h. es gibt eindeutig bestimmte Skalare $t_{ij}$ sodass
 \[t = \sum_{i\in I, j\in J} t_{ij} b_i\otimes c_j\]
 gilt und umgekehrt liefert jede Wahl von $\abs{I}\times \abs{J}$ vielen Skalaren $t_{ij}$ auf diese Weise genau einen Tensor.
 
-Es hat sich in der Physik und Ingenieurwissenschaften eingebürgert, das Wort \enquote{Tensor} austauschbar mit \enquote{Ansammlungen von Zahlen, die mehrere Indizes haben} zu verwenden.
-
-\medbreak
-Wählt man eine andere Basis von $V$ oder $W$, so erhält man natürlich andere Zahlen als Koordinaten. Immer noch $\abs{I}\times\abs{J}$ viele, aber andere. Jedoch sind die Unterschiede nicht völlig beliebig, denn sie sind eben durch einen Basiswechsel in den Faktoren des Tensorprodukts verursacht.
-
-In der Tat haben die Physiker eigene Sprechweise erfunden, um das auszudrücken: Man sagt, dass sich ein Satz von indizierten Zahlen \enquote{kovariant transformiert} (bzw. \enquote{kontravariant}) und meint damit nicht etwa, dass diese Zahlen eine besondere Eigenschaft hätten, sondern, dass die Methode, mit der man diese Zahlen bestimmt hat, eine besondere Eigenschaft hat, nämlich bei anderer Basiswahl ein anderes Ergebnis zu produzieren, dass aber aus der Basiswechselmatrix auf bestimmte Weise vorhersehbar ist. Manche Physiker nehmen das zum Anlass, um zu definieren, dass ein Tensor nicht nur \emph{ein} Satz von indizierten Zahlen sei, sondern eine Abbildung $\Set{\text{Basen}} \to \Set{\text{Zahlen mit Indizes}}$, die genau dieser Transformationsregel gehorcht.
-
-\medbreak
-Soweit, so verwirrend, aber natürlich wird einem dann auch erklärt, dass es auch \enquote{kontravariante Tensoren} gibt, die sich irgendwie ähnlich, aber ganz anders verhalten, sowie gemischte Tensoren, bei denen manche Indizes ko- und manche kontravariant gemeint sind. In Indexschreibweise äußert sich das oft so, dass manche Indizes oben und manche unten notiert werden, wobei sich leider nicht einmal alle Physiker einig sind, ob die oberen jetzt die ko- oder die kontravarianten sein sollen.
-\end{remark}
-
-\begin{remark}[Index-Notation -- Warum ist das ein Problem?]
-Index-Notation erschwert im Wesentlichen alles, was wichtig ist: Das Verstehen von und das Arbeiten mit Tensoren.
-
-\begin{itemize}
-\item Index-Schreibweise, Koordinaten allgemein verlieren wesentliche Informationen und geht am Wesentlichen vorbei: Ein Vektor/Tensor ist eben nicht eine Ansammlung von Zahlen, sondern ein Element eines Vektorraums.
-
-Ja, der Raum der Polynome in zwei Variablen mit Grad $\leq 5$ ist 36-dimensional, aber das Polynom $x^2+y^2$ deshalb als Ansammlung von 36 (relativ beliebigen) Zahlen zu betrachten, also als Element von $\IR^{36}$, verliert die ganz wesentliche Information, z.B. dass es sich um ein Polynom handelt, dass dieser Vektorraum Unterraum eines größeren Polynomraums ist, in dem weitere Strukturen wie z.B. Polynommultiplikation, Differenzieren, uvm. existieren.
-
-Der Übergang von abstrakten Vektoren/Tensoren zu Koordinatendarstellungen bzgl. beliebiger Basen, erhält exakt die Information, die in der Vektorraumstruktur alleine steckt, d.h. in Addition und Skalarmultiplikation. Alle zusätzliche Struktur, die in einer konkreten Situation vielleicht außerdem vorhanden und nützlich (!) sein könnte, wird weggeworfen.
-
-Wenn man alles nur als Ansammlung von Zahlen versteht, ist auch klar, wieso der Unterschied zwischen \enquote{ko-} und \enquote{kontravarianten} Tensoren so mysteriös ist. Wenn man abstrakt arbeitet, ist ganz klar, was passiert! Das sind einfach Tensoren aus unterschiedlichen Räumen!
-
-Die eine Sorte Tensoren ist Element von $V^{\otimes k}$, während die anderen Elemente von $(V^\ast)^{\otimes k}$ sind. Tensoren mit gemischter Varianz sind entsprechend Elemente von $V^{\otimes k_1}\otimes (V^\ast)^{\otimes k_2}$. Natürlich sind $V$ und $V^\ast$ als Vektorräume isomorph, d.h. sie haben die gleiche Dimension, man benötigt also die gleiche Anzahl an Indizes, die auch alle über denselben Zahlenbereich laufen, wenn man die Koordinaten durchnummeriert. Aber dabei verliert man eben die wesentliche Information, dass $V$ und $V^\ast$ doch trotz allen verschieden sind und verschiedene Objekte und Sichtweisen mathematisch beschreiben.\footnote{Übrigens erklärt diese Sichtweise auch, wieso sich die Physiker nicht immer einig sind, was ko- und was kontravariant ist: Für endlich-dimensionale Vektorräume ist nicht nur $V^\ast$ der duale Vektorraum von $V$, sondern auch $V$ der duale Vektorraum von $V^\ast$. Man kann sich also aussuchen, welches das fundamentalere Objekt von beiden ist.}
-
-\item Index-Schreibweise, Koordinaten allgemein zäumen das Pferd von hinten auf:
-
-Es ist nur äußerst selten sinnvoll, tatsächlich in Koordinaten zu arbeiten, da die einzigen Operationen, die überhaupt physikalisch sinnvoll sind, zwangsläufig basis-unabhängig sein müssen. Das Universum hat halt keine bevorzugte Basis. Es gibt keine bevorzugten Richtungen im Universum, es gibt keine bevorzugte Skalierung\footnote{Und nein, die Plank-Skala zählt nicht, da sie für den momentanen Stand der Wissenschaft reine Spekulation ist}, Wieso also nicht von Anfang an mit Objekte und Operationen arbeiten, die basis-unabhängig sind?
-
-Und in den Fällen, in denen die physikalische Situation eben doch eine Raumrichtung bevorzugt, z.B. weil es sich um ein rotationssymmetrisches Problem handelt und die Drehachse eine besondere Richtung in so einem System ist? In den Fällen ist es auch nicht sinnvoll, \emph{beliebige} Basen zu betrachten. Man will eine Basis wählen, die Zusatzinformationen wie z.B. die Drehsymmetrie, möglichst gut widerspiegeln.
-
-Woher weiß man, welche Zusatzstruktur tatsächlich die nützliche ist für die eigene Frage? Man weiß es eben nicht. Zumindest nicht vorher. Erst, wenn man tatsächlich eine (Teil-)Antwort auf die Frage gefunden hat, kann man überhaupt sagen, welche Zusatzstrukturen nützlich war und welche nicht, und welche Basiswahl also die sinnvollste für das Problem ist.
-
-Der Ausgangspunkt sollte also immer zunächst eine basis-freie Sichtweise sein, in die erst nachdem tatsächlich Bedarf erkannt wurde, eine präzise ausgewählte Basis eingeführt wird. Und selbst dann ist es sinnvoll, nicht allzu viel Basis zu wählen. Im Falle einer Rotationssymmetrie ist z.B. \emph{nur} die Drehachse eine ausgezeichnete Raumrichtung, d.h. sie legt nur einen von drei gesuchten Basisvektoren (halbwegs) fest. Für die anderen beiden gilt genau das gleiche: Man sollte solange wie möglich abstrakt arbeiten und erst, wenn das Problem es tatsächlich erfordert, eine Basis wählen.
-
-\item Index-Schreibweise erzeugt unnötige Arbeit:
-
-Eine beliebige Kollektion von Zahlen wird aber nur dann zu einem Tensor, wenn man eine Basis wählt, bzgl. derer man diese Zahlen dann als Koordinaten liest. Man muss sich also stets fragen: \enquote{Wenn ich eine andere Basis wähle und in dieser neuen Situation noch einmal neue Zahlen generiere und als Koordinaten bzgl. der neuen Basis benutze, kommt ein anderer Tensor heraus oder nicht?} und man will immer, dass die Antwort \enquote{Nein} ist, d.h. man will, dass sich die Zahlen \enquote{ko-} oder \enquote{kontravariant} oder \enquote{gemischt} \enquote{transformieren}. Ein \enquote{ja} hieße zwangsläufig, dass man etwas falsch gemacht hat, eben weil physikalisch sinnvolle Ergebnisse nicht basis-abhängig sind.
-
-Die Konsequenz daraus ist aber, dass man eigentlich jedes Index-Monster, das einem begegnet, erst einmal mit viel langweiligem Rechenaufwand darauf überprüfen sollte, ob es überhaupt basis-unabhängig ist. Wer hat die Zeit dafür? Niemand! Und wieso sollte man auch so viel Aufwand investieren, wenn die Antwort, die man haben will, sowieso immer die gleiche ist?
-
-Nicht nur macht die abstrakte Sichtweise den Aufwand kleiner, sie macht ihn zu Null, denn, wenn man von Anfang an basisfrei arbeitet, stellt sich die Frage, ob eine gewisse Konstruktion basisunabhängig ist, überhaupt nicht. Wenn nirgendwo Basen benutzt wurden, muss alles, was getan wurde, natürlich basisunabhängig sein!
-
-\item \enquote{Aber, wenn ich Dinge ausrechnen will, brauche ich doch Basen!}
-
-Auch das ist ein weitverbreitetes Missverständnis. Viele Dinge sind in der Tat auch völlig basisfrei berechenbar, mindestens z.B. alle physikalisch sinnvollen Dinge, denn die sind eben -- wie wir bereits festgestellt haben --  von sich aus basisfrei und somit zwangsläufig auch basisfrei berechenbar, wenn sie überhaupt berechenbar sind. Und in der Tat kann man sie dann auch immer auf einem basisfreien Wege ausrechnen. 
-
-Man muss sich auch einmal klarmachen, was man mit \enquote{ausrechnen} meint und wozu man das tut. Was bedeutet es z.B. einen Spannungstensor \enquote{auszurechnen} ? Der Spannungstensor ist eben keine Zahl. Er ist ein Tensor. Was würde es in Analogie bedeuten, einen Vektor, z.B. eine Drehachse \enquote{auszurechnen} ? Die Drehachse ist die Drehachse, das, worum sich das System dreht. Welche andere Information möchte man über diesen Vektor ausrechnen? Und was würde man damit anfangen?
-
-Natürlich kann man zwanghaft Koordinaten einführen und die Koordinaten dieses Vektors ausrechnen. Die Koordinaten haben aber keine eigenständige physikalische Bedeutung. Mit den Koordinaten an sich lässt sich also nichts anfangen. Einzig das Gesamtobjekt ist physikalisch sinnvoll. Das einzige, was man mit den Koordinaten tun könnte, ist also, sie wieder zu einem Vektor zusammenzusetzen, um diesen in einem nächsten Rechenschritt weiterzuverwenden. Wieso dann aber Koordinaten einführen?\footnote{Das ignoriert natürlich ein paar außer-physikalische Aspekte, z.B. könnten ja in einer komplexen Gesamtberechnung einzelne Teilschritte durchaus von verschiedenen Leuten ausgerechnet werden. In diesem Fall ist das Einführen von Koordinaten eine Notwendigkeit, um ein Zwischenergebnis von einem Team zum anderen kommunizieren zu können.}
-
-\medbreak
-Man beachte, dass die Frage nach einem \emph{effizienten} Ausrechnen eine völlig andere ist! Für diese Art von Fragen gilt: \enquote{premature optimization is the root of all evil (or at least most of it)}\footnote{Donald Ervin Knuth, geb. 1938, amer. Informatiker und Mathematiker}. Eine Basiswahl alleine macht nichts effizient. Die \emph{richtige} Basis in der richtigen Situation macht Dinge effizient und auch nur, wenn man sie richtig einsetzt. Stumpf drauf losrechnen ist selten tatsächlich effizient.
-\end{itemize}
-
-\medbreak
-Betrachten wir einmal kurz ein Problem aus der uns bekannten, 3-dimensionalen Welt: 
-
-\begin{gridmp}{\linewidth}
-	{\fontfamily{ptm}\selectfont
-		Anna und Bernd stehen einer flachen Wand gegenüber. Anna hat die Position $(9.5, 4,0)^T$ und  einen Ball in der Hand. Bernd steht bei $(5.5, 2, 0)^T$ und die Wand hat Normalengleichung \[2x-1.5y = 12.5\] mit Normalenvektor $\vc{n}=(2,-1.5,0)^T$ und Stützvektor $\vc{p}=(4,-3,0)^T$. 
-		Anna möchte Bernd den Ball so zuwerfen, dass er einmal an der Wand abprallt und dann in Bernds Händen landet. Dabei soll der Ball den Boden nicht berühren. Berechne die Trajektorie vom Ball und die Kraft, mit der Anna den Ball abwerfen muss unter der Annahme von Reibungsfreiheit.}
-	\vspace{8cm}
-\end{gridmp}
-
-Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr fragen: Ist die hier gewählte Basis zur Beschreibung der Ausgangssituation oder für die Berechnung hilfreich? Wäre es nicht viel einfacher, die Situation basisfrei zu beschreiben? Wie sähe eine solche Beschreibung aus?
-
+Es hat sich in der Physik und Ingenieurwissenschaften daher leider (unhilfreicherweise\footnote{Wir nennen ja keine Namen, aber wer den Fehler macht, Johannes zu fragen, wieso er das unhilfreich findet, darf sich die nächste halbe bis dreiviertel Stunde genaustens all die vielen Gründe anhören. Wer lesen will, blättere vor bis Abschnitt \ref{tensoren:diskussion_basen}.}) eingebürgert, das Wort \enquote{Tensor} austauschbar mit \enquote{Ansammlungen von Zahlen, die mehrere Indizes haben} zu verwenden.
 \end{remark}
 
 \subsection{Lineare Abbildungen zwischen Tensoren}
+
+\begin{remark}[Wozu Brauer-Diagramme?]\label{brauer:bem:klassifikation}
+Sobald man Tensoren kennt und sich fest vornimmt, nicht den Fehler früherer Generationen zu wiederholen und von Anfang an basis-frei mit Tensoren zu arbeiten, dann stellt sich sofort die Frage, welche Abbildungen zwischen Tensoren natürlich genug sind, um basis-frei beschreibbar zu sein. Diese Abbildungen sind durch \enquote{Brauer-Diagramme} klassifizierbar.
+
+Wir werden in einem folgenden Kapitel beweisen: Die Menge aller sinnvollen / natürlichen linearen Abbildungen zwischen Tensoren ist gleich Menge aller Linearkombinationen von allen Brauer-Diagrammen.
+\end{remark}
+
 \begin{definition}[Brauer-Diagramm und deren Multiplikation]
-	Ein Brauer-Diagramm ist ein besonderer Graph. Er besteht aus zwei Zeilen von Knoten, $n$, $n\in\IN$, Knoten in der oberen Zeile und $n+2z$, $z\in\IZ$, Knoten in der unteren Zeile. Die Knoten sind paarweise miteinander verbunden, dabei dürfen die Verbindungen sowohl von einer Zeile zur anderen gehen, als auch innerhalb einer Zeile zwei Knoten miteinander verbinden.
+	Ein \emph{Brauer-Diagramm} ist ein besonderer Graph. Er besteht aus zwei Zeilen von Knoten, $n$, $n\in\IN$, Knoten in der oberen Zeile und $n+2z$, $z\in\IZ$, Knoten in der unteren Zeile. Die Knoten sind paarweise miteinander verbunden, dabei dürfen die Verbindungen sowohl von einer Zeile zur anderen gehen, als auch innerhalb einer Zeile zwei Knoten miteinander verbinden.
 	
-	Brauer-Diagramme verstehen wir als visuelle Darstellung von linearen Abbildungen zwischen Tensoren. Entsprechend können sie linear miteinander kombiniert und auch mit Skalaren aus dem zum Tensorraum gehörenden Körper multipliziert werden.
+    \smallbreak
+	Brauer-Diagramme verstehen wir als visuelle Darstellung von bestimmten linearen Abbildungen $V^{\otimes n} \to V^{\otimes(n+2z)}$ für einen festen $K$-Vektorraum $V$. Entsprechend können sie miteinander addiert und auch mit Skalaren aus $K$ multipliziert werden.
 	
+    \smallbreak
 	Zwei Brauer-Diagramme können außerdem \emph{miteinander multipliziert} werden zu einem dritten Brauer-Diagramm. Dies entspricht der Hintereinanderausführung zweier linearer Abbildungen. Ausgerechnet wird das Brauer-Diagramm der zusammengesetzten Abbildung, indem die zwei Brauer-Diagramme übereinander geschrieben werden und die Knoten der unteren Zeile vom ersten Diagramm reihenfolgeerhaltend mit den Knoten der oberen Zeile vom zweiten Diagramm verbunden werden. Falls geschlossene Kreise in diesem 4-zeiligen Graph existieren, so wird das Ergebnis für jeden geschlossenen Kreis mit einem Skalarfaktor $\alpha$ multipliziert, für unsere Anwendungen ist $\alpha$ gleich der Dimension des Vektorraums $V$, von dem wir Tensorprodukte bilden,
 	\[\alpha = \dim{V}.\]
 	Bei $k$ geschlossenen Kreisen ist das Ergebnis dann der Graph, der die Verbindung der obersten Knoten-Zeile zur untersten Knoten-Zeile darstellt multipliziert mit $\alpha^k$.
 \end{definition}
+
 \begin{example}[Brauer-Diagramme]
 	Folgende Graphen sind alles Brauer-Diagramme:
 	\begin{align*}
@@ -258,8 +205,7 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 			}
 		\end{tikzpicture}
 	& 
-	B_3&= 12\cdot
-	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+	B_3&=\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
 		\foreach\x in {1,2,...,7}{
 			\node[v] (s\x) at (\x,1){};
 		}
@@ -275,8 +221,7 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 		\draw (h2) to [bend left=30] (h4);
 	\end{tikzpicture}	
 	\\ \\ \\
-	B_2&=5\cdot
-	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+	B_2&=\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
 		\foreach\x in {1,2,...,5}{
 			\node[v] (s\x) at (\x,0){};
 		}
@@ -290,8 +235,7 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 	\end{tikzpicture}
 	\hspace{1cm}
 	&
-	B_4&=\frac{\pi}{3}\cdot
-	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+	B_4&=\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
 			\foreach\x in {1,2,...,5}{
 				\node[v] (s\x) at (\x,1){};
 			}
@@ -306,11 +250,12 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 	\end{align*}
 	$B_1$ ist die Identität auf $V^{\otimes 4}$.
 \end{example}
+
 \begin{example}[Multiplikation zweier Brauer-Diagramme]
-	Sei $d$ die Dimension des Vektorraums $V$, auf dessen Tensorprodukte wir lineare Abbildungen betrachten. Das Produkt von $B_3$ und $B_4$ im oberen Beispiel, bzw. die lineare Abbildung, die durch $B_4 \circ B_3$ beschrieben wird, wird dann folgendermaßen berechnet:
+	Sei $d$ die Dimension des Vektorraums $V$, auf dessen Tensorpotenzen wir lineare Abbildungen betrachten. Das Produkt von $B_3$ und $B_4$ im oberen Beispiel, bzw. die lineare Abbildung, die durch $B_4 \circ B_3$ beschrieben wird, wird dann folgendermaßen berechnet:
 	\begin{align*}
-		\textcolor{red}{B_4} \textcolor{purple}{\circ} \textcolor{blue}{B_3}&=\textcolor{blue}{12}\cdot \textcolor{red}{\frac{\pi}{3}}\cdot
-		\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+		\textcolor{red}{B_4} \textcolor{purple}{\circ} \textcolor{blue}{B_3}&=
+        \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
 			\foreach\x in {1,2,...,7}{
 				\node[b] (t\x) at (\x,2.5){};
 			}
@@ -340,8 +285,7 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 			\draw[purple] (r6) to (s5);
 		\end{tikzpicture}
 	\\ \\
-	&= 4\pi d^1 \cdot 
-	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
+	&= d^1 \cdot \begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
 		\foreach\x in {1,2,...,7}{
 			\node[v] (t\x) at (\x,1){};
 		}
@@ -355,12 +299,15 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 		\draw (t6) to (h3);
 	\end{tikzpicture}
 	\end{align*}
+    d.h. es ist das $d$-fache der linearen Abbildung, die durch das Brauer-Diagramm in der letzten Zeile gegeben ist.
 \end{example}
- Auf einen reinen Tensor angewandt werden Brauer-Diagramme, indem jeder einzelne Tensorfaktor reihenfolgeerhaltend den Knoten der oberen Zeile zugeordnet wird, auf gemischte Tensoren mit linearer Fortsetzung. Dabei sind mit entsprechender Definition (siehe unten) die Brauer-Diagramme eine vollständige Beschreibung aller \emph{nützlichen, bzw. natürlichen} Arten von linearen Abbildungen. Was genau eine Abbildung nützlich macht, werden wir später mit Hilfe von Darstellungstheorie herausfinden. Zunächst wollen wir hier die verschiedenen linearen Abbildungen zwischen Tensoren klassifizieren:
-\begin{definition}[Skalarmultiplikation eines Tensors]
+
+Auf einen reinen Tensor angewandt werden Brauer-Diagramme, indem jeder einzelne Tensorfaktor reihenfolgeerhaltend den Knoten der oberen Zeile zugeordnet wird, auf gemischte Tensoren mit linearer Fortsetzung. Dabei sind mit entsprechender Definition (siehe unten) die Brauer-Diagramme eine vollständige Beschreibung aller \emph{nützlichen} bzw. \emph{natürlichen} Arten von linearen Abbildungen. Was genau eine Abbildung nützlich macht, werden wir später mit Hilfe von Darstellungstheorie herausfinden. Zunächst wollen wir hier die verschiedenen linearen Abbildungen zwischen Tensoren klassifizieren:
+\begin{example}[Multiplikation mit Skalaren]
 	\label{def:skalarmultTensor}
-	Sei $v$ ein Tensor aus $V^{\otimes n}$. Dann ist die Multiplikation von $v$ mit einem $\alpha \in K$, $\alpha \cdot v$ eine lineare Abbildung von $V^{\otimes n}$ nach $V^{\otimes n}$.
+	Multiplikation mit einem $\alpha \in K$, $v\mapsto \alpha \cdot v$ eine lineare Abbildung von $V^{\otimes n}$ nach $V^{\otimes n}$.
 	
+    \smallbreak
 	Das Brauer-Diagramm der Skalarmultiplikation ist die Identität multipliziert mit $\alpha$. Es hat also $n$ Knoten in jeder Zeile und besteht nur aus \emph{senkrechten} Verbindungen, das sind Verbindungen zwischen dem $k$-ten Knoten der oberen Zeile und dem $k$-ten Knoten der unteren Zeile, z.B. mit $n=6$:
 	\begin{align*}
 		\alpha \cdot 
@@ -374,10 +321,11 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 			}
 		\end{tikzpicture}
 	\end{align*}	
-\end{definition}
-\begin{definition}[Permutation bilden von einem Tensor]
+\end{example}
+
+\begin{example}[Permutation bilden von einem Tensor]
 	\label{def:permutation}
-	Sei $v_1 \otimes \cdots \otimes  v_n$ ein reiner Tensor aus $V^{\otimes n}$ und $\sigma\in S_n$ eine Permutation. Dann definiert die Abbildung
+	Sei $\sigma\in S_n$ eine Permutation. Dann definiert die Abbildung
 	\[\Pi_{\sigma} : 
 	\left\lbrace\begin{array}{rcl}
 		V^{\otimes n} &\to& V^{\otimes}\\
@@ -386,7 +334,8 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 	\]
 	die \udot{durch $\sigma^{-1}$ bestimmte Permutation der Faktoren} des Tensors. Für einen allgemeinen Tensor ist diese Permutation als lineare Fortsetzung der obigen Abbildung gegeben.
 	
-	Das Brauer-Diagramm der Permutation $\sigma$ enthält je Zeile $n$ Knoten und die Kanten verbinden nur Knoten von der oberen Zeile mit Knoten der unteren Zeile. Die genauen Verbindungen ergeben sich aus der Permutation $\sigma^{-1}$. Jedem Input $k$ von $\sigma^{-1}$ wird das Ergebnis $l=\sigma^{-1}(k)$ zugeordnet. Im Brauer-Diagramm wird dann der $k$-te Knoten der oberen Zeile (gezählt von links nach rechts) mit dem $l$-ten Knoten der unteren Zeile verbunden. Mit der 2-Zeilen-Schreibweise von $\sigma^{-1}$ lässt sich dies gut ablesen, z.B. sei:
+    \smallbreak
+	Das Brauer-Diagramm von $\Pi_\sigma$ enthält in beiden Zeilen $n$ Knoten und die Kanten verbinden nur Knoten von der oberen Zeile mit Knoten der unteren Zeile. Die genauen Verbindungen ergeben sich aus der Permutation $\sigma^{-1}$. Jedem Input $k$ von $\sigma^{-1}$ wird das Ergebnis $l=\sigma^{-1}(k)$ zugeordnet. Im Brauer-Diagramm wird dann der $k$-te Knoten der oberen Zeile (gezählt von links nach rechts) mit dem $l$-ten Knoten der unteren Zeile verbunden. Mit der Zwei-Zeilen-Schreibweise von $\sigma^{-1}$ lässt sich dies gut ablesen, z.B. sei:
 	\begin{align*}
 		\sigma &= \begin{bmatrix}1 & 2 & 3 & 4 & 5 \\ 4 & 3 & 1 & 5 & 2 \end{bmatrix},
 		\\
@@ -405,11 +354,14 @@ Wir wollen jetzt nicht die Lösung für dieses Problem finden, sondern vielmehr 
 			\draw (s4) to (h1);
 			\draw (s5) to (h4);		
 		\end{tikzpicture}.
-	\end{align*}	
-\end{definition}
-\begin{definition}[Spur nehmen von einem Tensor]
+	\end{align*}
+    
+    Insbesondere ist $\Pi_{\id}$ die identische Abbildung $V^{\otimes n} \to V^{\otimes n}$.
+\end{example}
+
+\begin{example}[Spur nehmen von einem Tensor]
 	\label{def:spur}
-Sei $v_1 \otimes \cdots \otimes v_n$ ein reiner Tensor aus $V^{\otimes n}$. Dann definiert die Abbildung
+Es sei auf $V$ ein Skalarprodukt $\braket{\cdot,\cdot}$ gegeben. Dann definiert die Abbildung
 \[\tr_{kl} : 
 \left\lbrace\begin{array}{rcl}
 	V^{\otimes n} &\to& V^{\otimes n-2}\\
@@ -418,6 +370,7 @@ Sei $v_1 \otimes \cdots \otimes v_n$ ein reiner Tensor aus $V^{\otimes n}$. Dann
 \]
 die \udot{Spur zwischen dem $k$-ten und $l$-ten Faktor} des Tensors. Für einen allgemeinen Tensor ist die Spur als lineare Fortsetzung der obigen Abbildung gegeben.
 
+\smallbreak
 Das Brauer-Diagramm der Spur besteht aus $n$ Knoten in der oberen und $n-2$ Knoten in der unteren Zeile. Der $k$-te und $l$-te Knoten der oberen Zeile sind mit einer Kante verbunden, solche Kanten nennen wir \emph{waagerecht}. Alle anderen Knoten sind mit ausschließlich senkrechten Kanten verbunden, z.B. für $\tr_{6,7}$ auf $V^{\otimes 7}$:
 	\begin{align*}
 	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -431,22 +384,23 @@ Das Brauer-Diagramm der Spur besteht aus $n$ Knoten in der oberen und $n-2$ Knot
 			\draw (s\x) to (h\x);
 		}
 		\draw (s6) to [bend right=30] (s7);
-	\end{tikzpicture}.
+	\end{tikzpicture}
 	\end{align*}
 Diese Definition ist auch in entgegengesetzte Richtung zu verstehen: Wenden wir ein Brauer-Diagramm, welches zwei obere Knoten miteinander verbindet, auf einen reinen Tensor an, so ist zwischen den beiden entsprechenden Faktoren des Tensors die Spur zu bilden.
-\end{definition}
+\end{example}
 
-\begin{definition}[Einfügen des Casimir-Elements]
+\begin{example}[Einfügen des Casimir-Elements]
 	\label{def:casimireinfuegen}
-	Sei $v_1 \otimes \cdots \otimes v_n$ ein reiner Tensor aus $V^{\otimes n}$ und $\Omega_V$ das Casimir-Element zu $V$. Dann definiert die Abbildung
+	Sei $\Omega_V$ das Casimir-Element zu $V$. Dann definiert die Abbildung
 	\[\casimir : 
 	\left\lbrace\begin{array}{rcl}
 		V^{\otimes n} &\to& V^{\otimes n+2}\\
 		v_1 \otimes \cdots \otimes v_n &\mapsto& v_1 \otimes \cdots \otimes  v_n \otimes \Omega_V
 	\end{array}\right.
 	\]
-	die \udot{Einfügung des Casimir-Elements} an den Tensor. Für einen allgemeinen Tensor ist die Einfüugen des Casimir-Elements als lineare Fortsetzung der obigen Abbildung gegeben.
+	die \udot{Einfügung des Casimir-Elements} an den Tensor. Für einen allgemeinen Tensor ist die Einfügen des Casimir-Elements als lineare Fortsetzung der obigen Abbildung gegeben.
 	
+    \smallbreak
 	Das Brauer-Diagramm der Einfügung des Casimir-Elements besteht aus $n$ Knoten in der oberen und $n+2$ Knoten in der unteren Zeile. Die letzten beiden Knoten der unteren Zeile sind mit einer Kante verbunden. Alle anderen Knoten sind mit ausschließlich senkrechten Kanten verbunden, z.B. :
 	\begin{align*}
 		\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
@@ -460,10 +414,12 @@ Diese Definition ist auch in entgegengesetzte Richtung zu verstehen: Wenden wir 
 				\draw (s\x) to (h\x);
 			}
 			\draw (s6) to [bend left=30] (s7);
-		\end{tikzpicture}.
+		\end{tikzpicture}
 	\end{align*}
 	Diese Definition ist auch in entgegengesetzte Richtung zu verstehen: Wenden wir ein Brauer-Diagramm, welches zwei untere Knoten miteinander verbindet, auf einen reinen Tensor an, so ist an den beiden entsprechenden Faktoren des Tensors das Casimir-Element einzufügen.
-\end{definition}
+\end{example}
+
+\begin{remark}
 	An welchen zwei Stellen die zwei Faktoren des Casimir-Elements eingefügt werden, kann man sich im Prinzip aussuchen, das entspricht dann der Hintereinanderausführung von $\Omega_V$-Einfügung und Permutation. Insbesondere können die beiden Hälften von $\Omega_V$ auch voneinander getrennt werden, z.B. wird mit
 	\[
 	\sigma=\begin{bmatrix}1 & 2 & \cdots & n+1 & n+2 \\n+2 & 2 & \cdots & n+1 & 1 \end{bmatrix}\in S_{n+2}
@@ -474,41 +430,72 @@ Diese Definition ist auch in entgegengesetzte Richtung zu verstehen: Wenden wir 
 	\Pi_{\sigma} \circ \casimir (v_1 \cdots \otimes \cdots v_n)
 	\end{equation}
 	das mit $\casimir$ eingefügte $\Omega_V$ in zwei Teile zerlegt.
-	
-\begin{remark}[Brauer-Diagramme beschreiben alle sinnvollen (bzw. natürlichen) linearen Abbildungen zwischen Tensoren]
-	\label{brauer:bem:klassifikation}
-	Die Menge aller Linearkombinationen von allen Brauer-Diagrammen ist gleich der Menge aller natürlichen linearen Abbildungen zwischen Tensoren.
 \end{remark}
-\begin{remark}[Bilineare Abbildungen]
-	Bilineare Abbildungen zwischen Tensoren lassen sich auf lineare Abbildungen zurückführen, indem man das Tensorprodukt der beiden Input-Tensoren bildet und dann eine beliebige lineare Abbildung ausführt.
-\end{remark}
-	
-\begin{lemmadef}
-Sind $f:V\to W, g: V'\to W'$ zwei lineare Abbildungen zwischen $K$-Vektorräumen, so gibt es genau eine lineare Abbildung $V\otimes V'  \to W\otimes W'$, die $v\otimes v'$ auf $f(v)\otimes g(v')$ abbildet.
-
-Diese Abbildung wird der Bequemlichkeit halber auch als $f\otimes g$ bezeichnet. Für mehr als zwei Tensorfaktoren schreiben wir dann analog auch $f\otimes g\otimes h\otimes\cdots$. 
-\end{lemmadef}
-
-\begin{example}
-Wir können die Spur in dieser Schreibweise auch anders aufschreiben, z.B. ist
-\[\tr_{12} = \braket{\cdot,\cdot} \otimes \id\]
-wenn wir es als Abbildung $(V\otimes V)\otimes(V^{\otimes n-2}) \to K \otimes V^{\otimes n-2} = V^{\otimes n-2}$ auffassen. Oft ist dies vereinfachend, zum Beispiel sieht man dieser Schreibweise an, was das Hintereinanderausführen von zwei Spuren bewirkt und dass diese zwei Abbildungen kommutieren.
-\end{example}
 
 \begin{remark}
-Sind die Dimensionen endlich und hat man Basen der jeweiligen Vektorräume gewählt, so kann man $f$ und $g$ durch ihre Darstellungsmatrix angeben. Die Darstellungsmatrix von $f\otimes g$ ist dann das sogenannte \enquote{Kronecker-Produkt} der Matrizen $F$ und $G$. Je nachdem, wie man die Tensorbasis $\set{b_i\otimes c_j}$ anordnet (zeilen- oder spaltenweise durchnummerieren), ist das Kronecker-Produkt durch
-\[F\otimes G = \begin{pmatrix}
-f_{11} G & f_{12} G & \cdots & f_{1m} G \\
-f_{21} G & f_{22} G & \cdots & f_{2m} G \\
-\vdots G &  \vdots  & \ddots & \vdots   \\
-f_{n1} G & f_{n2} G & \cdots & f_{nm} G
-\end{pmatrix} \quad\text{oder}\quad \begin{pmatrix}
-F g_{11} & F g_{12} & \cdots & F g_{1m'} \\
-F g_{21} & F g_{22} & \cdots & F g_{2m'} \\
-  \vdots &   \vdots & \ddots &   \vdots  \\
-F g_{n'1} & F g_{n'2} & \cdots & F g_{n'm'}
-\end{pmatrix}\]
-gegeben.
+Man überlegt sich jetzt leicht, dass jedes Brauer-Diagramm als Multiplikation von (mehreren) Permutationen, Spuren und Casimir-Elementen erhalten werden kann, diese drei Beispiele also im Wesentlichen alle Fälle abdecken.
 \end{remark}
 
+\begin{remark}[Bilineare Abbildungen]
+Bilineare, tri- und $k$-fach lineare Abbildungen zwischen Tensoren lassen sich auf lineare Abbildungen zurückführen, indem man das Tensorprodukt der Input-Tensoren bildet und dann eine beliebige lineare Abbildung ausführt. Unsere angestrebte Klassifikation behandelt also in Wirklichkeit mehr als nur den linearen Fall.
+\end{remark}
 
+\subsection{Anhang: Sinn und Unsinn von Basen}\label{tensoren:diskussion_basen}
+
+\begin{remark}[Ko- und kontravariantes Transformieren]
+Wir haben in \ref{tensoren:index_notation} bereits beschrieben, wie man mittels einer Basis von $V$ jedem Tensor aus $V^{\otimes k}$ seine Koordinaten bzgl. dieser Basis zuordnen kann.
+
+Wählt man eine andere Basis von $V$, so erhält man natürlich andere Zahlen als Koordinaten. Immer noch $\dim(V)^k$ viele, aber andere. Jedoch sind die Unterschiede i.A. nicht völlig beliebig (wie Fall $k=1$), denn sie sind eben durch einen Basiswechsel in den Faktoren des Tensorprodukts verursacht.
+
+In der Tat haben die Physiker eigene Sprechweise erfunden, um das auszudrücken: Man sagt, dass sich ein Satz von indizierten Zahlen \enquote{kovariant transformiert} (bzw. \enquote{kontravariant}) und meint damit nicht etwa, dass diese Zahlen eine besondere Eigenschaft hätten, sondern, dass die Methode, mit der man diese Zahlen bestimmt hat, eine besondere Eigenschaft hat, nämlich bei anderer Basiswahl ein anderes Ergebnis zu produzieren, dass aber aus der Basiswechselmatrix auf bestimmte Weise vorhersehbar ist. Manche Physiker nehmen das zum Anlass, um zu definieren, dass ein Tensor nicht nur \emph{ein} Satz von indizierten Zahlen sei, sondern eine Abbildung $\Set{\text{Basen}} \to \Set{\text{Zahlen mit Indizes}}$, die genau dieser Transformationsregel gehorcht.
+
+\medbreak
+Soweit, so verwirrend, aber natürlich wird einem dann auch erklärt, dass es auch \enquote{kontravariante Tensoren} gibt, die sich irgendwie ähnlich, aber ganz anders verhalten, sowie gemischte Tensoren, bei denen manche Indizes ko- und manche kontravariant gemeint sind. In Indexschreibweise äußert sich das oft so, dass manche Indizes oben und manche unten notiert werden, wobei sich leider nicht einmal alle Physiker einig sind, ob die oberen jetzt die ko- oder die kontravarianten sein sollen.
+\end{remark}
+
+\begin{remark}[Index-Notation -- Warum ist das ein Problem?]
+Index-Notation erschwert durch die Fixierung auf Basen und Koordinaten im Wesentlichen alles, was wichtig ist: Das Verstehen von und das Arbeiten mit Tensoren.
+
+\begin{itemize}
+\item Index-Schreibweise -- Koordinaten allgemein -- verlieren wichtige Informationen und geht am Wesentlichen vorbei: Ein Vektor/Tensor ist eben nicht eine Ansammlung von Zahlen, sondern ein Element eines Vektorraums.
+
+Ja, der Raum der Polynome in zwei Variablen mit Grad $\leq 5$ ist 36-dimensional, aber das Polynom $x^2+y^2$ deshalb als Ansammlung von 36 (relativ beliebigen) Zahlen zu betrachten, also als Element von $\IR^{36}$, verliert die ganz wesentliche Information, z.B. dass es sich um ein Polynom handelt, dass dieser Vektorraum Unterraum eines größeren Polynomraums ist, in dem weitere Strukturen wie z.B. Polynommultiplikation, Differenzieren, uvm. existieren.
+
+Der Übergang von abstrakten Vektoren/Tensoren zu Koordinatendarstellungen bzgl. beliebiger Basen, erhält exakt die Information, die in der Vektorraumstruktur alleine steckt, d.h. in Addition und Skalarmultiplikation. Alle zusätzliche Struktur, die in einer konkreten Situation vielleicht außerdem vorhanden und nützlich (!) sein könnte, wird weggeworfen.
+
+Wenn man alles nur als Ansammlung von Zahlen versteht, ist auch klar, wieso der Unterschied zwischen \enquote{ko-} und \enquote{kontravarianten} Tensoren so mysteriös ist. Wenn man abstrakt arbeitet, ist ganz klar, was passiert! Das sind einfach Tensoren aus unterschiedlichen Räumen!
+
+Die eine Sorte Tensoren ist Element von $V^{\otimes k}$, während die anderen Elemente von $(V^\ast)^{\otimes k}$ sind. Tensoren mit gemischter Varianz sind entsprechend Elemente von $V^{\otimes k_1}\otimes (V^\ast)^{\otimes k_2}$. Natürlich sind $V$ und $V^\ast$ als Vektorräume isomorph, d.h. sie haben die gleiche Dimension, man benötigt also die gleiche Anzahl an Indizes. Aber dabei verliert man eben die wesentliche Information, dass $V$ und $V^\ast$ doch trotz allen verschieden sind und verschiedene Objekte und Sichtweisen mathematisch beschreiben.\footnote{Übrigens erklärt diese Sichtweise auch, wieso sich die Physiker nicht immer einig sind, was ko- und was kontravariant ist: Für endlich-dimensionale Vektorräume ist nicht nur $V^\ast$ der duale Vektorraum von $V$, sondern auch $V$ der duale Vektorraum von $V^\ast$. Man kann sich also aussuchen, welches das fundamentalere Objekt von beiden ist.}
+
+Für uns wird z.B. ganz wesentlich sein, dass Tensorräume Zusatzstrukturen besitzen, die man in beliebigen Koordinaten nicht (oder nur mit unnötig viel Aufwand) sehen kann.
+
+\item Index-Schreibweise -- Koordinaten allgemein -- zäumen das Pferd von hinten auf:
+
+Wenn man einmal einen globalen Standpunkt einnimmt, erkennt man, dass es selten sinnvoll ist, tatsächlich in Koordinaten zu arbeiten, da die einzigen Operationen, die überhaupt physikalisch sinnvoll sind, zwangsläufig basis-unabhängig sein müssen. Das Universum hat halt keine bevorzugte Basis. Es gibt keine bevorzugten Richtungen im Universum; wieso also nicht von Anfang an mit Objekte und Operationen arbeiten, die basis-unabhängig sind?
+
+Und in den Fällen, in denen die physikalische Situation eben doch eine Raumrichtung bevorzugt, z.B. weil es sich um ein rotationssymmetrisches Problem handelt und die Drehachse eine besondere Richtung in so einem System ist? In den Fällen ist es auch nicht sinnvoll, \emph{beliebige} Basen zu betrachten. Man will eine Basis wählen, die Zusatzinformationen wie z.B. die Drehsymmetrie, möglichst gut widerspiegeln.
+
+Woher weiß man, welche Zusatzstruktur tatsächlich die nützliche ist für die eigene Frage? Man weiß es eben nicht. Zumindest nicht vorher. Erst, wenn man tatsächlich eine (Teil-)Antwort auf die Frage gefunden hat, kann man überhaupt sagen, welche Zusatzstrukturen nützlich war und welche nicht, und welche Basiswahl also die sinnvollste für das Problem ist.
+
+Der Ausgangspunkt sollte also immer zunächst eine basis-freie Sichtweise sein, in die erst nachdem tatsächlich Bedarf erkannt wurde, eine präzise ausgewählte Basis eingeführt wird. Und selbst dann ist es sinnvoll, nicht allzu viel Basis zu wählen. Im Falle einer Rotationssymmetrie ist z.B. \emph{nur} die Drehachse eine ausgezeichnete Raumrichtung, d.h. sie legt nur einen von drei gesuchten Basisvektoren (halbwegs) fest. Für die anderen beiden gilt genau das gleiche: Man sollte solange wie möglich abstrakt arbeiten und erst, wenn das Problem es tatsächlich erfordert, eine Basis wählen.
+
+\item Index-Schreibweise erzeugt unnötige Arbeit:
+
+Eine beliebige Kollektion von Zahlen wird aber nur dann zu einem Tensor, wenn man eine Basis wählt, bzgl. derer man diese Zahlen dann als Koordinaten liest. Man muss sich also stets fragen: \enquote{Wenn ich eine andere Basis wähle und in dieser neuen Situation noch einmal neue Zahlen generiere und als Koordinaten bzgl. der neuen Basis benutze, kommt ein anderer Tensor heraus oder nicht?} und man will immer, dass die Antwort \enquote{Nein} ist, d.h. man will, dass sich die Zahlen \enquote{ko-} oder \enquote{kontravariant} oder \enquote{gemischt} \enquote{transformieren}. Ein \enquote{ja} hieße zwangsläufig, dass man etwas falsch gemacht hat, eben weil physikalisch sinnvolle Ergebnisse nicht basis-abhängig sind.
+
+Die Konsequenz daraus ist aber, dass man eigentlich jedes Index-Monster, das einem begegnet, erst einmal mit viel langweiligem Rechenaufwand darauf überprüfen sollte, ob es überhaupt basis-unabhängig ist. Wer hat die Zeit dafür? Niemand! Und wieso sollte man auch so viel Aufwand investieren, wenn die Antwort, die man haben will, sowieso immer die gleiche ist?
+
+Nicht nur macht die abstrakte Sichtweise den Aufwand kleiner, sie macht ihn zu Null, denn, wenn man von Anfang an basisfrei arbeitet, stellt sich die Frage, ob eine gewisse Konstruktion basisunabhängig ist, überhaupt nicht. Wenn nirgendwo Basen benutzt wurden, muss alles, was getan wurde, natürlich basisunabhängig sein!
+
+\item \enquote{Aber, wenn ich Dinge ausrechnen will, brauche ich doch Basen!}
+
+Auch das ist ein weitverbreitetes Missverständnis. Viele Dinge sind in der Tat auch völlig basisfrei berechenbar, mindestens z.B. alle physikalisch sinnvollen Dinge, denn die sind eben -- wie wir bereits festgestellt haben --  von sich aus basisfrei und somit zwangsläufig auch basisfrei berechenbar, wenn sie überhaupt berechenbar sind. Und in der Tat kann man sie dann auch immer auf einem basisfreien Wege ausrechnen. 
+
+Man muss sich auch einmal klarmachen, was man mit \enquote{ausrechnen} meint und wozu man das tut. Was bedeutet es z.B. einen Spannungstensor \enquote{auszurechnen} ? Der Spannungstensor ist eben keine Zahl. Er ist ein Tensor. Was würde es in Analogie bedeuten, einen Vektor, z.B. eine Drehachse \enquote{auszurechnen} ? Die Drehachse ist die Drehachse, das, worum sich das System dreht. Welche andere Information möchte man über diesen Vektor ausrechnen? Und was würde man damit anfangen?
+
+Natürlich kann man zwanghaft Koordinaten einführen und die Koordinaten dieses Vektors ausrechnen. Die Koordinaten haben aber keine eigenständige physikalische Bedeutung. Mit den Koordinaten an sich lässt sich also nichts anfangen. Einzig das Gesamtobjekt ist physikalisch sinnvoll. Das einzige, was man mit den Koordinaten tun könnte, ist also, sie wieder zu einem Vektor zusammenzusetzen, um diesen in einem nächsten Rechenschritt weiterzuverwenden. Wieso dann aber Koordinaten einführen?\footnote{Das ignoriert natürlich ein paar außer-physikalische Aspekte, z.B. könnten ja in einer komplexen Gesamtberechnung einzelne Teilschritte durchaus von verschiedenen Leuten ausgerechnet werden. In diesem Fall ist das Einführen von Koordinaten eine Notwendigkeit, um ein Zwischenergebnis von einem Team zum anderen kommunizieren zu können.}
+
+\medbreak
+Man beachte, dass die Frage nach einem \emph{effizienten} Ausrechnen eine völlig andere ist! Für diese Art von Fragen gilt: \enquote{premature optimization is the root of all evil (or at least most of it)}\footnote{Donald Ervin Knuth, geb. 1938, amer. Informatiker und Mathematiker}. Eine Basiswahl alleine macht nichts effizient. Die \emph{richtige} Basis in der richtigen Situation macht Dinge effizient und auch nur, wenn man sie richtig einsetzt. Stumpf drauf losrechnen ist selten tatsächlich effizient.
+\end{itemize}
+\end{remark}
