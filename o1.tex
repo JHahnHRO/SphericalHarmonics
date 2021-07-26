@@ -2,16 +2,19 @@
 % !TeX spellcheck = de_DE
 %\begin{sheet}
 
+\setcounter{sheet}{\thesection}
+\setcounter{problem}{0}
+
 \begin{problem}[title={Darstellungstheorie von $O_1$}]
 Beweise alles, was man über Darstellungstheorie der Gruppe mit zwei Elementen $G=O_1=\set{\pm 1}$ über $\IK\in\set{\IR,\IC}$ wissen muss:
 
 \begin{subproblem}
-Es gibt genau zwei irreduzible Darstellungen, nämlich die triviale $g\mapsto 1$ und die nichttriviale $\pm 1\mapsto \pm 1$.
+Es gibt genau zwei irreduzible Darstellungen, beide eindimensional, nämlich die triviale $G\to\IK, g\mapsto 1$ und die nichttriviale $G\to\IK, \pm 1\mapsto \pm 1$.
 \end{subproblem}
 \begin{subproblem}
 Man kann jede Darstellung von $G$ über $\IK$ (selbst unendlich-dimensionale) explizit in irreduzible Bestandteile zerlegen, indem man eine Eigenbasis von $\mathcal{D}(-1)$ findet. Gib eine explizite, basisfreie Formel für die Projektionen auf die beiden Eigenräume an.
 \end{subproblem}
 
-Hinweis: Eine Darstellung von $G$ ist der Raum der Funktionen $\IR \to \IC$, auf der $G$ durch $f\mapsto \check{f}$ operiert, wobei $\check{f}(x) := f(-x)$ ist. Die beiden Eigenräume sind dir als \enquote{gerade} bzw. \enquote{ungerade} Funktionen bereits bekannt. Eine andere Darstellung ist der Raum der quadratischen Matrizen $\IK^{k\times k}$, auf dem $G$ durch $A\mapsto A^T$ operiert. Die beiden Eigenräume sind dir als symmetrische bzw. antisymmetrische Matrizen bekannt. Lasse dich von diesen beiden Beispielen inspirieren.
+Hinweis: Eine Darstellung von $G$ ist der Raum der Funktionen $\IR \to \IC$, auf der $-1$ durch $f\mapsto \check{f}$ operiert, wobei $\check{f}(x) := f(-x)$ ist. Die beiden Eigenräume sind dir als \enquote{gerade} bzw. \enquote{ungerade} Funktionen bereits bekannt. Eine andere Darstellung ist der Raum der quadratischen Matrizen $\IK^{k\times k}$, auf dem $-1$ durch $A\mapsto A^T$ operiert. Die beiden Eigenräume sind dir als symmetrische bzw. antisymmetrische Matrizen bekannt. Lasse dich von diesen beiden Beispielen inspirieren.
 \end{problem}
 %\end{sheet}
