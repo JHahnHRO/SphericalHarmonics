@@ -1,7 +1,7 @@
 % !TeX root = spherical_harmonics.tex
 % !TeX spellcheck = de_DE
 
-\begin{lemma}[Die zweidimensionale Sicht auf eine dreidimensionale Darstellung]
+\begin{lemma}[Die $O_2$-Sicht auf eine $O_3$-Darstellung]
 Sei $V$ ein dreidimensionaler, reeller Vektorraum mit Skalarprodukt und $E\leq V$ eine Ebene darin. Dann ist die Einschränkung der Darstellung $STF^k(V)$ auf die Untergruppe $O_2(E) \leq O_3(V)$ isomorph zu $\Sym^k(E) \oplus \Sym^{k-1}(E)$.
 \end{lemma}
 \begin{proof}
@@ -17,7 +17,7 @@ Dann können wir jede polynomielle Funktion $p$ nach Potenzen von $z$ sortieren,
 \iff \sum_a p_{a+2}\cdot  (a+2)(a+1)z^a &= -\sum_a (\Delta_E p_a)\cdot z^a \\
 \iff \forall a: p_{a+2} &= \frac{-\Delta_E p_a}{(a+1)(a+2)}
 \end{align*}
-Harmonische Polynomfunktionen sind also eindeutig festgelegt, indem wir eine beliebige homogene Polynomfunktion vom Grad $k$ für $p_0$ und eine beliebige homogene Polynomfunktion vom Grad $k-1$ für $p_1$ festlegen und alle anderen $p_a$ mittels der Rekursion bestimmen. Wir erhalten so einen Isomorphismus von $\IK$-Vektorräumen $Sym^k(E) \oplus Sym^{k-1}(E) \to STF^k(V)$. Da $\Delta_E$ ein mit $O_2(E)$ verträglicher Differentialoperator ist, ist dieser Isomorphismus sogar $O_2(E)$-linear.
+Harmonische Polynomfunktionen sind also eindeutig festgelegt, indem wir eine beliebige homogene Polynomfunktion $E\to\IK$ vom Grad $k$ für $p_0$ und eine beliebige homogene Polynomfunktion $E\to\IK$ vom Grad $k-1$ für $p_1$ festlegen und alle anderen $p_a$ mittels der Rekursion bestimmen. Wir erhalten so einen Isomorphismus von $\IK$-Vektorräumen $\Sym^k(E) \oplus \Sym^{k-1}(E) \to STF^k(V)$. Da $\Delta_E$ ein mit $O_2(E)$ verträglicher Differentialoperator ist, ist dieser Isomorphismus sogar $O_2(E)$-linear.
 \end{proof}
 
 \begin{remark}[Struktur von $SO_3$]

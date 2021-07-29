@@ -4,7 +4,7 @@
 Auch wenn wir eingangs in unserem Kurs so sehr über Basen geschimpft haben\footnote{Wir wollen keine Namen nennen, aber Johannes war besonders hartnäckig...}, so ist uns natürlich bewusst, dass gerade für effiziente Berechnungen eine Basis praktisch immer gewählt wird. Welche Basis man wählt, ist dabei von großer Bedeutung: Andrea hat in ihrer Doktor-Arbeit eine bestimmte Berechnung, welche z.B. zur Modellierung von Luftbewegung millionenfach wiederholt genutzt werden soll, um den Faktor 1000 verschnellern können, und das nur durch geschickte Basiswahl. 
 
 \begin{remark}
-	Meistens ist eine Basis geschickt gewählt, wenn sie orthogonal bzgl. eines zu Problem passenden Skalarprodukts ist. Nun gibt es aber viele Skalarprodukte, die man wählen kann, die durchaus auch unterschiedliches Verständnis von Orthogonalität festlegen.
+	Meistens ist eine Basis geschickt gewählt, wenn sie orthogonal bzgl. eines zum Problem passenden Skalarprodukts ist. Nun gibt es aber viele Skalarprodukte, die man wählen kann, die durchaus auch unterschiedliches Verständnis von Orthogonalität festlegen.
 \end{remark}
 Schauen wir uns einmal einige Beispiele für mögliche Skalarprodukte auf dem Raum der Polynome an:
 \begin{example}
@@ -32,7 +32,7 @@ Schauen wir uns einmal einige Beispiele für mögliche Skalarprodukte auf dem Ra
 \end{example}
 
 \begin{example}
-	Sei $Q$ ein Quader in $\IR^3$, z.B. mit den Kantenlängen 1, 2, und 3. Dann ist mit 
+	Sei $Q$ ein Quader in $\IR^3$, z.B. mit den Kantenlängen 1, 2 und 3. Dann ist mit 
 	\begin{align*}
 		\braket{f,g}_Q :&= \int_Q f g \dd Q
 	\end{align*}
@@ -71,16 +71,16 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 % 	Idealerweise ist unsere Basis auch für solche Fälle ausgelegt. Es stellt sich heraus, dass beide Probleme gleichzeitig gelöst werden können.
  %\end{remark}
  \subsection{Die Gelfand-Zetlin Basis}
- \begin{definition}[Konstruktion der $\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Bae\aaa\sae\iue$ (Gelfand\footnote{Israel Gelfand, $\I\sae\rae\aaa\iii\el\soft$ $\Em\ooo\iii\ssae\jae\jae\wae\iii\tschae$ $\Gae\jae\el\soft\fae\aaa\en\dae$ (1913--2009), sowjetischer Mathematiker}-Zetlin\footnote{Michael Zetlin, $\Em\iii\xa\aaa\iii\el$ $\El\soft\wae\ooo\wae\iii\tschae$ $\Zae\jae\tae\el\iii\en$ (1924--1966), russ. Mathematiker und Physiker; Der Name wird leider auf viele verschiedene Weisen transkribiert, u.A. eben Zetlin (meist im dt. Sprachraum), aber auch Tsetlin (engl. Sprachraum), Zeitlin, Tseitlin, Ceitlin}-Basis]
+ \begin{definition}[Konstruktion der $\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Bae\aaa\sae\iue$ (Gelfand\footnote{Israel Gelfand, $\I\sae\rae\aaa\iii\el\soft$ $\Em\ooo\iii\ssae\jae\jae\wae\iii\tschae$ $\Gae\jae\el\soft\fae\aaa\en\dae$ (1913--2009), sowjetischer Mathematiker}-Zetlin\footnote{Michael Zetlin, $\Em\iii\xa\aaa\iii\el$ $\El\soft\wae\ooo\wae\iii\tschae$ $\Zae\jae\tae\el\iii\en$ (1924--1966), russ. Mathematiker und Physiker; Der Name wird leider auf viele verschiedene Weisen transkribiert, u.A. eben Zetlin (meist im dt. Sprachraum), aber auch Tsetlin (engl. Sprachraum), Zeitlin, Tseitlin, Ceitlin}-Basis)]
  	\label{def:konstruktion_gz_basis}
-	Sei $G$ eine Gruppe mit halb-einfacher Darstellung auf einem Vektorraum $V$ und $U^i_0$ einer der irreduziblen Unterräume von $V$. Für diesen Unterraum wird dessen \emph{Gelfand-Zetlin-Basis} wie folgt konstruiert:
+	Sei $G$ eine Gruppe mit halb-einfacher Darstellung auf einem Vektorraum $V$ und $U^i_0$ einer der irreduziblen Unterräume von $V$. Für diesen Unterraum wird eine \emph{Gelfand-Zetlin-Basis} wie folgt konstruiert:
 	\begin{enumerate}[label={\arabic*.)}]
 		\item Setze das Level $l=0, H_0 = G$
 		\item Bestimme für jeden Unterraum $U_l^i$: \label{def:gz_it_anfang}
 		\begin{enumerate}
 			\item Berechne $\dim{U_l^i}$
-			\item Ist $U_l^i$ 1-dimensional? Dann wähle einen Vektor aus $U_l^i$ als einen der Basisvektoren von $U^1_0$.
-			\item Ist $U_l^i$ $>1$-dimensional? Dann merke dir $U_l^i$ für den nächsten Schritt.
+			\item Ist $U_l^i$ 1-dimensional? Dann wähle einen von Null verschiedenen Vektor aus $U_l^i$ als einen der Basisvektoren von $U^1_0$.
+			\item Ist $U_l^i$ mehr als $1$-dimensional? Dann merke dir $U_l^i$ für den nächsten Schritt.
 		\end{enumerate}
 		\item Wähle geschickt eine möglichst große Untergruppe $H_{l+1}$ von $H_{l}$, sodass jeder Unterraum $U_l^i$ mit $\dim{U_l^i}>1$ in für $H_{l+1}$ irreduzible Unterräume  zerfällt. Dabei müssen alle Unterräume, die von einem gemeinsamen $U_l^i$ stammen, paarweise nicht isomorph sein (Klappt dies nicht, ist entweder eine andere Untergruppe zu finden, oder es gibt keine Gelfand-Zetlin-Basis). \label{def:gz_it_ugschritt}
 		\item Nummeriere die Unterräume des nächst-höheren Levels: Nenne alle für $H_{l+1}$ irreduziblen Unterräume $U_{l+1}^{1}, \cdots, U_{l+1}^{k}$, inklusive der bereits für $H_l$ 1-dimensionalen Unterräume.
@@ -90,7 +90,7 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 		\end{enumerate}
 \end{definition}
 \begin{remark}
-	Formal betrachtet, brauchen die 1-dimensionalen Untergruppen nicht für Schritt \ref{def:gz_it_ugschritt} ausgeschlossen werden. Sie werden für jede Untergruppe 1-dimensional bleiben und sich nicht weiter ändern, entsprechend braucht man sie für die weiteren Schritte auch nicht zu berücksichtigen.
+	Formal betrachtet, brauchen die 1-dimensionalen Unterräume nicht für Schritt \ref{def:gz_it_ugschritt} ausgeschlossen werden. Sie werden für jede Untergruppe 1-dimensional bleiben und sich nicht weiter ändern, entsprechend braucht man sie für die weiteren Schritte auch nicht zu berücksichtigen.
 \end{remark}
 \begin{definition}[$\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Dae\jae\rae\jae\wae\ooo$ (Gelfand-Zetlin-Baum)]
 	Mit der Konstruktion nach \ref{def:konstruktion_gz_basis} bauen wir einen Baum mit $l_{\text{max}}+1$ Leveln. Der Stammknoten ist $U_0^i$, die Blätter sind alle gefundenen 1-dimensionale Unterräume. Die Knoten zwischen dem Stammknoten und den Blättern entsprechen den irreduziblen Unterräumen der jeweiligen Level, die Kanten verbinden einen irreduziblen Unterraum $U$ eines Levels mit allen irreduziblen Unterräumen des nächst-höheren Levels, die aus $U$ im Schritt \ref{def:gz_it_ugschritt} herauskommen. Eindimensionale Unterräume, die bereits in kleineren Leveln auftreten, werden hier als Knoten auf jedem höheren Level wiederholt bis zum maximalen Level.
@@ -172,7 +172,7 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 \begin{maintheorem}[Spherical Harmonics sind eine Gelfand-Zetlin-Basis]\label{mt:sh_sind_gzb}
 	Die Darstellung von $O_3$ auf dem Polynomraum (egal, ob mit reellen oder komplexen Koeffizienten) hat die Gelfand-Zetlin-Basis bezüglich Untergruppenkette $O_3 \geq O_2 \geq O_1$. Die Element dieser Basis heißen \emph{reelle Spherical Harmonics} oder auch \emph{Kugelflächenfunktionen}.
 
-	Sofern man mit komplexen Koeffizienten arbeitet, gibt es eine zweite Gelfand-Zetlin-Basis bezüglich der Untergruppenkette $O_3 \geq SO_3 \geq SO_2$. Die Elemente dieser Gelfand-Zetlin-Basis heißen \emph{komplexe Spherical Harmonics}.
+	Sofern man mit komplexen Koeffizienten arbeitet, gibt es eine zweite Gelfand-Zetlin-Basis bezüglich der Untergruppenkette $O_3 \geq O_2 \geq SO_2$. Die Elemente dieser Gelfand-Zetlin-Basis heißen \emph{komplexe Spherical Harmonics}.
 \end{maintheorem}
 
 \begin{lemma}[{Gelfand-Zetlin-Baum für $O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf } \IC[x,y,z]$}]
