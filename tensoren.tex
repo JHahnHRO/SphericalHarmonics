@@ -303,25 +303,6 @@ Wir werden in einem folgenden Kapitel beweisen: Die Menge aller sinnvollen / nat
 \end{example}
 
 Auf einen reinen Tensor angewandt werden Brauer-Diagramme, indem jeder einzelne Tensorfaktor reihenfolgeerhaltend den Knoten der oberen Zeile zugeordnet wird, auf gemischte Tensoren mit linearer Fortsetzung. Dabei sind mit entsprechender Definition (siehe unten) die Brauer-Diagramme eine vollständige Beschreibung aller \emph{nützlichen} bzw. \emph{natürlichen} Arten von linearen Abbildungen. Was genau eine Abbildung nützlich macht, werden wir später mit Hilfe von Darstellungstheorie herausfinden. Zunächst wollen wir hier die verschiedenen linearen Abbildungen zwischen Tensoren klassifizieren:
-\begin{example}[Multiplikation mit Skalaren]
-	\label{def:skalarmultTensor}
-	Multiplikation mit einem $\alpha \in K$, $v\mapsto \alpha \cdot v$ eine lineare Abbildung von $V^{\otimes n}$ nach $V^{\otimes n}$.
-	
-    \smallbreak
-	Das Brauer-Diagramm der Skalarmultiplikation ist die Identität multipliziert mit $\alpha$. Es hat also $n$ Knoten in jeder Zeile und besteht nur aus \emph{senkrechten} Verbindungen, das sind Verbindungen zwischen dem $k$-ten Knoten der oberen Zeile und dem $k$-ten Knoten der unteren Zeile, z.B. mit $n=6$:
-	\begin{align*}
-		\alpha \cdot 
-		\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
-			\foreach\x in {1,2,...,6}{
-				\node[v] (s\x) at (\x,1){};
-				\node[v] (h\x) at (\x,0){};
-			}
-			\foreach\x in {1,2,...,6}{
-				\draw (s\x) to (h\x);
-			}
-		\end{tikzpicture}
-	\end{align*}	
-\end{example}
 
 \begin{example}[Permutation bilden von einem Tensor]
 	\label{def:permutation}
