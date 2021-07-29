@@ -12,22 +12,22 @@ gilt. Der Raum der symmetrischen Tensoren wird \emph{symmetrische (Tensor-)Poten
 \begin{example}
 \begin{itemize}
 \item $v\otimes v\otimes \cdots\otimes v$ ist symmetrisch und umgekehrt: Ein reiner Tensor $v_1\otimes v_2\otimes\cdots\otimes v_m$ ist genau dann symmetrisch, wenn alle $v_1,\ldots, v_m$ Vielfache eines Vektors $v$ sind.
-\item $v\otimes w + w\otimes v$ ist symmetrisch. Man beachte, dass $v\otimes w + w\otimes v = (v+w)\otimes(v+w) - v\otimes v - w\otimes w$ ist. Man kann allgemein zeigen, dass $Sym^m(V) = \operatorname{span}\Set{v\otimes\cdots\otimes v | v\in V}$ ist.
+\item $v\otimes w + w\otimes v$ ist symmetrisch. Man beachte, dass $v\otimes w + w\otimes v = (v+w)\otimes(v+w) - v\otimes v - w\otimes w$ ist. Man kann allgemein zeigen, dass $Sym^m(V) = \operatorname{span}_\IK\Set{v\otimes\cdots\otimes v | v\in V}$ ist.
 \end{itemize}
 \end{example}
 
 \begin{lemma}[Mittelwerttrick]\label{symmetrische_tensoren:projektion}
 Die Projektion auf den Unterraum der symmetrischen Tensoren ist gegeben durch
 \[q(t) := \frac{1}{\abs{S_m}} \sum_{\sigma\in S_m} \sigma\cdot t\]
-und $O_n$-linear. Zur Erinnerung: $\abs{S_m} = m!$.
+und ist $O_n$-linear. Zur Erinnerung: $\abs{S_m} = m!$.
 \end{lemma}
 Die obige Idee, den Mittelwert über eine Gruppe zu bilden und daraus eine Projektion zu basteln, werden wir häufiger verwenden. Definieren wir uns also allgemeiner:
 \begin{definition}[Mittelwerttrick für endliche Gruppen]
-	Der Mittelwert der Wirkung einer endlichen Gruppe $G$ auf einen Vektor $v$ des Darstellungsraumes berechnet sich wie folgt:
+	Es sei $T$ eine Darstellung von $G$. Der Mittelwert der Wirkung einer endlichen Gruppe $G$ auf einen Vektor $t\in T$ berechnet sich wie folgt:
 	\[
-		\frac{1}{\abs{G}} \sum_{g\in G} g(v)
+		\frac{1}{\abs{G}} \sum_{g\in G} g(t)
 	\]
-	Dies ist genau die Projektion von $V$ auf den Unterraum der $G$-Fixpunktraum.
+	Dies ist genau die Projektion von $T$ auf den Untervektorraum der $G$-Fixpunkte.
 \end{definition}
 
 \begin{remark}
@@ -35,11 +35,11 @@ Da wir uns vorwiegend mit $O_3$ beschäftigen, reicht diese Definition allerding
 \end{remark}
 
 \begin{definition}[Mittelwerttrick für kompakte Gruppen \& Integration über kompakte Gruppen]
-	Sei $G$ eine kompakte Gruppe mit Darstellung auf einem Vektorraum $V$. Dann können wir den Mittelwerttrick auffassen als Integral über die Wirkung von $G$ auf einen Vektor $v\in V$:
+	Sei $G$ eine kompakte Gruppe mit Darstellung auf einem Vektorraum $T$. Dann können wir den Mittelwerttrick auffassen als Integral über die Wirkung von $G$ auf einen Vektor $t\in T$:
 	\[
-		\frac{1}{\abs{G}} \int_{G} g(v) \dd g
+		\frac{1}{\abs{G}} \int_{G} g(t) \dd g
 	\]
-	Auch dies ist die Projektion von $V$ auf den Unterraum der $G$-Fixpunkte.
+	Auch dies ist die Projektion von $T$ auf den Untervektorraum der $G$-Fixpunkte.
 	
 	\medbreak
 	Wir werden nicht präzise machen, wie das Integral tatsächlich definiert ist. Man kann aber zeigen, dass für alle kompakten Gruppen $G$ ein Integral $\int_G$ existiert (das sogenannte Haar\footnote{Alfréd Haar (1885--1933), ungarischer Mathematiker}-Integral), das stetige Funktionen von $G$ in einen endlich-dimensionalen $\IR$- oder $\IC$-Vektorraum $X$ als Input nimmt, einen Wert aus $X$ als Output hat und u.A. folgende Eigenschaften hat: 
@@ -67,17 +67,19 @@ Da wir uns vorwiegend mit $O_3$ beschäftigen, reicht diese Definition allerding
 \end{definition}
 
 \subsection{Symmetrische Tensoren: Die Verbindung zwischen Polynomen und Tensoren}
+
 \begin{theorem}[Isomorphismus von Polynom(iellen Abbildung)en und symmetrischen Tensoren]
+Moralisch sind symmetrische Tensoren und Polynome dasselbe, also \enquote{natürlich} isomorph zueinander. Präzise lässt sich das wie folgt fassen:
 \begin{enumerate}
 \item Es sei $e_1, e_2, \ldots, e_n$ eine Basis von $V$. Der Raum der Polynome ist isomorph zu $\bigoplus_{m=0}^\infty \Sym^m(V)$. Der Isomorphismus ist die Einschränkung der Abbildung
 \[\left\lbrace\begin{array}{rcl}
 \bigoplus_{m=0}^\infty V^{\otimes m} &\to& \IK[x_1,\ldots,x_n] \\
 e_{i_1} \otimes e_{i_2} \otimes \cdots \otimes e_{i_m} &\mapsto& x_{i_1}\cdot x_{i_2} \cdots x_{i_m}
 \end{array}\right.\]
-Die umgekehrte Richtung ist durch $x_1^{k_1} \cdots x_n^{k_n} \mapsto q(e_1^{\otimes k_1} \otimes e_2^{\otimes k_2} \otimes \cdots \otimes e_n^{\otimes k_n})$ gegeben.
+auf $\Sym^n(V)$. Die umgekehrte Richtung ist durch $x_1^{k_1} \cdots x_n^{k_n} \mapsto q(e_1^{\otimes k_1} \otimes e_2^{\otimes k_2} \otimes \cdots \otimes e_n^{\otimes k_n})$ gegeben, wobei $q$ die Projektion auf $\Sym^n(V)$ ist.
 \end{enumerate}
 \smallbreak
-Diese Aussage ist nicht basis-frei und kann auch nicht basis-frei gemacht werden, da es in $\IK[x_1, \ldots, x_n]$ ja $n$ ausgezeichnete Elemente vom Grad 1 gibt, eben die Unbekannten. Jeder Isomorphismus würde also auch eine Basis von $V$ auszeichnen.
+Diese Aussage ist in dieser Form nicht basis-frei und kann auch nicht ohne Weiteres basis-frei gemacht werden, da es in $\IK[x_1, \ldots, x_n]$ ja $n$ ausgezeichnete Elemente vom Grad 1 gibt, eben die $n$ Unbekannten. Jeder Isomorphismus würde also auch eine Basis von $V$ auszeichnen.
 \smallbreak
 Eine moralisch äquivalente, basisfreie Aussage ist aber die folgende:
 \begin{enumerate}[resume]
@@ -86,6 +88,7 @@ Eine moralisch äquivalente, basisfreie Aussage ist aber die folgende:
 \bigoplus_{m=0}^\infty V^{\otimes m} &\to& \IK[V] \\
 v_{i_1} \otimes v_{i_2} \otimes \cdots \otimes v_{i_m} &\mapsto& (v\mapsto \braket{v_{i_1},v} \cdot \braket{v_{i_2},v} \cdots \braket{v_{i_m},v})
 \end{array}\right. \]
+auf $\Sym^n(V)$.
 \item In beiden Fällen gilt: Die Räume sind als Darstellungen der orthogonalen Gruppe isomorph; die angegebenen Isomorphismen sind $O_n$-linear.
 \end{enumerate}
 \end{theorem}
