@@ -181,8 +181,40 @@ Im Skript wurde behauptet:
 \textcolor{red}{(Und es sei erneut davor gewarnt, dass \enquote{berechnen} nicht \enquote{effizient berechnen} bedeutet)}
 \end{problem}
 
-\begin{problem}[title={Warum heißt das Spur?}]
-	Der Begriff Spur kommt einem üblicherweise als Summe der Diagonaleinträge einer Matrix unter. Überzeuge dich, dass es sich im Falle von 2-Tensoren um genau diese Operation handelt.
+
+\begin{problem}[title={Komplexifizierung}]
+Offensichtlich ist $\IR^n$ eine Teilmenge eines $\IC$-Vektorraums, nämlich $\IC^n$. Dies tritt häufiger auf: Der $\IR$-Vektorraum der Polynome mit reellen Koeffizienten $\IR[x_1,\ldots,x_n]$ Teilmenge des $\IC$-Vektorraums der Polynome mit komplexen Koeffizienten $\IC[x_1,\ldots,x_n]$, der $\IR$-Vektorraum der (stetigen/differenzierbaren/...) Funktionen $X\to\IR$ ist Teilmenge des $\IC$-Vektorraums der (stetigen/differenzierbaren/...) Funktionen $X\to\IC$.
+
+\smallbreak
+Ziel dieser Aufgabe ist es, zu zeigen, dass das kein Zufall ist, sondern dass wir jeden $\IR$-Vektorraum auf natürliche, basisfreie Weise als Teilmenge eines $\IC$-Vektorraums betrachten können, der sich \enquote{nur durch die Wahl der Koeffizienten von $V$ unterscheidet}.
+
+\begin{subproblem}
+Vorbereitung: Erinnere dich daran, dass $\IC$ auch als $\IR$-Vektorraum aufgefasst werden kann.
+
+Allgemeiner: Erinnere dich daran, dass jeder $\IC$-Vektorraum auch als $\IR$-Vektorraum aufgefasst werden kann. (Dies nennt man \udot{Restriktion der Skalare})
+\end{subproblem}
+
+\begin{subproblem}
+Definiere die \udot{Komplexifizierung} $V_\IC$ (auch \udot{Skalarerweiterung} genannt) als den folgenden $\IC$-Vektorraum: Seine Elemente sind dieselben wie die des $\IR$-Vektorraums $\IC\otimes_\IR V$ (=Tensorprodukt von $\IR$-Vektorräumen). Die Addition ist auch die des Tensorprodukts. Die Multiplikation mit Skalaren ist hingegen gegeben durch
+\[\forall z,w\in\IC, v\in V: z\cdot(w\otimes v) := (z\otimes w)\otimes v\]
+Zeige, dass diese Addition und Skalarmultiplikation wirklich einen $\IC$-Vektorraum definiert.
+\end{subproblem}
+
+\begin{subproblem}
+Überzeuge dich davon, dass die obigen Beispiele alle Komplexifizierungen sind.
+\end{subproblem}
+
+\begin{subproblem}
+Zeige, dass Skalarerweiterung die Dimension erhält in folgendem Sinne: $\dim_\IR(V) = \dim_\IC(V_\IC)$ (Wer es für nötig erachtet, darf sich wieder \enquote{für endlich-dimensionale $V$} dazudenken)
+\end{subproblem}
+
+\begin{subproblem}
+Was tut Restriktion der Skalare hingegen mit der Dimension?
+\end{subproblem}
+
+\begin{subproblem}
+Komplexifizierung ist \enquote{funktoriell}, also mit linearen Abbildungen verträglich: Ist $f:V\to W$ eine $\IR$-lineare Abbildung, dann ist $f_\IC: V_\IC\to W_\IC, z\otimes v \mapsto z\otimes f(v)$ eine $\IC$-lineare Abbildung. Es gilt $(\id_V)_\IC=\id_(V_\IC)$ und $(f\circ g)_\IC=f_\IC\circ g_\IC$.
+\end{subproblem}
 \end{problem}
 
 \end{sheet}
