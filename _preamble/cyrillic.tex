@@ -1,0 +1,80 @@
+%Make Cyrillic letters available for math mode
+\usepackage[T2A,T1]{fontenc}
+\DeclareSymbolFont{cyrillic}{T2A}{cmr}{m}{n}
+%\DeclareSymbolFont{cyrillic}{T2A}{cmr}{m}{n}
+\def\makecyrsymbol#1#2{%
+	\begingroup\edef\temp{\endgroup
+		\noexpand\DeclareMathSymbol{\noexpand#1}
+		{\noexpand\mathalpha}{cyrillic}%
+		{\expandafter\expandafter\expandafter
+			\calccyr\expandafter\meaning\csname T2A\string#2\endcsname\end}}%
+	\temp}
+\expandafter\def\expandafter\calccyr\string\char#1\end{#1}
+
+
+\makecyrsymbol\AAA\CYRA
+\makecyrsymbol\aaa\cyra
+\makecyrsymbol\Bae\CYRB
+\makecyrsymbol\bae\cyrb
+\makecyrsymbol\wae\CYRV
+\makecyrsymbol\wae\cyrv
+\makecyrsymbol\Gae\CYRG
+\makecyrsymbol\gae\cyrg
+\makecyrsymbol\Dae\CYRD
+\makecyrsymbol\dae\cyrd
+\makecyrsymbol\Jae\CYRE
+\makecyrsymbol\jae\cyre
+\makecyrsymbol\Jo\CYRYO
+\makecyrsymbol\jo\cyryo
+\makecyrsymbol\Zhae\CYRZH
+\makecyrsymbol\zhae\cyrzh
+\makecyrsymbol\sae\CYRZ
+\makecyrsymbol\sae\cyrz
+\makecyrsymbol\I\CYRI
+\makecyrsymbol\iii\cyri
+\makecyrsymbol\JJJ\CYRISHRT
+%\makecyrsymbol\j\cyrishrt
+\makecyrsymbol\Ka\CYRK
+\makecyrsymbol\ka\cyrk
+\makecyrsymbol\El\CYRL
+\makecyrsymbol\el\cyrl
+\makecyrsymbol\Em\CYRM
+\makecyrsymbol\emm\cyrm
+\makecyrsymbol\En\CYRN
+\makecyrsymbol\en\cyrn
+%\makecyrsymbol\O\CYRO
+\makecyrsymbol\ooo\cyro
+\makecyrsymbol\Pae\CYRP
+\makecyrsymbol\pae\cyrp
+\makecyrsymbol\Rae\CYRR
+\makecyrsymbol\rae\cyrr
+\makecyrsymbol\Ssae\CYRS
+\makecyrsymbol\ssae\cyrs
+\makecyrsymbol\Tae\CYRT
+\makecyrsymbol\tae\cyrt
+%\makecyrsymbol\U\CYRU
+%\makecyrsymbol\u\cyru
+\makecyrsymbol\Fae\CYRF
+\makecyrsymbol\fae\cyrf
+\makecyrsymbol\Xa\CYRH
+\makecyrsymbol\xa\cyrh
+\makecyrsymbol\Zae\CYRC
+\makecyrsymbol\zae\cyrc
+\makecyrsymbol\Tschae\CYRCH
+\makecyrsymbol\tschae\cyrch
+\makecyrsymbol\Scha\CYRSH
+\makecyrsymbol\scha\cyrsh
+\makecyrsymbol\Schta\CYRSHCH
+\makecyrsymbol\Schta\cyrshch
+\makecyrsymbol\Hart\CYRHRDSN
+\makecyrsymbol\hart\cyrhrdsn
+\makecyrsymbol\Iue\CYRERY
+\makecyrsymbol\iue\cyrery
+\makecyrsymbol\soft\CYRSFTSN
+\makecyrsymbol\soft\cyrsftsn
+\makecyrsymbol\Ae\CYREREV
+%\makecyrsymbol\ae\cyrerev
+\makecyrsymbol\Ju\CYRYU
+\makecyrsymbol\ju\cyryu
+\makecyrsymbol\Ja\CYRYA
+\makecyrsymbol\ja\cyrya
