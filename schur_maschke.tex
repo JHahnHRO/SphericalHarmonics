@@ -3,7 +3,8 @@
 \begin{remark}
 Wir wollen nun zwei Sätze beweisen und diskutieren, die die ersten beiden wirklich nichttrivialen Resultate und zugleich das Rückgrat der Darstellungstheorie bilden.
 
-Der erste Satz ist das Lemma von Schur.
+\smallbreak
+Der erste solche Satz ist das Lemma von Schur.\footnote{Man sagt ja, ein Mathematiker sei erst dann wirklich erfolgreich, wenn ein Lemma nach ihm benannt wurde...}
 \end{remark}
 
 \subsection{Lemma von Schur}
@@ -20,7 +21,7 @@ Sei $T$ eine endlich-dimensionale, irreduzible Darstellung von $G$ über dem Kö
 \begin{remark}
 Man beachte die starke Einschränkung, die die Struktur einer $G$-Darstellung bewirkt: Während es $\IK$-lineare Abbildungen wie Sand am Meer gibt und insbesondere $\End_\IK(T)$ streng monoton mit der Dimension von $T$ anwächst, hat $\End_{\IK G}(T)$ extrem wenige, für $\IK=\IC$ sogar nur einen Freiheitsgrad, solange $T$ irreduzibel ist.
 
-Das ist letztlich die Erklärung dafür, wieso wir relativ wenige \enquote{natürliche} Abbildungen zwischen Tensorräumen gefunden haben.
+Das ist letztlich die abstrakte Erklärung dafür, wieso wir relativ wenige \enquote{natürliche} Abbildungen zwischen Tensorräumen gefunden haben.
 \end{remark}
 
 \begin{proof}
@@ -43,8 +44,9 @@ Die Gruppen $G=O_3$ und $G=O_2$, die uns vor allem interessieren, haben interess
 \end{remark}
 
 \subsection{Satz von Maschke und Test auf Irreduzibilität}
+
 \begin{theorem}[Satz von Maschke]\label{darstellungen:maschke}
-Ist $G$ eine kompakte Gruppe und $T$ eine stetige, endlich-dimensionale Darstellung von $G$, dann ist $T$ \emph{halbeinfach}, d.h. $T$ ist die direkte Summe von einigen seiner einfachen Unterdarstellungen:
+Ist $G$ eine kompakte Gruppe und $T$ eine stetige, endlich-dimensionale Darstellung von $G$, dann ist $T$ \udot{halbeinfach}, d.h. $T$ ist die direkte Summe von einigen seiner einfachen Unterdarstellungen:
 \begin{enumerate}
 \item Es gibt irreduzible Unterdarstellungen $T_i$ mit $T=T_1\oplus T_2\oplus\cdots\oplus T_k$.
 \end{enumerate}
@@ -56,12 +58,12 @@ Speziell für unseren Fall $\IK\in\set{\IR,\IC}$ ist es sinnvoll, von Skalarprod
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-a. gilt allgemein für alle Körper $\IK$, aber wir zeigen nur den reellen/komplexen Fall. Dazu beginnen wir mit b.: Zunächst gibt es überhaupt ein Skalarprodukt $[,]: T\times T\to\IK$. Mit Hilfe des Mittelwerttricks können wir daraus ein $G$-invariantes Skalarprodukt zaubern:
+a. gilt allgemein für alle Körper, aber wir zeigen nur den reellen/komplexen Fall. Dazu beginnen wir mit b.: Zunächst gibt es überhaupt ein Skalarprodukt $[,]: T\times T\to\IK$. Mit Hilfe des Mittelwerttricks können wir daraus ein $G$-invariantes Skalarprodukt zaubern:
 \[\braket{v,w} := \int_G [gv,gw] \dd g\]
 Für jedes feste $g$ ist $(v,w) \mapsto [gv,gw]$ selbst ein Skalarprodukt. Der Mittelwert $\braket{,}$ ist also auch ein Skalarprodukt, weil es ein Grenzwert von (reellen, nicht-negativen) Linearkombinationen von Skalarprodukten ist. Nach Konstruktion ist es auch $G$-invariant.
 
 \smallbreak
-Daraus folgt nun a., denn wenn wir eine Unterdarstellung $U\leq T$ haben, dann ist das orthogonale Komplement (bzgl. $\braket{,}$) auch eine Unterdarstellung von $T$ und wir haben eine Zerlegung $T=U\oplus U^\perp$. Jetzt zerlegen wir $U$ und $U^\perp$ so lange weiter, bis wir nicht weiter zerlegen können (es gibt ein Ende, weil $T$ endlich-dimensional ist), weil es keine nichttrivialen, echten Untermoduln mehr gibt, d.h. bis wir bei irreduziblen Summanden angekommen sind.
+Daraus folgt nun a., denn wenn wir eine Unterdarstellung $U\leq T$ haben, dann ist das orthogonale Komplement (bzgl. $\braket{,}$) auch eine Unterdarstellung von $T$ und wir haben eine Zerlegung $T=U\oplus U^\perp$. Jetzt zerlegen wir die Darstellungen $U$ und $U^\perp$ so lange nach demselben Prinzip, bis wir nicht weiter zerlegen können (es gibt ein Ende, weil $T$ endlich-dimensional ist), weil es keine nichttrivialen, echten Unterdarstellungen mehr gibt, d.h. bis wir bei irreduziblen Summanden angekommen sind.
 
 \smallbreak
 c. folgt aus dem Lemma von Schur: Wenn ein beliebiges $G$-invariantes Skalarprodukt und $U,U'\leq T$ zwei irreduzible Unterdarstellungen sind, dann können wir die orthogonale Projektion bzgl. $\braket{,}$ auf $U$ betrachten und auf $U'$ einschränken. Damit erhalten wir eine $\IK G$-lineare Abbildung $U'\to U$. Wenn $U$ und $U'$ nicht isomorph sind, dann kann es keine bijektive $\IK G$-lineare Abbildung zwischen ihnen geben und laut dem Lemma von Schur ist die einzige andere Möglichkeit die Nullabbldung, d.h. $U$ und $U'$ sind senkrecht bzgl. $\braket{,}$.
