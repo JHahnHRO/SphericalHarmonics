@@ -5,32 +5,18 @@
 \begin{description}
 \item[Geschickte Basiswahl]
 Wie dem ein oder anderen aufgefallen sein wird, haben wir in dem vorherigen Kapitel Tensoren eingeführt, ohne eine Basis für deren Vektorraum zu benötigen oder vielleicht im Nachgang eine Basis zu konstruieren. Allgemeine Aussagen lassen sich schließlich auch weitgehend basisfrei, oder zumindest basis-unabhängig machen. 
-Jetzt wollen manche jedoch Tensoren nicht nur einfach so für ein bisschen hübsche Mathematik benutzen sondern tatsächlich mal ein Problem mit Zahlen (und zwar nicht nach dem Mathematiker-Prinzip ''Sei $a\in \IR$...'', sondern halt mal welche mit echten Ziffern) möglichst \emph{effizient} ausrechnen. Dafür möchte man meistens ab irgendeinem Punkt eine Basis wählen, idealerweise eine, die orthonormal bezüglich eines gewählten Skalarproduktes ist. 
+Jetzt wollen manche jedoch Tensoren nicht nur einfach so für ein bisschen hübsche Mathematik benutzen sondern tatsächlich mal ein Problem mit Zahlen (und zwar nicht nach dem Mathematiker-Prinzip \enquote{Sei $a\in \IR$...}, sondern halt mal welche mit echten Ziffern) möglichst \emph{effizient} ausrechnen. Dafür möchte man meistens ab irgendeinem Punkt eine Basis wählen, idealerweise eine, die orthonormal bezüglich eines gewählten Skalarproduktes ist.
 
 \medbreak
- Hieraus ließe sich recht simpel eine orthonormale Basis für den Tensorraum ableiten. Aber ist diese Basis auch eine gute Basis? Was macht eine ''gute'' Basis überhaupt aus?
-
-\medbreak
-Gehen wir zu unseren Ballwerfern Anna und Bernd zurück. Formulieren wir das gleiche Problem etwas um:
-
-\begin{gridmp}{\linewidth}
-	{\fontfamily{ptm}\selectfont
-	Anna und Bernd stehen 2.5 Meter voneinander entfernt in einer ebenen Wiese einer flachen Wand gegenüber. Beide haben einen Abstand zur Wand von 5 Metern. Anna hat einen Ball in der Hand und möchte ihn Bernd so zuwerfen, dass er einmal an der Wand abprallt und dann in Bernds Händen landet. Dabei soll der Ball den Boden nicht berühren. Berechne die Trajektorie vom Ball und die Kraft, mit der Anna den Ball abwerfen muss unter der Annahme von Reibungsfreiheit.}
-	\vspace{8cm}
-\end{gridmp}
-
-Welche Basis würde man am ehesten wählen, um diese Aufgabe zu lösen und warum? Welche Wahlfreiheiten haben wir? Gibt es mehr als eine sinnvolle Basis?
-
-\karos{14.5}{8.5} % Karos Breite,Höhe
+Hieraus ließe sich recht simpel eine orthonormale Basis für den Tensorraum ableiten. Aber ist diese Basis auch eine gute Basis? Was macht eine \enquote{gute} Basis überhaupt aus?
 
 Diese Frage lässt sich auch auf den Vektorraum der Tensoren übertragen. Wir werden genauer definieren, was es für eine Basis heißt, günstig gewählt zu sein und herausfinden, wie solch eine Basis für symmetrische Tensoren bzw. Polynome aussieht.
 
 \item[Einschränkung auf erlaubte lineare Abbildungen zwischen Tensoren und ihre Klassifikation]
-Wie für Tensoren bereits deutlich wurde, gibt es unendlich viele lineare Abbildungen zwischen den Tensorräumen. Jetzt wollen wir mit Tensoren jedoch meistens physikalische Probleme beschreiben, die bestimmten grundsätzlichen Symmetrien unterliegen. So wird z.B. ein Ball bei gleichen Bedingungen immer die gleiche Flugbahn haben, ganz egal wie wir das Koordinatensystem drehen, um die Flugbahn zu berechnen. Diese Erkenntnis lässt sich in mathematische Forderungen gießen, welche uns die linearen Abbildungen zwischen Tensoren als nur 4 Arten klassifizieren lässt.
+Wie für Tensoren bereits deutlich wurde, gibt es unendlich viele lineare Abbildungen zwischen den Tensorräumen. Jetzt wollen wir mit Tensoren jedoch meistens physikalische Probleme beschreiben, die bestimmten grundsätzlichen Symmetrien unterliegen. So wird z.B. ein Ball bei gleichen Bedingungen immer die gleiche Flugbahn haben, ganz egal wie wir das Koordinatensystem drehen, um die Flugbahn zu berechnen. Diese Erkenntnis lässt sich in mathematische Forderungen gießen, welche uns die \emph{natürlichen} linearen Abbildungen zwischen Tensoren klassifizieren lässt.
 
 \item[Berechnungen mit linearen Abbildungen]
-Wie wir zuvor gelernt haben, lässt sich im Prinzip jede multi-lineare Abbildung durch eine i.A. sehr große Matrix darstellen. Nun ist eine Berechnung dann besonders einfach (bzw. bei Nutzung eines Computers besonders schnell), wenn die Matrix viele 0en hat. Dies ist ein beliebter Grund in der angewandten Numerik, um einen Basiswechsel durchzuführen: Ziel ist es, die Basis so zu drehen, dass eine voll besetzte Matrix maximal viele 0 hat, da sich so bei hinreichend großen Dimensionen die Rechenzeit insgesamt stark reduziert. 
+Wie wir zuvor gelernt haben, lässt sich im Prinzip jede (multi-)lineare Abbildung durch eine i.A. sehr große Matrix darstellen. Nun ist eine Berechnung dann besonders einfach (bzw. bei Nutzung eines Computers besonders schnell), wenn diese Matrix viele Nullen hat. Dies ist ein beliebter Grund in der angewandten Numerik, um einen Basiswechsel durchzuführen: Ziel ist es, die Basis so zu drehen, dass eine voll besetzte Matrix maximal viele Nullen hat, da sich so bei hinreichend großen Dimensionen die Rechenzeit insgesamt stark reduziert. 
 
-Mit Hilfe der Darstellungstheorie können wir sogar einen Schritt weiter gehen - Wir werden für eine bestimmte Klasse von linearen Abbildungen eine Basis finden, die uns maximal viele 0en in der Matrix garantiert.
-
+Mit Hilfe der Darstellungstheorie können wir sogar einen Schritt weiter gehen -- Wir werden für eine bestimmte Klasse von linearen Abbildungen nicht nur Basen finden, die uns viele Nullen in der Matrix geben, sondern uns auch verstehen lässt, wieso diese Nullen da stehen.
 \end{description}
