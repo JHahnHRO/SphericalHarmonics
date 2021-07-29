@@ -1,23 +1,33 @@
 % !TeX root = spherical_harmonics.tex
 % !TeX spellcheck = de_DE
-\subsection{Natürliche Abbildungen} 
-Im Kontext unserer physikalischen Welt wollen wir Messungen von Quantitäten durchführen. Diese Quantitäten können unter anderem als Tensoren verstanden werden, z. B. beschreibt der Spannungstensor die Zug-, Druck- und Scherspannungen in einem Festkörper.
+\subsection{Natürliche Abbildungen}
 
-Eine fundamentale Eigenschaft, die wir von allen messbaren Quantitäten erwarten, ist, dass das Ergebnis der Messung unabhängig von der Wahl des Koordinatensystem ist. Ein bestimmter Geschwindigkeitsvektor sollte immer in die gleiche Richtung zeigen, völlig unabhängig davon, ob seine Koordinaten nun $(3,4,0)$ oder $(0,0,5)$ sind. Gleiches gilt für seine Länge, oder die Determinante einer Matrix. Generell sind wir an den Eigenschaften interessiert, die charakteristisch sind für das untersuchte System, nicht für das Koordinatensystem, mit dem wir das System untersuchen.
+\begin{remark}
+Im Kontext unserer physikalischen Welt wollen wir Messungen von Quantitäten durchführen. Diese Quantitäten können unter anderem als Zahlen, Vektoren oder Tensoren verstanden werden, z. B. beschreibt der Spannungstensor die Zug-, Druck- und Scherspannungen in einem Festkörper.
 
-Konkreter: Die Eigenschaften sollen \emph{unabhängig von der Orientierung} des Koordinatensystems sein, die Basisvektoren zu rotieren, zu invertieren oder zu spiegeln sollte den gemessenen Wert einer Eigenschaft nicht verändern.
+Eine fundamentale Eigenschaft, die wir von allen messbaren Quantitäten erwarten, ist, dass das Ergebnis der Messung unabhängig von der Wahl des Koordinatensystem ist. Ein bestimmter Geschwindigkeitsvektor sollte immer in die gleiche Richtung zeigen, völlig unabhängig davon, ob seine Koordinaten nun $(3,4,0)$ oder $(0,0,5)$ sind. Gleiches gilt für seine Länge, oder die Determinante einer Matrix (=das Volumen eines gewissen räumlichen Körpers). Generell sind wir an den Eigenschaften interessiert, die charakteristisch sind für das untersuchte System, nicht für das Koordinatensystem, mit dem wir das System untersuchen.
 
-Gleiches gilt auch bei Interaktionen in der physikalischen Welt, die Wirkung eines bestimmten Zustandes auf zukünftige Zustände ist ebenfalls völlig unabhängig von dem Koordinatensystem, mit dem wir den Zustand und seine Wirkung beschreiben.
+Konkreter: Die Eigenschaften sollen \emph{unabhängig von der Drehung und Orientierung} des Koordinatensystems sein; die Basisvektoren zu rotieren, zu invertieren oder zu spiegeln sollte den gemessenen Wert einer Eigenschaft nicht verändern.
 
-Diese Idee lässt sich mathematisch präzisieren, sobald einem klar ist, dass jeder physikalische Prozess eine Abbildung von einem Zustand in einen anderen ist. Auch eine Messung ist eine Abbildung vom Zustand auf eine Zahl.
+Gleiches gilt auch bei Interaktionen in der physikalischen Welt, die Wirkung eines bestimmten Zustandes auf zukünftige Zustände ist ebenfalls völlig unabhängig von dem Koordinatensystem, mit dem wir den Zustand und seine Wirkung beschreiben. Der resultierende Zustand muss also unabhängig von der Drehung/Spiegelung des Koordinatensystems sein. Dual dazu könnte man fordern: Dreht/spiegelt man den Input (und lässt dafür das Koordinatensystem gleich), so muss sich auch der Output genauso drehen/spiegeln.
+
+Diese Idee lässt sich mathematisch präzisieren, sobald einem klar ist, dass jeder physikalische Prozess eine Abbildung von einem Zustand in einen anderen ist, die mit der Gruppe $O_3$ verträglich ist. Auch eine Messung ist z.B. eine Abbildung vom Zustand auf eine Zahl.
+\end{remark}
 
 \begin{definition}[Natürliche Abbildungen]
-	Sei $\phi$ eine Abbildung von $X$ nach $Y$, mit $X,Y$ zwei Vektorräume und $G$ eine Gruppe. $\phi$ heißt \emph{natürlich}, oder \emph{$G$-kompatibel}, wenn 
+Es sei $G$ eine Gruppe, $X$ und $Y$ zwei Darstellungen von $G$ über $\IK$ und $\phi$ eine lineare Abbildung von $X$ nach $Y$. Wir nennen $\phi$ \emph{natürlich}\footnote{Es gibt eine allgemeinere, viel technischere Definition, was \enquote{natürlich} heißt, aber sie reduziert sich in den für uns wichtigen Fällen im Wesentlichen auf die hier gegebene Definition.}, wenn 
 	\begin{equation*}
 		\forall \rho\in G: \phi \circ \rho = \rho \circ \phi.
 	\end{equation*}
 \end{definition}
-In unserem Kurs behandeln wir nur lineare Abbildungen, wobei multi-lineare Abbildungen durch das Tensorprodukt linearisiert werden können. $G$ ist für uns typischerweise $O_3$, wir betrachten also $O_3$-kompatible, lineare Abbildungen.
+
+\begin{remark}
+D.h. mit den Worten aus dem Darstellungstheorie-Kapitel: Sie muss $\IK G$-linear sein.
+\end{remark}
+
+\begin{remark}
+In unserem Kurs behandeln wir nur lineare Abbildungen, wobei multi-lineare Abbildungen durch das Tensorprodukt linearisiert werden können. Wir könnten deshalb auch über natürliche polynomielle Abbildungen reden, wenn wir das wollten. $G$ ist für uns typischerweise $O_3$, wir betrachten also $\IK O_3$-lineare Abbildungen.
+\end{remark}
 
 \subsection{Vollständigkeit der Klassifikation der linearen Tensor-Abbildungen}
 Wenden wir uns nun den Abbildungen zwischen Tensoren zu. Wir haben sie im ersten Kapitel bereits klassifiziert mit folgendem Versprechen:
@@ -63,7 +73,7 @@ Dieser Schritt lässt sich an Hand eines farbigen Brauer-Diagramms verdeutlichen
 		\draw[blue] (h6) to [bend left=30] (h7);
 	\end{tikzpicture} &
 \end{align*}
-Um unser gewohntes Brauer-Diagramm zu erhalten, wenden wir außerdem den Isomorphismus zwischen $V^\ast$ und $V$ an und überführen die lineare Abbildung $V^{\otimes m} \to V^{\otimes n}$ in ein Element des Tensorraums $V^{\otimes m}\otimes V^{\otimes n}=V^{\otimes m+n}$:
+Um unser gewohntes Brauer-Diagramm zu erhalten, wenden wir außerdem den Isomorphismus $v\mapsto \braket{v,\cdot}$ zwischen $V$ und $V^\ast$ an und überführen die lineare Abbildung $V^{\otimes m} \to V^{\otimes n}$ in ein Element des Tensorraums $V^{\otimes m}\otimes V^{\otimes n}=V^{\otimes m+n}$:
 \begin{align*}
 	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
 		\foreach\x in {1,2,...,5}{
@@ -100,14 +110,15 @@ Um unser gewohntes Brauer-Diagramm zu erhalten, wenden wir außerdem den Isomorp
 Es ist noch zu klären, dass tatsächlich keine Abbildung übersehen wurde, z.B. weil sie nicht als Brauer-Diagramm darstellbar ist.
 Für diese Suche wenden wir wieder den Mittelwert-Trick an, diesmal mit einer kompakten Gruppe anstelle einer endlichen, d.h. wir integrieren anstelle zu summieren. Das Maß $|O_3|$ können wir wählen und setzen es auf $1$, unsere Projektion auf den Raum der Fixpunkte sieht also folgendermaßen aus:
 \begin{equation}
-	\Psi_{O_3}^{mn} : \left\lbrace\begin{array}{rcl}
-				V^{\ast \otimes m} \otimes V^{\otimes n} &\to& V^{\ast \otimes m} \otimes V^{\otimes n}
+	\Psi_{O_3}^{m,n} : \left\lbrace\begin{array}{rcl}
+				V^{\otimes m+n} &\to& V^{\otimes m+n}
 		\\
 			v &\mapsto& \int_{O_3} \rho(v) \dd \rho
 		\end{array}\right.
 \end{equation}
-Wir könnten nun allgemeine Tensoren auf ihre Fixpunkte projizieren, werden uns hier zunächst auf ein paar Beispiele einschränken (siehe Aufgabe \ref{aufg:TensorfixProj}).
+Wir könnten nun allgemeine Tensoren auf ihre Fixpunkte projizieren. Es ist als Übung sinnvoll, zunächst ein paar Beispiele explizit auszurechnen (siehe Aufgabe \ref{aufg:TensorfixProj}).
 
+\medbreak
 Den vollständigen Beweis führen wir nun per Induktion über $d:=\dim(V)$.
 
 Induktionsbehauptung: 
@@ -118,25 +129,24 @@ Dazu bestimmen wir zunächst den Fixpunktraum von $O_1$ dargestellt auf $\IR$:
 \[
 \int_{O_1} \rho (v^{\otimes n}) \dd \rho, v\in\IR
 \]
-Wir haben also für $d=1$ festgestellt, dass der Fixpunktraum mit geraden Potenzen von Casimir-Elementen aufgespannt wird, für einen bestimmten Tensorgrad $2n$ ist der Fixpunktraum eindimensional und wird von $v^{\otimes 2n}$ aufgespannt.
+Wir haben also für $d=1$ festgestellt, dass der Fixpunktraum mit geraden Potenzen von Casimir-Elementen aufgespannt wird, für einen bestimmten Tensorgrad $2n$ ist der Fixpunktraum eindimensional und wird von $v^{\otimes 2n}=\Omega^{\otimes n}$ aufgespannt.
 
-Induktionsschritt: 
-Für $d+1$ nutzen wir folgenden Zusammenhang, $ v_i\in\IR^{d+1}$ :
+\medbreak
+Induktionsschritt: Für $d+1$ nutzen wir folgenden Zusammenhang, $ v_i\in\IR^{d+1}$ :
 \begin{align*}
 \int_{O_{d+1}} \rho (v_1\otimes\cdots \otimes v_n) \dd \rho &= \int_{O_{d}} \int_{O_{d+1}} \tau(\rho (v_1\otimes\cdots \otimes v_n)) \dd \rho \dd \tau \\
 &=  \int_{O_{d+1}} \int_{O_{d}} \rho(\tau (v_1\otimes\cdots \otimes v_n)) \dd \tau \dd \rho
 \end{align*}
-wobei wir $O_d$ in $O_{d+1}$ auf bestimmte Weise einbetten. 
-Jede Einbettung von $O_d$ in $O_{d+1}$ wird eine ausgezeichnete Richtung haben, deren Unterraum von der Untergruppe nicht verändert wird. Wir wählen uns die Standardeinbettung so, dass $v_1$ von $O_d$ nicht verändert wird und zerlegen alle $v_i$ in zu $v_1$ senkrechte und parallele Anteile,
+wobei wir $O_d$ in $O_{d+1}$ auf bestimmte Weise einbetten: Jede Einbettung von $O_d$ in $O_{d+1}$ wird eine ausgezeichnete Richtung haben, deren Unterraum von der Untergruppe nicht verändert wird. Wir wählen uns die Standardeinbettung so, dass $v_1$ von $O_d$ nicht verändert wird und zerlegen alle $v_i$ in zu $v_1$ senkrechte und parallele Anteile,
 \[
-v_1\otimes\cdots \otimes v_n = v_1 \otimes (c_2 v_1 + s_2 v_2^\perp)\otimes \cdots \otimes (c_n v_1 + s_n v_n^\perp) .
+v_1\otimes\cdots \otimes v_n = v_1 \otimes (v_2^\parallel + v_2^\perp)\otimes \cdots \otimes (v_n^\parallel + v_n^\perp) .
 \]
-Damit ist
+wobei $v_i^\parallel=c_i v_1$ jeweils ein Vielfaches von $v_1$ ist. Damit ist
 \begin{align*}
-\tau(v_1\otimes\cdots \otimes v_n) &= \tau(v_1) \otimes (c_2 \tau(v_1) + s_2 \tau( v_2^\perp))\otimes \cdots \otimes (c_n \tau(v_1) + s_n \tau(v_n^\perp)) \\
-&= v_1 \otimes (c_2 v_1 + s_2 \tau(v_2^\perp))\otimes \cdots \otimes (c_n v_1 + s_n \tau(v_n^\perp)) .
+\tau(v_1\otimes\cdots \otimes v_n) &= \tau(v_1) \otimes (\tau(v_2^\parallel) + \tau(v_2^\perp))\otimes \cdots \otimes (\tau(v_n^\parallel) + \tau(v_n^\perp)) \\
+&= v_1 \otimes (c_2 v_1 + \tau(v_2^\perp))\otimes \cdots \otimes (c_n v_1 + \tau(v_n^\perp)) .
 \end{align*}
-Durch Ausmultiplizieren bekommen wir eine Summe von reinen Tensoren, in denen jeder Faktor parallel oder senkrecht zu $v_1$ ist. Für jeden reinen Tensor können wir uns eine Permutation aussuchen, die alle senkrechten Faktoren nach rechts schiebt und alle parallelen Faktoren nach links. Die Skalare $s_i$ und $c_i$ können in einer Konstante zusammengefasst werden, welche wir zur Einfachheit auf 1 setzen. Rechnen wir also o.B.d.A. mit dem Tensor
+Durch Ausmultiplizieren bekommen wir eine Summe von reinen Tensoren, in denen jeder Faktor parallel oder senkrecht zu $v_1$ ist. Für jeden reinen Tensor können wir uns eine Permutation aussuchen, die alle senkrechten Faktoren nach rechts schiebt und alle parallelen Faktoren nach links. Die Skalare $c_i$ können in einer Konstante zusammengefasst werden, welche wir zur Einfachheit auf 1 setzen. Rechnen wir also o.B.d.A. mit dem Tensor
 \[
  v_1^{\otimes l} \otimes \tau(v_{l+1}^\perp) \otimes \cdots \otimes \tau(v_n^\perp),
 \] 
