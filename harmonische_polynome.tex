@@ -28,16 +28,16 @@ Der Isomorphismus zwischen symmetrischen Tensoren und polynomiellen Abbildungen 
 \begin{enumerate}
 \item Die Darstellungen $STF^m(V)$ sind paarweise nicht isomorph und irreduzibel.
 \item Mit der Projektion $q$ auf die symmetrischen Tensoren gilt:
-\[Sym^m(V) \isomorphic STF^m(V) \oplus STF^{m-2}(V) \oplus STF^{m-4}(V) \oplus \cdots\]
+\[\Sym^m(V) \isomorphic STF^m(V) \oplus STF^{m-2}(V) \oplus STF^{m-4}(V) \oplus \cdots\]
 \end{enumerate}
 \end{theorem}
 \begin{proof}
 a. Wir betrachten die Möglichkeiten für $O_n$-lineare Abbildungen $f: STF^m(V) \to STF^k(V)$. Indem wir vorher die orthogonale Projektion auf $STF^m(V)$ anwenden und hinterher die Einbettung $STF^k(V) \to V^{\otimes k}$ können wir $f$ als Einschränkung einer $O_n$-lineare Abbildung $V^{\otimes m} \to V^{\otimes k}$ auffassen. Und wir wissen, wie solche Abbildungen aussehen. Was tun also die Brauer-Diagramme eingeschränkt auf $STF^m(V)$ ? Wenn auch nur eine Spur vorkommt, ist die Abbildung null, weil $STF^m$ ja der Kern der Spur(en) ist.
 
-Insbesondere muss also $m\leq k$ sein, damit es überhaupt Brauer-Diagramme geben kann, die auf $STF^m(V)$ nicht Null sind. Gäbe es eine von Null verschiedene $O_n$-lineare Abbildung $STF^m\to STF^k$, so müssten die beiden Darstellungen mindestens einen isomorphen irreduziblen Summanden haben. Die Umkehrabbildung auf diesem liefert eine von Null verschiedene $O_n$-lineare Abbildung in die andere Richtung; es müsste also mit dem gleichen Argument auch $m\geq k$ sein.
+Insbesondere muss also $m\leq k$ sein, damit es überhaupt Brauer-Diagramme geben kann, die auf $STF^m(V)$ nicht Null sind. Gäbe es eine von Null verschiedene $O_n$-lineare Abbildung $STF^m\to STF^k$, so müssten die beiden Darstellungen mindestens einen isomorphen irreduziblen Summanden haben (Satz von Maschke+Lemma von Schur). Die Umkehrabbildung auf diesem liefert eine von Null verschiedene $O_n$-lineare Abbildung in die andere Richtung; es müsste also mit dem gleichen Argument auch $m\geq k$ sein.
 
-Die Darstellungen sind also insbesondere paarweise nicht-isomorph. Wie viele Freiheitsgrade haben wir, um eine $O_n$-lineare Abbildung $STF^m\to STF^m$ festzulegen? Wir wissen, dass in Brauer-Diagrammen, die nicht die Null-Abbildung sind, keine Spuren vorkommen können. Weil $m=k$ ist, können also auch keine Casimir-Element-Einfügungen vorkommen; es muss sich um Permutationen handeln. Aber $STF^m \subseteq Sym^m$, d.h. alle Permutationsabbildungen sind dieselbe Abbildung auch $STF^m$. Das heißt, es gibt höchstens einen Freiheitsgrad. Aus der Umkehrung des Lemmas von Schur folgern wir, dass $STF^m$ irreduzibel sein muss.
+Die Darstellungen sind also insbesondere paarweise nicht-isomorph. Wie viele Freiheitsgrade haben wir, um eine $O_n$-lineare Abbildung $STF^m\to STF^m$ festzulegen? Wir wissen, dass in Brauer-Diagrammen, die nicht die Null-Abbildung sind, keine Spuren vorkommen können. Weil $m=k$ ist, können also auch keine Casimir-Element-Einfügungen vorkommen; es muss sich um Permutationen handeln. Aber $STF^m \subseteq\Sym^m$, d.h. alle Permutationsabbildungen sind dieselbe Abbildung auch $STF^m$. Das heißt, es gibt höchstens einen Freiheitsgrad. Aus der Umkehrung des Lemmas von Schur folgern wir, dass $STF^m$ irreduzibel sein muss.
 
 \medbreak
-b. Die Spur $Sym^m(V) \to Sym^{m-2}(V)$ ist eine surjektive, $O_n$-lineare Abbildung mit Kern $STF^m$. Das liefert uns einen Isomorphismus zwischen dem orthogonalen Komplement von $STF^m$ und $Sym^{m-2}(V)$, und somit $Sym^m(V) \isomorphic STF^m(V) \oplus Sym^{m-2}(V)$, woraus induktiv die Behauptung folgt.
+b. Die Spur $\Sym^m(V) \to \Sym^{m-2}(V)$ ist eine surjektive, $O_n$-lineare Abbildung mit Kern $STF^m$. Das liefert uns einen Isomorphismus zwischen dem orthogonalen Komplement von $STF^m$ und $\Sym^{m-2}(V)$, und somit $\Sym^m(V) \isomorphic STF^m(V) \oplus \Sym^{m-2}(V)$, woraus induktiv die Behauptung folgt.
 \end{proof}

@@ -12,7 +12,7 @@ Eine Spiegelung ist immer von der Form $\begin{psmallmatrix}\cos(\alpha)&\sin(\a
 Es sei $G$ eine kompakte, \emph{kommutative} Gruppe. Dann ist jede stetige, irreduzible, endlich-dimensionale Darstellung über $\IC$ eindimensional.
 \end{theorem}
 \begin{proof}
-Im Satz von Maschke \ref{darstellungen:maschke} haben wir gezeigt, dass man die Darstellung $\mathcal{D} : G \to GL(T)$ so wählen kann, dass sie ein Skalarprodukt invariant lässt, also jedes $\mathcal{D}(g)$ eine \emph{unitäre} Abbildung $T\to T$ ist.
+Im Satz von Maschke \ref{darstellungen:maschke} haben wir gezeigt, dass man die Darstellung $\mathcal{D} : G \to GL(T)$ so wählen kann, dass sie ein (komplexes) Skalarprodukt invariant lässt, also jedes $\mathcal{D}(g)$ eine \emph{unitäre} Abbildung $T\to T$ ist.
 
 Unitäre Abbildungen sind diagonalisierbar (siehe Aufgabe~\ref{ex:normale_matrizen}.\ref{ex:unitaere_matrizen_diagonalisierbar}). Da die Gruppe $G$ kommutativ ist, kommutieren die Abbildungen $\mathcal{D}(g)$ natürlich auch miteinander. Es ist ein Fakt der linearen Algebra (und keine schwere Übungsaufgabe, siehe Aufgabe~\ref{ex:simultan_diagonalisieren}), dass man kommutierende, diagonalisierbare Abbildungen auch \emph{simultan} diagonalisieren kann, d.h. man kann eine Basis $b_1, \ldots, b_n$ von $T$ aus \emph{gemeinsamen} Eigenvektoren finden, sodass also
 \[\forall g: g\cdot b_i = \lambda_i(g) b_i\]
@@ -54,7 +54,11 @@ Per Induktion erfüllen also alle Drehungen um $\frac{2\pi}{2^l n}$ die Gleichun
 \end{proof}
 
 \begin{remark}
-Wenn man den komplexen Fall einmal hat, kann man den reellen Fall daraus folgern.
+Man beachte, dass uns diese zwei Sätze auch konkret sagen, wie man eine beliebige Darstellung $\mathcal{D}:SO_2\to GL(T)$ in ihre irreduziblen Bestandteile zerlegt: Man wähle eine Drehung $\rho\in SO_2$ um einen hinreichend generisch gewählten Winkel $\alpha$ und zerlege $T$ in Eigenräume von $\mathcal{D}(t)$. Dies sind $SO_2$-Unterdarstellungen. Wenn man $\alpha$ zufällig wählt, hat man mit Wahrscheinlichkeit eins schon alle Eigenräume eindimensional, ansonsten wählt man sich einfach noch mehr $\alpha$ zufällig dazu und zerlegt auch noch in deren Eigenräume. Der erste Satz uns, dass wir irgendwann bei eindimensionalen Unterräumen ankommt, die dann die irreduziblen Bestandteile sind. Der zweite Satz sagt uns konkret, welche Eigenwerte überhaupt für eine Drehung um $\alpha$ in Frage kommen, nämlich genau $e^{ik\alpha}$ für $k\in\IZ$ und solange wir die Eigenwerte kennen, ist die Eigenraum-Zerlegung sehr einfach.
+\end{remark}
+
+\begin{remark}
+Wenn man den komplexen Fall einmal hat, könnte man den reellen Fall daraus folgern.
 \end{remark}
 
 \begin{corollary}[Darstellungstheorie von $SO_2$ über $\IK=\IR$]
@@ -68,7 +72,7 @@ für eine natürliche Zahl $k>0$ isomorph und diese Darstellungen sind paarweise
 \begin{remark}
 Wenn man nun die Spiegelungen hinzunimmt, ist die Gruppe nicht länger kommutativ. Eine wichtige Beobachtung ist, dass in $O_2$ die Drehung um $\alpha$ und die Drehung um $-\alpha$ zueinander konjugiert sind. Wenn wir Darstellungen also in Termen von Charakteren klassifizieren wollten, dann halten wir fest, dass Charaktere von $O_2$ nicht zwischen diesen beiden unterscheidet.
 
-Andererseits können wir natürlich jede $O_2$-Darstellung auf $SO_2$ einschränken und in irreduzible Bestandteile bzgl. $SO_2$ zerlegen, deren Charaktere wir jetzt kennen. Der Wert $\chi_T(\rho_\alpha)$ muss also eine Summe von Exponentialfunktionen sein. Welche solche Summen unterscheiden nicht zwischen $\alpha$ und $-\alpha$ ? $2\cos(\alpha) = e^{i\alpha k} + e^{-i\alpha k}$ und Kombinationen davon.
+Andererseits können wir natürlich jede $O_2$-Darstellung auf $SO_2$ einschränken und in irreduzible Bestandteile bzgl. $SO_2$ zerlegen, deren Charaktere wir jetzt kennen. Der Wert $\chi_T(\rho_\alpha)$ muss eine Summe von Exponentialfunktionen sein. Welche solche Summen unterscheiden nicht zwischen $\alpha$ und $-\alpha$ ? Cosinus-Funktionen! $2\cos(\alpha) = e^{i\alpha k} + e^{-i\alpha k}$ und Summen davon.
 \end{remark}
 
 \begin{theorem}[Darstellungstheorie von $O_2$]
@@ -105,7 +109,7 @@ Unsere Behauptung ist u.A., dass es keine weiteren, uns noch unbekannten irreduz
 Wir haben schon festgestellt, dass in $O_2$ die Charakterwerte eingeschränkt auf $SO_2$ immer die Form $\chi(\rho_\alpha) = \sum_{k\in\IZ} a_k\cdot  e^{ik\alpha}$ mit $a_k=a_{-k}\in\IN$ haben müssen. Wenn wir nun ausnutzen, dass $\braket{\chi_k,\chi}_{O_2}=0$ sein müsste aufgrund der Orthogonalitätsrelation, dann folgern wir $a_k=0$ für $k\neq 0$, d.h. $\chi(\rho_\alpha)=a_0$ ist konstant auf $SO_2$. Das Komplement von $SO_2$ besteht ausschließlich aus Spiegelungen und die sind alle zueinander konjugiert, sodass $\chi$ auch auf dem Komplement $O_2\setminus SO_2$ konstant sein muss. Die Orthogonalitätsrelation $\braket{1,\chi}_{O_2}=0$ impliziert dann, dass die Konstante auf dem Komplement genau $-a_0$ sein muss, d.h. $\chi = a_0\cdot \det$. Wegen der Irreduzibilität muss $a_0=1$ sein.
 
 \medbreak
-Damit ist also insbesondere zeigt, dass die Darstellungen $STF^k(V)$, die wir schon vor der Charaktertheorie als irreduzibel erkannt hatten, irgendwo in der Liste vorkommen müssen. Wir nutzen aus, dass $STF^k(V)$ zum Raum der homogenen, harmonischen Polynome in zwei Variablen vom Grad $k$ isomorph ist.
+Damit ist also insbesondere zeigt, dass die Darstellungen $STF^k(V)$, die wir schon vor der Charaktertheorie als irreduzibel erkannt hatten, irgendwo in der Liste vorkommen müssen. Wir müssen nur noch herausfinden, wo. Wir nutzen aus, dass $STF^k(V)$ zum Raum der homogenen, harmonischen Polynome in zwei Variablen vom Grad $k$ isomorph ist.
 
 Für Polynome in zwei Variablen kann man zufällig explizit die harmonischen hinschreiben: Es sind genau die Real- und Imaginärteile der Polynome in einer komplexen Variable. In Grad $k$ haben wir also $\Re((x+iy)^k)$ und $\Im((x+iy)^k)$ als Basis des Raums der harmonischen Polynome vom Grad $k$. Auf $\IR^2$, also der komplexen Ebene operiert $SO_2$ durch einfache Drehung, also Multiplikation mit $e^{i\alpha}$. Im Polynomraum wird also insbesondere $z^k$ auf $e^{ik\alpha}z^k$ abgebildet, d.h. auf den Grad-$k$-Polynomen operiert $SO_2$ durch $k$-fache Drehung, also muss es die irreduzible Darstellung $\mathcal{D}_k$ sein.
 \end{proof}
