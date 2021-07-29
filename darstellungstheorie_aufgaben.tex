@@ -4,20 +4,20 @@
 
 \begin{problem}[title={Komische Minus Einsen: Invertieren für die Assoziativitätsbedingung}, difficulty=leicht]\label{ex:invertieren_fuer_linksmoduln}
 \begin{subproblem}
-In den Beispielen wurde definiert, dass die symmetrische Gruppe $Sym(m)$ durch
-\[\sigma \cdot (v_1,\ldots,v_m) := (v_{\sigma^{-1}(1)}, \ldots, v_{\sigma^{-1}(m)})\]
-auf $K^m$ auf der Tensorpotenz $V^{\otimes m}$ durch
+In den Beispielen wurde definiert, dass die symmetrische Gruppe $S_m$ durch
+\[\sigma \cdot (x_1,\ldots,x_m) := (x_{\sigma^{-1}(1)}, \ldots, x_{\sigma^{-1}(m)})\]
+auf $\IK^m$ auf der Tensorpotenz $V^{\otimes m}$ durch
 \[\sigma \cdot v_1\otimes\cdots\otimes v_m := v_{\sigma^{-1}(1)}\otimes \cdots \otimes v_{\sigma^{-1}(m)} \]
 operiert.
 \end{subproblem}
 \begin{subproblem}
-Ebenfalls definiert wurde, dass bei einer gegebenen Darstellung $V$ der Dualraum $V^\ast := \Hom_K(V,K)$ zu einer Darstellung derselben Gruppe wird, indem man sie durch
-\[g\cdot \phi := v\mapsto \phi(g^{-1}v)\]
+Ebenfalls definiert wurde, dass bei einer gegebenen Darstellung $T$ der Dualraum $T^\ast := \Hom_K(T,K)$ zu einer Darstellung derselben Gruppe wird, indem man sie durch
+\[g\cdot \phi := t\mapsto \phi(g^{-1}t)\]
 operieren lässt.
 \end{subproblem}
 \begin{subproblem}
-Ebenfalls definiert wurde, dass $G=GL_n(\IK)$ auf $V:=\IK[X_1, ..., X_n]$ dem Raum der polynomiellen Abbildungen durch
-\[g\cdot p := v\mapsto p(g^{-1}X)\]
+Ebenfalls definiert wurde, dass $G=GL_n(\IK)$ auf $T:=\IK[X_1, ..., X_n]$ dem Raum der polynomiellen Abbildungen durch
+\[g\cdot p := X\mapsto p(g^{-1}X)\]
 operieren lässt.
 \end{subproblem}
 
@@ -25,51 +25,47 @@ Beweise, dass das Invertieren in diesen Definitionen nötig ist, damit die Assoz
 \end{problem}
 
 \begin{problem}[title={Darstellung der symmetrischen Gruppe mit Matrizen}]
-Wie lautet die Matrixdarstellung zu der obigen Darstellung von $Sym(m)$ auf $K^m$ ?
+Wie lautet die Matrixdarstellung zu der obigen Darstellung von $S_m$ auf $\IK^m$ ?
 \end{problem}
 
 \begin{problem}[title={Dualisiere eine Matrixdarstellung}]
-Wenn $\mathcal{D}: G\to K^{n\times n}$ eine Matrixdarstellung von $G$ auf $V$ bzgl. irgendeiner fest gewählten Basis $B\subseteq V$ ist, wie lautet die Matrixdarstellung $\mathcal{D}^\ast$ der dualen Darstellung von $G$ auf dem Dualraum $V^\ast$ bzgl. der dualen Basis $B^\ast$ ?
+Wenn $\mathcal{D}: G\to\IK^{n\times n}$ eine Matrixdarstellung von $G$ auf $T$ bzgl. irgendeiner fest gewählten Basis $B\subseteq T$ ist, wie lautet die Matrixdarstellung $\mathcal{D}^\ast$ der dualen Darstellung von $G$ auf dem Dualraum $T^\ast$ bzgl. der dualen Basis $B^\ast$ ?
 \end{problem}
 
 \begin{problem}[title={Basiswechsel einer Darstellung}]
-Wenn $\mathcal{D}$ und $\mathcal{D}'$ zwei Matrixdarstellungen derselben Darstellung von $G$ auf $V$ sind, d.h. $\mathcal{D}$ bzgl. einer Basis $B$ und $\mathcal{D}'$ bzgl. einer zweiten Basis $B'$ gedacht ist, und wenn $S$ die Basiswechselmatrix von $B$ nach $B'$ ist, was ist dann der Zusammenhang zwischen $\mathcal{D}$, $S$und $\mathcal{D}'$ ?
+Wenn $\mathcal{D}, \mathcal{D}': G\to GL_n(\IK)$ zwei Matrixdarstellungen derselben Darstellung von $G$ auf $T$ sind, d.h. $\mathcal{D}$ bzgl. einer Basis $B$ und $\mathcal{D}'$ bzgl. einer zweiten Basis $B'$ gedacht ist, und wenn $Sin GL_n(\IK)$ die Basiswechselmatrix von $B$ nach $B'$ ist, was ist dann der Zusammenhang zwischen $\mathcal{D}$, $S$und $\mathcal{D}'$ ?
 \end{problem}
 
 \begin{problem}[title={Isomorphismus zwischen Tensorprodukt und linearen Abbildungen}]\label{ex:hom_tensor_isomorphismus}
 \begin{subproblem}
-Es seien $V$ und $W$ zwei endlich-dimensionale Darstellungen von $G$. Man beweise, dass die beiden Darstellungen $\Hom_K(V,W)$ und $V^\ast \otimes W$ via
-\[\alpha: V^\ast \otimes W \to \Hom_K(V,W), \phi \otimes w \mapsto (v\mapsto \phi(v)w)\]
+Es seien $U$ und $T$ zwei endlich-dimensionale Darstellungen von $G$. Man beweise, dass die beiden Darstellungen $\Hom_\IK(U,T)$ und $U^\ast \otimes T$ via
+\[\alpha: U^\ast \otimes T \to \Hom_\IK(U,T), \phi \otimes t \mapsto (u\mapsto \phi(u)t)\]
 isomorph sind.
 \end{subproblem}
 
-Insbesondere erhalten wir im Spezialfall $V=W$ einen Isomorphismus zwischen $V^\ast\otimes V$ und $\Hom_K(V,V)$.
+Insbesondere erhalten wir im Spezialfall $U=T$ einen Isomorphismus zwischen $U^\ast\otimes U$ und $\End_\IK(U)$.
 
 \begin{subproblem}
-Für $V=W$, wie lautet der Tensor, der durch $\alpha$ auf $\id_V$ abgebildet wird?
-\end{subproblem}
-
-\begin{subproblem}
-Zeige: Die Auswertungsabbildung $\varepsilon: V^\ast \otimes V \to K, \phi\otimes v\mapsto \phi(v)$ ist $G$-linear.
+Für $U=T$, wie lautet der Tensor, der durch $\alpha$ auf $\id_U$ abgebildet wird?
 \end{subproblem}
 
 \begin{subproblem}
-$\varepsilon\circ\alpha^{-1}$ ist eine $G$-lineare Abbildung $\beta: \Hom_K(V,V) \to K$. Welche?
+Zeige: Die Auswertungsabbildung $\varepsilon: U^\ast \otimes U \to \IK, \phi\otimes u\mapsto \phi(u)$ ist $G$-linear.
 \end{subproblem}
+
 \begin{subproblem}
-	Matrizen und 2-Tensoren sind einander sehr ähnlich, so ähnlich sogar, dass sie zueinander isomorph sind. Gegeben ein $K$-Vektorraum $V$ der Dimension $n$. Genauer: Der Raum der Matrizen $K^{n\times n}$ und $V\otimes V^\ast$ sind isomorph zueinander. Wir wollen nun diesen Isomorphismus genauer betrachten.
-	
-	$V\otimes V$, $V\otimes V^\ast$, $V^\ast \otimes V^\ast$
+$\varepsilon\circ\alpha^{-1}$ ist eine $G$-lineare Abbildung $\beta: \End_\IK(U) \to K$. Welche?
 \end{subproblem}
+
 \end{problem}
 
 
-\begin{problem}[title={Reduzibilität von $V\otimes V$}]
-Zeige, dass $V\otimes V$ niemals irreduzibel ist, wenn $\dim(V) \neq 1$ ist.
+\begin{problem}[title={Reduzibilität von $T\otimes T$}]
+Zeige, dass $T\otimes T$ (und entsprechend auch keine höhere Tensorpotenz) niemals irreduzibel ist, wenn $\dim(T) \neq 1$ ist.
 \end{problem}
 
-\begin{problem}[title={Irreduzibilität von $V^\ast\implies$ Irreduzibilität von $V$?}]
-Zeige, dass $V$ irreduzibel ist, wenn $V^\ast$ es ist.
+\begin{problem}[title={Irreduzibilität von $T^\ast\implies$ Irreduzibilität von $T$?}]
+Zeige, dass $T$ irreduzibel ist, wenn $T^\ast$ es ist.
 \end{problem}
 
 \begin{problem}[title={Kanonische Darstellung von $SO_2$}]\label{ex:fundamentaldarstellung_von_so2}

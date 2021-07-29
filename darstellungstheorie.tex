@@ -6,10 +6,10 @@
 \begin{definition}[Darstellungen]\label{darstellungen:def}
 Sei $G$ eine Gruppe und $\IK$ ein Körper. Eine \emph{Darstellung von $G$ über $\IK$} besteht aus
 \begin{itemize}
-	\item einem $\IK$-Vektorraum $V$,
-	\item einer Abbildung $\cdot: G \times V \to V, (g,v) \mapsto g\cdot v$, genannt \enquote{Operation} (der Gruppe auf dem Vektorraum),
+	\item einem $\IK$-Vektorraum $T$,
+	\item einer Abbildung $\cdot: G \times T \to T, (g,t) \mapsto g\cdot t$, genannt \enquote{Operation} (der Gruppe auf dem Vektorraum),
 \end{itemize}
-die die Axiome in Tabelle \ref{darstellungen:def_table} erfüllen. Man sagt auch \enquote{$G$ operiert auf dem Vektorraum $V$} statt \enquote{$V$ ist eine Darstellung von $G$}.
+die die Axiome in Tabelle \ref{darstellungen:def_table} erfüllen. Man sagt auch \enquote{$G$ operiert auf dem Vektorraum $T$} statt \enquote{$T$ ist eine Darstellung von $G$}.
 
 \begin{table}[!ht]
 	\setlength\extrarowheight{10pt} % for a bit of visual "breathing space"
@@ -18,22 +18,22 @@ die die Axiome in Tabelle \ref{darstellungen:def_table} erfüllen. Man sagt auch
 		\toprule
 		\textbf{Axiome von Darstellungen}                    & \textbf{Bedeutung} \\
 		\midrule
-        \hspace{1cm}Linearität                               & $\forall g\in G: (V\to V, v\mapsto g\cdot v)$ ist eine lineare Abbildung \\
-		\hspace{1cm}Assoziativität                           & $\forall g,h\in G\forall v\in V: g\cdot (h\cdot v)=(g\cdot h)\cdot v$  \\
-		\hspace{1cm}Nichttrivialität/Normierung              & $\forall v\in V: 1_G\cdot v=v$  \\
+        \hspace{1cm}Linearität                               & $\forall g\in G: (T\to T, v\mapsto g\cdot v)$ ist eine lineare Abbildung \\
+		\hspace{1cm}Assoziativität                           & $\forall g,h\in G\forall v\in T: g\cdot (h\cdot v)=(g\cdot h)\cdot v$  \\
+		\hspace{1cm}Nichttrivialität/Normierung              & $\forall v\in T: 1_G\cdot v=v$  \\
 		\textbf{Axiome von Homomorphismen}                   & \textbf{Bedeutung} \\
         \midrule
-        \hspace{1cm}$\IK$-Linearität & $f$ ist eine lineare Abbildung $V\to W$ \\
-        \hspace{1cm}$G$-Linearität & $\forall g\in G, v\in V: f(g\cdot v) = g\cdot f(v)$ \\
+        \hspace{1cm}$\IK$-Linearität & $f$ ist eine lineare Abbildung $U \to T$ \\
+        \hspace{1cm}$G$-Linearität & $\forall g\in G, u\in U: f(g\cdot u) = g\cdot f(u)$ \\
         \bottomrule
 	\end{tabularx}
 	\caption{Definierende Eigenschaften von Darstellungen und Homomorphismen zwischen Darstellungen}
     \label{darstellungen:def_table}
 \end{table}
 
-Sind $V,W$ zwei Darstellungen von $G$ und $f: V\to W$ eine Abbildung, so heißt $f$ \emph{Homomorphismus} oder \emph{$\IK G$-lineare Abbildung}, falls die beiden Axiome in Tabelle \ref{darstellungen:def_table} erfüllt sind. Den Raum aller $\IK G$-linearen Abbildungen von $V$ nach $W$ bezeichnen wir mit $\Hom_{\IK G}(V,W)$. Eine $\IK G$-linearen Abbildung von $V$ nach $V$ (also gleicher Definitions- und Zielraum) heißt \emph{Endomorphismus}, der Raum aller solcher Abbildungen wird mit $\End_{\IK G}(V)$ notiert.
+Sind $U,T$ zwei Darstellungen von $G$ und $f: U\to T$ eine Abbildung, so heißt $f$ \emph{Homomorphismus} oder \emph{$\IK G$-lineare Abbildung}, falls die beiden Axiome in Tabelle \ref{darstellungen:def_table} erfüllt sind. Den Raum aller $\IK G$-linearen Abbildungen von $T$ nach $W$ bezeichnen wir mit $\Hom_{\IK G}(U,T)$. Eine $\IK G$-linearen Abbildung von $T$ nach $T$ (also gleicher Definitions- und Zielraum) heißt \emph{Endomorphismus}, der Raum aller solcher Abbildungen wird mit $\End_{\IK G}(T)$ notiert.
 
-Existiert ein Homomorphismus $f': W\to V$ mit $f\circ f'=f'\circ f=\id$, so nennt man $f$ \emph{Isomorphismus} der Darstellungen.
+Existiert ein Homomorphismus $f': V\to U$ mit $f\circ f'=f'\circ f=\id$, so nennt man $f$ \emph{Isomorphismus} der Darstellungen.
 \end{definition}
 
 \begin{convention}
@@ -43,49 +43,49 @@ Wir werden uns außerdem ausschließlich für die Fälle $\IK=\IC$ und ein bissc
 \end{convention}
 
 \begin{remark}
-Eine Darstellung kann alternativ aufgefasst werden als Gruppenhomomorphismus $G\to GL(V)$: Jedem Gruppenelement $g\in G$ wird die (invertierbare!) lineare Abbildung $v\mapsto g\cdot v$ zugeordnet. Ist umgekehrt ein Gruppenhomomorphismus $\mathcal{D}: G\to GL(V)$ gegeben, so kann man $V$ als $G$-Darstellung auffassen, indem man $g\cdot v:=\mathcal{D}(g)(v)$ definiert.
+Eine Darstellung kann alternativ aufgefasst werden als Gruppenhomomorphismus $G\to GL(T)$: Jedem Gruppenelement $g\in G$ wird die (invertierbare!) lineare Abbildung $v\mapsto g\cdot v$ zugeordnet. Ist umgekehrt ein Gruppenhomomorphismus $\mathcal{D}: G\to GL(T)$ gegeben, so kann man $T$ als $G$-Darstellung auffassen, indem man $g\cdot v:=\mathcal{D}(g)(v)$ definiert.
 
-Diese beiden Sichtweisen sind völlig identisch und beliebig austauschbar. Je nach Situation kann es einfacher sein, einen Homomorphismus nach $GL(V)$ oder direkt die Operation der Gruppe auf $V$ zu definieren.
+Diese beiden Sichtweisen sind völlig identisch und beliebig austauschbar. Je nach Situation kann es einfacher sein, einen Homomorphismus nach $GL(T)$ oder direkt die Operation der Gruppe auf $T$ zu definieren.
 
 \medbreak
-Hat man aus irgendeinem Grund eine Basis von $V$ gegeben, kann man bekanntlich lineare Abbildungen mit Matrizen identifizieren. Eine Darstellung ist in dieser Sichtweise dann eine Abbildung ${D}: G\to \IK^{n\times n}$, die jedem Gruppenelement $g\in G$ eine (invertierbare) Matrix $D(g)$ zuordnet, sodass $D(1)=1_{n\times n}$ und $D(g\cdot h)=D(g)\cdot D(h)$ erfüllt sind. Solch eine Abbildung nennt man dann auch \udot{Matrixdarstellung}.
+Hat man aus irgendeinem Grund eine Basis von $T$ gegeben, kann man bekanntlich lineare Abbildungen mit Matrizen identifizieren. Eine Darstellung ist in dieser Sichtweise dann eine Abbildung ${D}: G\to \IK^{n\times n}$, die jedem Gruppenelement $g\in G$ eine (invertierbare) Matrix $D(g)$ zuordnet, sodass $D(1)=1_{n\times n}$ und $D(g\cdot h)=D(g)\cdot D(h)$ erfüllt sind. Solch eine Abbildung nennt man dann auch \udot{Matrixdarstellung}.
 \end{remark}
 
 \begin{example}
 \begin{itemize}
-\item $GL(V)$ operiert auf $V$ via $g\cdot v := g(v)$, die sogenannte \udot{natürliche} oder \udot{kanonische} Darstellung.
+\item $GL(T)$ operiert auf $T$ via $g\cdot v := g(v)$, die sogenannte \udot{natürliche} oder \udot{kanonische} Darstellung.
 \item Die symmetrische Gruppe $S_m$ operiert auf $\IK^m$ durch Vertauschen der Komponenten (die sogenannte \udot{Permutations-} oder \udot{kanonische Darstellung}):
-\[\sigma \cdot (v_1,\ldots,v_m) := (v_{\sigma^{-1}(1)}, \ldots, v_{\sigma^{-1}(m)})\]
-und auf der Tensorpotenz $V^{\otimes m}$ durch Vertauschen der Faktoren:
+\[\sigma \cdot (x_1,\ldots,x_m) := (x_{\sigma^{-1}(1)}, \ldots, x_{\sigma^{-1}(m)})\]
+und auf der Tensorpotenz $T=V^{\otimes m}$ durch Vertauschen der Faktoren:
 \[\sigma \cdot v_1\otimes\cdots\otimes v_m := v_{\sigma^{-1}(1)}\otimes \cdots \otimes v_{\sigma^{-1}(m)} \]
-(Aufgabe \ref{ex:invertieren_fuer_linksmoduln}: Beweise, dass das $^{-1}$ wirklich notwendig ist)
-\item Jede beliebige Gruppe hat \udot{triviale Darstellungen}, nämlich für jeden beliebigen Vektorraum $V$:
+\item Jede beliebige Gruppe hat \udot{triviale Darstellungen}, nämlich für jeden beliebigen Vektorraum $T$:
 \[g\cdot v := v\]
-Spricht man von \emph{der} trivialen Darstellung meint man damit diejenige mit $V=\IK$.
-\item Die symmetrische Gruppe hat eine nichttriviale, eindimensionale Darstellung mit $V=\IK$, das \udot{Signum} $\sgn: G\to\IK$:
+Spricht man von \emph{der} trivialen Darstellung meint man damit diejenige mit $T=\IK$.
+\item Die symmetrische Gruppe hat eine nichttriviale, eindimensionale Darstellung mit $T=\IK$, das \udot{Signum} $\sgn: G\to\IK$:
 \[\sgn(\sigma) := \begin{cases} -1 & \text{falls $\sigma$ ungerade viele Inversionen enthält} \\ +1 & \text{andernfalls}\end{cases}\]
-\item Der Raum $V:=\IK[X_1, \ldots, X_n]$ der Polynome in $n$ Variablen mit Koeffizienten aus $\IK$ ist eine Darstellung für die Gruppe $G=GL_n(\IK)$ der invertierbaren $n\times n$-Matrizen via:
+\item Der Raum $T:=\IK[X_1, \ldots, X_n]$ der Polynome in $n$ Variablen mit Koeffizienten aus $\IK$ ist eine Darstellung für die Gruppe $G=GL_n(\IK)$ der invertierbaren $n\times n$-Matrizen via:
 \[g\cdot p := p\left(\sum_{i=1}^n (g^{-1})_{1i} X_i, \sum_{i=1}^n (g^{-1})_{2i} X_i, \ldots, \sum_{i=1}^n (g^{-1})_{ni} X_i\right)\]
-Für $\IK=\IR$ oder $\IC$ können wir $V$ auch als Raum der polynomiellen Abbildungen $\IK^n \to \IK$ auffassen. Dann schreibt sich dieselbe Definition etwas einfacher als
+Für $\IK=\IR$ oder $\IC$ können wir $T$ auch als Raum der polynomiellen Abbildungen $\IK^n \to \IK$ auffassen. Dann schreibt sich dieselbe Definition etwas einfacher als
 \[g \cdot p := X\mapsto p(g^{-1}(X))\]
-(Aufgabe \ref{ex:invertieren_fuer_linksmoduln}: Beweise, dass das $^{-1}$ wirklich notwendig ist)
 \end{itemize}
+(Aufgabe \ref{ex:invertieren_fuer_linksmoduln}: Beweise, dass das $^{-1}$, das ab und zu auftrat, wirklich notwendig ist)
 \end{example}
 
 \subsection{Wie kann ich mir eine Darstellung basteln?}
 \begin{lemmadef}[Neue Darstellungen aus vorhandenen]
-Sei $G$ eine Gruppe und $V,W$ Darstellungen von $G$ über einem festen Körper $\IK$. Die folgenden sind dann auch Darstellungen von $G$:
+Sei $G$ eine Gruppe und $U,T$ Darstellungen von $G$ über einem festen Körper $\IK$. Die folgenden sind dann auch Darstellungen von $G$:
 \begin{enumerate}
-\item Die direkte Summe $V\oplus W := \Set{(v,w) | v\in V, w\in W}$ wird zu einer Darstellung durch
-\[g\cdot(v,w) := (gv,gw)\]
-\item Das Tensorprodukt $V\otimes W$ durch
-\[g(v\otimes w) := (gv)\otimes (gw)\]
-\item Der Raum der $\IK$-linearen Abbildungen $\Hom_\IK(V,W)$ durch
-\[g\cdot f := v\mapsto gf(g^{-1} w)\]
-\item Der Dualraum $V^\ast:= \Hom_\IK(V,\IK)$ durch
-\[g\cdot \phi := v\mapsto \phi(g^{-1} v)\]
+\item Die direkte Summe $U\oplus T := \Set{(u,t) | u\in U, t\in T}$ wird zu einer Darstellung durch
+\[g\cdot(u,t) := (gu,gt)\]
+\item Das Tensorprodukt $U\otimes T$ durch
+\[g(u\otimes t) := (gu)\otimes (gt)\]
+Das beinhaltet insbesondere alle Tensorpotenzen $U^{\otimes k}$.
+\item Der Raum der $\IK$-linearen Abbildungen $\Hom_\IK(U,T)$ durch
+\[g\cdot f := u\mapsto gf(g^{-1} u)\]
+\item Der Dualraum $U^\ast:= \Hom_\IK(U,\IK)$ durch
+\[g\cdot \phi := u\mapsto \phi(g^{-1} u)\]
 (Aufgabe \ref{ex:invertieren_fuer_linksmoduln} Beweise, dass das $^{-1}$ wirklich notwendig ist)
-\item Ist $H\leq G$ eine Untergruppe von $G$, dann operiert $H$ natürlich auch auf $V$. Die Darstellung von $H$, die wir so erhalten, nennt man \emph{Restriktion von $V$ auf $H$}.
+\item Ist $H\leq G$ eine Untergruppe von $G$, dann operiert $H$ natürlich auch auf $T$. Die Darstellung von $H$, die wir so erhalten, nennt man \emph{Restriktion von $T$ auf $H$}.
 \end{enumerate}
 \end{lemmadef}
 
@@ -102,19 +102,24 @@ In dieser Gruppe enthalten sind z.B. alle Rotationen, alle Spiegelungen sowie di
 Wir werden die Darstellungstheorie der Isometriegruppen von zwei- und dreidimensionalen reellen Vektorräumen entwickeln. Wir werden also $V$, $V^{\otimes m}$, den Raum der polynomiellen Abbildungen $V\to\IK$ uvm. als Darstellungen von $O(V)$ auffassen.
 
 \smallbreak
-Es ist außerdem manchmal von Vorteil, den dreidimensionalen Raum auch als Darstellung für die zweidimensionale Isometriegruppe auffassen, indem wir $O_2$ als Untergruppe von $O_3$ auffassen. Dies ist sinnvoll in physikalischen Systemen mit einer festen (unendlich ausgedehnten) Ebene, wo zwar alles rotations- und spiegelsymmetrisch ist, aber nur solange diese Ebene erhalten bleibt.
+Es ist außerdem manchmal von Vorteil, den dreidimensionalen Raum auch als Darstellung für die zweidimensionale Isometriegruppe auffassen, indem wir $O_2$ als Untergruppe von $O_3$ auffassen. Dies geschieht, indem wir eine Ebene $E\leq V$ festlegen und $O_2(E)$
+\[g(u+u') := gu + u'\]
+festlegen für alle $u\in E$ und $u'\in E^\perp$, d.h. die gewählte Ebene verhält sich wie die kanonische Darstellung von $O_2$, während jeder Vektor in der zu ihr orthogonalen Gerade fixiert wird. Da $V=E\oplus E^\perp$ gilt, haben wir damit die Operation für alle Vektoren aus $V$ festgelegt.
+
+\medbreak
+Dies ist sinnvoll in physikalischen Systemen mit einer festen (unendlich ausgedehnten) Ebene, wo zwar alles rotations- und spiegelsymmetrisch ist, aber nur solange diese Ebene erhalten bleibt.
 \end{example}
 
 \subsection{Weitere grundlegende Begriffe der Darstellungstheorie}
 \begin{definition}[Unterdarstellungen]
-Sei $V$ eine Darstellung von $G$. Ein Untervektorraum $U\leq V$ heißt \emph{$G$-invarianter Unterraum} oder \emph{Unterdarstellung von $V$}, falls $U$ unter der Gruppenoperation abgeschlossen ist, d.h.
+Sei $T$ eine Darstellung von $G$. Ein Untervektorraum $U\leq T$ heißt \emph{$G$-invarianter Unterraum} oder \emph{Unterdarstellung von $T$}, falls $U$ unter der Gruppenoperation abgeschlossen ist, d.h.
 \[\forall g\in G: g\cdot U = U\]
 \end{definition}
 
 \begin{example}
 \begin{itemize}
-\item $\set{0}$ und $V$ sind immer Unterdarstellungen von $V$.
-\item Die Gerade $U_1=\set{\lambda(1,1,\ldots,1) | \lambda\in K}$ und die Hyperebene $U_2 := \set{(x_1,\ldots,x_m) | \sum_{i=1}^m x_i = 0}$ sind zwei Unterdarstellungen der Permutationsdarstellung von $G=S_m$ auf $V=\IK^m$. Falls $\IK\in\set{\IR,\IC}$ ist, dann gilt $V=U_1\oplus U_2$.
+\item $\set{0}$ und $T$ sind immer Unterdarstellungen von $T$.
+\item Die Gerade $U_1=\set{\lambda(1,1,\ldots,1) | \lambda\in K}$ und die Hyperebene $U_2 := \set{(x_1,\ldots,x_m) | \sum_{i=1}^m x_i = 0}$ sind zwei Unterdarstellungen der Permutationsdarstellung von $G=S_m$ auf $T=\IK^m$. Falls $\IK\in\set{\IR,\IC}$ ist, dann gilt $T=U_1\oplus U_2$.
 \end{itemize}
 \end{example}
 
@@ -133,8 +138,8 @@ Weil wir \enquote{exakt zwei} und nicht \enquote{höchstens zwei} fordern, ist d
 \begin{example}
 \begin{itemize}
 \item Aus Dimensionsgründen ist jede eindimensionale Darstellung automatisch irreduzibel.
-\item $V$ ist eine irreduzible Darstellung von $GL(V)$.
-\item $\IK^3$ ist eine irreduzible Darstellung von $O_3$.
+\item $V$ ist eine irreduzible Darstellung von $GL(V)$ unabhängig vom Körper.
+\item $\IK^n$ ist eine irreduzible Darstellung von $O_n$, sowohl für $\IK=\IR$ als auch $\IK=\IC$.
 \item $\IK^3$ ist \emph{nicht} irreduzibel als Darstellung von $O_2$.
 \end{itemize}
 \end{example}
@@ -145,7 +150,7 @@ An den letzten beiden Beispielen erkennen wir, dass die Restriktion einer irredu
 Auch die anderen Konstruktionsmöglichkeiten von neuen Darstellungen aus bekannten erhalten i.A. Irreduzibilität nicht:
 \begin{itemize}
 \item Die direkte Summe von zwei Darstellungen $\neq 0$ ist niemals irreduzibel, weil die beiden Summanden invariante Unterräume sind.
-\item Das Tensorprodukt von Darstellungen ist immer reduzibel, wenn mindestens einer der Faktoren reduzibel ist, denn $(U_1\oplus U_2)\otimes W = (U_1\otimes W) \oplus (U_2\otimes W)$. Das Tensorprodukt von irreduziblen Darstellungen ist i.A. aber auch nicht irreduzibel, z.B. ist $V\otimes V$ niemals irreduzibel, wenn $V$ nicht zufällig eindimensional ist. (Wenn es eindimensional ist, ist $V\otimes V$ natürlich auch eindimensional und dementsprechend ausnahmsweise doch irreduzibel)
+\item Das Tensorprodukt von Darstellungen ist immer reduzibel, wenn mindestens einer der Faktoren reduzibel ist, denn $(U_1\oplus U_2)\otimes W = (U_1\otimes W) \oplus (U_2\otimes W)$. Das Tensorprodukt von irreduziblen Darstellungen ist i.A. aber auch nicht irreduzibel, z.B. ist $T\otimes T$ niemals irreduzibel, wenn $T$ nicht zufällig eindimensional ist. (Wenn es eindimensional ist, ist $T\otimes T$ natürlich auch eindimensional und dementsprechend ausnahmsweise doch irreduzibel)
 
 Es ist i.A. ein sehr schweres Problem, zu bestimmen, ob ein Tensorprodukt von zwei irreduziblen wieder irreduzibel ist und, wenn es das nicht ist, wie die irreduziblen Unterräume des Tensorprodukts genau aussehen. Im Falle $G=O_3$ ist diese Fragestellung unter dem Namen \enquote{Clebsch\footnote{Alfred Clebsch, 1833--1872, dt. Mathematiker}-Gordan\footnote{Paul Albert Gordan, 1832--1912, dt. Mathematiker}-Theorie} bekannt.
 \end{itemize}
@@ -154,5 +159,5 @@ Einzige Ausnahme ist das Dualisieren:
 \end{remark}
 
 \begin{lemma}
-Eine endlichdimensionale Darstellung $V$ ist irreduzibel genau dann, wenn $V^\ast$ irreduzibel ist.
+Eine endlichdimensionale Darstellung $T$ ist irreduzibel genau dann, wenn $T^\ast$ irreduzibel ist.
 \end{lemma}
