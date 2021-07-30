@@ -4,7 +4,7 @@
 Auch wenn wir eingangs in unserem Kurs so sehr über Basen geschimpft haben\footnote{Wir wollen keine Namen nennen, aber Johannes war besonders hartnäckig...}, so ist uns natürlich bewusst, dass gerade für effiziente Berechnungen eine Basis praktisch immer gewählt wird. Welche Basis man wählt, ist dabei von großer Bedeutung: Andrea hat in ihrer Doktor-Arbeit eine bestimmte Berechnung, welche z.B. zur Modellierung von Luftbewegung millionenfach wiederholt genutzt werden soll, um den Faktor 1000 verschnellern können, und das nur durch geschickte Basiswahl. 
 
 \begin{remark}
-	Meistens ist eine Basis geschickt gewählt, wenn sie orthogonal bzgl. eines zu Problem passenden Skalarprodukts ist. Nun gibt es aber viele Skalarprodukte, die man wählen kann, die durchaus auch unterschiedliches Verständnis von Orthogonalität festlegen.
+	Meistens ist eine Basis geschickt gewählt, wenn sie orthogonal bzgl. eines zum Problem passenden Skalarprodukts ist. Nun gibt es aber viele Skalarprodukte, die man wählen kann, die durchaus auch unterschiedliches Verständnis von Orthogonalität festlegen.
 \end{remark}
 Schauen wir uns einmal einige Beispiele für mögliche Skalarprodukte auf dem Raum der Polynome an:
 \begin{example}
@@ -32,7 +32,7 @@ Schauen wir uns einmal einige Beispiele für mögliche Skalarprodukte auf dem Ra
 \end{example}
 
 \begin{example}
-	Sei $Q$ ein Quader in $\IR^3$, z.B. mit den Kantenlängen 1, 2, und 3. Dann ist mit 
+	Sei $Q$ ein Quader in $\IR^3$, z.B. mit den Kantenlängen 1, 2 und 3. Dann ist mit
 	\begin{align*}
 		\braket{f,g}_Q :&= \int_Q f g \dd Q
 	\end{align*}
@@ -73,24 +73,24 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
  \subsection{Die Gelfand-Zetlin Basis}
  \begin{definition}[Konstruktion der $\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Bae\aaa\sae\iue$ (Gelfand\footnote{Israel Gelfand, $\I\sae\rae\aaa\iii\el\soft$ $\Em\ooo\iii\ssae\jae\jae\wae\iii\tschae$ $\Gae\jae\el\soft\fae\aaa\en\dae$ (1913--2009), sowjetischer Mathematiker}-Zetlin\footnote{Michael Zetlin, $\Em\iii\xa\aaa\iii\el$ $\El\soft\wae\ooo\wae\iii\tschae$ $\Zae\jae\tae\el\iii\en$ (1924--1966), russ. Mathematiker und Physiker; Der Name wird leider auf viele verschiedene Weisen transkribiert, u.A. eben Zetlin (meist im dt. Sprachraum), aber auch Tsetlin (engl. Sprachraum), Zeitlin, Tseitlin, Ceitlin}-Basis]
  	\label{def:konstruktion_gz_basis}
-	Sei $G$ eine Gruppe mit halb-einfacher Darstellung auf einem Vektorraum $V$ und $U^i_0$ einer der irreduziblen Unterräume von $V$. Für diesen Unterraum wird dessen \emph{Gelfand-Zetlin-Basis} wie folgt konstruiert:
+	Sei $G$ eine Gruppe mit halb-einfacher Darstellung auf einem Vektorraum $V$ und $U^i_0$ einer der irreduziblen Unterräume von $V$. Für diesen Unterraum wird eine \emph{Gelfand-Zetlin-Basis} wie folgt konstruiert:
 	\begin{enumerate}[label={\arabic*.)}]
 		\item Setze das Level $l=0, H_0 = G$
 		\item Bestimme für jeden Unterraum $U_l^i$: \label{def:gz_it_anfang}
 		\begin{enumerate}
 			\item Berechne $\dim{U_l^i}$
-			\item Ist $U_l^i$ 1-dimensional? Dann wähle einen Vektor aus $U_l^i$ als einen der Basisvektoren von $U^1_0$.
-			\item Ist $U_l^i$ $>1$-dimensional? Dann merke dir $U_l^i$ für den nächsten Schritt.
+			\item Ist $U_l^i$ 1-dimensional? Dann wähle einen von Null verschiedenen Vektor aus $U_l^i$ als einen der Basisvektoren von $U^1_0$.
+			\item Ist $U_l^i$ mehr als $1$-dimensional? Dann merke dir $U_l^i$ für den nächsten Schritt.
 		\end{enumerate}
-		\item Wähle geschickt eine möglichst große Untergruppe $H_{l+1}$ von $H_{l}$, sodass jeder Unterraum $U_l^i$ mit $\dim{U_l^i}>1$ in für $H_{l+1}$ irreduzible Unterräume  zerfällt. Dabei müssen alle Unterräume, die von einem gemeinsamen $U_l^i$ stammen, paarweise nicht isomorph sein (Klappt dies nicht, ist entweder eine andere Untergruppe zu finden, oder es gibt keine Gelfand-Zetlin-Basis). \label{def:gz_it_ugschritt}
-		\item Nummeriere die Unterräume des nächst-höheren Levels: Nenne alle für $H_{l+1}$ irreduziblen Unterräume $U_{l+1}^{1}, \cdots, U_{l+1}^{k}$, inklusive der bereits für $H_l$ 1-dimensionalen Unterräume.
+		\item Wähle geschickt eine Untergruppe $H_{l+1}$ von $H_{l}$, sodass jeder Unterraum $U_l^i$ mit $\dim{U_l^i}>1$ in für $H_{l+1}$ irreduzible Unterräume  zerfällt. Dabei müssen alle Unterräume, die von einem gemeinsamen $U_l^i$ stammen, paarweise nicht isomorph sein (Klappt dies nicht, ist entweder eine andere Untergruppe zu finden, oder es gibt keine Gelfand-Zetlin-Basis). \label{def:gz_it_ugschritt}
+		\item Nummeriere die Unterräume des nächst-höheren Levels: Nenne alle für $H_{l+1}$ irreduziblen Unterräume $U_{l+1}^{1}, \ldots, U_{l+1}^{k}$, inklusive der bereits für $H_l$ 1-dimensionalen Unterräume.
 		\item Erhöhe das Level um 1: $l++$. \label{def:gz_it_ende}
 		\item Wiederhole die Schritte \ref{def:gz_it_anfang} bis \ref{def:gz_it_ende}, bis alle Unterräume vom nächst-höheren Level 1-dimensional sind.
 		\item $l_{\text{max}} = l$
 		\end{enumerate}
 \end{definition}
 \begin{remark}
-	Formal betrachtet, brauchen die 1-dimensionalen Untergruppen nicht für Schritt \ref{def:gz_it_ugschritt} ausgeschlossen werden. Sie werden für jede Untergruppe 1-dimensional bleiben und sich nicht weiter ändern, entsprechend braucht man sie für die weiteren Schritte auch nicht zu berücksichtigen.
+	Formal betrachtet, brauchen die 1-dimensionalen Untervektorräume nicht für Schritt \ref{def:gz_it_ugschritt} ausgeschlossen werden. Sie werden für jede Untergruppe 1-dimensional bleiben und sich nicht weiter ändern, entsprechend braucht man sie für die weiteren Schritte auch nicht zu berücksichtigen.
 \end{remark}
 \begin{definition}[$\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Dae\jae\rae\jae\wae\ooo$ (Gelfand-Zetlin-Baum)]
 	Mit der Konstruktion nach \ref{def:konstruktion_gz_basis} bauen wir einen Baum mit $l_{\text{max}}+1$ Leveln. Der Stammknoten ist $U_0^i$, die Blätter sind alle gefundenen 1-dimensionale Unterräume. Die Knoten zwischen dem Stammknoten und den Blättern entsprechen den irreduziblen Unterräumen der jeweiligen Level, die Kanten verbinden einen irreduziblen Unterraum $U$ eines Levels mit allen irreduziblen Unterräumen des nächst-höheren Levels, die aus $U$ im Schritt \ref{def:gz_it_ugschritt} herauskommen. Eindimensionale Unterräume, die bereits in kleineren Leveln auftreten, werden hier als Knoten auf jedem höheren Level wiederholt bis zum maximalen Level.
@@ -143,14 +143,14 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 	In einem Gelfand-Zetlin-Baum sind alle Darstellungen paarweise ungleich. Es kann aber auftreten, dass manche Darstellungen isomorph zueinander sind (wobei die Kinder eines Knotens niemals isomorph zueinander sein dürfen).
 \end{definition}
 \begin{remark}
-		Die Wahl der Untergruppen-Kette $H_1\cdots H_{l_{\text{max}}}$ ist hier spielentscheidend und keinesfalls eindeutig. Aus diesem Grund gehört zu einer vollständigen Anweisung \enquote{Wähle eine Gelfand-Zetlin-Basis für $G$ auf $V$} auch die Angabe der Untergruppenkette $H_1\cdots H_{l_{\text{max}}}$.
+		Die Wahl der Untergruppen-Kette $H_1,\ldots,H_{l_{\text{max}}}$ ist hier spielentscheidend und keinesfalls eindeutig. Aus diesem Grund gehört zu einer vollständigen Anweisung \enquote{Wähle eine Gelfand-Zetlin-Basis für $G$ auf $V$} auch die Angabe der Untergruppenkette $H_1,\ldots,H_{l_{\text{max}}}$.
 \end{remark}
 \begin{remark}
-	Auch wenn die Konstruktion einer Gelfand-Zetlin-Basis klappt, hat man nicht unbedingt etwas gewonnen. Wenn man dazu besonders exotische Untergruppen benutzen muss, bringt einem die Gelfand-Zetlin-Basis in der Anwendung nicht besonders viel. Eigentlich möchte man sich erst für eine Untergruppenkette $H_0\cdots H_{l_{\text{max}}}$ entscheiden und dann schauen, ob die Konstruktion funktioniert.
+	Auch wenn die Konstruktion einer Gelfand-Zetlin-Basis klappt, hat man nicht unbedingt etwas gewonnen. Wenn man dazu besonders exotische Untergruppen benutzen muss, bringt einem die Gelfand-Zetlin-Basis in der Anwendung nicht besonders viel. Eigentlich möchte man sich erst für eine Untergruppenkette $H_0,\ldots,H_{l_{\text{max}}}$ entscheiden und dann schauen, ob die Konstruktion funktioniert.
 \end{remark}
 \begin{definition}[$\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Bae\aaa\sae\aaa$]
 	\label{def:gz_basis}
-	Sei $G$ eine Gruppe mit Darstellung auf einem Vektorraum $V$ und $G$ zerlege $V$ in seine irreduziblen Unterräume $U^1_0,\cdots U^k_0$. Wähle außerdem eine Untergruppenkette $H_1 \gneq\cdots\gneq H_{l_{\text{max}}}$. Für jeden dieser Unterräume wird nun einzeln eine Basis $\mathcal{B}$ konstruiert nach \ref{def:konstruktion_gz_basis}. $\mathcal{B}$ heißt dann \emph{Gelfand-Zetlin-Basis von der Darstellung V bezüglich} $H_1,\cdots H_{l_{\text{max}}}$. 
+	Sei $G$ eine Gruppe mit Darstellung auf einem Vektorraum $V$ und $G$ zerlege $V$ in seine irreduziblen Unterräume $U^1_0,\ldots,U^k_0$. Wähle außerdem eine Untergruppenkette $H_1 \gneq\ldots\gneq H_{l_{\text{max}}}$. Für jeden dieser Unterräume wird nun einzeln eine Basis $\mathcal{B}$ konstruiert nach \ref{def:konstruktion_gz_basis}. $\mathcal{B}$ heißt dann \emph{Gelfand-Zetlin-Basis von der Darstellung V bezüglich} $H_1,\cdots H_{l_{\text{max}}}$. 
 \end{definition}
 
 \begin{remark}
@@ -172,7 +172,7 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 \begin{maintheorem}[Spherical Harmonics sind eine Gelfand-Zetlin-Basis]\label{mt:sh_sind_gzb}
 	Die Darstellung von $O_3$ auf dem Polynomraum (egal, ob mit reellen oder komplexen Koeffizienten) hat die Gelfand-Zetlin-Basis bezüglich Untergruppenkette $O_3 \geq O_2 \geq O_1$. Die Element dieser Basis heißen \emph{reelle Spherical Harmonics} oder auch \emph{Kugelflächenfunktionen}.
 
-	Sofern man mit komplexen Koeffizienten arbeitet, gibt es eine zweite Gelfand-Zetlin-Basis bezüglich der Untergruppenkette $O_3 \geq SO_3 \geq SO_2$. Die Elemente dieser Gelfand-Zetlin-Basis heißen \emph{komplexe Spherical Harmonics}.
+	Sofern man mit komplexen Koeffizienten arbeitet, gibt es eine zweite Gelfand-Zetlin-Basis bezüglich der Untergruppenkette $O_3 \geq O_2 \geq SO_2$. Die Elemente dieser Gelfand-Zetlin-Basis heißen \emph{komplexe Spherical Harmonics}.
 \end{maintheorem}
 
 \begin{lemma}[{Gelfand-Zetlin-Baum für $O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf } \IC[x,y,z]$}]
@@ -341,7 +341,7 @@ Der Winkelanteil des Laplace-Operators zeigt sich, wenn dieser in Kugelkoordinat
 
 \[\Delta=\frac{\partial^{2}}{\partial r^{2}}+\frac{2}{r}\frac{\partial}{\partial r}+\frac{1}{r^{2}}\left(\frac{\partial^{2}}{\partial\vartheta^{2}}+\frac{\cos\vartheta}{\sin\vartheta}\frac{\partial}{\partial\vartheta}+\frac{1}{\sin^{2}\vartheta}\frac{\partial^{2}}{\partial\varphi^{2}}\right)=\Delta_{r}+\frac{1}{r^{2}}\Delta_{\vartheta,\varphi}\]
 
-Der rechte, eingeklammerte Teil wird hier als ''Winkelanteil'' $\Delta_{\vartheta,\varphi}$ bezeichnet. Er ist direkt proportional zum Quadrat des Drehimpulsoperators $\hat{\mathbf{L}}^2=-\hbar^{2} \Delta_{\vartheta,\varphi}$.
+Der rechte, eingeklammerte Teil wird hier als \enquote{Winkelanteil} $\Delta_{\vartheta,\varphi}$ bezeichnet. Er ist direkt proportional zum Quadrat des Drehimpulsoperators $\hat{\mathbf{L}}^2=-\hbar^{2} \Delta_{\vartheta,\varphi}$.
 
 Die Laplacesche Differentialgleichung in Kugelkoordinaten
 \[
@@ -388,11 +388,11 @@ Umsortieren liefert:
 
 \[\underbrace{\frac{\sin^{2}\vartheta}{\Theta_{lm}(\vartheta)}\left(\frac{\partial^{2}}{\partial\vartheta^{2}}+\frac{\cos\vartheta}{\sin\vartheta}\frac{\partial}{\partial\vartheta}\right)\Theta_{lm}(\vartheta)+\sin^{2}(\vartheta)(l(l+1))}_{m^{2}}=\underbrace{-\frac{1}{\Phi_{m}(\varphi)}\frac{\partial^{2}}{\partial\varphi^{2}}\Phi_{m}(\varphi)}_{m^{2}}\]
 
-Um beide Seiten getrennt voneinander variieren zu können, müssen beide Seiten den gleichen konstanten Wert annehmen. Diese Separationskonstante wird als $m^2$ gewählt. Es ergeben sich zwei gewöhnliche Differentialgleichungen, die ''Polargleichung''
+Um beide Seiten getrennt voneinander variieren zu können, müssen beide Seiten den gleichen konstanten Wert annehmen. Diese Separationskonstante wird als $m^2$ gewählt. Es ergeben sich zwei gewöhnliche Differentialgleichungen, die \enquote{Polargleichung}
 
 \[\frac{1}{\Theta_{lm}(\vartheta)}\left(\frac{\partial^{2}}{\partial\vartheta^{2}}+\frac{\cos\vartheta}{\sin\vartheta}\frac{\partial}{\partial\vartheta}\right)\Theta_{lm}(\vartheta)=\frac{m^{2}}{\sin^{2}\vartheta}-l(l+1)\]
 
-und die ''Azimutalgleichung''.
+und die \enquote{Azimutalgleichung}.
 
 \[\frac{\partial^{2}}{\partial\varphi^{2}}\Phi_{m}(\varphi)=-m^{2}\Phi_{m}(\varphi)\]
 
@@ -402,7 +402,7 @@ Die Azimutalgleichung wird durch $\Phi_{m}(\varphi)=A\exp(\mathrm im\varphi)$ ge
 
 Die Polargleichung kann mit einem Potenzreihenansatz gelöst werden. Die Lösungen sind nur dann endlich, eindeutig und stetig, wenn
 
-\[l\in\mathbb{N}_{0},\quad|m|\leq l\].
+\[l\in\IN,\quad|m|\leq l\].
 
 Dann sind die Lösungen die zugeordneten Legendrepolynome $P_{lm}(\cos\vartheta)$ und mit $\int_{0}^{\pi}|\Theta_{lm}(\vartheta)|^{2}\sin(\vartheta)\mathrm{d}\vartheta\overset{!}{=}1$ erhält man die normierte Lösung der Polargleichung:
 
@@ -445,12 +445,12 @@ Für die homogenen Polynome vom Grad 2 erkennt man in der Liste unten schnell au
 	\item[Eigenschaften]\hspace{1cm} \\
 	\begin{description}
 		\item[Orthonormalitätsrelation:] ($\delta_{ij}$ ist das Kronecker-Delta)
-\[\begin{align}
+\begin{align*}
 	&\int Y_{lm}^{*}(\vartheta,\varphi) \, Y_{l'm'}(\vartheta,\varphi) \mathrm d\Omega \\
 	&\quad = \int_{0}^{2\pi} \int_{0}^{\pi} Y_{lm}^{*}(\vartheta,\varphi) \, Y_{l'm'}(\vartheta,\varphi)
 	\, \sin{\vartheta} \, \mathrm d\vartheta \,\mathrm d\varphi \\
 	&\quad = \delta_{l\,l'} \, \delta_{mm'}\\
-\end{align}\]
+\end{align*}
 	\item[Vollständigkeit:] ($\delta(x)$ ist die Delta-Distribution)
 \[\sum_{l=0}^{\infty}\sum_{m=-l}^{l}Y_{lm}^{*}(\vartheta ',\varphi ') \, Y_{lm}(\vartheta,\varphi) = \delta(\varphi-\varphi ')\delta(\cos{\vartheta} -\cos{\vartheta '})\]
 	\item[Parität:] Der Übergang $\vec r \rightarrow -\vec r$ sieht in Kugelkoordinaten folgendermaßen aus $(r,\vartheta,\varphi) \rightarrow (r,\pi-\vartheta,\pi+\varphi)$. Unter dieser Transformation verhalten sich die Kugelflächenfunktionen wie folgt:
