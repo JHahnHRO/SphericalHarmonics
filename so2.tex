@@ -36,26 +36,28 @@ Für eine beliebige, (lokal)kompakte kommutative Gruppe spricht man auch von Pon
 \footnote{Lev S. Pontrjagin, $\El\jae\wae$ $\Ssae\jae\emm\jo\en\ooo\wae\iii\tschae$ $\Pae\ooo\en\tae\rae\ja\gae\iii\en$ (1908-1988), russ. Mathematiker}\footnote{Wir nennen ja keine Namen, aber Andrea bestand darauf, dass man unbedingt das kyrillische Original bräuchte, um den Namen korrekt aussprechen zu können.}.
 \end{remark}
 
-\begin{theorem}[Darstellungstheorie von $SO_2$ über $\IK=\IC$]
+\begin{remark}
+Eine weitere, äquivalente Sichtweise auf diesen Satz ist, dass die Darstellungstheorie von kommutativen Gruppen im Wesentlichen Eigenwerttheorie ist: Die irreduziblen Unterräume sind alle Eigenräume für die \enquote{Wurzeln}\footnote{engl. roots; \enquote{Wurzel} im Sinne von \enquote{Lösung einer Polynomgleichung}. Eigenwerte sind die Nullstellen des charakteristischen Polynoms, daher kommt diese Bezeichnung.} genannten Eigenwert-Funktionen $\lambda_i: G\to\IC$. Wenn man diese kennt, dann sind die irreduziblen Unterdarstellungen eines beliebigen $T$ einfach auszurechnen: Es sind die dazugehörigen Eigenräume.
+
+Die Darstellungstheorie reduziert sich also darauf, aus der Struktur der Gruppe abzuleiten, welche Wurzeln es überhaupt gibt, d.h. welche Eigenwerte überhaupt vorkommen.
+\end{remark}
+
+\begin{theoremdef}[Darstellungstheorie von $SO_2$ über $\IK=\IC$]
 Sei $V$ ein reeller, zwei-dimensionaler Vektorraum mit Skalarprodukt.
 
 Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_2(V)$ über $\IC$ ist zu genau einer der Darstellungen
-\[\mathcal{D}_k : \begin{psmallmatrix}\cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix} \mapsto e^{ik\alpha}\]
-für eine ganze Zahl $k$ isomorph und diese Darstellungen sind paarweise nicht-isomorph.
-\end{theorem}
+\[\mathscr{E}^m : \begin{psmallmatrix}\cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix} \mapsto e^{im\alpha}\]
+für die \emph{Nebenquantenzahl} $m\in\IZ$ isomorph und diese Darstellungen sind paarweise nicht-isomorph.
+\end{theoremdef}
 \begin{proof}
 Dass die Darstellungen irreduzibel sind, ist klar, da sie eindimensional sind. Dass sie stetig sind, sieht man ihnen an. Dass sie paarweise nicht isomorph sind, kann man direkt überprüfen, oder man benutzt abstrakt, dass ihre Charaktere verschieden sind.
 
-Der nichttriviale Teil ist also zu zeigen, dass jede endlich-dimensionale, stetige, irreduzible Darstellung in dieser Liste vorkommt. $SO_2$ ist kommutativ, also muss jede irreduzible Darstellung ein-dimensional sein, d.h. es handelt sich um eine stetige Abbildung $\mathcal{D}: G\to\IC$. Betrachte die Rotationen um $\alpha:=\frac{2\pi}{n}$. Dies sind Gruppenelemente mit $\rho_\alpha^n=1$. Also muss auch $\mathcal{D}(\rho_\alpha)^n=1$ gelten, d.h. $\mathcal{D}(\rho_\alpha) = \exp(\frac{2\pi i k}{n})$ für ein geeignetes $k\in\IZ$. Ohne Stetigkeit könnte dieses $k$ von $n$ abhängig sein. Wir zeigen, dass es unabhängig von $n$ ist, wenn $\mathcal{D}$ stetig ist.
+Der nichttriviale Teil ist also zu zeigen, dass jede endlich-dimensionale, stetige, irreduzible Darstellung in dieser Liste vorkommt. $SO_2$ ist kommutativ, also muss jede irreduzible Darstellung ein-dimensional sein, d.h. es handelt sich um eine stetige Abbildung $\mathcal{D}: G\to\IC$. Betrachte die Rotationen um $\alpha:=\frac{2\pi}{n}$. Dies sind Gruppenelemente mit $\rho_\alpha^n=1$. Also muss auch $\mathcal{D}(\rho_\alpha)^n=1$ gelten, d.h. $\mathcal{D}(\rho_\alpha) = \exp(\frac{2\pi i m}{n})$ für ein geeignetes $m\in\IZ$. Ohne Stetigkeit könnte dieses $m$ von $n$ abhängig sein. Wir zeigen, dass es unabhängig von $n$ ist, wenn $\mathcal{D}$ stetig ist.
 
-Es gilt natürlich auch $\mathcal{D}(\rho_\alpha^m) = (\exp(\frac{2\pi i k}{n}))^m = \exp(\frac{2\pi i\cdot  km}{n})$, d.h. die $n$ Elemente $1=\rho_\alpha^0, \rho_\alpha^1, \ldots, \rho_\alpha^{n-1}$ erfüllen die Gleichung, die wir haben wollen, bereits. Welches $k$ erhalten wir, wenn wir von $n$ zu $2n$ wechseln? Die Drehung um $\alpha/2$ erfüllt $\rho_{\alpha/2}^2=\rho_\alpha$, d.h. $\mathcal{D}(\rho_{\alpha/2})$ ist eine der beiden Quadratwurzeln von $\mathcal{D}(\rho_\alpha)=\exp(\frac{2\pi i k}{n})$, also entweder $\exp(\frac{2\pi i k}{2n})$ oder $\exp(\frac{2\pi i(k+n)}{2n})$. Wenn $n$ hinreichend groß ist, sind $\rho_\alpha$ und $\rho_{\alpha/2}$ aber nah beieinander, und die Stetigkeitsbedingung verlangt, dass auch $\mathcal{D}(\rho_\alpha)$ und $\mathcal{D}(\rho_{\alpha/2})$ beide nah beieinander sind, was $k+n$ ausschließt, weil das auf der entgegengesetzten Seite des Einheitskreises liegt.
+Es gilt natürlich auch $\mathcal{D}(\rho_\alpha^k) = (\exp(\frac{2\pi i m}{n}))^k = \exp(\frac{2\pi i\cdot  mk}{n})$, d.h. die $n$ Elemente $1=\rho_\alpha^0, \rho_\alpha^1, \ldots, \rho_\alpha^{n-1}$ erfüllen die Gleichung, die wir haben wollen, bereits. Welches $m$ erhalten wir, wenn wir von $n$ zu $2n$ wechseln, d.h. den Winkel halbieren? Die Drehung um $\alpha/2$ erfüllt $\rho_{\alpha/2}^2=\rho_\alpha$, d.h. $\mathcal{D}(\rho_{\alpha/2})$ ist eine der beiden Quadratwurzeln von $\mathcal{D}(\rho_\alpha)=\exp(\frac{2\pi i m}{n})$, also entweder $\exp(\frac{2\pi i m}{2n})$ oder $\exp(\frac{2\pi i(m+n)}{2n})$. Wenn $n$ hinreichend groß ist, sind $\rho_\alpha$ und $\rho_{\alpha/2}$ aber nah beieinander, und die Stetigkeitsbedingung verlangt, dass auch $\mathcal{D}(\rho_\alpha)$ und $\mathcal{D}(\rho_{\alpha/2})$ beide nah beieinander sind, was $m+n$ ausschließt, weil das auf der entgegengesetzten Seite des Einheitskreises liegt.
 
-Per Induktion erfüllen also alle Drehungen um $\frac{2\pi}{2^l n}$ die Gleichung, die wir haben wollen. Jede Drehung kann durch diese beliebig genau approximiert werden. Aus der Stetigkeit folgt also, dass alle Drehungen die Gleichung erfüllen.
+Per Induktion erfüllen also alle Drehungen um $\frac{2\pi}{2^k n}$ die Gleichung, die wir haben wollen. Jede Drehung kann durch diese beliebig genau approximiert werden. Aus der Stetigkeit folgt also, dass alle Drehungen die Gleichung erfüllen.
 \end{proof}
-
-\begin{remark}
-Man beachte, dass uns diese zwei Sätze auch konkret sagen, wie man eine beliebige Darstellung $\mathcal{D}:SO_2\to GL(T)$ in ihre irreduziblen Bestandteile zerlegt: Man wähle eine Drehung $\rho\in SO_2$ um einen hinreichend generisch gewählten Winkel $\alpha$ und zerlege $T$ in Eigenräume von $\mathcal{D}(t)$. Dies sind $SO_2$-Unterdarstellungen. Wenn man $\alpha$ zufällig wählt, hat man mit Wahrscheinlichkeit eins schon alle Eigenräume eindimensional, ansonsten wählt man sich einfach noch mehr $\alpha$ zufällig dazu und zerlegt auch noch in deren Eigenräume. Der erste Satz uns, dass wir irgendwann bei eindimensionalen Unterräumen ankommt, die dann die irreduziblen Bestandteile sind. Der zweite Satz sagt uns konkret, welche Eigenwerte überhaupt für eine Drehung um $\alpha$ in Frage kommen, nämlich genau $e^{ik\alpha}$ für $k\in\IZ$ und solange wir die Eigenwerte kennen, ist die Eigenraum-Zerlegung sehr einfach.
-\end{remark}
 
 \begin{remark}
 Wenn man den komplexen Fall einmal hat, könnte man den reellen Fall daraus folgern.
@@ -65,14 +67,14 @@ Wenn man den komplexen Fall einmal hat, könnte man den reellen Fall daraus folg
 Sei $V$ ein reeller, zwei-dimensionaler Vektorraum mit Skalarprodukt.
 
 Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_2(V)$ über $\IR$ ist entweder die triviale Darstellung oder zu genau einer der Darstellungen
-\[\mathcal{D}_k : \begin{psmallmatrix}\cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix} \mapsto \begin{psmallmatrix}\cos(k\alpha)&-\sin(k\alpha)\\\sin(k\alpha)&\cos(k\alpha)\end{psmallmatrix}\]
-für eine natürliche Zahl $k>0$ isomorph und diese Darstellungen sind paarweise nicht-isomorph.
+\[\mathcal{D}_m : \begin{psmallmatrix}\cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix} \mapsto \begin{psmallmatrix}\cos(m\alpha)&-\sin(m\alpha)\\\sin(m\alpha)&\cos(m\alpha)\end{psmallmatrix}\]
+für eine natürliche Zahl $m>0$ isomorph und diese Darstellungen sind paarweise nicht-isomorph. $\mathcal{D}_m$ ist genau die Darstellung ${^2}\mathscr{H}_\IR^m$ auf den harmonischen, homogenen Polynomen vom Grad $m$, die wir bereits zuvor konstruiert hatten.
 \end{corollary}
 
 \begin{remark}
 Wenn man nun die Spiegelungen hinzunimmt, ist die Gruppe nicht länger kommutativ. Eine wichtige Beobachtung ist, dass in $O_2$ die Drehung um $\alpha$ und die Drehung um $-\alpha$ zueinander konjugiert sind (siehe Aufgabe~\ref{gruppen:ex:konjugation}). Wenn wir Darstellungen also in Termen von Charakteren klassifizieren wollten, dann halten wir fest, dass Charaktere von $O_2$ nicht zwischen diesen beiden unterscheidet.
 
-Andererseits können wir natürlich jede $O_2$-Darstellung auf $SO_2$ einschränken und in irreduzible Bestandteile bzgl. $SO_2$ zerlegen, deren Charaktere wir jetzt kennen. Der Wert $\chi_T(\rho_\alpha)$ muss eine Summe von Exponentialfunktionen sein. Welche solche Summen unterscheiden nicht zwischen $\alpha$ und $-\alpha$ ? Cosinus-Funktionen! $2\cos(\alpha) = e^{i\alpha k} + e^{-i\alpha k}$ und Summen davon.
+Andererseits können wir natürlich jede $O_2$-Darstellung auf $SO_2$ einschränken und in irreduzible Bestandteile bzgl. $SO_2$ zerlegen, deren Charaktere wir jetzt kennen. Der Wert $\chi_T(\rho_\alpha)$ muss eine Summe von Exponentialfunktionen $\sum_{m\in\IZ} a_m e^{im\alpha}$ sein und es muss $a_m=a_{-m}$ gelten, damit $\alpha$ und $-\alpha$ auf den gleichen Wert abgebildet werden.
 \end{remark}
 
 \begin{theorem}[Darstellungstheorie von $O_2$]
@@ -83,33 +85,33 @@ Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=O_2(V)$ über
 \item Die triviale Darstellung $O_2\to\IC, g\mapsto 1$
 \item Die Determinante $\det: O_2\to\IC$, d.h. $g\mapsto\begin{cases}+1&g\in SO_2 \\ -1&g\notin SO_2\end{cases}$.
 \item Eine der Darstellungen
-\[\mathcal{D}_k : \begin{pmatrix}\cos(\alpha)&\mp\sin(\alpha)\\\sin(\alpha)&\pm\cos(\alpha)\end{pmatrix} \mapsto \begin{pmatrix}\cos(k\alpha)&\mp\sin(k\alpha)\\\sin(k\alpha)&\pm\cos(k\alpha)\end{pmatrix}\]
-für eine natürliche Zahl $k>0$ mit dazugehörigem Charakter $\chi_k(g) = \begin{cases} 2\cos(k\alpha) & g=\rho_\alpha \\ 0 & g\notin SO_2\end{cases}$.
+\[\mathcal{D}_m : \begin{pmatrix}\cos(\alpha)&\mp\sin(\alpha)\\\sin(\alpha)&\pm\cos(\alpha)\end{pmatrix} \mapsto \begin{pmatrix}\cos(m\alpha)&\mp\sin(m\alpha)\\\sin(m\alpha)&\pm\cos(m\alpha)\end{pmatrix}\]
+für eine natürliche Zahl $m>0$ mit dazugehörigem Charakter $\chi_m(g) = \begin{cases} 2\cos(m\alpha) & g=\rho_\alpha \\ 0 & g\notin SO_2\end{cases}$.
 \end{enumerate}
-$\mathcal{D}_k$ ist isomorph zur Darstellung $STF^k(V)$.
+$\mathcal{D}_m$ ist isomorph zur Darstellung $STF^m(V)$ bzw. dem Raum ${^2} \mathscr{H}_\IK^m$ der harmonischen, homogenen Polynome vom Grad $m$.
 \end{theorem}
 \begin{proof}
 Man kann von Hand nachprüfen, dass diese Definitionen tatsächlich Darstellungen sind. Die beiden eindimensionalen sind automatisch auch irreduzibel.
 
-Wir zeigen die Irreduzibilität von $\mathcal{D}_k$, indem wir die Bilinearform auf Charakteren anwenden und $\braket{\chi_k,\chi}$ für einen beliebigen Charakter $\chi$ von $O_2$ ausrechnen:
+Wir zeigen die Irreduzibilität von $\mathcal{D}_k$, indem wir die Bilinearform auf Charakteren anwenden und $\braket{\chi_m,\chi}$ für einen beliebigen Charakter $\chi$ von $O_2$ ausrechnen:
 \begin{align*}
-\braket{\chi_k,\chi}_{O_2} &= \frac{1}{2}\int_{SO_2} \chi_k(g)\chi_k(g^{-1}) \dd g + \frac{1}{2}\int_{SO_2} \underbrace{\chi_k(hg)}_{=0}\chi((hg)^{-1})\dd g &\text{für}\,h\in O_2\setminus SO_2\\
-&= \frac{1}{2}\int_{SO_2} \chi_k(g)\chi(g^{-1}) \dd \alpha \\
-&= \frac{1}{2} \braket{ (\chi_k)_{|SO_2} , \chi_{|SO_2}}_{SO_2} \\
-\intertext{Speziell für $\chi=\chi_k$ selbst ist das}
-&= \frac{1}{2} \braket{e^{ik\alpha} + e^{-ik\alpha}, e^{ik\alpha} + e^{-ik\alpha}}_{SO_2} \\
+\braket{\chi_m,\chi}_{O_2} &= \frac{1}{2}\int_{SO_2} \chi_m(g)\chi(g^{-1}) \dd g + \frac{1}{2}\int_{SO_2} \underbrace{\chi_m(hg)}_{=0}\chi((hg)^{-1})\dd g &\text{für}\,h\in O_2\setminus SO_2\\
+&= \frac{1}{2}\int_{SO_2} \chi_m(g)\chi(g^{-1}) \dd \alpha \\
+&= \frac{1}{2} \braket{ (\chi_m)_{|SO_2} , \chi_{|SO_2}}_{SO_2} \\
+\intertext{Speziell für $\chi=\chi_m$ selbst ist das}
+&= \frac{1}{2} \braket{e^{im\alpha} + e^{-im\alpha}, e^{im\alpha} + e^{-im\alpha}}_{SO_2} \\
 &=\frac{1}{2}(1^2 + 1^2)=1 &\text{Orthogonalitätsrelation}
 \end{align*}
-Also sind die $\chi_k$ tatsächlich irreduzible Charaktere von $O_2$ nach \ref{darstellungen:schur_umkehrung}.
+Also sind die $\chi_m$ tatsächlich irreduzible Charaktere von $O_2$ nach \ref{darstellungen:schur_umkehrung}.
 
 \medbreak
-Unsere Behauptung ist u.A., dass es keine weiteren, uns noch unbekannten irreduziblen Charaktere von $O_2$ gibt. Wir nehmen uns also einen irreduziblen Charakter $\chi$, der nicht einer der $\chi_k$ ist und auch nicht trivial ist, und zeigen, dass er gleich der Determinante sein muss.
+Unsere Behauptung ist u.A., dass es keine weiteren, uns noch unbekannten irreduziblen Charaktere von $O_2$ gibt. Wir nehmen uns also einen irreduziblen Charakter $\chi$, der nicht einer der $\chi_m$ ist und auch nicht trivial ist, und zeigen, dass er gleich der Determinante sein muss.
 
 \smallbreak
-Wir haben schon festgestellt, dass in $O_2$ die Charakterwerte eingeschränkt auf $SO_2$ immer die Form $\chi(\rho_\alpha) = \sum_{k\in\IZ} a_k\cdot  e^{ik\alpha}$ mit $a_k=a_{-k}\in\IN$ haben müssen. Wenn wir nun ausnutzen, dass $\braket{\chi_k,\chi}_{O_2}=0$ sein müsste aufgrund der Orthogonalitätsrelation, dann folgern wir $a_k=0$ für $k\neq 0$, d.h. $\chi(\rho_\alpha)=a_0$ ist konstant auf $SO_2$. Das Komplement von $SO_2$ besteht ausschließlich aus Spiegelungen und die sind alle zueinander konjugiert, sodass $\chi$ auch auf dem Komplement $O_2\setminus SO_2$ konstant sein muss. Die Orthogonalitätsrelation $\braket{1,\chi}_{O_2}=0$ impliziert dann, dass die Konstante auf dem Komplement genau $-a_0$ sein muss, d.h. $\chi = a_0\cdot \det$. Wegen der Irreduzibilität muss $a_0=1$ sein.
+Wir haben schon festgestellt, dass in $O_2$ die Charakterwerte eingeschränkt auf $SO_2$ immer die Form $\chi(\rho_\alpha) = \sum_{m\in\IZ} a_m\cdot  e^{im\alpha}$ mit $a_m=a_{-m}\in\IN$ haben müssen. Wenn wir nun ausnutzen, dass $\braket{\chi_m,\chi}_{O_2}=0$ sein müsste aufgrund der Orthogonalitätsrelation, dann folgern wir $a_m=0$ für $m\neq 0$, d.h. $\chi(\rho_\alpha)=a_0$ ist konstant auf $SO_2$. Das Komplement von $SO_2$ besteht ausschließlich aus Spiegelungen und die sind alle zueinander konjugiert, sodass $\chi$ auch auf dem Komplement $O_2\setminus SO_2$ konstant sein muss. Die Orthogonalitätsrelation $\braket{1,\chi}_{O_2}=0$ impliziert dann, dass die Konstante auf dem Komplement genau $-a_0$ sein muss, d.h. $\chi = a_0\cdot \det$. Wegen der Irreduzibilität muss $a_0=1$ sein.
 
 \medbreak
-Damit ist also insbesondere zeigt, dass die Darstellungen $STF^k(V)$, die wir schon vor der Charaktertheorie als irreduzibel erkannt hatten, irgendwo in der Liste vorkommen müssen. Wir müssen nur noch herausfinden, wo. Wir nutzen aus, dass $STF^k(V)$ zum Raum der homogenen, harmonischen Polynome in zwei Variablen vom Grad $k$ isomorph ist.
+Damit ist also insbesondere zeigt, dass die Darstellungen $STF^m(V)\isomorphic {^2}\mathscr{H}_\IK^m$, die wir schon vor der Charaktertheorie als irreduzibel erkannt hatten, irgendwo in der Liste vorkommen müssen.
 
-Für Polynome in zwei Variablen kann man zufällig explizit die harmonischen hinschreiben: Es sind genau die Real- und Imaginärteile der Polynome in einer komplexen Variable. In Grad $k$ haben wir also $\Re((x+iy)^k)$ und $\Im((x+iy)^k)$ als Basis des Raums der harmonischen Polynome vom Grad $k$. Auf $\IR^2$, also der komplexen Ebene operiert $SO_2$ durch einfache Drehung, also Multiplikation mit $e^{i\alpha}$. Im Polynomraum wird also insbesondere $z^k$ auf $e^{ik\alpha}z^k$ abgebildet, d.h. auf den Grad-$k$-Polynomen operiert $SO_2$ durch $k$-fache Drehung, also muss es die irreduzible Darstellung $\mathcal{D}_k$ sein.
+Für Polynome in zwei Variablen kann man zufällig explizit die harmonischen hinschreiben: Es sind genau die Real- und Imaginärteile der Polynome in einer komplexen Variable. In Grad $m$ haben wir also $\Re((x+iy)^m)$ und $\Im((x+iy)^m)$ als Basis des Raums der harmonischen Polynome vom Grad $m$. Auf $\IR^2$, also der komplexen Ebene operiert $SO_2$ durch einfache Drehung, also Multiplikation mit $e^{i\alpha}$. Im Polynomraum wird also insbesondere $z^m$ auf $e^{im\alpha}z^m$ abgebildet, d.h. auf den Grad-$m$-Polynomen operiert $SO_2$ durch $m$-fache Drehung, also muss es die irreduzible Darstellung $\mathcal{D}_m$ sein.
 \end{proof}
