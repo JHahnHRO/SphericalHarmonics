@@ -37,7 +37,7 @@ Existiert ein Homomorphismus $f': V\to U$ mit $f\circ f'=f'\circ f=\id$, so nenn
 \end{definition}
 
 \begin{convention}
-Wir werden ausschließlich endlichdimensionale Darstellungen betrachten. Es gibt auch eine reichhaltige Theorie unendlichdimensionaler Darstellungen, die für uns aber nicht relevant sein wird.
+Wir werden ausschließlich endlich-dimensionale Darstellungen betrachten. Es gibt auch eine reichhaltige Theorie unendlich-dimensionaler Darstellungen, die für uns aber nicht relevant sein wird.
 
 Wir werden uns außerdem ausschließlich für die Fälle $\IK=\IC$ und ein bisschen $\IK=\IR$ interessieren und andere Körper außen vor lassen. (Typischerweise ist Darstellungstheorie über $\IC$ immer der einfachste Fall und Darstellungstheorie über anderen Körpern als $\IC$ ist mindestens genauso schwierig oder schwieriger)
 \end{convention}
@@ -45,7 +45,8 @@ Wir werden uns außerdem ausschließlich für die Fälle $\IK=\IC$ und ein bissc
 \begin{remark}
 Eine Darstellung kann alternativ aufgefasst werden als Gruppenhomomorphismus $G\to GL(T)$: Jedem Gruppenelement $g\in G$ wird die (invertierbare!) lineare Abbildung $v\mapsto g\cdot v$ zugeordnet. Ist umgekehrt ein Gruppenhomomorphismus $\mathcal{D}: G\to GL(T)$ gegeben, so kann man $T$ als $G$-Darstellung auffassen, indem man $g\cdot v:=\mathcal{D}(g)(v)$ definiert.
 
-Diese beiden Sichtweisen sind völlig identisch und beliebig austauschbar. Je nach Situation kann es einfacher sein, einen Homomorphismus nach $GL(T)$ oder direkt die Operation der Gruppe auf $T$ zu definieren.
+\smallbreak
+Diese beiden Sichtweisen sind völlig identisch und beliebig austauschbar. Je nach Situation kann es einfacher sein, einen Homomorphismus nach $GL(T)$ oder direkt die Operation der Gruppe auf $T$ zu definieren. Insbesondere können wir eindimensionale Darstellungen äquivalent auch als Gruppenhomomorphismen $G\to\IK\setminus{0}$ auffassen.
 
 \medbreak
 Hat man aus irgendeinem Grund eine Basis von $T$ gegeben, kann man bekanntlich lineare Abbildungen mit Matrizen identifizieren. Eine Darstellung ist in dieser Sichtweise dann eine Abbildung ${D}: G\to \IK^{n\times n}$, die jedem Gruppenelement $g\in G$ eine (invertierbare) Matrix $D(g)$ zuordnet, sodass $D(1)=1_{n\times n}$ und $D(g\cdot h)=D(g)\cdot D(h)$ erfüllt sind. Solch eine Abbildung nennt man dann auch \udot{Matrixdarstellung}.
