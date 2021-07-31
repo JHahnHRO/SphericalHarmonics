@@ -71,7 +71,7 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 % 	Idealerweise ist unsere Basis auch für solche Fälle ausgelegt. Es stellt sich heraus, dass beide Probleme gleichzeitig gelöst werden können.
  %\end{remark}
  \subsection{Die Gelfand-Zetlin Basis}
- \begin{definition}[Konstruktion der $\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Bae\aaa\sae\iue$ (Gelfand\footnote{Israel Gelfand, $\I\sae\rae\aaa\iii\el\soft$ $\Em\ooo\iii\ssae\jae\jae\wae\iii\tschae$ $\Gae\jae\el\soft\fae\aaa\en\dae$ (1913--2009), sowjetischer Mathematiker}-Zetlin\footnote{Michael Zetlin, $\Em\iii\xa\aaa\iii\el$ $\El\soft\wae\ooo\wae\iii\tschae$ $\Zae\jae\tae\el\iii\en$ (1924--1966), russ. Mathematiker und Physiker; Der Name wird leider auf viele verschiedene Weisen transkribiert, u.A. eben Zetlin (meist im dt. Sprachraum), aber auch Tsetlin (engl. Sprachraum), Zeitlin, Tseitlin, Ceitlin}-Basis]
+ \begin{definition}[Konstruktion der $\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Bae\aaa\sae\iue$ (Gelfand\footnote{Israel Gelfand, $\I\sae\rae\aaa\iii\el\soft$ $\Em\ooo\iii\ssae\jae\jae\wae\iii\tschae$ $\Gae\jae\el\soft\fae\aaa\en\dae$ (1913--2009), sowjetischer Mathematiker}-Zetlin\footnote{Michael Zetlin, $\Em\iii\xa\aaa\iii\el$ $\El\soft\wae\ooo\wae\iii\tschae$ $\Zae\jae\tae\el\iii\en$ (1924--1966), russ. Mathematiker und Physiker; Der Name wird leider auf viele verschiedene Weisen transkribiert, u.A. eben Zetlin (meist im dt. Sprachraum), aber auch Tsetlin (engl. Sprachraum), Cetlin, Tzetlin, Zeitlin, Zetlin}-Basis]
  	\label{def:konstruktion_gz_basis}
 	Sei $G$ eine Gruppe mit halb-einfacher Darstellung auf einem Vektorraum $V$ und $U^i_0$ einer der irreduziblen Unterräume von $V$. Für diesen Unterraum wird eine \emph{Gelfand-Zetlin-Basis} wie folgt konstruiert:
 	\begin{enumerate}[label={\arabic*.)}]
@@ -170,143 +170,151 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 
 \pagebreak
 \begin{maintheorem}[Spherical Harmonics sind eine Gelfand-Zetlin-Basis]\label{mt:sh_sind_gzb}
-	Die Darstellung von $O_3$ auf dem Polynomraum (egal, ob mit reellen oder komplexen Koeffizienten) hat die Gelfand-Zetlin-Basis bezüglich Untergruppenkette $O_3 \geq O_2 \geq O_1$. Die Element dieser Basis heißen \emph{reelle Spherical Harmonics} oder auch \emph{Kugelflächenfunktionen}.
+	Die Darstellung von $O_3$ auf dem Polynomraum (egal, ob mit reellen oder komplexen Koeffizienten) hat eine Gelfand-Zetlin-Basis bezüglich Untergruppenkette $O_3 \geq O_2 \geq O_1$. Die Element dieser Basis heißen \udot{reelle Spherical Harmonics} oder auch \udot{Kugelflächenfunktionen}.
 
-	Sofern man mit komplexen Koeffizienten arbeitet, gibt es eine zweite Gelfand-Zetlin-Basis bezüglich der Untergruppenkette $O_3 \geq O_2 \geq SO_2$. Die Elemente dieser Gelfand-Zetlin-Basis heißen \emph{komplexe Spherical Harmonics}.
+	Sofern man mit komplexen Koeffizienten arbeitet, gibt es eine zweite Gelfand-Zetlin-Basis bezüglich der Untergruppenkette $O_3 \geq O_2 \geq SO_2$. Die Elemente dieser Gelfand-Zetlin-Basis heißen \udot{komplexe Spherical Harmonics}.
 \end{maintheorem}
 
+\begin{remark}
+Unsere Definition einer Gelfand-Zetlin-Basis legt genau genommen nicht nur eine Basis fest, da wir für jedes Basiselement die freie Wahl eine skalaren Faktors haben. In Situation, wo ein Skalarprodukt gegeben ist, haben wir also die Länge und der Basisvektoren nicht festgelegt.
+
+Da die Spherical Harmonics aber auch in vielen verschiedenen, mehr oder weniger üblichen Versionen existieren, die sich alle nur in der Wahl eines Normierungsfaktors (und manchmal eines Vorzeichens) unterscheiden, haben wir keine Skrupel, diese Uneindeutigkeit in der Definition zu lassen.
+
+\medbreak
+Es ist andererseits auch nicht überraschend, dass die Längen dieser Vektoren nicht allgemein festgenagelt ist, denn wir haben ja bereits festgestellt, dass sie für viele verschiedene Skalarprodukten eine Orthogonalbasis definieren. Wo sich diese Skalarprodukte also voneinander unterscheiden, ist die Frage, welche Länge (und ggf. Vorzeichen) sie diesen Basisvektoren zuordnen. Je nachdem, welches Skalarprodukt man gerade bevorzugt, ist also die eine oder andere Wahl der Normierung die sinnvollere. In einem anderen Kontext mit einem anderen Skalarprodukt sind die Spherical Harmonics dann immer noch orthogonal, aber plötzlich nicht mehr normiert.
+
+In diesem Sinne ist es sinnvoll, die Wahl des Normierungsfaktor nicht als wesentlichen Teil der Definition zu verstehen.
+\end{remark}
+
 \begin{lemma}[{Gelfand-Zetlin-Baum für $O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf } \IC[x,y,z]$}]
-	\begin{align*}
-		\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
-			\node (u20) at (0,-3){$\mathscr{E}_\IC^{0}$};
-			\foreach\x [evaluate=\x as \y using {(\x)*2.5-0.5},evaluate=\x as \z using {(\x)*2.5+0.5}] in {1,2,3}{
-				\node (u2m\x) at (\y,-3){$\mathscr{E}_\IC^{-\x}$};
-				\node (u2p\x) at (\z,-3){$\mathscr{E}_\IC^{\x}$};
-			}
-			\node (u2m4) at (4*2.5-0.5,-3){$\cdots$};
-			\node (u2p4) at (4*2.5+0.5,-3){$\cdots$};
-			\node (u2m5) at (5*2.5-0.5,-3){$\mathscr{E}_\IC^{-k}$};
-			\node (u2p5) at (5*2.5+0.5,-3){$\mathscr{E}_\IC^{k}$};
-			\node (u10) at (0*10/5,-1.5){$^2\mathscr{H}_\IC^0$};
-			\foreach\x [evaluate=\x as \y using {\x*2.5}] in {1,2,3}{
-				\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IC^{\x}$};
-			}
-			\node (u14) at (4*2.5,-1.5){$\cdots$};
-			\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IC^k$};
-			\node (u0) at (4.7875,0){$^3\mathscr{H}_\IC^k$};
-			\foreach\x in {0,1,...,5}{
-				\draw[] (u0) to (u1\x);
-			}
-			\foreach\x in {1,2,3,4,5}{
-				\draw[] (u1\x) to (u2m\x);
-				\draw[] (u1\x) to (u2p\x);
-			}
-			\draw[] (u10) to (u20);
-			\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
-				\node (l\x) at (-2,\y){$l=\x$};
-			}
-			\node (h0) at (-1,0){$O_3$};
-			\node (h1) at (-1,-1.5){$O_2$};
-			\node (h2) at (-1,-3){$SO_2$};
-		\end{tikzpicture}
-	\end{align*}
+\nopagebreak
+\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
+	\node (u20) at (0,-3){$\mathscr{E}_\IC^{0}$};
+	\foreach\x [evaluate=\x as \y using {(\x)*2.5-0.5},evaluate=\x as \z using {(\x)*2.5+0.5}] in {1,2,3}{
+		\node (u2m\x) at (\y,-3){$\mathscr{E}_\IC^{-\x}$};
+		\node (u2p\x) at (\z,-3){$\mathscr{E}_\IC^{\x}$};
+	}
+	\node (u2m4) at (4*2.5-0.5,-3){$\cdots$};
+	\node (u2p4) at (4*2.5+0.5,-3){$\cdots$};
+	\node (u2m5) at (5*2.5-0.5,-3){$\mathscr{E}_\IC^{-k}$};
+	\node (u2p5) at (5*2.5+0.5,-3){$\mathscr{E}_\IC^{k}$};
+	\node (u10) at (0*10/5,-1.5){$^2\mathscr{H}_\IC^0$};
+	\foreach\x [evaluate=\x as \y using {\x*2.5}] in {1,2,3}{
+		\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IC^{\x}$};
+	}
+	\node (u14) at (4*2.5,-1.5){$\cdots$};
+	\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IC^k$};
+	\node (u0) at (4.7875,0){$^3\mathscr{H}_\IC^k$};
+	\foreach\x in {0,1,...,5}{
+		\draw[] (u0) to (u1\x);
+	}
+	\foreach\x in {1,2,3,4,5}{
+		\draw[] (u1\x) to (u2m\x);
+		\draw[] (u1\x) to (u2p\x);
+	}
+	\draw[] (u10) to (u20);
+	\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
+		\node (l\x) at (-2,\y){$l=\x$};
+	}
+	\node (h0) at (-1,0){$O_3$};
+	\node (h1) at (-1,-1.5){$O_2$};
+	\node (h2) at (-1,-3){$SO_2$};
+\end{tikzpicture}
 \end{lemma}
 
 \begin{lemma}[{Gelfand-Zetlin-Baum für $O_3\gneq O_2\gneq O_1 \text{ dargestellt auf } \IC[x,y,z]$}]
-	\begin{align*}
-		\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
-			\node (u20) at (0,-3){$^1\mathscr{H}_\IC^{0}$};
-			\foreach\x [evaluate=\x as \y using {(\x)*2.5-0.5},evaluate=\x as \z using {(\x)*2.5+0.5}] in {1,2,3,5}{
-				\node (u2m\x) at (\y,-3){$^1\mathscr{H}_\IC^{0}$};
-				\node (u2p\x) at (\z,-3){$^1\mathscr{H}_\IC^{1}$};
-			}
-			\node (u2m4) at (4*2.5-0.5,-3){$\cdots$};
-			\node (u2p4) at (4*2.5+0.5,-3){$\cdots$};
-			\node (u10) at (0*10/5,-1.5){$^2\mathscr{H}_\IC^0$};
-			\foreach\x [evaluate=\x as \y using {\x*2.5}] in {1,2,3}{
-				\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IC^{\x}$};
-			}
-			\node (u14) at (4*2.5,-1.5){$\cdots$};
-			\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IC^k$};
-			\node (u0) at (4.7875,0){$^3\mathscr{H}_\IC^k$};
-			\foreach\x in {0,1,...,5}{
-				\draw[] (u0) to (u1\x);
-			}
-			\foreach\x in {1,2,3,4,5}{
-				\draw[] (u1\x) to (u2m\x);
-				\draw[] (u1\x) to (u2p\x);
-			}
-			\draw[] (u10) to (u20);
-			\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
-				\node (l\x) at (-2,\y){$l=\x$};
-			}
-			\node (h0) at (-1,0){$O_3$};
-			\node (h1) at (-1,-1.5){$O_2$};
-			\node (h2) at (-1,-3){$O_1$};
-		\end{tikzpicture}
-	\end{align*}
+\nopagebreak
+\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
+	\node (u20) at (0,-3){$^1\mathscr{H}_\IC^{0}$};
+	\foreach\x [evaluate=\x as \y using {(\x)*2.5-0.5},evaluate=\x as \z using {(\x)*2.5+0.5}] in {1,2,3,5}{
+		\node (u2m\x) at (\y,-3){$^1\mathscr{H}_\IC^{0}$};
+		\node (u2p\x) at (\z,-3){$^1\mathscr{H}_\IC^{1}$};
+	}
+	\node (u2m4) at (4*2.5-0.5,-3){$\cdots$};
+	\node (u2p4) at (4*2.5+0.5,-3){$\cdots$};
+	\node (u10) at (0*10/5,-1.5){$^2\mathscr{H}_\IC^0$};
+	\foreach\x [evaluate=\x as \y using {\x*2.5}] in {1,2,3}{
+		\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IC^{\x}$};
+	}
+	\node (u14) at (4*2.5,-1.5){$\cdots$};
+	\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IC^k$};
+	\node (u0) at (4.7875,0){$^3\mathscr{H}_\IC^k$};
+	\foreach\x in {0,1,...,5}{
+		\draw[] (u0) to (u1\x);
+	}
+	\foreach\x in {1,2,3,4,5}{
+		\draw[] (u1\x) to (u2m\x);
+		\draw[] (u1\x) to (u2p\x);
+	}
+	\draw[] (u10) to (u20);
+	\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
+		\node (l\x) at (-2,\y){$l=\x$};
+	}
+	\node (h0) at (-1,0){$O_3$};
+	\node (h1) at (-1,-1.5){$O_2$};
+	\node (h2) at (-1,-3){$O_1$};
+\end{tikzpicture}
 \end{lemma}
+
 \begin{lemma}[{Gelfand-Zetlin-Baum für $O_3\gneq O_2\gneq O_1 \text{ dargestellt auf } \IR[x,y,z]$}]
-	\begin{align*}
-		\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
-			\node (u20) at (0,-3){$^1\mathscr{H}_\IR^{0}$};
-			\foreach\x [evaluate=\x as \y using {(\x)*2.5-0.5},evaluate=\x as \z using {(\x)*2.5+0.5}] in {1,2,3,5}{
-				\node (u2m\x) at (\y,-3){$^1\mathscr{H}_\IR^{0}$};
-				\node (u2p\x) at (\z,-3){$^1\mathscr{H}_\IR^{1}$};
-			}
-			\node (u2m4) at (4*2.5-0.5,-3){$\cdots$};
-			\node (u2p4) at (4*2.5+0.5,-3){$\cdots$};
-			\node (u10) at (0*10/5,-1.5){$^2\mathscr{H}_\IR^0$};
-			\foreach\x [evaluate=\x as \y using {\x*2.5}] in {1,2,3}{
-				\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IR^{\x}$};
-			}
-			\node (u14) at (4*2.5,-1.5){$\cdots$};
-			\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IR^k$};
-			\node (u0) at (4.7875,0){$^3\mathscr{H}_\IR^k$};
-			\foreach\x in {0,1,...,5}{
-				\draw[] (u0) to (u1\x);
-			}
-			\foreach\x in {1,2,3,4,5}{
-				\draw[] (u1\x) to (u2m\x);
-				\draw[] (u1\x) to (u2p\x);
-			}
-			\draw[] (u10) to (u20);
-			\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
-				\node (l\x) at (-2,\y){$l=\x$};
-			}
-			\node (h0) at (-1,0){$O_3$};
-			\node (h1) at (-1,-1.5){$O_2$};
-			\node (h2) at (-1,-3){$O_1$};
-		\end{tikzpicture}
-	\end{align*}
+\nopagebreak
+\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
+	\node (u20) at (0,-3){$^1\mathscr{H}_\IR^{0}$};
+	\foreach\x [evaluate=\x as \y using {(\x)*2.5-0.5},evaluate=\x as \z using {(\x)*2.5+0.5}] in {1,2,3,5}{
+		\node (u2m\x) at (\y,-3){$^1\mathscr{H}_\IR^{0}$};
+		\node (u2p\x) at (\z,-3){$^1\mathscr{H}_\IR^{1}$};
+	}
+	\node (u2m4) at (4*2.5-0.5,-3){$\cdots$};
+	\node (u2p4) at (4*2.5+0.5,-3){$\cdots$};
+	\node (u10) at (0*10/5,-1.5){$^2\mathscr{H}_\IR^0$};
+	\foreach\x [evaluate=\x as \y using {\x*2.5}] in {1,2,3}{
+		\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IR^{\x}$};
+	}
+	\node (u14) at (4*2.5,-1.5){$\cdots$};
+	\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IR^k$};
+	\node (u0) at (4.7875,0){$^3\mathscr{H}_\IR^k$};
+	\foreach\x in {0,1,...,5}{
+		\draw[] (u0) to (u1\x);
+	}
+	\foreach\x in {1,2,3,4,5}{
+		\draw[] (u1\x) to (u2m\x);
+		\draw[] (u1\x) to (u2p\x);
+	}
+	\draw[] (u10) to (u20);
+	\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
+		\node (l\x) at (-2,\y){$l=\x$};
+	}
+	\node (h0) at (-1,0){$O_3$};
+	\node (h1) at (-1,-1.5){$O_2$};
+	\node (h2) at (-1,-3){$O_1$};
+\end{tikzpicture}
 \end{lemma}
 
 \begin{lemma}[{Versuchter Gelfand-Zetlin-Baum für $O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf } \IR[x,y,z]$}]
-	\begin{align*}
-		\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
-			\node (u24) at (4*2.5,-3){$\cdots$};
-			\foreach\x [evaluate=\x as \y using {\x*2.5}] in {0,1,2,3}{
-				\node (u2\x) at (\y,-3){$^2\mathscr{H}_\IR^{\x}$};
-				\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IR^{\x}$};
-			}
-			\node (u14) at (4*2.5,-1.5){$\cdots$};
-			\node (u25) at (5*2.5,-3){$^2\mathscr{H}_\IR^k$};
-			\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IR^k$};
-			\node (u0) at (4.7875,0){$^3\mathscr{H}_\IR^k$};
-			\foreach\x in {0,1,...,5}{
-				\draw[] (u0) to (u1\x);
-			}
-			\foreach\x in {0,1,2,3,4,5}{
-				\draw[] (u1\x) to (u2\x);
-			}
-			\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
-				\node (l\x) at (-2,\y){$l=\x$};
-			}
-			\node (h0) at (-1,0){$O_3$};
-			\node (h1) at (-1,-1.5){$O_2$};
-			\node (h2) at (-1,-3){$SO_2$};
-		\end{tikzpicture}
-	\end{align*}
+\nopagebreak
+\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
+	\node (u24) at (4*2.5,-3){$\cdots$};
+	\foreach\x [evaluate=\x as \y using {\x*2.5}] in {0,1,2,3}{
+		\node (u2\x) at (\y,-3){$^2\mathscr{H}_\IR^{\x}$};
+		\node (u1\x) at (\y,-1.5){$^2\mathscr{H}_\IR^{\x}$};
+	}
+	\node (u14) at (4*2.5,-1.5){$\cdots$};
+	\node (u25) at (5*2.5,-3){$^2\mathscr{H}_\IR^k$};
+	\node (u15) at (5*2.5,-1.5){$^2\mathscr{H}_\IR^k$};
+	\node (u0) at (4.7875,0){$^3\mathscr{H}_\IR^k$};
+	\foreach\x in {0,1,...,5}{
+		\draw[] (u0) to (u1\x);
+	}
+	\foreach\x in {0,1,2,3,4,5}{
+		\draw[] (u1\x) to (u2\x);
+	}
+	\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
+		\node (l\x) at (-2,\y){$l=\x$};
+	}
+	\node (h0) at (-1,0){$O_3$};
+	\node (h1) at (-1,-1.5){$O_2$};
+	\node (h2) at (-1,-3){$SO_2$};
+\end{tikzpicture}
 \end{lemma}
 
 \begin{proof}
@@ -316,14 +324,15 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 \begin{remark}
 	Meistens werden einem Spherical Harmonics als Basis-Satz mit besonderen Eigenschaften vorgesetzt und nicht als Gelfand-Zetlin-Basis definiert. Es fehlt also noch die Überprüfung, dass die üblichen Spherical Harmonics auch mit der Definition nach \ref{mt:sh_sind_gzb} übereinstimmen.
 \end{remark}
+
 \begin{lemma}[Die Bezeichnung \enquote{Spherical Harmonics} ist gerechtfertigt]
 	Die Gelfand-Zetlin-Basis von $O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf } \IC[x,y,z]$ stimmt bis auf skalare Vielfache mit den komplexen Spherical Harmonics, wie sie üblicherweise gegeben sind, überein. Gleiches gilt für die Gelfand-Zetlin-Basis von $O_3\gneq O_2\gneq O_1 \text{ dargestellt auf } \IR[x,y,z]$ für die reellen Spherical Harmonics.
 
-	Hierbei gilt zu beachten: Die Einbettung der Untergruppen in $O_3$ legt drei ausgezeichnete Raumrichtungen in Form von Fixpunkträumen fest: Die Drehachse $z$ ($O_2$ eingebettet in $O_3$),
+	Hierbei gilt zu beachten: Die Einbettung der Untergruppen in $O_3$ legt drei ausgezeichnete Raumrichtungen in Form von Fixpunkträumen fest: Die Drehachse der Untergruppe $O_2$ und innerhalb der dazu senkrechten Ebene die beiden Eigenräume von $O_1$.
 \end{lemma}
 
 \begin{definition}[Wikipedias Herleitung der Spherical Harmonics]
-Die \emph{Kugelflächenfunktionen} sind ein vollständiger und orthonormaler Satz von Eigenfunktionen des Winkelanteils des Laplace-Operators. Dieser Winkelanteil zeigt sich, wenn der Laplace-Operator in Kugelkoordinaten geschrieben wird. Die Eigenwertgleichung lautet:
+Die \emph{Kugelflächenfunktionen} sind ein vollständiger und orthogonaler Satz von Eigenfunktionen des Winkelanteils des Laplace-Operators. Dieser Winkelanteil zeigt sich, wenn der Laplace-Operator in Kugelkoordinaten geschrieben wird. Die Eigenwertgleichung lautet:
 
 \[\left(\frac{\partial^{2}}{\partial\vartheta^{2}}+\frac{\cos\vartheta}{\sin\vartheta}\frac{\partial}{\partial\vartheta}+\frac{1}{\sin^{2}\vartheta}\frac{\partial^{2}}{\partial\varphi^{2}}\right)Y_{lm}(\vartheta,\varphi)=-l(l+1)Y_{lm}(\vartheta,\varphi)\]
 
