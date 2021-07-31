@@ -31,18 +31,18 @@ Besonders wichtig für uns ist, dass alle Drehungen um den gleichen Drehwinkel z
 \begin{theoremdef}[Darstellungstheorie von $SO_3$]
 Es sei $V$ ein drei-dimensionaler, reeller Vektorraum mit Skalarprodukt.
 
-Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_3(V)$ über $\IK\in\set{\IR,\IC}$ ist zu $\STF^l(V)$ bzw. ${^3}\mathscr{H}_\IK^l$ für die \emph{Nebenquantenzahl} $l\in\IN$ isomorph. Der Charakter von $\STF^l(V)$ ist genau $\chi_l(\rho_{\alpha,v}) = \sum_{j=-l}^l e^{ij\alpha} = 1+\sum_{j=1}^l 2\cos(j\alpha)$.
+Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_3(V)$ über $\IK\in\set{\IR,\IC}$ ist zu $\STF^l(V)$ bzw. ${^3}\mathscr{H}_\IK^l$ für die \emph{Nebenquantenzahl} $l\in\IN$ isomorph. Der Charakter von $\STF^l(V)$ ist genau $\chi_l(\rho_{\alpha,v}) = \sum_{m=-l}^l e^{im\alpha} = 1+\sum_{m=1}^l 2\cos(m\alpha)$.
 \end{theoremdef}
 \begin{proof}
 Wir zeigen zunächst, dass der Charakter der Darstellung $\STF^l(V)$ genau die angegebene Form hat. Wie wir eben festgestellt haben, ist es ausreichend, eine feste Drehachse zu betrachten und für jeden Drehwinkel um diese Achse den Charakterwert auszurechnen.
 
-Sobald wir die Drehachse fixiert haben, zeigt das eben bewiesene Lemma, dass $\STF^l(V)$ als $O_2(E)$-Darstellung isomorph ist zu $\Sym^l(E)\oplus \Sym^{l-1}(E)$ ist, wobei $E$ die Ebene ist, die senkrecht zur Drehachse ist. Und wie sich die symmetrischen Tensoren in irreduzible zerlegen, wissen wir bereits.
+Sobald wir die Drehachse fixiert haben, zeigt das eben bewiesene Lemma, dass $\STF^l(V)$ als $SO_2(E)$-Darstellung isomorph ist zu $\Sym^l(E)\oplus \Sym^{l-1}(E)$ ist, wobei $E$ die Ebene ist, die senkrecht zur Drehachse ist. Und wie sich die symmetrischen Tensoren in irreduzible zerlegen, wissen wir bereits.
 
 Insbesondere können wir also die Charaktere explizit ausrechnen: Es ist
 \begin{align*}
-    \chi_{\STF^l(V)}(\rho_{\alpha,v}) &= \chi_{Sym^l(E)}(\rho_\alpha) + \chi_{Sym^{l-1}(E)}(\rho_\alpha) \\
-    &= (2\cos(k\alpha)+2\cos((k-2)\alpha)+\ldots) \\ &\phantom{=}+(2\cos((k-1)\alpha)+2\cos((k-3)\alpha) +\ldots) \\
-    &= 1+\sum_{j=1}^l 2\cos(j\alpha)
+    \chi_{\STF^l(V)}(\rho_{\alpha,v}) &= \chi_{\Sym^l(E)}(\rho_\alpha) + \chi_{\Sym^{l-1}(E)}(\rho_\alpha) \\
+    &= (2\cos(l\alpha)+2\cos((l-2)\alpha)+\ldots) \\ &\phantom{=}+(2\cos((l-1)\alpha)+2\cos((l-3)\alpha) +\ldots) \\
+    &= 1+\sum_{m=1}^l 2\cos(m\alpha)
 \end{align*}
 wie behauptet.
 
@@ -115,7 +115,7 @@ t & t\in \STF_+^l(V) \\
 
 Der Charakter von $\STF_{\pm}^l(V)$ ist gegeben durch
 \[\chi_{\pm,l}(g) = \begin{cases}
-\sum_{j=-l}^l e^{ij\alpha} & g=\rho_{\alpha,v}\in SO_3(V) \\
+\sum_{m=-l}^l e^{im\alpha} & g=\rho_{\alpha,v}\in SO_3(V) \\
 \pm 1 & g\,\text{ist eine Spiegelung} \\
 \pm (2k+1) & g=\iota
 \end{cases}\]
