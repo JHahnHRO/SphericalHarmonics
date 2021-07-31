@@ -24,22 +24,25 @@ Es gilt auch die Umkehrung: Besitzt eine kompakte Gruppe nur eindimensionale irr
 \end{remark}
 
 \begin{remark}
-Fourieranalyse basiert wesentlich auf dieser Aussage. Die verschiedenen Formen der Fourieranalyse haben alle das gleiche zugrunde liegende Prinzip: Die Zerlegung von (meist unendlich-dimensionalen) Darstellungen einer kommutativen Gruppe in ihre eindimensionalen, irreduziblen Bestandteile. Die geschieht, indem man eine Basis so wählt, dass aus diesen eindimensionalen Untervektorräumen je ein Vektor Teil der Basis ist. Der Unterschied zwischen den verschiedenen Arten von Fouriertransformation ist, welches die dahinter stehende Gruppe ist:
+Fourieranalyse basiert wesentlich auf dieser Aussage. Die verschiedenen Formen der Fourieranalyse haben alle das gleiche zugrunde liegende Prinzip: Die Zerlegung von (meist unendlich-dimensionalen) Darstellungen einer kommutativen Gruppe in ihre eindimensionalen, irreduziblen Bestandteile. Die Fourier-Basis enthält dann aus jeder irreduziblem Komponente genau einen Vektor. Der Unterschied zwischen den verschiedenen Arten von Fouriertransformation ist, welches die dahinter stehende Gruppe ist:
 
 \begin{itemize}
 \item Die diskrete Fouriertransformation (inkl. FFT) ist die Darstellungstheorie der zyklischen Gruppen $C_n = \set{\exp(\frac{2\pi k i}{n}) | k=0,\ldots,n-1}$.
-\item Die Fouriertransformation periodischer Funktionen (=Fourierreihe) ist die Darstellungstheorie der Kreisgruppe $S^1 = \set{\exp(i\alpha) | \alpha\in[0,2\pi)}$ (welche zu $SO_2$ isomorph ist)
+\item Die Fouriertransformation periodischer Funktionen (=Fourierreihe) ist die Darstellungstheorie der Kreisgruppe $S^1 = \set{\exp(i\alpha) | \alpha\in[0,2\pi)}$ (welche zu $SO_2$ isomorph ist).
 \item Die kontinuierliche Fouriertransformation ist die Darstellungstheorie der reellen Gerade $\IR$. ($\IR$ ist nicht kompakt, aber lokalkompakt. Für solche Gruppen gibt es auch ein Haar-Integral)
 \end{itemize}
 
 Für eine beliebige, (lokal)kompakte kommutative Gruppe spricht man auch von Pontrjagin-Dualität nach $\El$. $\Ssae$. $\Pae\ooo\en\tae\rae\ja\gae\iii\en$
-\footnote{Lev S. Pontrjagin, $\El\jae\wae$ $\Ssae\jae\emm\jo\en\ooo\wae\iii\tschae$ $\Pae\ooo\en\tae\rae\ja\gae\iii\en$ (1908-1988), russ. Mathematiker}\footnote{Wir nennen ja keine Namen, aber Andrea bestand darauf, dass man unbedingt das kyrillische Original bräuchte, um den Namen korrekt aussprechen zu können.}.
+\footnote{Lev S. Pontrjagin, $\El\jae\wae$ $\Ssae\jae\emm\jo\en\ooo\wae\iii\tschae$ $\Pae\ooo\en\tae\rae\ja\gae\iii\en$ (1908-1988), russ. Mathematiker} \footnote{Wir nennen ja keine Namen, aber Andrea bestand darauf, dass man unbedingt das kyrillische Original bräuchte, um den Namen korrekt aussprechen zu können.}.
 \end{remark}
 
 \begin{remark}
-Eine weitere, äquivalente Sichtweise auf diesen Satz ist, dass die Darstellungstheorie von kommutativen Gruppen im Wesentlichen Eigenwerttheorie ist: Die irreduziblen Unterräume sind alle Eigenräume für die \enquote{Wurzeln}\footnote{engl. roots; \enquote{Wurzel} im Sinne von \enquote{Lösung einer Polynomgleichung}. Eigenwerte sind die Nullstellen des charakteristischen Polynoms, daher kommt diese Bezeichnung.} genannten Eigenwert-Funktionen $\lambda_i: G\to\IC$. Wenn man diese kennt, dann sind die irreduziblen Unterdarstellungen eines beliebigen $T$ einfach auszurechnen: Es sind die dazugehörigen Eigenräume.
+Eine weitere, äquivalente Sichtweise auf diesen Satz ist, dass die Darstellungstheorie von kommutativen Gruppen im Wesentlichen nur Eigenwerttheorie ist: Die irreduziblen Unterräume sind alle Eigenräume für die \enquote{Wurzeln}\footnote{engl. roots; \enquote{Wurzel} im Sinne von \enquote{Lösung einer Polynomgleichung}. Eigenwerte sind die Nullstellen des charakteristischen Polynoms, daher kommt diese Bezeichnung.} genannten Eigenwert-Funktionen $\lambda_i: G\to\IC$. Wenn man diese kennt, dann sind die irreduziblen Unterdarstellungen eines beliebigen $T$ einfach auszurechnen: Es sind die dazugehörigen Eigenräume.
 
 Die Darstellungstheorie reduziert sich also darauf, aus der Struktur der Gruppe abzuleiten, welche Wurzeln es überhaupt gibt, d.h. welche Eigenwerte überhaupt vorkommen.
+
+\medbreak
+Diese Idee ist erstaunlich mächtig, erstaunlicherweise auch um die Darstellungstheorie nichtkommutativer Gruppen zu verstehen, indem man sich gewisse, besonders große kommutative Untergruppen ansieht.
 \end{remark}
 
 \begin{theoremdef}[Darstellungstheorie von $SO_2$ über $\IK=\IC$]
@@ -88,7 +91,7 @@ Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=O_2(V)$ über
 \[\mathcal{D}_m : \begin{pmatrix}\cos(\alpha)&\mp\sin(\alpha)\\\sin(\alpha)&\pm\cos(\alpha)\end{pmatrix} \mapsto \begin{pmatrix}\cos(m\alpha)&\mp\sin(m\alpha)\\\sin(m\alpha)&\pm\cos(m\alpha)\end{pmatrix}\]
 für eine natürliche Zahl $m>0$ mit dazugehörigem Charakter $\chi_m(g) = \begin{cases} 2\cos(m\alpha) & g=\rho_\alpha \\ 0 & g\notin SO_2\end{cases}$.
 \end{enumerate}
-$\mathcal{D}_m$ ist isomorph zur Darstellung $STF^m(V)$ bzw. dem Raum ${^2} \mathscr{H}_\IK^m$ der harmonischen, homogenen Polynome vom Grad $m$.
+$\mathcal{D}_m$ ist isomorph zur Darstellung $\STF^m(V)$ bzw. dem Raum ${^2} \mathscr{H}_\IK^m$ der harmonischen, homogenen Polynome vom Grad $m$.
 \end{theorem}
 \begin{proof}
 Man kann von Hand nachprüfen, dass diese Definitionen tatsächlich Darstellungen sind. Die beiden eindimensionalen sind automatisch auch irreduzibel.
@@ -111,7 +114,7 @@ Unsere Behauptung ist u.A., dass es keine weiteren, uns noch unbekannten irreduz
 Wir haben schon festgestellt, dass in $O_2$ die Charakterwerte eingeschränkt auf $SO_2$ immer die Form $\chi(\rho_\alpha) = \sum_{m\in\IZ} a_m\cdot  e^{im\alpha}$ mit $a_m=a_{-m}\in\IN$ haben müssen. Wenn wir nun ausnutzen, dass $\braket{\chi_m,\chi}_{O_2}=0$ sein müsste aufgrund der Orthogonalitätsrelation, dann folgern wir $a_m=0$ für $m\neq 0$, d.h. $\chi(\rho_\alpha)=a_0$ ist konstant auf $SO_2$. Das Komplement von $SO_2$ besteht ausschließlich aus Spiegelungen und die sind alle zueinander konjugiert, sodass $\chi$ auch auf dem Komplement $O_2\setminus SO_2$ konstant sein muss. Die Orthogonalitätsrelation $\braket{1,\chi}_{O_2}=0$ impliziert dann, dass die Konstante auf dem Komplement genau $-a_0$ sein muss, d.h. $\chi = a_0\cdot \det$. Wegen der Irreduzibilität muss $a_0=1$ sein.
 
 \medbreak
-Damit ist also insbesondere zeigt, dass die Darstellungen $STF^m(V)\isomorphic {^2}\mathscr{H}_\IK^m$, die wir schon vor der Charaktertheorie als irreduzibel erkannt hatten, irgendwo in der Liste vorkommen müssen.
+Damit ist also insbesondere zeigt, dass die Darstellungen $\STF^m(V)\isomorphic {^2}\mathscr{H}_\IK^m$, die wir schon vor der Charaktertheorie als irreduzibel erkannt hatten, irgendwo in der Liste vorkommen müssen.
 
 Für Polynome in zwei Variablen kann man zufällig explizit die harmonischen hinschreiben: Es sind genau die Real- und Imaginärteile der Polynome in einer komplexen Variable. In Grad $m$ haben wir also $\Re((x+iy)^m)$ und $\Im((x+iy)^m)$ als Basis des Raums der harmonischen Polynome vom Grad $m$. Auf $\IR^2$, also der komplexen Ebene operiert $SO_2$ durch einfache Drehung, also Multiplikation mit $e^{i\alpha}$. Im Polynomraum wird also insbesondere $z^m$ auf $e^{im\alpha}z^m$ abgebildet, d.h. auf den Grad-$m$-Polynomen operiert $SO_2$ durch $m$-fache Drehung, also muss es die irreduzible Darstellung $\mathcal{D}_m$ sein.
 \end{proof}
