@@ -326,7 +326,72 @@ In diesem Sinne ist es sinnvoll, die Wahl des Normierungsfaktor nicht als wesent
 \end{remark}
 
 \begin{lemma}[Die Bezeichnung \enquote{Spherical Harmonics} ist gerechtfertigt]
-	Die Gelfand-Zetlin-Basis von $O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf } \IC[x,y,z]$ stimmt bis auf skalare Vielfache mit den komplexen Spherical Harmonics, wie sie üblicherweise gegeben sind, überein. Gleiches gilt für die Gelfand-Zetlin-Basis von $O_3\gneq O_2\gneq O_1 \text{ dargestellt auf } \IR[x,y,z]$ für die reellen Spherical Harmonics.
-
-	Hierbei gilt zu beachten: Die Einbettung der Untergruppen in $O_3$ legt drei ausgezeichnete Raumrichtungen in Form von Fixpunkträumen fest: Die Drehachse der Untergruppe $O_2$ und innerhalb der dazu senkrechten Ebene die beiden Eigenräume von $O_1$.
+	Die Gelfand-Zetlin-Basis von $O_3\gneq O_2\gneq SO_2 \text{ dargestellt auf } \IC[x,y,z]$ stimmt auf der Sphäre (bis auf den von uns nicht näher bestimmten Normierungsfaktor) mit den komplexen Spherical Harmonics, wie sie üblicherweise gegeben sind, überein.
+    
+    Gleiches gilt für die Gelfand-Zetlin-Basis von $O_3\gneq O_2\gneq O_1 \text{ dargestellt auf } \IR[x,y,z]$ für die reellen Spherical Harmonics.
 \end{lemma}
+
+\begin{remark}
+Die Wahl der Einbettungen für die Untergruppen legen Richtungen in $V$ fest: Die Wahl wie $SO_2$ bzw. $O_2$ in $O_3$ eingebettet wurde, legt eine Ebene $E\leq V$, in der $(S)O_2$ nichttrivial operiert, und die dazu senkrechte Achse fest. Die Wahl der Einbettung von $O_1$ in $O_2$ legt außerdem fest, wie sich diese Ebene noch weiter in zwei orthogonale Richtungen zerlegt: Eine, in der $O_1$ nichttrivial operiert, und die dazu senkrechte Richtung.
+
+\medbreak
+Eine äquivalente Betrachtungsweise ist folgende: Die Gelfand-Zetlin-Basen bzgl. $O_3\geq O_2\geq O_1$ existieren für alle $\STF^l(V)$, insbesondere also für $l=1$, was einfach der Raum $V$ selbst ist. Für $O_3\geq O_2\geq SO_2$ wird entsprechend die Gelfand-Zetlin-Basis von $STF^1(V_\IC) = V_\IC$ ausgezeichnet. Man erinnere sich, dass wir für $SO_2$ beobachtet hatten, dass die Gruppe zwei kanonische Richtungen in der Komplexifizierung der Ebene festlegt, nämlich die beiden Eigenräume. Das ist genau das, was hier passiert.
+\end{remark}
+
+\begin{proof}
+Wir wählen fast die Standardeinbettungen unserer Untergruppen bzgl. der Standardbasis von $V=\IR^3$, präzise wählen wir
+\[\left\lbrace\begin{array}{rcl}
+O_1 &\to& O_2 \\
+s &\mapsto& \begin{psmallmatrix}1 &\\ & s \end{psmallmatrix}
+\end{array}\right.\]
+\[\left\lbrace\begin{array}{rcl}
+O_2 &\to& O_3 \\
+\begin{psmallmatrix}a&b\\c&d\end{psmallmatrix} &\mapsto& \begin{psmallmatrix}a&b&\\c&d&\\& & 1 \end{psmallmatrix}
+\end{array}\right.\]
+Insbesondere ist die $z$-Achse also die Drehachse unserer $SO_2$-Untergruppe, $E=\IR e_x + \IR e_y$ die dazu senkrechte Ebene und unsere $O_1$-Untergruppe ist so gewählt, dass die $y$-Richtung diejenige ist, die gespiegelt wird.
+
+\medbreak
+Zentral in unserem Beweis, wie die Darstellungstheorie von $SO_3(V)$ und $O_3(V)$ aussieht war Lemma~\ref{darstellungen:o3:restriktion_harmonische_polynome}, welches uns einen expliziten Isomorphismus der Restriktion von ${^3} \mathscr{H}_\IC^l$ auf $O_2(E)$ liefert, nämlich zur $O_2(E)$-Darstellung $\Sym^l(E)\oplus\Sym^{l-1}(E)$. Wenn wir das als Raum von Polynomen auffassen, dann wissen wir, dass die homogenen Polynome in $\IC[x,y]$ vom Grad $l$ bzw. $l-1$ folgende Zerlegung in irreduzible $O_2(E)$-Unterdarstellungen haben:
+\begin{align*}
+\Sym^l(E) &\isomorphic \Set{p \in\IC[x,y] | p\,\text{homogen vom Grad}\,l} \\
+&= {^2\mathscr{H}_\IC^l} \oplus (x^2+y^2)^1\cdot {^2 \mathscr{H}_\IC^{l-2}} \oplus (x^2+y^2)^2\cdot {^2 \mathscr{H}_\IC^{l-4}}\oplus\cdots
+\end{align*}
+d.h. jedes homogene Polynom vom Grad $l$ lässt sich eindeutig zerlegen als $p=\sum_a (x^2+y^2)^a \cdot h_a$ mit einem homogenen, harmonischen Polynom $h_a$ vom Grad $l-2a$. Wenn wir also eine Basis für den Raum der harmonischen, homogenen Polynome in $x,y$, können wir eine Basis für den Raum aller homogenen Polynome in $x,y$ finden. Und diese können wir mit dem Isomorphismus zu einer Basis von der harmonischen, homogenen Polynome in $x,y,z$ übersetzen.
+
+\medbreak
+Wenn wir nun von $O_2$ weiter zu $SO_2$ einschränken, haben wir gezeigt, dass alle $SO_2$-Darstellung sich anhand einer Eigenraum-Zerlegung in irreduzible $SO_2$-Unterdarstellungen zerlegt. Man sieht leicht, dass die Polynome $(x+iy)^m, (x-iy)^m\in\IC[x,y]$ die $SO_2$-Eigenbasis von${^2 \mathscr{H}_\IC^m}$ ist, d.h. das unterste Level unserer Gelfand-Zetlin-Basis.
+
+\medbreak
+Wenn wir das alles wieder zusammensetzen, ergibt also folgende Sicht: Die Polynome
+\[\color{red}{(x\pm iy)^l}, \color{blue}{(x\pm iy)^{l-1}}, \color{red}{(x^2+y^2)(x\pm iy)^{l-2}}, \color{blue}{(x^2+y^2)(x\pm iy)^{l-3}}, \color{purple}{\ldots}\]
+bilden eine Basis von
+\[\Sym^l(E) \oplus \Sym^{l-1}(E) \isomorphic {\color{red}\Set{p \in\IC[x,y] | p\,\text{homogen vom Grad}\,l}} \oplus {\color{blue}\Set{p \in\IC[x,y] | p\,\text{homogen vom Grad}\,l-1}}\]
+von denen jeweils zwei eine irreduzible $O_2$-Darstellung aufspannen. Und der Isomorphismus zu ${^3\mathscr{H}_\IC^l}$ übersetzt diese in die folgende Basis (sogenannte \enquote{Solid Harmonics}):
+\begin{align*}
+R_l^{\pm l} &:= (x\pm iy)^l z^0,\\
+R_l^{\pm(l-1)} &:= (x\pm iy)^{l-1}z^1 \\
+R_l^{\pm(l-2)} &:= (x^2+y^2)(x\pm iy)^{l-2}z^0 + (\partial_x^2+\partial_y^2)\left((x^2+y^2)(x\pm iy)^{l-2}\right)z^2,\\
+R_l^{\pm(l-3)} &:= (x^2+y^2)(x\pm iy)^{l-3}z^1 + (\partial_x^2+\partial_y^2)\left((x^2+y^2)(x\pm iy)^{l-3}\right)z^3, \\
+&\vdots
+\end{align*}
+Dies sind natürlich alles homogene Polynome vom Grad $l$, d.h. wenn man sie in Kugelkoordinaten schreibt, dann zerlegen sie sich als
+\[R_l^m(r\cos(\phi)\sin(\theta), r\sin(\phi)\sin(\theta), r\cos(\theta)) = r^l Y_l^m(\phi,\theta)\]
+für eine auf der Sphäre definierten Funktion $Y_l^m$. Weil $R_l^m$ nach Konstruktion ein Eigenvektor für $SO_2$ mit Eigenwert $e^{im\alpha}$ ist, lässt sich ein Faktor $e^{im\phi}$ ausklammern (siehe auch Aufgabe~\ref{gelfand_zetlin:ex:Delta_vs_rQuadrat}). Wegen $x^2+y^2=r^2 \sin(\theta)^2 = r^2(1-\cos(\theta)^2)$ und $z=r\cos(\theta)$, lässt sich alles andere in $Y_l^m$ als Polynom von $\cos(\theta)$ ausdrücken, sodass wir die Darstellung $Y_l^m = e^{im\phi} P_l^m(\cos(\theta))$ finden. Wenn man das hinreichend explizit ausschreibt, sieht man, dass die $P_l^m$ dabei (bis auf den Normierungsfaktor) genau die Definition der Legendre\footnote{Adrien-Marie Legendre (1752–1833), franz. Mathematiker}-Polynome erfüllen, die in der üblichen Definition von $Y_l^m$ vorkommen. Man beachte z.B., dass $x^2+y^2 = r^2\sin(\theta)^2 = r^2(1-\cos(\theta)^2)$ ist. Das sind genau die $(1-x^2)$-Faktoren, die bei der Definition der Legendre-Polynome eine Rolle spielen.
+
+\medbreak
+Für den reellen Fall wählen wir stattdessen die Basis $\Re( (x+iy)^m )$ und $\Im( (x+iy)^m )$ des Raums ${^2 \mathscr{H}_\IR^m}$ der harmonischen, homogenen Polynome vom Grad $m$ in den zwei Variablen $x,y$. So, wie wir $O_1$ eingebettet haben, operiert die Spiegelung in $O_1$ genau durch $(x,y,z)\mapsto(x,-y,z)$, d.h. durch komplexe Konjugation des Inputs $x+iy$ dieser Polynome, d.h. $\Re((x+iy)^m)$ wird dadurch gar nicht verändert und $\Im((x+iy)^m)$ ist ein Eigenvektor zum Eigenwert $-1$. Genau das erwarten wir vom $O_2$-Level einer Gelfand-Zetlin-Basis.
+
+Wenden wir dasselbe Prinzip wie zuvor an, um daraus eine Basis von ${^3\mathscr{H}_\IR^l}$ zu machen, so erhalten wir die reellen Solid Harmonics und daraus völlig analog wie zuvor die reellen spherical harmonics.
+\end{proof}
+
+\begin{remark}
+Man beachte wie viele der üblicherweise hart erarbeiteten Eigenschaften der spherical harmonics uns durch den Ansatz, sie als Gelfand-Zetlin-Basis zu verstehen, sehr viel einfacher zugänglich werden:
+\begin{itemize}
+\item Sie sind orthogonal bzgl. der üblichen Skalarprodukte, weil alle üblichen Skalarprodukte $O_3$-invariant oder mindestens $O_2$-invariant (für Ansätze in Zylinder-Koordinaten) sind und nicht-isomorphe irreduzible Unterräume automatisch senkrecht aufeinander stehen, egal welches invariante Skalarprodukt man betrachtet.
+\item Sie erfüllen die Rotationsbedingung $Y_l^m\circ \rho_{\alpha,z} = e^{im\alpha} Y_l^m$, weil wir sie explizit als Eigenvektoren für die Rotationsgruppe $SO_2$ konstruiert haben.
+\item Sie erfüllen diverse Paritätsbedingungen, weil alle diese Paritäten durch Spiegelungen in $O_2$ bzw. $O_3$ oder durch die Inversion $\iota\in O_3$ realisiert sind.
+\item Sie interagieren sinnvoll mit dem Drehimpulsoperator $L=r\times\nabla$. Beispielsweise sind sie Eigenfunktionen für den Operator $L^2:=L_x^2+L_y^2+L_z^2 : \IC[x,y,z]\to\IC[x,y,z]$, weil diese Operatoren $SO_3$-linear sind und wegen Schur's Lemma sind alle $SO_3$-linearen Operatoren $\mathscr{H}^{l_1} \to \mathscr{H}^{l_2}$ gleich Null für $l_1\neq l_2$ und Vielfache der Identität für $l_1=l_2$, d.h. $\mathscr{H}^l$ ist ein Eigenraum des Operators. Gleichzeitig sind die spherical harmonics auch Eigenfunktionen für $L_z$, weil sie als Gelfand-Zetlin-Basis eben auch an die Untergruppe $SO_2$ angepasst sind und somit die gleichen Verträglichkeitseigenschaften für den $SO_2$-linearen Operator $L_z$ zeigen.
+\item Clebsch-Gordan-Koeffizienten sind eng verbunden mit der Analyse, wie sich das Tensorprodukt von zwei irreduziblen Darstellungen, z.B. also $\mathscr{H}^{l_1}\otimes\mathscr{H}^{l_2}$, selbst wieder in irreduzible zerlegen lässt. Dafür liefern Gelfand-Zetlin-Basen viele nützliche Struktur.
+\item uvm.
+\end{itemize}
+\end{remark}
