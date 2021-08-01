@@ -12,24 +12,6 @@ Zeige, dass nicht jede endlich-dimensionale Darstellung von $G=\IZ$ in irreduzib
 Hinweis: Das ist eine leicht getarnte Aussage, die bereits aus der LA-I-Vorlesung bekannt ist.
 \end{problem}
 
-
-\begin{problem}[title={Dimension von Endomorphismenräumen}]
-Es sei $V = V_1^{\oplus m_1} \oplus V_2^{m_2} \oplus \cdots \oplus V_k^{m_k}$ eine Darstellung von $G$, wobei die $V_i$ paarweise nicht-isomorphe, irreduzible Unterdarstellungen seien. Zeige, dass
-\[\dim \End_{\IK G}(V) = m_1^2 + m_2^2 + \ldots + m_k^2\]
-gilt.
-\end{problem}
-
-\begin{remark}
-Diese Aussage ist bemerkenswert nützlich darin, hübsche zahlentheoretische Aussagen über Summen von Quadratzahlen zu beweisen.
-\end{remark}
-
-\begin{problem}[title={2D-Darstellungen von $SO_3$}]
-	\label{ex:keine_2D_darstellung_von_so3}
-Zeige, dass die einzigen reellen oder komplexen Darstellungen von $G=SO_3$ von Dimension $<3$ trivial sind.
-
-Hinweis: Verwende, dass laut Satz von Maschke die Darstellung $\mathcal{D}: G\to SO(V)$ gewählt werden kann.
-\end{problem}
-
 \begin{problem}[title={Isomorphismus zwischen irreduziblen Darstellungen von Polynomen und Tensoren}]
 Wir wissen, dass sich der Raum der symmetrischen Tensoren in irreduzible zerlegt wie folgt:
 \[\Sym^m(V) \isomorphic \STF^m(V) \oplus \STF^{m-2}(V) \oplus \STF^{m-4}(V) \oplus \cdots\]
@@ -41,6 +23,17 @@ Finde Unterdarstellungen vom Polynomraum vom Grad $m$, die zum Raum der harmonis
 \end{subproblem}
 \begin{subproblem}
 Benutze den Polynom-Tensor-Isomorphismus in der anderen Richtung um die entsprechenden Unterdarstellung von $\Sym^m(V)$ zu finden, die zu $\STF^{m-2k}(V)$ isomorph sind.
+\end{subproblem}
+\end{problem}
+
+
+\begin{problem}[title={Isomorphismus zwischen irreduziblen Darstellungen von Polynomen und Tensoren II}]
+Mit Hilfe des Isomorphismus zwischen $\Sym^l(V)$ und dem Raum der homogenen, polynomiellen Abbildungen $V\to\IK$ vom Grad $l$ können wir mehr Strukturen als nur Unterdarstellungen von einer in die andere Sprache übersetzen.
+\begin{subproblem}
+Zeige, dass der Isomorphismus die Spur $\tr: \Sym^l(V) \to \Sym^{l-2}(V)$ in $\frac{1}{l(l-1)}\Delta$ übersetzt.
+\end{subproblem}
+\begin{subproblem}
+Zeige, dass der Isomorphismus das Standardskalarprodukt (also das von $V^{\otimes l}$ eingeschränkt auf den Unterraum $\Sym^l(V)$) übersetzt in $\braket{p,q} = p(\partial)q$. Wobei $p(\partial)$ den Differentialoperator meint, der entsteht, wenn man jedes $x$ in $p$ durch $\partial_x$, jedes $y$ durch $\partial_y$ und jedes $z$ durch $\partial_z$ ersetzt.
 \end{subproblem}
 \end{problem}
 

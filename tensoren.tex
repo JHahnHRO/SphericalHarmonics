@@ -57,7 +57,7 @@ Es stellt sich heraus, dass viele der wirklich interessanten Tensoren, die einem
 In der Quantenmechanik wird das Tensorprodukt benutzt, um mehrere interagierende Quanten-Systeme als ein einziges großes System zu betrachten: Wenn $V$ und $W$ der Zustandsraum je einer Menge $X$ bzw. $Y$ quantenmechanischer Teilchen sind, dann ist $V\otimes W$ der Zustandsraum des quantenmechanischen Systems, das aus den Teilchen von $X$ und $Y$ besteht und beliebige Interaktionen zwischen ihnen erlaubt. Ein reiner Tensor $v\otimes w$ entspricht in dieser Sichtweise demjenige Zustand des Gesamtsystems, in dem sich die Teilchen aus $X$ im Zustand $v$, und das aus $Y$ im Zustand $w$ befinden. Die nicht-reinen Tensoren entsprechen dann \enquote{Überlagerungen} solcher reinen Zustände und das fundamental wichtige Phänomen von \enquote{verschränkten} Teilchen ist ein Ausdruck dessen, dass eben nicht alle Zustände reine Zustände sind, in denen man die Teilchen von $X$ unabhängig von denen in $Y$ einen Zustand zuschreiben kann: Es kann z.B. ein Zustand der Form $x_1\otimes y_1 + x_2\otimes y_2$ konstruiert (und auch experimentell realisiert) werden, in dem $x_1$ und $x_2$ sowie $y_1$ und $y_2$ beide jeweils senkrecht zueinander sind. In solch einem Zustand des Gesamtsystems können die $X$-Teilchen in Zustand $x_1$ oder $x_2$ gemessen werden, aber nur dann, wenn gleichzeitig die $Y$-Teilchen in Zustand $y_1$ bzw. $y_2$ liegen. Es kann eben nicht unabhängig voneinander der $X$-Anteil in Zustand $x_1$ sein, während der $Y$-Anteil des Gesamtsystems in Zustand $y_2$ ist (hier geht die Orthogonalität ein).
 \end{example}
 
-\begin{example}[Casimir-Element]\label{tensoren:casimir_element}
+\begin{example}[Casimir\footnote{Hendrik Brugt Gerhard Casimir, 1909 -- 2000, niederländischer Physiker}-Element]\label{tensoren:casimir_element}
 Ist $V$ ein endlich-dimensionaler $\IR$-Vektorraum und haben wir ein Skalarprodukt fest gewählt, so gibt es einen besonderen Tensor $\Omega_V \in V\otimes V$, den wir \emph{Casimir-Element} nennen. Für \textit{jede} Orthonormalbasis $e_1, \ldots, e_n$ von $V$ lässt er sich schreiben als
 \[\Omega_V = \sum_{i=1}^n e_i \otimes e_i\]
 (laut Aufgabe~\ref{tensoren:ex:casimir_wohldef} ist dies wohldefiniert)
@@ -66,7 +66,7 @@ Für $V=\IR^3$ und die Standardbasis $e_x, ey, e_z$ ist etwa
 
 Betrachten wir den Raum der linearen Differentialoperatoren erster Ordnung auf $C^\infty(V)$, d.h. der Vektorraum der Operatoren $\set{\partial_v | v\in V}$. Darin schreibt sich das Casimir-Element als
 \[\Omega = \sum_{i=1}^n \partial_{e_i} \otimes \partial_{e_i}\]
-Wenn wir die Komposition von Operatoren (eine bilineare Abbildung) auf diesen Tensor anwenden, erhalten wir den Laplace-Operator:
+Wenn wir die Komposition von Operatoren (eine bilineare Abbildung) auf diesen Tensor anwenden, erhalten wir den Laplace\footnote{Pierre-Simon, marquis de Laplace, 1749 –- 1827, franz. Gelehrter, Mathematiker, Physiker, Philosoph uvm.}-Operator:
 \[\Delta = \sum_{i=1}^n \partial_{e_i}^2\]
 
 Man beachte insbesondere, dass das Ergebnis der Summe auf der rechten Seite unabhängig von der gewählten Basis ist, obwohl die einzelnen Summanden es natürlich nicht sind. Das erklärt z.B., wieso der Laplace-Operator und viele ähnlich aussehende Konstruktionen physikalische sinnvolle Objekte liefern, obwohl ihre Definition auf den ersten Blick basisabhängig zu sein scheint.
@@ -180,7 +180,7 @@ Sobald man Tensoren kennt und sich fest vornimmt, nicht den Fehler früherer Gen
 Wir werden in einem folgenden Kapitel beweisen: Die Menge aller sinnvollen / natürlichen linearen Abbildungen zwischen Tensoren ist gleich Menge aller Linearkombinationen von allen Brauer-Diagrammen.
 \end{remark}
 
-\begin{definition}[Brauer-Diagramm und deren Multiplikation]
+\begin{definition}[Brauer\footnote{Richard Dagobert Brauer, 1901 -- 1977, dt. Mathematiker}-Diagramm und deren Multiplikation]
 	Ein \emph{Brauer-Diagramm} ist ein besonderer Graph. Er besteht aus zwei Zeilen von Knoten, $n$, $n\in\IN$, Knoten in der oberen Zeile und $n+2z$, $z\in\IZ$, Knoten in der unteren Zeile. Die Knoten sind paarweise miteinander verbunden, dabei dürfen die Verbindungen sowohl von einer Zeile zur anderen gehen, als auch innerhalb einer Zeile zwei Knoten miteinander verbinden.
 	
     \smallbreak
