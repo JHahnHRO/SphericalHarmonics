@@ -75,25 +75,25 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
  	\label{def:konstruktion_gz_basis}
 	Sei $G$ eine Gruppe mit halb-einfacher Darstellung auf einem Vektorraum $V$ und $U^i_0$ einer der irreduziblen Unterräume von $V$. Für diesen Unterraum wird eine \emph{Gelfand-Zetlin-Basis} wie folgt konstruiert:
 	\begin{enumerate}[label={\arabic*.)}]
-		\item Setze das Level $l=0, H_0 = G$
-		\item Bestimme für jeden Unterraum $U_l^i$: \label{def:gz_it_anfang}
+		\item Setze das Level $k=0, H_0 = G$
+		\item Bestimme für jeden Unterraum $U_k^i$: \label{def:gz_it_anfang}
 		\begin{enumerate}
-			\item Berechne $\dim{U_l^i}$
-			\item Ist $U_l^i$ 1-dimensional? Dann wähle einen von Null verschiedenen Vektor aus $U_l^i$ als einen der Basisvektoren von $U^1_0$.
-			\item Ist $U_l^i$ mehr als $1$-dimensional? Dann merke dir $U_l^i$ für den nächsten Schritt.
+			\item Berechne $\dim{U_k^i}$
+			\item Ist $U_k^i$ 1-dimensional? Dann wähle einen von Null verschiedenen Vektor aus $U_k^i$ als einen der Basisvektoren von $U^1_0$.
+			\item Ist $U_k^i$ mehr als $1$-dimensional? Dann merke dir $U_k^i$ für den nächsten Schritt.
 		\end{enumerate}
-		\item Wähle geschickt eine Untergruppe $H_{l+1}$ von $H_{l}$, sodass jeder Unterraum $U_l^i$ mit $\dim{U_l^i}>1$ in für $H_{l+1}$ irreduzible Unterräume  zerfällt. Dabei müssen alle Unterräume, die von einem gemeinsamen $U_l^i$ stammen, paarweise nicht isomorph sein (Klappt dies nicht, ist entweder eine andere Untergruppe zu finden, oder es gibt keine Gelfand-Zetlin-Basis). \label{def:gz_it_ugschritt}
-		\item Nummeriere die Unterräume des nächst-höheren Levels: Nenne alle für $H_{l+1}$ irreduziblen Unterräume $U_{l+1}^{1}, \ldots, U_{l+1}^{k}$, inklusive der bereits für $H_l$ 1-dimensionalen Unterräume.
-		\item Erhöhe das Level um 1: $l++$. \label{def:gz_it_ende}
+		\item Wähle geschickt eine Untergruppe $H_{k+1}$ von $H_k$, sodass jeder Unterraum $U_k^i$ mit $\dim{U_k^i}>1$ in paarweise nicht-isomorphe für $H_{k+1}$ irreduzible Unterräume  zerfällt. (Klappt dies nicht, ist entweder eine andere Untergruppe zu finden, oder es gibt keine Gelfand-Zetlin-Basis). \label{def:gz_it_ugschritt}
+		\item Nummeriere die Unterräume des nächst-höheren Levels: Nenne alle für $H_{k+1}$ irreduziblen Unterräume $U_{k+1}^{1}, U_{k+1}^{2}, \ldots$, inklusive der bereits für $H_k$ 1-dimensionalen Unterräume.
+		\item Erhöhe das Level um 1: $k++$. \label{def:gz_it_ende}
 		\item Wiederhole die Schritte \ref{def:gz_it_anfang} bis \ref{def:gz_it_ende}, bis alle Unterräume vom nächst-höheren Level 1-dimensional sind.
-		\item $l_{\text{max}} = l$
+		\item $k_{\text{max}} = k$
 		\end{enumerate}
 \end{definition}
 \begin{remark}
 	Formal betrachtet, brauchen die 1-dimensionalen Untervektorräume nicht für Schritt \ref{def:gz_it_ugschritt} ausgeschlossen werden. Sie werden für jede Untergruppe 1-dimensional bleiben und sich nicht weiter ändern, entsprechend braucht man sie für die weiteren Schritte auch nicht zu berücksichtigen.
 \end{remark}
 \begin{definition}[$\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Dae\jae\rae\jae\wae\ooo$ (Gelfand-Zetlin-Baum)]
-	Mit der Konstruktion nach \ref{def:konstruktion_gz_basis} bauen wir einen Baum mit $l_{\text{max}}+1$ Leveln. Der Stammknoten ist $U_0^i$, die Blätter sind alle gefundenen 1-dimensionale Unterräume. Die Knoten zwischen dem Stammknoten und den Blättern entsprechen den irreduziblen Unterräumen der jeweiligen Level, die Kanten verbinden einen irreduziblen Unterraum $U$ eines Levels mit allen irreduziblen Unterräumen des nächst-höheren Levels, die aus $U$ im Schritt \ref{def:gz_it_ugschritt} herauskommen. Eindimensionale Unterräume, die bereits in kleineren Leveln auftreten, werden hier als Knoten auf jedem höheren Level wiederholt bis zum maximalen Level.
+	Mit der Konstruktion nach \ref{def:konstruktion_gz_basis} bauen wir einen Baum mit $k_{\text{max}}+1$ Leveln. Der Stammknoten ist $U_0^i$, die Blätter sind alle gefundenen 1-dimensionale Unterräume. Die Knoten zwischen dem Stammknoten und den Blättern entsprechen den irreduziblen Unterräumen der jeweiligen Level, die Kanten verbinden einen irreduziblen Unterraum $U$ eines Levels mit allen irreduziblen Unterräumen des nächst-höheren Levels, die aus $U$ im Schritt \ref{def:gz_it_ugschritt} herauskommen. Eindimensionale Unterräume, die bereits in kleineren Leveln auftreten, werden hier als Knoten auf jedem höheren Level wiederholt bis zum maximalen Level.
 	Diesen Baum nennen wir \emph{Gelfand-Zetlin-Baum}. Er kann z.B. wie folgt aussehen:
 	\begin{align*}
 		\begin{tikzpicture}[baseline={([yshift=-2ex]current bounding box.center)}]
@@ -135,7 +135,7 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 			\draw[] (u26) to (u310);
 			\draw[] (u27) to (u311);
 			\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,3}{
-				\node (l\x) at (-2,\y){$l=\x$};
+				\node (l\x) at (-2,\y){$k=\x$};
 				\node (h\x) at (-1,\y){$H_{\x}$};
 			}
 		\end{tikzpicture}
@@ -143,14 +143,14 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 	In einem Gelfand-Zetlin-Baum sind alle Darstellungen paarweise ungleich. Es kann aber auftreten, dass manche Darstellungen isomorph zueinander sind (wobei die Kinder eines Knotens niemals isomorph zueinander sein dürfen).
 \end{definition}
 \begin{remark}
-		Die Wahl der Untergruppen-Kette $H_1,\ldots,H_{l_{\text{max}}}$ ist hier spielentscheidend und keinesfalls eindeutig. Aus diesem Grund gehört zu einer vollständigen Anweisung \enquote{Wähle eine Gelfand-Zetlin-Basis für $G$ auf $V$} auch die Angabe der Untergruppenkette $H_1,\ldots,H_{l_{\text{max}}}$.
+		Die Wahl der Untergruppen-Kette $H_1,\ldots,H_{k_{\text{max}}}$ ist hier spielentscheidend und keinesfalls eindeutig. Aus diesem Grund gehört zu einer vollständigen Anweisung \enquote{Wähle eine Gelfand-Zetlin-Basis für $G$ auf $V$} auch die Angabe der Untergruppenkette $H_1,\ldots,H_{k_{\text{max}}}$.
 \end{remark}
 \begin{remark}
-	Auch wenn die Konstruktion einer Gelfand-Zetlin-Basis klappt, hat man nicht unbedingt etwas gewonnen. Wenn man dazu besonders exotische Untergruppen benutzen muss, bringt einem die Gelfand-Zetlin-Basis in der Anwendung nicht besonders viel. Eigentlich möchte man sich erst für eine Untergruppenkette $H_0,\ldots,H_{l_{\text{max}}}$ entscheiden und dann schauen, ob die Konstruktion funktioniert.
+	Auch wenn die Konstruktion einer Gelfand-Zetlin-Basis klappt, hat man nicht unbedingt etwas gewonnen. Wenn man dazu besonders exotische Untergruppen benutzen muss, bringt einem die Gelfand-Zetlin-Basis in der Anwendung nicht besonders viel. Eigentlich möchte man sich erst für eine Untergruppenkette $H_0,\ldots,H_{k_{\text{max}}}$ entscheiden und dann schauen, ob die Konstruktion funktioniert.
 \end{remark}
 \begin{definition}[$\Gae\jae\el\soft\fae\aaa\en\dae$-$\Zae\jae\tae\el\iii\en$-$\Bae\aaa\sae\aaa$]
 	\label{def:gz_basis}
-	Sei $G$ eine Gruppe mit Darstellung auf einem Vektorraum $V$ und $G$ zerlege $V$ in seine irreduziblen Unterräume $U^1_0,\ldots,U^k_0$. Wähle außerdem eine Untergruppenkette $H_1 \gneq\ldots\gneq H_{l_{\text{max}}}$. Für jeden dieser Unterräume wird nun einzeln eine Basis $\mathcal{B}$ konstruiert nach \ref{def:konstruktion_gz_basis}. $\mathcal{B}$ heißt dann \emph{Gelfand-Zetlin-Basis von der Darstellung V bezüglich} $H_1,\cdots H_{l_{\text{max}}}$. 
+	Sei $G$ eine Gruppe mit Darstellung auf einem Vektorraum $V$ und $G$ zerlege $V$ in seine irreduziblen Unterräume $U^1_0,\ldots,U^n_0$. Wähle außerdem eine Untergruppenkette $H_1 \gneq\ldots\gneq H_{k_{\text{max}}}$. Für jeden dieser Unterräume wird nun einzeln eine Basis $\mathcal{B}$ konstruiert nach \ref{def:konstruktion_gz_basis}. $\mathcal{B}$ heißt dann \emph{Gelfand-Zetlin-Basis von der Darstellung V bezüglich} $H_1,\cdots H_{k_{\text{max}}}$. 
 \end{definition}
 
 \begin{remark}
@@ -176,7 +176,7 @@ Diskutiert über eure Ansätze und versucht einen Algorithmus zu entwickeln, der
 \end{maintheorem}
 
 \begin{remark}
-Unsere Definition einer Gelfand-Zetlin-Basis legt genau genommen nicht nur eine Basis fest, da wir für jedes Basiselement die freie Wahl eine skalaren Faktors haben. In Situation, wo ein Skalarprodukt gegeben ist, haben wir also die Länge und der Basisvektoren nicht festgelegt.
+Unsere Definition einer Gelfand-Zetlin-Basis legt genau genommen nicht nur eine Basis fest, da wir für jedes Basiselement die freie Wahl eines skalaren Faktors haben. In Situation, wo ein Skalarprodukt gegeben ist, haben wir also die Länge der Basisvektoren nicht festgelegt.
 
 Da die Spherical Harmonics aber auch in vielen verschiedenen, mehr oder weniger üblichen Versionen existieren, die sich alle nur in der Wahl eines Normierungsfaktors (und manchmal eines Vorzeichens) unterscheiden, haben wir keine Skrupel, diese Uneindeutigkeit in der Definition zu lassen.
 
@@ -214,7 +214,7 @@ In diesem Sinne ist es sinnvoll, die Wahl des Normierungsfaktor nicht als wesent
 	}
 	\draw[] (u10) to (u20);
 	\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
-		\node (l\x) at (-2,\y){$l=\x$};
+		\node (l\x) at (-2,\y){$k=\x$};
 	}
 	\node (h0) at (-1,0){$O_3$};
 	\node (h1) at (-1,-1.5){$O_2$};
@@ -248,7 +248,7 @@ In diesem Sinne ist es sinnvoll, die Wahl des Normierungsfaktor nicht als wesent
 	}
 	\draw[] (u10) to (u20);
 	\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
-		\node (l\x) at (-2,\y){$l=\x$};
+		\node (l\x) at (-2,\y){$k=\x$};
 	}
 	\node (h0) at (-1,0){$O_3$};
 	\node (h1) at (-1,-1.5){$O_2$};
@@ -282,7 +282,7 @@ In diesem Sinne ist es sinnvoll, die Wahl des Normierungsfaktor nicht als wesent
 	}
 	\draw[] (u10) to (u20);
 	\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
-		\node (l\x) at (-2,\y){$l=\x$};
+		\node (l\x) at (-2,\y){$k=\x$};
 	}
 	\node (h0) at (-1,0){$O_3$};
 	\node (h1) at (-1,-1.5){$O_2$};
@@ -309,7 +309,7 @@ In diesem Sinne ist es sinnvoll, die Wahl des Normierungsfaktor nicht als wesent
 		\draw[] (u1\x) to (u2\x);
 	}
 	\foreach\x [evaluate=\x as \y using {-\x*1.5}] in {0,1,...,2}{
-		\node (l\x) at (-2,\y){$l=\x$};
+		\node (l\x) at (-2,\y){$k=\x$};
 	}
 	\node (h0) at (-1,0){$O_3$};
 	\node (h1) at (-1,-1.5){$O_2$};
@@ -318,7 +318,7 @@ In diesem Sinne ist es sinnvoll, die Wahl des Normierungsfaktor nicht als wesent
 \end{lemma}
 
 \begin{proof}
-	Siehe vorherige Kapitel, insbesondere zur Darstellungstheorie von $O_3$.
+	Siehe vorherige Kapitel, insbesondere wie sich Darstellungen von $O_3$ in $O_2$-Darstellungen zerlegen.
 \end{proof}
 
 \begin{remark}
