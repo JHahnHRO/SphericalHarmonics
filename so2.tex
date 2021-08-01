@@ -50,7 +50,7 @@ Sei $V$ ein reeller, zwei-dimensionaler Vektorraum mit Skalarprodukt.
 
 Jede stetige, endlich-dimensionale, irreduzible Darstellung von $G=SO_2(V)$ über $\IC$ ist zu genau einer der Darstellungen
 \[\mathscr{E}^m : \begin{psmallmatrix}\cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix} \mapsto e^{im\alpha}\]
-für die \emph{Nebenquantenzahl} $m\in\IZ$ isomorph und diese Darstellungen sind paarweise nicht-isomorph.
+für die \emph{Magnetquantenzahl} $m\in\IZ$ isomorph und diese Darstellungen sind paarweise nicht-isomorph.
 \end{theoremdef}
 \begin{proof}
 Dass die Darstellungen irreduzibel sind, ist klar, da sie eindimensional sind. Dass sie stetig sind, sieht man ihnen an. Dass sie paarweise nicht isomorph sind, kann man direkt überprüfen, oder man benutzt abstrakt, dass ihre Charaktere verschieden sind.
@@ -61,6 +61,13 @@ Es gilt natürlich auch $\mathcal{D}(\rho_\alpha^k) = (\exp(\frac{2\pi i m}{n}))
 
 Per Induktion erfüllen also alle Drehungen um $\frac{2\pi}{2^k n}$ die Gleichung, die wir haben wollen. Jede Drehung kann durch diese beliebig genau approximiert werden. Aus der Stetigkeit folgt also, dass alle Drehungen die Gleichung erfüllen.
 \end{proof}
+
+\begin{remark}
+Wenn man $SO_2=\Set{\begin{psmallmatrix} \cos(\alpha) & -\sin(\alpha) \\ \sin(\alpha) & \cos(\alpha)\end{psmallmatrix} | \alpha\in\IR}$ auf die Komplexifizierung $V_\IC$ wirken lässt, dann erkennt man leicht, dass $\frac{1}{\sqrt{2}}\begin{psmallmatrix} 1 \\ \pm i\end{psmallmatrix}$ die beiden Eigenräume dieser kommutativen Gruppe aufspannen. Ein ähnlich kurioser Fakt wie zuvor ist also, dass $\begin{psmallmatrix} 1 \\ \pm i\end{psmallmatrix}$ ähnlich unabhängig von der Wahl einer Orthonormalbasis von $V$ ist wie die Matrixdarstellung $SO_2$: Wählt man eine andere Basis, dann ist der Vektor mit den Koordinaten $\begin{psmallmatrix} 1 \\ \pm i\end{psmallmatrix}$ bis auf einen Faktor $e^{i\beta}$ der gleiche wie zuvor.
+
+\smallbreak
+Das hat zur Folge, dass gewisse Konstrukte, die hochgradig koordinatenabhängig zu sein scheinen, in Wirklichkeit nicht oder nur sehr wenig von der Basiswahl abhängen. Im Zusammenhang von Rotationsgruppen trifft man z.B. auf den Drehimpulsoperator $L$ (basis-unabhängig) seine Komponenten in den drei gewählten Koordinatenrichtungen $L_x,L_y,L_z$ (hochgradig basis-abhängig) und die davon abgeleiteten Operatoren $L_{\pm} := L_x \pm i L_y$ (unabhängig von der Wahl der Basis in der $x$-$y$-Ebene bis auf diese komplexe Phase).
+\end{remark}
 
 \begin{remark}
 Wenn man den komplexen Fall einmal hat, könnte man den reellen Fall daraus folgern.
@@ -118,3 +125,11 @@ Damit ist also insbesondere zeigt, dass die Darstellungen $\STF^m(V)\isomorphic 
 
 Für Polynome in zwei Variablen kann man zufällig explizit die harmonischen hinschreiben: Es sind genau die Real- und Imaginärteile der Polynome in einer komplexen Variable. In Grad $m$ haben wir also $\Re((x+iy)^m)$ und $\Im((x+iy)^m)$ als Basis des Raums der harmonischen Polynome vom Grad $m$. Auf $\IR^2$, also der komplexen Ebene operiert $SO_2$ durch einfache Drehung, also Multiplikation mit $e^{i\alpha}$. Im Polynomraum wird also insbesondere $z^m$ auf $e^{im\alpha}z^m$ abgebildet, d.h. auf den Grad-$m$-Polynomen operiert $SO_2$ durch $m$-fache Drehung, also muss es die irreduzible Darstellung $\mathcal{D}_m$ sein.
 \end{proof}
+
+\begin{remark}
+Die Darstellung $\mathcal{D}_m$ funktioniert so, wie wir sie angegeben haben, über $\IR$ und $\IC$. Wenn man nur am komplexen Fall interessiert ist, kann man auch die Eigenbasis von $SO_2$ betrachten. Dann schreibt sich die Darstellung als
+\[\mathcal{D}_m : \begin{cases}
+\begin{psmallmatrix}\cos(\alpha)&-\sin(\alpha)\\\sin(\alpha)&\cos(\alpha)\end{psmallmatrix} \mapsto \begin{psmallmatrix}e^{-im\alpha} & \\ & e^{im\alpha} \end{psmallmatrix} \\
+\begin{psmallmatrix}\cos(\alpha)&\sin(\alpha)\\\sin(\alpha)&-\cos(\alpha)\end{psmallmatrix} \mapsto \begin{psmallmatrix}0 & e^{-im\alpha} \\ e^{im\alpha} & 0\end{psmallmatrix}
+\end{cases}\]
+\end{remark}
