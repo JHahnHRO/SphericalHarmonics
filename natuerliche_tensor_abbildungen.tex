@@ -33,14 +33,14 @@ In unserem Kurs behandeln wir nur lineare Abbildungen, wobei multi-lineare Abbil
 Wenden wir uns nun den Abbildungen zwischen Tensoren zu. Wir haben sie im ersten Kapitel bereits klassifiziert mit folgendem Versprechen:
 \begin{theorem}[Brauer-Diagramme beschreiben alle natürlichen linearen Abbildungen zwischen Tensoren]
 	\label{brauer:klassifikation}
-	Die Menge aller Linearkombinationen von allen Brauer-Diagrammen ist gleich der Menge aller natürlichen linearen Abbildungen zwischen Tensoren.
+	Die Menge aller Linearkombinationen von allen Brauer-Diagrammen ist gleich der Menge aller $O_n$-linearen Abbildungen zwischen Tensoren.
 \end{theorem}
 \begin{proof}[Beweis per Induktion]
 Zunächst gilt es festzustellen, dass die drei Klassen von linearen Abbildungen zwischen Tensoren, die wir mittels Brauer-Diagrammen definiert haben (\ref{def:permutation}, \ref{def:spur} und \ref{def:casimireinfuegen}) tatsächlich natürliche Abbildungen sind (s. Aufgabe \ref{aufg:natAbbKlass}). Die Hintereinanderausführung und Linearkombination von linearen natürlichen Abbildungen ist selbst ebenfalls eine lineare natürliche Abbildung. 
  
 \medbreak
 In Aufgabe \ref{ex:hom_tensor_isomorphismus} haben wir festgestellt, dass jede lineare Abbildung $V^{\otimes m} \to V^{\otimes n}$ einem Element des Tensorraums $\left(V^{\otimes m}\right)^\ast \otimes V^{\otimes n}$ entspricht. Die Suche nach einer $O_3$-kompatiblen linearen Abbildung $V^{\otimes m} \to V^{\otimes n}$ entspricht also der Suche nach einem $O_3$ Fixpunkt in $\left(V^{\otimes m}\right)^\ast \otimes V^{\otimes n}$.
-Dieser Schritt lässt sich an Hand eines farbigen Brauer-Diagramms verdeutlichen: Die Knoten der oberen Zeile werden nach unten vor die untere Zeile verschoben und alle Kanten werden beibehalten. Das Ergebnis lässt sich als ein Brauer-Diagramm lesen, welches nur aus Casimir-Elementen besteht und keinen Knoten in der oberen Zeile hat, also streng genommen als eine Abbildung $\IR \to \left(V^{\otimes m}\right)^\ast \otimes V^{\otimes n}$.
+Dieser Schritt lässt sich an Hand eines farbigen Brauer-Diagramms verdeutlichen: Die Knoten der oberen Zeile werden nach unten vor die untere Zeile verschoben und alle Kanten werden beibehalten. Das Ergebnis lässt sich als ein Brauer-Diagramm lesen, welches nur aus Casimir-Elementen besteht und keinen Knoten in der oberen Zeile hat, also streng genommen als eine Abbildung $\IK \to \left(V^{\otimes m}\right)^\ast \otimes V^{\otimes n}$.
 \begin{align*}
 	\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]
 		\foreach\x in {1,2,...,5}{
@@ -125,7 +125,7 @@ Induktionsbehauptung:
 Das Mittelwertintegral über $O_d$ dargestellt auf $V^{\otimes n}$ ergibt immer eine Linearkombination der Permutation von Casimir-Elementen $\Omega_{V}$ (mglw. ist diese auch $0$), wobei wir die Permutation von Casimir-Elementen auch mit einem entsprechenden einzeiligen Brauer-Diagramm darstellen können.
  
 Induktionsanfang:
-Dazu bestimmen wir zunächst den Fixpunktraum von $O_1$ dargestellt auf $\IR$:
+Dazu bestimmen wir zunächst den Fixpunktraum von $O_1$ dargestellt auf $\IK$, d.h. wir berechnen
 \[
 \int_{O_1} \rho (v^{\otimes n}) \dd \rho, v\in\IR
 \]
@@ -135,9 +135,11 @@ Wir haben also für $d=1$ festgestellt, dass der Fixpunktraum mit geraden Potenz
 Induktionsschritt: Für $d+1$ nutzen wir folgenden Zusammenhang, $ v_i\in\IR^{d+1}$ :
 \begin{align*}
 \int_{O_{d+1}} \rho (v_1\otimes\cdots \otimes v_n) \dd \rho &= \int_{O_{d}} \int_{O_{d+1}} \tau(\rho (v_1\otimes\cdots \otimes v_n)) \dd \rho \dd \tau \\
-&=  \int_{O_{d+1}} \int_{O_{d}} \rho(\tau (v_1\otimes\cdots \otimes v_n)) \dd \tau \dd \rho
+&= \int_{O_{d+1}} \int_{O_{d}} \tau(\rho (v_1\otimes\cdots \otimes v_n)) \dd \rho \dd \tau &\text{Satz v. Fubini-Tonelli}\\
+&= \int_{O_{d+1}} \int_{O_{d}} \rho (v_1\otimes\cdots \otimes v_n) \dd \rho \dd \tau & \text{Substitution }\rho\to\tau^{-1}\rho \\
+&= \int_{O_{d+1}} \int_{O_{d}} \rho(\tau (v_1\otimes\cdots \otimes v_n)) \dd \tau \dd \rho & \text{Substitution }\rho\to\rho\tau 
 \end{align*}
-wobei wir $O_d$ in $O_{d+1}$ auf bestimmte Weise einbetten: Jede Einbettung von $O_d$ in $O_{d+1}$ wird eine ausgezeichnete Richtung haben, deren Unterraum von der Untergruppe nicht verändert wird. Wir wählen uns die Standardeinbettung so, dass $v_1$ von $O_d$ nicht verändert wird und zerlegen alle $v_i$ in zu $v_1$ senkrechte und parallele Anteile,
+wobei wir $O_d$ in $O_{d+1}$ auf bestimmte Weise einbetten: Jede Einbettung von $O_d$ in $O_{d+1}$ wird eine ausgezeichnete Richtung haben, deren Unterraum von der Untergruppe nicht verändert wird. Wir wählen uns die Einbettung so, dass $v_1$ von $O_d$ nicht verändert wird und zerlegen alle $v_i$ in zu $v_1$ senkrechte und parallele Anteile,
 \[
 v_1\otimes\cdots \otimes v_n = v_1 \otimes (v_2^\parallel + v_2^\perp)\otimes \cdots \otimes (v_n^\parallel + v_n^\perp) .
 \]
@@ -155,14 +157,14 @@ so erhalten wir
 	&\int_{O_{d+1}} \int_{O_{d}} \rho\left(v_1^{\otimes l} \otimes \tau(v_{l+1}^\perp) \otimes \cdots \otimes \tau(v_n^\perp)\right) \dd \tau \dd \rho \\
 	= &\int_{O_{d+1}} \rho(v_1)^{\otimes l}\otimes \rho\left(\int_{O_{d}}\tau(v_{l+1}^\perp) \otimes \cdots \otimes \tau(v_n^\perp) \dd \tau \right) \dd \rho
 \end{align*}
-Das innere Integral ergibt nach Induktionsvoraussetzung eine Linearkombination von Permutationen von Casimir-Elementen $\Omega_{\IR^d}$. Jedes einzelne Casimir-Element können wir nun schreiben als $\Omega_{\IR^d} = \Omega_{\IR^{d+1}} - v_1 \otimes v_1$, wobei wir o.b.d.A. annehmen können, dass $v_1$ normiert ist. Diese Summe multiplizieren wir erneut aus, sodass wir Permutationen von Tensoren der Form
+Das innere Integral ergibt nach Induktionsvoraussetzung eine Linearkombination von Permutationen von Casimir-Elementen $\Omega_{\IK^d}$. Jedes einzelne Casimir-Element können wir nun schreiben als $\Omega_{\IK^d} = \Omega_{\IK^{d+1}} - v_1 \otimes v_1$, wobei wir o.b.d.A. annehmen können, dass $v_1$ normiert ist. Diese Summe multiplizieren wir erneut aus, sodass wir Permutationen von Tensoren der Form
 \begin{align*}
-	v_1^{\otimes l+2k} \otimes \underbrace{\Omega_{\IR^{d+1}} \otimes \cdots \otimes \Omega_{\IR^{d+1}}}_{\frac{n-l-2k}{2} \text{viele}}
+	v_1^{\otimes l+2k} \otimes \underbrace{\Omega_{\IK^{d+1}} \otimes \cdots \otimes \Omega_{\IK^{d+1}}}_{\frac{n-l-2k}{2} \text{viele}}
 \end{align*}
 erhalten. Integrieren wir diesen Tensor über $O_{d+1}$: 
 \begin{align*}
-	&\int_{O_{d+1}} \rho(v_1)^{\otimes l+2k} \otimes \rho\left(\Omega_{\IR^{d+1}}\right) \otimes \cdots \otimes \rho\left(\Omega_{\IR^{d+1}}\right)\dd \rho \\
-	=& \int_{O_{d+1}} \rho(v_1)^{\otimes l+2k} \dd \rho \otimes \Omega_{\IR^{d+1}} \otimes \cdots \otimes \Omega_{\IR^{d+1}},
+	&\int_{O_{d+1}} \rho(v_1)^{\otimes l+2k} \otimes \rho\left(\Omega_{\IK^{d+1}}\right) \otimes \cdots \otimes \rho\left(\Omega_{\IK^{d+1}}\right)\dd \rho \\
+	=& \int_{O_{d+1}} \rho(v_1)^{\otimes l+2k} \dd \rho \otimes \Omega_{\IK^{d+1}} \otimes \cdots \otimes \Omega_{\IK^{d+1}},
 \end{align*}
 und laut Aufgaben Aufgaben \ref{aufg:TensorfixProj}\ref{aufg:TensorfixProjgeradeu} und \ref{aufg:TensorfixProj}\ref{aufg:TensorfixProjungeradeu} ist auch das verbliebene Integral eine Linearkombination Permutationen von Casimir-Elementen.
 \end{proof}

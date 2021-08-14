@@ -46,7 +46,7 @@ Wie entspricht das dem Casimir-Element euklidischer Räume?
 
 	Es sei $V$ ein endlich-dimensionaler $\IR$-Vektorraum mit Skalarprodukt und $e_1, ..., e_n$ eine Orthonormalbasis. Wir betrachten das $m$-fache Tensorprodukt $V^{\otimes m}$. Wer mag, kann zur Vereinfachung $n=3$ und $K=\IR$ wählen.
 	\begin{subproblem}
-		Einen beliebigen Tensor aus $V^{\otimes m}$ schreiben wir z.B. als $T\in V^{\otimes m}$, während er andernorts mit $T_{j_1 \cdots j_n}$ bezeichnet wird, was streng genommen nur eine Kollektion besonders nummerierter Zahlen aus $K$ ist. Wie ist der Zusammenhang zwischen $T$ und $T_{j_1 \cdots j_n}$?
+		Einen beliebigen Tensor aus $V^{\otimes m}$ schreiben wir z.B. als $T\in V^{\otimes m}$, während er andernorts mit $T_{j_1 \cdots j_m}$ bezeichnet wird, was streng genommen nur eine Kollektion besonders nummerierter Zahlen aus $K$ ist. Wie ist der Zusammenhang zwischen $T$ und $T_{j_1 \cdots j_m}$?
 
 		Hinweise: Von $V$ induzierte Basiswahl für $V^{\otimes m}$, Vergleiche mit einem Vektor $v\in V$ und $v_i$.
 	\end{subproblem}
@@ -70,7 +70,7 @@ Wie entspricht das dem Casimir-Element euklidischer Räume?
 \begin{problem}[title={Was denn für Indizes?}]
 	Schön, dass dir die Index-Schreibweise noch nicht begegnet ist. Da wir in unserem Kurs so wenig wie möglich mit dieser Schreibweise arbeiten wollen, kann dies zu deinem Vorteil sein.
 
-	Es sei $V$ ein endlich-dimensionaler $\IR$-Vektorraum mit Skalarprodukt und $e_1, ..., e_n$ eine Orthonormalbasis. Wir betrachten das $m$-fache Tensorprodukt $V^{\otimes m}$. Wer mag, kann zur Vereinfachung $n=3$ und $K=\IR$ wählen. Zeige, dass $\tr_{ir}(T)=\tr_{i,m+1}\circ\tr_{r,m+1}\circ\casimir(T)$ gilt.
+	Es sei $V$ ein endlich-dimensionaler $\IR$-Vektorraum mit Skalarprodukt und $e_1, ..., e_n$ eine Orthonormalbasis. Wir betrachten das $m$-fache Tensorprodukt $V^{\otimes m}$. Wer mag, kann zur Vereinfachung $n=3$ und $K=\IR$ wählen. Zeige, dass $\tr_{ir}(T)=\tr_{i,m}\circ\tr_{r,m+2}\circ\casimir(T)$ gilt.
 
 \end{problem}
 
@@ -196,7 +196,7 @@ Allgemeiner: Erinnere dich daran, dass jeder $\IC$-Vektorraum auch als $\IR$-Vek
 
 \begin{subproblem}
 Definiere die \udot{Komplexifizierung} $V_\IC$ (auch \udot{Skalarerweiterung} genannt) als den folgenden $\IC$-Vektorraum: Seine Elemente sind dieselben wie die des $\IR$-Vektorraums $\IC\otimes_\IR V$ (=Tensorprodukt von $\IR$-Vektorräumen). Die Addition ist auch die des Tensorprodukts. Die Multiplikation mit Skalaren ist hingegen gegeben durch
-\[\forall z,w\in\IC, v\in V: z\cdot(w\otimes v) := (z\otimes w)\otimes v\]
+\[\forall z,w\in\IC, v\in V: z\cdot(w\otimes v) := (zw)\otimes v\]
 Zeige, dass diese Addition und Skalarmultiplikation wirklich einen $\IC$-Vektorraum definiert.
 \end{subproblem}
 
@@ -213,7 +213,7 @@ Was tut Restriktion der Skalare hingegen mit der Dimension?
 \end{subproblem}
 
 \begin{subproblem}
-Komplexifizierung ist \enquote{funktoriell}, also mit linearen Abbildungen verträglich: Ist $f:V\to W$ eine $\IR$-lineare Abbildung, dann ist $f_\IC: V_\IC\to W_\IC, z\otimes v \mapsto z\otimes f(v)$ eine $\IC$-lineare Abbildung. Es gilt $(\id_V)_\IC=\id_(V_\IC)$ und $(f\circ g)_\IC=f_\IC\circ g_\IC$.
+Komplexifizierung ist \enquote{funktoriell}, also mit linearen Abbildungen verträglich: Ist $f:V\to W$ eine $\IR$-lineare Abbildung, dann ist $f_\IC: V_\IC\to W_\IC, z\otimes v \mapsto z\otimes f(v)$ eine $\IC$-lineare Abbildung. Es gilt $(\id_V)_\IC=\id_{V_\IC}$ und $(f\circ g)_\IC=f_\IC\circ g_\IC$.
 \end{subproblem}
 \end{problem}
 

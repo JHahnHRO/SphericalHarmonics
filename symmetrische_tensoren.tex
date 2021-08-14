@@ -12,7 +12,7 @@ gilt. Der Raum der symmetrischen Tensoren wird \emph{symmetrische (Tensor-)Poten
 \begin{example}
 \begin{itemize}
 \item $v\otimes v\otimes \cdots\otimes v$ ist symmetrisch und umgekehrt: Ein reiner Tensor $v_1\otimes v_2\otimes\cdots\otimes v_m$ ist genau dann symmetrisch, wenn alle $v_1,\ldots, v_m$ Vielfache eines Vektors $v$ sind.
-\item $v\otimes w + w\otimes v$ ist symmetrisch. Man beachte, dass $v\otimes w + w\otimes v = (v+w)\otimes(v+w) - v\otimes v - w\otimes w$ ist. Man kann allgemein zeigen, dass $Sym^m(V) = \operatorname{span}_\IK\Set{v\otimes\cdots\otimes v | v\in V}$ ist.
+\item $v\otimes w + w\otimes v$ ist symmetrisch. Man beachte, dass $v\otimes w + w\otimes v = (v+w)\otimes(v+w) - v\otimes v - w\otimes w$ ist. Man kann allgemein zeigen, dass $\Sym^m(V) = \operatorname{span}_\IK\Set{v\otimes\cdots\otimes v | v\in V}$ ist.
 \end{itemize}
 \end{example}
 
@@ -60,7 +60,7 @@ Da wir uns vorwiegend mit $O_3$ beschäftigen, reicht diese Definition allerding
 	\item Für endliche Gruppen ist das Haar-Integral einfach der diskrete Mittelwert: $\int_G \phi(g) \dd g = \frac{1}{\abs{G}} \sum_{g\in G} \phi(g)$.
 	\item Für die zweidimensionale Drehgruppe $G=SO_2$ ist das Haarintegral durch Integration über alle Drehwinkel $\alpha\in[0,2\pi]$ gegeben (ggf. normiert mit $\frac{1}{2\pi}$, damit das Gesamtvolumen 1 wird)
 	\item Für die Drehgruppe $SO_3$ ist das Haar-Integral gegeben durch ein Doppelintegral der Form $\int_{S^2} \int_{[0,2\pi]} \ldots \sin(\alpha)\dd \alpha \dd v$: Es wird über die Einheitssphäre $S^2$ integriert, das sind alle Drehachsen, und über $[0,2\pi]$, das sind alle möglichen Drehwinkel. Da eine Drehung um Winkel $\alpha$ um eine Achse $v$ dasselbe ist wie eine Drehung um $-\alpha$ um die Achse $-v$, haben wir dabei jede Drehung doppelt erwischt, aber das kann man ausgleichen, indem man dem Normierungsfaktor eine zusätzliche $\frac{1}{2}$ spendiert.
-	\item Die Isometriegruppen $O_2$ und $O_3$ bestehen aus der Untergruppe der Drehungen $SO_n$ und ihrem Komplement, die beide jeweils die Hälfte des Gesamtvolumens haben. Das Komplement hat jeweils die Form $h\cdot SO_n = \set{hg | g\in SO_n}$ für ein beliebiges, fest gewähltes Gruppenelement $h\in O_n \setminus SO_n$. Über das Komplement zu integrieren funktioniert also genauso wie über $SO_n$ selbst zu integrieren. Man kann integriert über $O_n$, indem man die Integrale über beide Hälften summiert.
+	\item Die Isometriegruppen $O_2$ und $O_3$ bestehen aus der Untergruppe der Drehungen $SO_n$ und ihrem Komplement, die beide jeweils die Hälfte des Gesamtvolumens haben. Das Komplement hat jeweils die Form $h\cdot SO_n = \set{hg | g\in SO_n}$ für ein beliebiges, fest gewähltes Gruppenelement $h\in O_n \setminus SO_n$. Über das Komplement zu integrieren funktioniert also genauso wie über $SO_n$ selbst zu integrieren. Man integriert über $O_n$, indem man die Integrale über beide Hälften addiert.
 	\end{itemize}
 	
 	Äquivalent zur Existenz des Haar-Integrals ist die Existenz einer \enquote{uniformen} Wahrscheinlichkeitsverteilung auf $G$. Man kann also alternativ das Integral auch mit einer Monte-Carlo-Methode definieren als \enquote{Wähle unabhängig und gleichverteilt $N$ zufällige Gruppenelemente, bilde den Mittelwert $\frac{1}{N} \sum_{i=1}^N \phi(g_i)$ und lasse $N\to\infty$ gehen}.

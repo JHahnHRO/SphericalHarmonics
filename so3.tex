@@ -14,13 +14,13 @@ Dann können wir jede polynomielle Funktion $p$ nach Potenzen von $z$ sortieren,
 0 &= \Delta p \\
 \iff \partial_z^2 p &= -\Delta_ E p \\
 \iff \sum_{a\geq 2} p_a \cdot a(a-1)z^{a-2} &= -\sum_a (\Delta_E p_a)\cdot z^a \\
-\iff \sum_a p_{a+2}\cdot  (a+2)(a+1)z^a &= -\sum_a (\Delta_E p_a)\cdot z^a \\
+\iff \sum_a p_{a+2}\cdot (a+2)(a+1)z^a &= -\sum_a (\Delta_E p_a)\cdot z^a \\
 \iff \forall a: p_{a+2} &= \frac{-\Delta_E p_a}{(a+1)(a+2)}
 \end{align*}
 Harmonische Polynomfunktionen sind also eindeutig festgelegt, indem wir eine beliebige homogene Polynomfunktion $E\to\IK$ vom Grad $l$ für $p_0$ und eine beliebige homogene Polynomfunktion $E\to\IK$ vom Grad $l-1$ für $p_1$ festlegen und alle anderen $p_a$ mittels der Rekursion bestimmen. Wir erhalten so einen Isomorphismus von $\IK$-Vektorräumen
 \[\left\lbrace\begin{array}{rcl}
 \Sym^l(E) \oplus \Sym^{l-1}(E) &\leftrightarrow& \STF^l(V) \\
-(f,g) &\mapsto& f\cdot z^0 + g\cdot z^1 + \frac{\Delta_E f\cdot z^2}{1\cdot 2} + \frac{\Delta_Eg\cdot z^3}{2\cdot 3} + \frac{\Delta_E^2 f \cdot z^4}{3\cdot 4} + \frac{\Delta_E^2 g \cdot z^5}{4\cdot 5 } + \ldots \\
+(f,g) &\mapsto& f\cdot z^0 + g\cdot z^1 + \frac{-\Delta_E f\cdot z^2}{1\cdot 2} + \frac{-\Delta_E g\cdot z^3}{2\cdot 3} + \frac{(-\Delta_E)^2 f \cdot z^4}{3\cdot 4} + \frac{(-\Delta_E)^2 g \cdot z^5}{4\cdot 5 } + \ldots \\
 (p_0,p_1) &\mapsfrom& \sum_{a=0}^l p_a z^a
 \end{array}\right.\]
 Da $\Delta_E$ ein mit $O(E)$ verträglicher Differentialoperator ist, ist dieser Isomorphismus sogar $O(E)$-linear.

@@ -309,8 +309,8 @@ Auf einen reinen Tensor angewandt werden Brauer-Diagramme, indem jeder einzelne 
 	Sei $\sigma\in S_n$ eine Permutation. Dann definiert die Abbildung
 	\[\Pi_{\sigma} : 
 	\left\lbrace\begin{array}{rcl}
-		V^{\otimes n} &\to& V^{\otimes}\\
-		v_1 \otimes \cdots \otimes v_n &\mapsto&  v_{\sigma^{-1}(1)} \otimes \cdots \otimes  \otimes v_{\sigma^{-1}(n)}
+		V^{\otimes n} &\to& V^{\otimes n}\\
+		v_1 \otimes \cdots \otimes v_n &\mapsto&  v_{\sigma^{-1}(1)} \otimes \cdots \otimes v_{\sigma^{-1}(n)}
 	\end{array}\right.
 	\]
 	die \udot{durch $\sigma^{-1}$ bestimmte Permutation der Faktoren} des Tensors. Für einen allgemeinen Tensor ist diese Permutation als lineare Fortsetzung der obigen Abbildung gegeben.
@@ -342,7 +342,7 @@ Auf einen reinen Tensor angewandt werden Brauer-Diagramme, indem jeder einzelne 
 
 \begin{example}[Spur nehmen von einem Tensor]
 	\label{def:spur}
-Es sei auf $V$ ein Skalarprodukt $\braket{\cdot,\cdot}$ gegeben. Dann definiert die Abbildung
+Es sei auf $V$ ein Skalarprodukt $\braket{\cdot,\cdot}$ gegeben. Dann definiert für $k\neq l$ die Abbildung
 \[\tr_{kl} : 
 \left\lbrace\begin{array}{rcl}
 	V^{\otimes n} &\to& V^{\otimes n-2}\\
